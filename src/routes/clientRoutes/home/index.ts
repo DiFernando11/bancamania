@@ -1,3 +1,3 @@
-export const privateRoutesHome = {
+export const routesHome = {
   home: '/home',
 }

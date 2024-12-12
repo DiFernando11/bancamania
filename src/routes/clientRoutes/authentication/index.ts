@@ -4,7 +4,7 @@ const baseLoginPhone = `${baseLogin}/phone`
 const baseLoginCredentials = `${baseLogin}/credentials`
 const baseRegisterCredentials = `${baseRegister}/credentials`
 
-export const publicRoutesAuth = {
+export const routesAuth = {
   login: baseLogin,
   register: baseRegister,
   loginPhone: baseLoginPhone,
@@ -13,9 +13,6 @@ export const publicRoutesAuth = {
   registerCredentials: baseRegisterCredentials,
   registerCredentialsConfirmCode: `${baseRegisterCredentials}/confirmCode`,
   registerCredentialsSendCode: `${baseRegisterCredentials}/sendCode`,
-}
-
-export const especialRoutesAuth = {
-  verifyGoogle: `${publicRoutesAuth.login}/verifyGoogle`,
+  verifyGoogle: `${baseLogin}/verifyGoogle`,
   verificationCode: `${baseLoginPhone}/verifyCode`,
 }

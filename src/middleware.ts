@@ -1,28 +1,5 @@
 import { NextRequest, NextResponse, URLPattern } from 'next/server'
-import {
-  googleVerifyRoutesMiddleware,
-  privateRoutesMiddleware,
-  publicRoutesMiddleware,
-} from './middlewareApp'
-import { clientRoutes } from './routes/clientRoutes'
-
-const stackMiddleware = [
-  {
-    middleware: privateRoutesMiddleware,
-    matcher: [clientRoutes.home],
-  },
-  {
-    middleware: publicRoutesMiddleware,
-    matcher: [
-      `${clientRoutes.login}/:path*`,
-      `${clientRoutes.register}/:path*`,
-    ],
-  },
-  {
-    middleware: googleVerifyRoutesMiddleware,
-    matcher: [clientRoutes.verifyGoogle],
-  },
-]
+import { stackMiddleware } from './middlewareApp'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
@@ -43,5 +20,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: stackMiddleware.flatMap(mw => mw.matcher),
+  matcher: ['/home', '/login/:path*', '/register/:path*'],
 }
