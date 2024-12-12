@@ -1,5 +1,5 @@
-import React, { forwardRef, Ref } from "react";
-import { BoxProps } from "./types";
+import React, { forwardRef, Ref } from 'react'
+import { BoxProps } from './types'
 
 const Box = forwardRef<HTMLDivElement, BoxProps>(function Box(
   { id, children, className },
@@ -9,7 +9,7 @@ const Box = forwardRef<HTMLDivElement, BoxProps>(function Box(
     <div ref={ref} id={id} className={className}>
       {children}
     </div>
-  );
-});
+  )
+})
 
-export default Box;
+export default Box

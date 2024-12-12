@@ -1,2 +1,2 @@
-export { replaceDynamicParams } from "./replaceDynamicsRoutes";
-export * from "./dates";
+export * from './dates'
+export { replaceDynamicParams } from './replaceDynamicsRoutes'

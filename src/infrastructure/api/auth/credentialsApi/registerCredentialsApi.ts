@@ -1,6 +1,6 @@
-import apiAxios from "@/application/axios";
-import { apiRoutes } from "@/routes/apiRoutes";
-import { RegisterCredentials } from "@/shared";
+import apiAxios from '@/application/axios'
+import { apiRoutes } from '@/routes/apiRoutes'
+import { RegisterCredentials } from '@/shared'
 
 export const registerCredentialsApi = async ({
   code,
@@ -16,15 +16,15 @@ export const registerCredentialsApi = async ({
       lastName,
       email,
       password,
-    });
+    })
 
     if (response.status === 201) {
-      return response.data;
+      return response.data
     }
 
-    throw new Error("Error al cerrar la session del usuario");
+    throw new Error('Error al cerrar la session del usuario')
   } catch (error) {
-    console.error("Error en FetchLogoutSession:", error);
-    throw error;
+    console.error('Error en FetchLogoutSession:', error)
+    throw error
   }
-};
+}

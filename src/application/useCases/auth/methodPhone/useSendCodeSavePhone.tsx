@@ -1,23 +1,23 @@
-"use client";
-import { PhoneType, SendCodePhoneResponse, SendServiceTypes } from "@/shared";
-import { useSendCodePhone } from "@/application/hooks";
-import { useRouter } from "next/navigation";
-import { clientRoutes } from "@/routes/clientRoutes";
-import { useAuthStoreLs } from "@/application/zustand/stores";
+'use client'
+import { useRouter } from 'next/navigation'
+import { useSendCodePhone } from '@/application/hooks'
+import { useAuthStoreLs } from '@/application/zustand/stores'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { PhoneType, SendCodePhoneResponse, SendServiceTypes } from '@/shared'
+import { addMinutesToDate } from '@/shared/utils'
 import {
   ExpiredTimeCodePhone,
   ForwarTimeCode,
-} from "@/shared/utils/globalConstants";
-import { addMinutesToDate } from "@/shared/utils";
+} from '@/shared/utils/globalConstants'
 
 export const useSendCodeSavePhone = (): SendServiceTypes<
   SendCodePhoneResponse,
   PhoneType
 > => {
-  const router = useRouter();
+  const router = useRouter()
   const { isLoading, isError, isSuccess, handleActionService } =
-    useSendCodePhone();
-  const { setHasValidCode } = useAuthStoreLs();
+    useSendCodePhone()
+  const { setHasValidCode } = useAuthStoreLs()
 
   return {
     handleActionService: ({ phone }) => {
@@ -30,15 +30,15 @@ export const useSendCodeSavePhone = (): SendServiceTypes<
               lasTimeForwardCode: ForwarTimeCode,
               isSuccessForward: false,
               phone,
-              type: "registerPhone",
-            });
-            router.push(clientRoutes.loginValidateCode);
+              type: 'registerPhone',
+            })
+            router.push(clientRoutes.loginValidateCode)
           },
         }
-      );
+      )
     },
     isLoading,
     isError,
     isSuccess,
-  };
-};
+  }
+}

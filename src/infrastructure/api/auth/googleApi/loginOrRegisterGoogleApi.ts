@@ -1,24 +1,22 @@
-import apiAxios from "@/application/axios";
-import { apiRoutes } from "@/routes/apiRoutes";
-import { User } from "next-auth";
+import { User } from 'next-auth'
+import apiAxios from '@/application/axios'
+import { apiRoutes } from '@/routes/apiRoutes'
 
 export const loginOrRegisterGoogleApi = async ({
   idToken,
-}: Pick<User, "idToken">) => {
+}: Pick<User, 'idToken'>) => {
   try {
     const response = await apiAxios.post(apiRoutes.auth.authGoogle, {
       idToken,
-    });
-
-    console.log(response, "RESPONSE");
+    })
 
     if (response.status === 201) {
-      return response.data;
+      return response.data
     }
 
-    throw new Error("Error al cerrar la session del usuario");
+    throw new Error('Error al cerrar la session del usuario')
   } catch (error) {
-    console.error("Error en FetchLogoutSession:", error);
-    throw error;
+    console.error('Error en FetchLogoutSession:', error)
+    throw error
   }
-};
+}

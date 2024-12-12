@@ -1,5 +1,5 @@
-import { registerCredentialsApi } from "@/infrastructure/api";
-import { AuthenticationResponse, RegisterCredentials } from "@/shared";
+import { registerCredentialsApi } from '@/infrastructure/api'
+import { AuthenticationResponse, RegisterCredentials } from '@/shared'
 
 export const registerCredentialsService = async ({
   code,
@@ -14,6 +14,7 @@ export const registerCredentialsService = async ({
     lastName,
     email,
     password,
-  });
-  return data;
-};
+  })
+
+  return data
+}

@@ -1,1 +1,1 @@
-export { addMinutesToDate } from "./addMinutes";
+export { addMinutesToDate } from './addMinutes'

@@ -1,5 +1,5 @@
-import { loginCredentialsApi } from "@/infrastructure/api";
-import { AuthenticationResponse, LoginCredentials } from "@/shared";
+import { loginCredentialsApi } from '@/infrastructure/api'
+import { AuthenticationResponse, LoginCredentials } from '@/shared'
 
 export const loginCredentialsService = async ({
   email,
@@ -8,6 +8,7 @@ export const loginCredentialsService = async ({
   const data = await loginCredentialsApi({
     email,
     password,
-  });
-  return data;
-};
+  })
+
+  return data
+}

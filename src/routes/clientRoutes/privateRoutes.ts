@@ -1,5 +1,5 @@
-import { privateRoutesHome } from "./home";
+import { privateRoutesHome } from './home'
 
 export const privateRoutes = {
   ...privateRoutesHome,
-};
+}

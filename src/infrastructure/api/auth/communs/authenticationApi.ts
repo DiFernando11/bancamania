@@ -1,7 +1,7 @@
-import { AuthenticationResponse, LoginType } from "@/shared";
-import axios from "axios";
+import axios from 'axios'
+import { AuthenticationResponse, LoginType } from '@/shared'
 
-const API_BASE_URL = "/api/auth/authentication";
+const API_BASE_URL = '/api/auth/authentication'
 
 export const AuthenticationApi = async ({
   token,
@@ -9,17 +9,17 @@ export const AuthenticationApi = async ({
   try {
     const body = {
       token,
-    };
-
-    const response = await axios.post(`${API_BASE_URL}`, body);
-
-    if (response.status === 200) {
-      return response.data;
     }
 
-    throw new Error(`Error al establecer la session`);
+    const response = await axios.post(`${API_BASE_URL}`, body)
+
+    if (response.status === 200) {
+      return response.data
+    }
+
+    throw new Error(`Error al establecer la session`)
   } catch (error) {
-    console.error("Error en Login", error);
-    throw error;
+    console.error('Error en Login', error)
+    throw error
   }
-};
+}

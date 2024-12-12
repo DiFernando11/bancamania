@@ -1,11 +1,11 @@
-"use client";
+'use client'
+import { registerCredentialsService } from '@/application/adapters/htpp'
 import {
   AuthenticationResponse,
   RegisterCredentials,
   SendServiceTypes,
-} from "@/shared";
-import { useSendService } from "../../generics";
-import { registerCredentialsService } from "@/application/adapters/htpp";
+} from '@/shared'
+import { useSendService } from '../../generics'
 
 export const useRegisterCredentials = (): SendServiceTypes<
   AuthenticationResponse,
@@ -16,11 +16,12 @@ export const useRegisterCredentials = (): SendServiceTypes<
     RegisterCredentials
   >(async ({ code, firstName, lastName, email, password }) =>
     registerCredentialsService({ code, firstName, lastName, email, password })
-  );
+  )
+
   return {
     handleActionService: queryResult.mutate,
     isLoading: queryResult.isPending,
     isError: queryResult.isError,
     isSuccess: queryResult.isSuccess,
-  };
-};
+  }
+}

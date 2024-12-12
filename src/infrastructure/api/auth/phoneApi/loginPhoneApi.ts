@@ -1,7 +1,7 @@
 // src/infrastructure/api/accountAPI.ts
-import apiAxios from "@/application/axios";
-import { apiRoutes } from "@/routes/apiRoutes";
-import { ValidateCodePhoneResponse, ValidateCodePhoneType } from "@/shared";
+import apiAxios from '@/application/axios'
+import { apiRoutes } from '@/routes/apiRoutes'
+import { ValidateCodePhoneResponse, ValidateCodePhoneType } from '@/shared'
 
 export const loginPhoneApi = async ({
   phone,
@@ -11,16 +11,16 @@ export const loginPhoneApi = async ({
     const body = {
       phone,
       code,
-    };
-    const response = await apiAxios.post(`${apiRoutes.auth.loginPhone}`, body);
+    }
+    const response = await apiAxios.post(`${apiRoutes.auth.loginPhone}`, body)
 
     if (response.status === 201) {
-      return response.data;
+      return response.data
     }
 
-    throw new Error("Error al hacer login method phone");
+    throw new Error('Error al hacer login method phone')
   } catch (error) {
-    console.error("Error en FetchVerifyCodePhone:", error);
-    throw error;
+    console.error('Error en FetchVerifyCodePhone:', error)
+    throw error
   }
-};
+}

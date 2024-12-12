@@ -1,5 +1,5 @@
-import { publicRoutesAuth } from "./authentication";
+import { publicRoutesAuth } from './authentication'
 
 export const publicRoutes = {
   ...publicRoutesAuth,
-};
+}

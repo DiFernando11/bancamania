@@ -1,3 +1,3 @@
 export const privateRoutesHome = {
-  home: "/home",
-};
+  home: '/home',
+}

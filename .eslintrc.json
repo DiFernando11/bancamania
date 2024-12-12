@@ -1,3 +1,141 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "next",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "simple-import-sort",
+    "@typescript-eslint",
+    "unicorn"
+  ],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "max-len": ["error", { "code": 100, "ignoreComments": true }],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "react/jsx-key": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "newlines-between": "never",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/prop-types": "off",
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^T" }
+    ],
+    "react/jsx-newline": [
+      "error",
+      {
+        "prevent": true
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": false,
+          "kebabCase": false,
+          "snakeCase": false
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "TSTypeAliasDeclaration",
+            "message": "No declares types en archivos .tsx, usa un archivo separado .ts"
+          },
+          {
+            "selector": "TSInterfaceDeclaration",
+            "message": "No declares interfaces en archivos .tsx, usa un archivo separado .ts"
+          },
+          {
+            "selector": "TSEnumDeclaration",
+            "message": "No declares enums en archivos .tsx, usa un archivo separado .ts"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["package.json"],
+      "parser": "jsonc-eslint-parser",
+      "plugins": ["package-json"],
+      "extends": ["plugin:package-json/recommended"]
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
 }

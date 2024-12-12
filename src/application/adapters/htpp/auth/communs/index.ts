@@ -1,2 +1,2 @@
-export { authenticationService } from "./AuthenticationService";
-export { logoutService } from "./logoutService";
+export { authenticationService } from './authenticationService'
+export { logoutService } from './logoutService'

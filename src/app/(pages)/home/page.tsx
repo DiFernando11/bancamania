@@ -1,13 +1,13 @@
-import Box from "@/ui/atoms/Box";
-import React from "react";
-import Welcome from "./components/welcome";
+import React from 'react'
+import Box from '@/ui/atoms/box'
+import Welcome from './components/welcome'
 
-function HomePage() {
+const HomePage = () => {
   return (
     <Box>
       <Welcome />
     </Box>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage

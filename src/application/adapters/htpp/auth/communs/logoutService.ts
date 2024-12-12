@@ -1,6 +1,7 @@
-import { FetchLogoutSession } from "@/infrastructure/api";
+import { FetchLogoutSession } from '@/infrastructure/api'
 
 export const logoutService = async () => {
-  const data = await FetchLogoutSession();
-  return data;
-};
+  const data = await FetchLogoutSession()
+
+  return data
+}

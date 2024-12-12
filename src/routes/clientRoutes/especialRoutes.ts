@@ -1,5 +1,5 @@
-import { especialRoutesAuth } from "./authentication";
+import { especialRoutesAuth } from './authentication'
 
 export const especialRoutes = {
   ...especialRoutesAuth,
-};
+}

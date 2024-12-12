@@ -1,2 +1,2 @@
-export { default as Box } from "./Box";
-export { default as Counter } from "./Counter";
+export { default as Box } from './box'
+export { default as Counter } from './counter'

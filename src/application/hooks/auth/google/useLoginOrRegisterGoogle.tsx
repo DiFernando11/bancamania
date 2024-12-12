@@ -1,11 +1,11 @@
-"use client";
+'use client'
+import { loginOrRegisterGoogleService } from '@/application/adapters/htpp'
 import {
   AuthenticationResponse,
   RegisterOrLoginGoogle,
   SendServiceTypes,
-} from "@/shared";
-import { useSendService } from "../../generics";
-import { loginOrRegisterGoogleService } from "@/application/adapters/htpp";
+} from '@/shared'
+import { useSendService } from '../../generics'
 
 export const useLoginOrRegisterGoogle = (): SendServiceTypes<
   AuthenticationResponse,
@@ -14,11 +14,12 @@ export const useLoginOrRegisterGoogle = (): SendServiceTypes<
   const queryResult = useSendService<
     AuthenticationResponse,
     RegisterOrLoginGoogle
-  >(async ({ idToken }) => loginOrRegisterGoogleService({ idToken }));
+  >(async ({ idToken }) => loginOrRegisterGoogleService({ idToken }))
+
   return {
     handleActionService: queryResult.mutate,
     isLoading: queryResult.isPending,
     isError: queryResult.isError,
     isSuccess: queryResult.isSuccess,
-  };
-};
+  }
+}

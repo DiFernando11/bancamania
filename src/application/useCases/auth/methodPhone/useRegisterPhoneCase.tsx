@@ -1,43 +1,44 @@
-"use client";
-import { useAuthentication, useRegisterPhone } from "@/application/hooks";
-import { useAuthStoreLs } from "@/application/zustand/stores";
-import { clientRoutes } from "@/routes/clientRoutes";
-import { RegisterPhone } from "@/shared";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+'use client'
+import { useRouter } from 'next/navigation'
+import { signIn } from 'next-auth/react'
+import { useAuthentication, useRegisterPhone } from '@/application/hooks'
+import { useAuthStoreLs } from '@/application/zustand/stores'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { RegisterPhone } from '@/shared'
 
 export const useRegisterPhoneCase = () => {
-  const router = useRouter();
-  const { flushHasValidCode } = useAuthStoreLs();
-  const { handleActionService: registerPhone } = useRegisterPhone();
-  const { handleActionService: register } = useAuthentication();
+  const router = useRouter()
+  const { flushHasValidCode } = useAuthStoreLs()
+  const { handleActionService: registerPhone } = useRegisterPhone()
+  const { handleActionService: register } = useAuthentication()
 
   const handleSubmit = ({ idToken, phone }: RegisterPhone) => {
     registerPhone(
       { phone: phone as string, idToken },
       {
-        onSuccess: async (data) => {
+        onSuccess: async data => {
           register(
             {
               token: data.token,
             },
             {
               onSuccess: async () => {
-                await signIn("credentials", {
+                await signIn('credentials', {
                   ...data.user,
                   redirect: false,
-                });
-                flushHasValidCode();
-                router.push(clientRoutes.home);
+                })
+                flushHasValidCode()
+                router.push(clientRoutes.home)
               },
             }
-          );
+          )
         },
         onError: () => {
-          router.push(clientRoutes.login);
+          router.push(clientRoutes.login)
         },
       }
-    );
-  };
-  return { handleActionService: handleSubmit };
-};
+    )
+  }
+
+  return { handleActionService: handleSubmit }
+}

@@ -1,6 +1,6 @@
-import apiAxios from "@/application/axios";
-import { apiRoutes } from "@/routes/apiRoutes";
-import { LoginCredentials } from "@/shared";
+import apiAxios from '@/application/axios'
+import { apiRoutes } from '@/routes/apiRoutes'
+import { LoginCredentials } from '@/shared'
 
 export const loginCredentialsApi = async ({
   email,
@@ -10,15 +10,15 @@ export const loginCredentialsApi = async ({
     const response = await apiAxios.post(apiRoutes.auth.loginCredentials, {
       email,
       password,
-    });
+    })
 
     if (response.status === 201) {
-      return response.data;
+      return response.data
     }
 
-    throw new Error("Error al hacer login con credenciales");
+    throw new Error('Error al hacer login con credenciales')
   } catch (error) {
-    console.error("Error en loginCredentialsApi:", error);
-    throw error;
+    console.error('Error en loginCredentialsApi:', error)
+    throw error
   }
-};
+}

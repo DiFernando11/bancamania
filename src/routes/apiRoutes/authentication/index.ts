@@ -1,6 +1,6 @@
-import { apiRoutesAuthCredentials } from "./methodCredentials";
-import { apiRoutesAuthGoogle } from "./methodGoogle";
-import { apiRoutesAuthPhone } from "./methodPhone";
+import { apiRoutesAuthCredentials } from './methodCredentials'
+import { apiRoutesAuthGoogle } from './methodGoogle'
+import { apiRoutesAuthPhone } from './methodPhone'
 
 export const apiRoutesAuth = {
   auth: {
@@ -8,4 +8,4 @@ export const apiRoutesAuth = {
     ...apiRoutesAuthGoogle,
     ...apiRoutesAuthCredentials,
   },
-};
+}

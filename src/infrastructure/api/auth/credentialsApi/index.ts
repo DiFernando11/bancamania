@@ -1,3 +1,3 @@
-export { sendCodeRegisterCredentialsApi } from "./sendCodeRegisterCredentialsApi";
-export { registerCredentialsApi } from "./registerCredentialsApi";
-export { loginCredentialsApi } from "./loginCredentialsApi";
+export { loginCredentialsApi } from './loginCredentialsApi'
+export { registerCredentialsApi } from './registerCredentialsApi'
+export { sendCodeRegisterCredentialsApi } from './sendCodeRegisterCredentialsApi'

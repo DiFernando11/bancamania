@@ -4,8 +4,9 @@ export const replaceDynamicParams = (
 ): string => {
   return route.replace(/\$(\w+)\$/g, (_, key) => {
     if (key in params) {
-      return String(params[key]);
+      return String(params[key])
     }
-    return `$${key}$`;
-  });
-};
+
+    return `$${key}$`
+  })
+}

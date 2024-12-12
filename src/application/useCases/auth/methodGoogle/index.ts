@@ -1,1 +1,1 @@
-export { useLoginOrRegisterGoogleCase } from "./useLoginOrRegisterGoogleCase";
+export { useLoginOrRegisterGoogleCase } from './useLoginOrRegisterGoogleCase'
