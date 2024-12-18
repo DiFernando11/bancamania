@@ -1,10 +1,16 @@
-import { AuthenticationApi } from '@/infrastructure/api'
+import { apiRoutes } from '@/routes/apiRoutes'
 import { AuthenticationResponse, LoginType } from '@/shared'
+import { apiRequestInternal } from '@/shared/utils'
 
 export const authenticationService = async ({
   token,
 }: LoginType): Promise<AuthenticationResponse> => {
-  const data = await AuthenticationApi({ token })
+  const response = apiRequestInternal<AuthenticationResponse, LoginType>({
+    url: apiRoutes.internas.internalLogin,
+    data: {
+      token,
+    },
+  })
 
-  return data
+  return response
 }
