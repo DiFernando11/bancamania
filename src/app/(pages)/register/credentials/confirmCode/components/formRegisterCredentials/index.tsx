@@ -11,21 +11,21 @@ const FormRegisterCredentials = () => {
   const { hasValidCode } = useAuthStoreLs()
   const { handleActionService } = useRegisterCredentialsCase()
   const validationSchema = Yup.object({
+    code: Yup.string().required('Código es requerido'),
     email: Yup.string().email('Email inválido').required('Email es requerido'),
-    password: Yup.string().required('Contraseña es requerida'),
     firstName: Yup.string().required('Nombre es requerido'),
     lastName: Yup.string().required('Apellido es requerido'),
-    code: Yup.string().required('Código es requerido'),
+    password: Yup.string().required('Contraseña es requerida'),
   })
 
   return (
     <Formik
       initialValues={{
+        code: '',
         email: hasValidCode?.mail ?? '',
-        password: '',
         firstName: '',
         lastName: '',
-        code: '',
+        password: '',
       }}
       validationSchema={validationSchema}
       onSubmit={values => handleActionService(values)}

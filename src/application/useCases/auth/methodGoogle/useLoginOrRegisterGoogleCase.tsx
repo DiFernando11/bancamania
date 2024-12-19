@@ -18,6 +18,9 @@ export const useLoginOrRegisterGoogleCase = () => {
     loginOrRegisterGoogle(
       { idToken },
       {
+        onError: () => {
+          router.push(clientRoutes.login)
+        },
         onSuccess: async data => {
           register(
             {
@@ -33,9 +36,6 @@ export const useLoginOrRegisterGoogleCase = () => {
               },
             }
           )
-        },
-        onError: () => {
-          router.push(clientRoutes.login)
         },
       }
     )

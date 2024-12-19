@@ -27,20 +27,20 @@ export const useSendCodeCredentialsSaveMail = (): SendServiceTypes<
     sendCode(
       { email },
       {
-        onSuccess: async data => {
-          setHasValidCode({
-            isSuccessForward: false,
-            expireAt: addMinutesToDate({ minutes: ExpiredTimeCodePhone }),
-            lasTimeForwardCode: ForwarTimeCode,
-            type: 'registerCredentials',
-            mail: email,
-            firstName: data?.firstName,
-            lastName: data?.lastName,
-          })
-          router.push(clientRoutes.registerCredentialsConfirmCode)
-        },
         onError: () => {
           router.push(clientRoutes.login)
+        },
+        onSuccess: async data => {
+          setHasValidCode({
+            expireAt: addMinutesToDate({ minutes: ExpiredTimeCodePhone }),
+            firstName: data?.firstName,
+            isSuccessForward: false,
+            lasTimeForwardCode: ForwarTimeCode,
+            lastName: data?.lastName,
+            mail: email,
+            type: 'registerCredentials',
+          })
+          router.push(clientRoutes.registerCredentialsConfirmCode)
         },
       }
     )

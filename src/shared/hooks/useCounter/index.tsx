@@ -34,8 +34,8 @@ export const useCounter = () => {
   }
 
   return {
-    handleReset,
     handleGetCurrentTime,
+    handleReset,
     handleSetTime,
     timerRef,
   }

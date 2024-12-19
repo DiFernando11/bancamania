@@ -6,13 +6,13 @@ const baseRegisterCredentials = `${baseRegister}/credentials`
 
 export const routesAuth = {
   login: baseLogin,
-  register: baseRegister,
+  loginCredentials: baseLoginCredentials,
   loginPhone: baseLoginPhone,
   loginValidateCode: `${baseLoginPhone}/validateCode`,
-  loginCredentials: baseLoginCredentials,
+  register: baseRegister,
   registerCredentials: baseRegisterCredentials,
   registerCredentialsConfirmCode: `${baseRegisterCredentials}/confirmCode`,
   registerCredentialsSendCode: `${baseRegisterCredentials}/sendCode`,
-  verifyGoogle: `${baseLogin}/verifyGoogle`,
   verificationCode: `${baseLoginPhone}/verifyCode`,
+  verifyGoogle: `${baseLogin}/verifyGoogle`,
 }

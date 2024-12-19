@@ -15,13 +15,13 @@ export const useRegisterCredentials = (): SendServiceTypes<
     AuthenticationResponse,
     RegisterCredentials
   >(async ({ code, firstName, lastName, email, password }) =>
-    registerCredentialsService({ code, firstName, lastName, email, password })
+    registerCredentialsService({ code, email, firstName, lastName, password })
   )
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
   }
 }

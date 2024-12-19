@@ -14,12 +14,12 @@ export const useLoginPhone = (): SendServiceTypes<
   const queryResult = useSendService<
     ValidateCodePhoneResponse,
     ValidateCodePhoneType
-  >(async ({ phone, code }) => loginPhoneService({ phone, code }))
+  >(async ({ phone, code }) => loginPhoneService({ code, phone }))
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
   }
 }
