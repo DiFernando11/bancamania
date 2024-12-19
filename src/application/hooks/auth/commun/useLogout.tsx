@@ -8,8 +8,8 @@ export const useLogout = (): SendServiceTypes<unknown, unknown> => {
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
   }
 }

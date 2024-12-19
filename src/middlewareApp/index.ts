@@ -5,18 +5,18 @@ import googleVerifyRoutesMiddleware from './verifyGoogleMiddleware'
 
 export const stackMiddleware = [
   {
-    middleware: googleVerifyRoutesMiddleware,
     matcher: [clientRoutes.verifyGoogle],
+    middleware: googleVerifyRoutesMiddleware,
   },
   {
-    middleware: privateRoutesMiddleware,
     matcher: [clientRoutes.home],
+    middleware: privateRoutesMiddleware,
   },
   {
-    middleware: publicRoutesMiddleware,
     matcher: [
       `${clientRoutes.login}/:path*`,
       `${clientRoutes.register}/:path*`,
     ],
+    middleware: publicRoutesMiddleware,
   },
 ]

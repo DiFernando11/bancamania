@@ -6,10 +6,10 @@ export const authenticationService = async ({
   token,
 }: LoginType): Promise<AuthenticationResponse> => {
   const response = apiRequestInternal<AuthenticationResponse, LoginType>({
-    url: apiRoutes.internas.internalLogin,
     data: {
       token,
     },
+    url: apiRoutes.internas.internalLogin,
   })
 
   return response

@@ -14,11 +14,11 @@ export const apiRequest = async <T, D = unknown>({
 }: ApiRequestOptions<D>): Promise<T> => {
   try {
     const response: ApiResponse<T> = await apiAxios({
-      url,
-      method,
       data,
-      params,
       headers,
+      method,
+      params,
+      url,
     })
 
     if (response?.data?.ok) {

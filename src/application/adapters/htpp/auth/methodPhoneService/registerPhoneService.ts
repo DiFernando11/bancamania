@@ -7,8 +7,8 @@ export const registerPhoneService = async ({
   idToken,
 }: RegisterPhone): Promise<ValidateCodePhoneResponse> => {
   const response = apiRequest<ValidateCodePhoneResponse, RegisterPhone>({
+    data: { idToken, phone },
     url: apiRoutes.auth.registerPhone,
-    data: { phone, idToken },
   })
 
   return response

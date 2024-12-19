@@ -3,8 +3,8 @@ import { apiRequestInternal } from '@/shared/utils'
 
 export const logoutService = async () => {
   const response = apiRequestInternal({
-    url: apiRoutes.internas.internalLogout,
     method: 'DELETE',
+    url: apiRoutes.internas.internalLogout,
   })
 
   return response

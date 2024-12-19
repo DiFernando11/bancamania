@@ -7,10 +7,10 @@ export const loginOrRegisterGoogleService = async ({
   idToken,
 }: Pick<User, 'idToken'>): Promise<AuthenticationResponse> => {
   const response = apiRequest<AuthenticationResponse, Pick<User, 'idToken'>>({
-    url: apiRoutes.auth.authGoogle,
     data: {
       idToken,
     },
+    url: apiRoutes.auth.authGoogle,
   })
 
   return response

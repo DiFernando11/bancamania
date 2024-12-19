@@ -12,13 +12,13 @@ export const useRegisterPhone = (): SendServiceTypes<
   RegisterPhone
 > => {
   const queryResult = useSendService<AuthenticationResponse, RegisterPhone>(
-    async ({ phone, idToken }) => registerPhoneService({ phone, idToken })
+    async ({ phone, idToken }) => registerPhoneService({ idToken, phone })
   )
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
   }
 }

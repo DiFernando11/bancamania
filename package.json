@@ -1,19 +1,4 @@
 {
-  "name": "bancamania",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "lint": "next lint",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0",
-    "prepare": "husky",
-    "start": "next start"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "npm run lint:fix"
-  },
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
     "@tanstack/react-query": "^5.59.19",
@@ -21,10 +6,13 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "formik": "^2.4.6",
+    "i18next": "^24.1.2",
     "next": "14.2.13",
     "next-auth": "^4.24.10",
+    "next-i18next": "^15.4.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-i18next": "^15.2.0",
     "react-verification-input": "^4.1.2",
     "yup": "^1.5.0",
     "zustand": "^5.0.1"
@@ -37,11 +25,14 @@
     "eslint-config-next": "14.2.13",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-boundaries": "^5.0.1",
+    "eslint-plugin-dependencies": "^2.5.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsonc": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-package-json": "^0.18.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^56.0.1",
     "husky": "^9.1.7",
     "install": "^0.13.0",
@@ -51,5 +42,23 @@
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write",
+      "eslint --fix --max-warnings=2"
+    ]
+  },
+  "name": "bancamania",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0 --no-cache",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0",
+    "prepare": "husky",
+    "start": "next start"
+  },
+  "version": "0.1.0"
 }

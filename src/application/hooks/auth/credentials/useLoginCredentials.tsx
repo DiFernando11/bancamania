@@ -17,8 +17,8 @@ export const useLoginCredentials = (): SendServiceTypes<
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
   }
 }

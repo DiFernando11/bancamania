@@ -37,8 +37,8 @@ const ForwardCode = ({
             className={classNames(
               'border border-gray-300 rounded-lg shadow-sm py-2 px-5',
               {
-                'bg-orange-200': disabled,
                 'bg-gray-700 text-white': !disabled,
+                'bg-orange-200': disabled,
               }
             )}
             onClick={handleForwardCode}

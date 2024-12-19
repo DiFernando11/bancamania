@@ -18,8 +18,11 @@ export const useRegisterCredentialsCase = () => {
     password,
   }: RegisterCredentials) => {
     registerCredentials(
-      { code, firstName, lastName, email, password },
+      { code, email, firstName, lastName, password },
       {
+        onError: () => {
+          router.push(clientRoutes.login)
+        },
         onSuccess: async data => {
           register(
             {
@@ -35,9 +38,6 @@ export const useRegisterCredentialsCase = () => {
               },
             }
           )
-        },
-        onError: () => {
-          router.push(clientRoutes.login)
         },
       }
     )

@@ -27,8 +27,8 @@ export const useSendCodeSavePhone = (): SendServiceTypes<
           onSuccess: () => {
             setHasValidCode({
               expireAt: addMinutesToDate({ minutes: ExpiredTimeCodePhone }),
-              lasTimeForwardCode: ForwarTimeCode,
               isSuccessForward: false,
+              lasTimeForwardCode: ForwarTimeCode,
               phone,
               type: 'registerPhone',
             })
@@ -37,8 +37,8 @@ export const useSendCodeSavePhone = (): SendServiceTypes<
         }
       )
     },
-    isLoading,
     isError,
+    isLoading,
     isSuccess,
   }
 }

@@ -10,14 +10,14 @@ export const registerCredentialsService = async ({
   password,
 }: RegisterCredentials): Promise<AuthenticationResponse> => {
   const response = apiRequest<AuthenticationResponse, RegisterCredentials>({
-    url: apiRoutes.auth.registerCredentials,
     data: {
       code,
+      email,
       firstName,
       lastName,
-      email,
       password,
     },
+    url: apiRoutes.auth.registerCredentials,
   })
 
   return response

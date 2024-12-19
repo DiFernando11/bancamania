@@ -33,8 +33,8 @@ export const useForwardCode = ({
     setHasValidCode({
       ...restHasValidCode,
       expireAt,
-      lasTimeForwardCode: 0,
       isSuccessForward: true,
+      lasTimeForwardCode: 0,
       type,
     })
   }
@@ -45,8 +45,8 @@ export const useForwardCode = ({
     setHasValidCode({
       ...restHasValidCode,
       expireAt: addMinutesToDate({ minutes: ExpiredTimeCodePhone }),
-      lasTimeForwardCode: ForwarTimeCode,
       isSuccessForward: false,
+      lasTimeForwardCode: ForwarTimeCode,
       type,
     })
   }
@@ -57,8 +57,8 @@ export const useForwardCode = ({
       setHasValidCode({
         ...restHasValidCode,
         expireAt,
-        lasTimeForwardCode: timeCurrent,
         isSuccessForward: timeCurrent === 0,
+        lasTimeForwardCode: timeCurrent,
         type,
       })
     }
@@ -89,5 +89,5 @@ export const useForwardCode = ({
     }
   }, [isStartCount])
 
-  return { isStartCount, handleEndTime, disabled, onSuccess, timerRef }
+  return { disabled, handleEndTime, isStartCount, onSuccess, timerRef }
 }

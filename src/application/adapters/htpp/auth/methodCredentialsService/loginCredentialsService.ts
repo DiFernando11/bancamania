@@ -7,11 +7,11 @@ export const loginCredentialsService = async ({
   password,
 }: LoginCredentials): Promise<AuthenticationResponse> => {
   const response = apiRequest<AuthenticationResponse, LoginCredentials>({
-    url: apiRoutes.auth.loginCredentials,
     data: {
       email,
       password,
     },
+    url: apiRoutes.auth.loginCredentials,
   })
 
   return response

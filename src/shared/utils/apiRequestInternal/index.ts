@@ -10,11 +10,11 @@ export const apiRequestInternal = async <T, D = unknown>({
 }: ApiRequestOptions<D>): Promise<T> => {
   try {
     const response = await axios({
-      url,
-      method,
       data,
-      params,
       headers,
+      method,
+      params,
+      url,
     })
 
     if (response.status === 200) {

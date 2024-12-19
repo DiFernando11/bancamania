@@ -16,6 +16,33 @@
     "next",
     "next/core-web-vitals"
   ],
+  "overrides": [
+    {
+      "excludedFiles": "*.json",
+      "files": ["*.json"]
+    },
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "no-restricted-syntax": [
+          "error",
+          {
+            "message": "No declares types en archivos .tsx, usa un archivo separado .ts",
+            "selector": "TSTypeAliasDeclaration"
+          },
+          {
+            "message": "No declares interfaces en archivos .tsx, usa un archivo separado .ts",
+            "selector": "TSInterfaceDeclaration"
+          },
+          {
+            "message": "No declares enums en archivos .tsx, usa un archivo separado .ts",
+            "selector": "TSEnumDeclaration"
+          }
+        ]
+      }
+    }
+  ],
+
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -28,44 +55,27 @@
     "react",
     "jsx-a11y",
     "import",
-    "simple-import-sort",
     "@typescript-eslint",
+    "sort-keys-fix",
     "unicorn"
   ],
   "rules": {
-    "linebreak-style": ["error", "unix"],
-    "react-hooks/exhaustive-deps": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "max-len": ["error", { "code": 100, "ignoreComments": true }],
-    "import/newline-after-import": ["error", { "count": 1 }],
-    "react/jsx-key": "error",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-        "allowSeparatedGroups": false
-      }
+    "@typescript-eslint/no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^T" }
     ],
-    "simple-import-sort/exports": "error",
+    "import/newline-after-import": ["error", { "count": 1 }],
     "import/order": [
       "error",
       {
+        "alphabetize": { "caseInsensitive": true, "order": "asc" },
         "groups": ["builtin", "external", "internal"],
-        "newlines-between": "never",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        "newlines-between": "never"
       }
     ],
-    "react/function-component-definition": [
-      "error",
-      {
-        "namedComponents": "arrow-function"
-      }
-    ],
-    "react/prop-types": "off",
+    "linebreak-style": ["error", "unix"],
+    "max-len": ["error", { "code": 100, "ignoreComments": true }],
     "no-console": [
       "warn",
       {
@@ -73,9 +83,16 @@
       }
     ],
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^T" }
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "next": "return", "prev": "*" }
+    ],
+    "react-hooks/exhaustive-deps": "off",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
     ],
     "react/jsx-newline": [
       "error",
@@ -83,50 +100,23 @@
         "prevent": true
       }
     ],
-    "padding-line-between-statements": [
-      "error",
-      { "blankLine": "always", "prev": "*", "next": "return" }
-    ],
+    "react/jsx-uses-react": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "sort-keys-fix/sort-keys-fix": "error",
     "unicorn/filename-case": [
       "error",
       {
         "cases": {
           "camelCase": true,
-          "pascalCase": false,
           "kebabCase": false,
+          "pascalCase": false,
           "snakeCase": false
-        }
+        },
+        "ignore": ["next-i18next.config.js"]
       }
     ]
   },
-  "overrides": [
-    {
-      "files": ["*.tsx"],
-      "rules": {
-        "no-restricted-syntax": [
-          "error",
-          {
-            "selector": "TSTypeAliasDeclaration",
-            "message": "No declares types en archivos .tsx, usa un archivo separado .ts"
-          },
-          {
-            "selector": "TSInterfaceDeclaration",
-            "message": "No declares interfaces en archivos .tsx, usa un archivo separado .ts"
-          },
-          {
-            "selector": "TSEnumDeclaration",
-            "message": "No declares enums en archivos .tsx, usa un archivo separado .ts"
-          }
-        ]
-      }
-    },
-    {
-      "files": ["package.json"],
-      "parser": "jsonc-eslint-parser",
-      "plugins": ["package-json"],
-      "extends": ["plugin:package-json/recommended"]
-    }
-  ],
   "settings": {
     "import/resolver": {
       "typescript": {

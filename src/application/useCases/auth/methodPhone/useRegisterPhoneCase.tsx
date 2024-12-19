@@ -14,8 +14,11 @@ export const useRegisterPhoneCase = () => {
 
   const handleSubmit = ({ idToken, phone }: RegisterPhone) => {
     registerPhone(
-      { phone: phone as string, idToken },
+      { idToken, phone: phone as string },
       {
+        onError: () => {
+          router.push(clientRoutes.login)
+        },
         onSuccess: async data => {
           register(
             {
@@ -32,9 +35,6 @@ export const useRegisterPhoneCase = () => {
               },
             }
           )
-        },
-        onError: () => {
-          router.push(clientRoutes.login)
         },
       }
     )

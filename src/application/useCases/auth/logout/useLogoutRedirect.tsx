@@ -25,8 +25,8 @@ export const useLogoutRedirect = (): SendServiceTypes<
         }
       )
     },
-    isLoading,
     isError,
+    isLoading,
     isSuccess,
   }
 }

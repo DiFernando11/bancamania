@@ -6,7 +6,7 @@ export async function DELETE() {
       `token-session-id=; HttpOnly; Secure; Path=/; Max-Age=0`
     )
 
-    return new Response('Cookie eliminada', { status: 200, headers })
+    return new Response('Cookie eliminada', { headers, status: 200 })
   } catch (error) {
     console.error('Error al eliminar la cookie:', error)
 

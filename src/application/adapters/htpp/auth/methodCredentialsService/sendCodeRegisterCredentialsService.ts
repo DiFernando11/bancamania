@@ -7,10 +7,10 @@ export const sendCodeRegisterCredentialsService = async ({
   email,
 }: Pick<User, 'email'>): Promise<SendCodePhoneResponse> => {
   const response = apiRequest<SendCodePhoneResponse, Pick<User, 'email'>>({
-    url: apiRoutes.auth.validateCodeCredentials,
     data: {
       email,
     },
+    url: apiRoutes.auth.validateCodeCredentials,
   })
 
   return response

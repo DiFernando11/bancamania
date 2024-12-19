@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     return new Response(
       JSON.stringify({ message: 'Cookie establecida', token }),
-      { status: 200, headers }
+      { headers, status: 200 }
     )
   } catch (error) {
     console.error('Error al hacer login:', error)

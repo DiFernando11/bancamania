@@ -6,8 +6,8 @@ export const sendCodePhoneService = async ({
   phone,
 }: PhoneType): Promise<SendCodePhoneResponse> => {
   const response = apiRequest<SendCodePhoneResponse, PhoneType>({
-    url: apiRoutes.auth.sendCodePhone,
     data: { phone },
+    url: apiRoutes.auth.sendCodePhone,
   })
 
   return response

@@ -22,8 +22,11 @@ export const useLoginPhoneCase = () => {
     phone: string
   }) => {
     loginPhone(
-      { phone: phone as string, code: codeCurrent },
+      { code: codeCurrent, phone: phone as string },
       {
+        onError: () => {
+          setCodeCurrent('')
+        },
         onSuccess: async data => {
           if (!data.isUserRegistered) {
             setIsVerifyGoogle(true)
@@ -46,12 +49,9 @@ export const useLoginPhoneCase = () => {
             }
           )
         },
-        onError: () => {
-          setCodeCurrent('')
-        },
       }
     )
   }
 
-  return { handleSubmit, isVerifyGoogle, codeCurrent, setCodeCurrent }
+  return { codeCurrent, handleSubmit, isVerifyGoogle, setCodeCurrent }
 }

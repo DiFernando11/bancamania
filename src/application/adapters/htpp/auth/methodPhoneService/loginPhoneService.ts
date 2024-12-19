@@ -8,8 +8,8 @@ export const loginPhoneService = async ({
 }: ValidateCodePhoneType): Promise<ValidateCodePhoneResponse> => {
   const response = apiRequest<ValidateCodePhoneResponse, ValidateCodePhoneType>(
     {
+      data: { code, phone },
       url: apiRoutes.auth.loginPhone,
-      data: { phone, code },
     }
   )
 
