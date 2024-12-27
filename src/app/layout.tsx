@@ -1,6 +1,8 @@
+/* eslint-disable react/function-component-definition */
 import './globals.css'
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
 export const metadata: Metadata = {
@@ -8,18 +10,25 @@ export const metadata: Metadata = {
   title: 'Create Next App',
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const locale = await getLocale()
+  const messages = await getMessages()
+
   return (
-    <html lang='en'>
+    <html lang={locale}>
       <body>
         <ReactQueryProvider>
           <SessionAuthProvider>
-            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
           </SessionAuthProvider>
         </ReactQueryProvider>
       </body>
     </html>
   )
 }
-
-export default RootLayout
