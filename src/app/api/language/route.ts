@@ -2,7 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  console.log('INGRESE AL POST LANGUAGUE')
   const { lang } = await request.json()
 
   const response = NextResponse.json({ message: 'Language updated' })
