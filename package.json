@@ -44,7 +44,7 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write",
-      "eslint --fix --max-warnings=2"
+      "eslint --fix --max-warnings=0"
     ]
   },
   "name": "bancamania",
