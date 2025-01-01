@@ -24,6 +24,7 @@ export const useLoginOrRegisterGoogleCase = () => {
         onSuccess: async data => {
           register(
             {
+              refreshToken: data.refreshToken,
               token: data.token,
             },
             {

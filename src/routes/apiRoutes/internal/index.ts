@@ -6,5 +6,6 @@ export const apiRoutesInternalAuth = {
     internalLanguage: `${baseApiInternal}/language`,
     internalLogin: `${baseApiIntAuth}/authentication`,
     internalLogout: `${baseApiIntAuth}/logout`,
+    internalRefreshToken: `${baseApiIntAuth}/refreshToken`,
   },
 }

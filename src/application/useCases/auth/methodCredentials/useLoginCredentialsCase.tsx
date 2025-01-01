@@ -32,6 +32,7 @@ export const useLoginCredentialsCase = (): SendServiceTypes<
         onSuccess: async data => {
           register(
             {
+              refreshToken: data.refreshToken,
               token: data.token,
             },
             {

@@ -26,6 +26,7 @@ export const useRegisterCredentialsCase = () => {
         onSuccess: async data => {
           register(
             {
+              refreshToken: data.refreshToken,
               token: data.token,
             },
             {

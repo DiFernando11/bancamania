@@ -35,6 +35,7 @@ export const useLoginPhoneCase = () => {
           }
           login(
             {
+              refreshToken: data.refreshToken,
               token: data.token,
             },
             {

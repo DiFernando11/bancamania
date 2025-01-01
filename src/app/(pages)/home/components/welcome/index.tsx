@@ -2,11 +2,13 @@
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import React from 'react'
+import { useValidToken } from '@/application/hooks'
 import { useLogoutRedirect } from '@/application/useCases'
 import Box from '@/ui/atoms/box'
 
 const Welcome = () => {
   const { data: sesion } = useSession()
+  const { handleActionService: validToken } = useValidToken()
   const { handleActionService } = useLogoutRedirect()
 
   if (!sesion) return <p>Loading...</p>
@@ -35,6 +37,7 @@ const Welcome = () => {
           />
         )}
       </div>
+      <button onClick={() => validToken({})}>Verificar Token</button>
       <button onClick={handleActionService}>Logout</button>
     </Box>
   )
