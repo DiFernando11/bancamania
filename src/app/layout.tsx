@@ -1,6 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import './globals.css'
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
@@ -20,7 +21,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <head>
+        <Script src='/theme/themeInit.js' strategy='beforeInteractive' />
+      </head>
+      <body className=''>
         <ReactQueryProvider>
           <SessionAuthProvider>
             <NextIntlClientProvider messages={messages}>
