@@ -31,6 +31,7 @@ export interface RegisterOrLoginGoogle {
 export interface ValidateCodePhoneResponse {
   message: string
   isUserRegistered: boolean
+  refreshToken: string
   token: string
   user: User
 }

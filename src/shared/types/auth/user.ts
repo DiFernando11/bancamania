@@ -12,11 +12,13 @@ export type Email = Pick<User, 'email'>
 export interface AuthenticationResponse {
   message: string
   token: string
+  refreshToken: string
   user: User
 }
 
 export interface LoginType {
   token: string
+  refreshToken: string
 }
 
 export interface RegisterType {

@@ -9,7 +9,8 @@ export const useAuthentication = (): SendServiceTypes<
   LoginType
 > => {
   const queryResult = useSendService<AuthenticationResponse, LoginType>(
-    async ({ token }) => authenticationService({ token })
+    async ({ token, refreshToken }) =>
+      authenticationService({ refreshToken, token })
   )
 
   return {

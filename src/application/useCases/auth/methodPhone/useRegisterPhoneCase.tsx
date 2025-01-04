@@ -22,6 +22,7 @@ export const useRegisterPhoneCase = () => {
         onSuccess: async data => {
           register(
             {
+              refreshToken: data.refreshToken,
               token: data.token,
             },
             {
