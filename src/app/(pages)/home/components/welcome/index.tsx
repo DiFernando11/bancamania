@@ -36,6 +36,7 @@ const Welcome = () => {
         )}
       </div>
       <button onClick={handleActionService}>Logout</button>
+      <button onClick={() => window.toggleTheme()}>Cambiar Tema</button>
     </Box>
   )
 }
