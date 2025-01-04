@@ -3,7 +3,7 @@ import { validTokenService } from '@/application/adapters/htpp'
 import { SendServiceTypes } from '@/shared'
 import { useSendService } from '../../generics'
 
-export const useValidToken = (): SendServiceTypes<unknown, unknown> => {
+export const useValidToken = (): SendServiceTypes<unknown, void> => {
   const queryResult = useSendService(async () => validTokenService())
 
   return {
