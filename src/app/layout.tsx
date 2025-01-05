@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
+import { LayoutAuthentication } from '@/shared/components'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
 export const metadata: Metadata = {
@@ -24,11 +25,17 @@ export default async function RootLayout({
       <head>
         <Script src='/theme/themeInit.js' strategy='beforeInteractive' />
       </head>
-      <body className=''>
+      <body
+        className='h-screen grid gap-2'
+        style={{
+          gridTemplateColumns: 'clamp(200px, 25%, 300px) 1fr 1fr 1fr',
+          gridTemplateRows: '80px 1fr',
+        }}
+      >
         <ReactQueryProvider>
           <SessionAuthProvider>
             <NextIntlClientProvider messages={messages}>
-              {children}
+              <LayoutAuthentication>{children}</LayoutAuthentication>
             </NextIntlClientProvider>
           </SessionAuthProvider>
         </ReactQueryProvider>

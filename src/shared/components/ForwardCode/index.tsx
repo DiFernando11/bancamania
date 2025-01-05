@@ -1,3 +1,4 @@
+'use client'
 import classNames from 'classnames'
 import React from 'react'
 import { useForwardCode } from '@/shared/hooks'
