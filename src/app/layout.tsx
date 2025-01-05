@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
-import { LayoutAuthentication } from '@/shared/components'
+import { LayoutAuthentication } from '@/ui/layouts'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
 export const metadata: Metadata = {
