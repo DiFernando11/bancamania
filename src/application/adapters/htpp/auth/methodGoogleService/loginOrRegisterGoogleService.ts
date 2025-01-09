@@ -1,10 +1,17 @@
-import { loginOrRegisterGoogleApi } from "@/infrastructure/api";
-import { AuthenticationResponse } from "@/shared";
-import { User } from "next-auth";
+import { User } from 'next-auth'
+import { apiRoutes } from '@/routes/apiRoutes'
+import { AuthenticationResponse } from '@/shared'
+import { apiRequest } from '@/shared/utils'
 
 export const loginOrRegisterGoogleService = async ({
   idToken,
-}: Pick<User, "idToken">): Promise<AuthenticationResponse> => {
-  const data = await loginOrRegisterGoogleApi({ idToken });
-  return data;
-};
+}: Pick<User, 'idToken'>): Promise<AuthenticationResponse> => {
+  const response = apiRequest<AuthenticationResponse, Pick<User, 'idToken'>>({
+    data: {
+      idToken,
+    },
+    url: apiRoutes.auth.authGoogle,
+  })
+
+  return response
+}

@@ -1,9 +1,7 @@
-import { especialRoutes } from "./especialRoutes";
-import { privateRoutes } from "./privateRoutes";
-import { publicRoutes } from "./publicRoutes";
+import { routesAuth } from './authentication'
+import { routesHome } from './home'
 
 export const clientRoutes = {
-  ...publicRoutes,
-  ...privateRoutes,
-  ...especialRoutes,
-};
+  ...routesAuth,
+  ...routesHome,
+}

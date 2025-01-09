@@ -1,3 +1,3 @@
-export { registerCredentialsService } from "./registerCredentialsService";
-export { sendCodeRegisterCredentialsService } from "./sendCodeRegisterCredentialsService";
-export { loginCredentialsService } from "./loginCredentialsService";
+export { loginCredentialsService } from './loginCredentialsService'
+export { registerCredentialsService } from './registerCredentialsService'
+export { sendCodeRegisterCredentialsService } from './sendCodeRegisterCredentialsService'

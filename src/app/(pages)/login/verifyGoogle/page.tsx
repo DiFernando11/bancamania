@@ -1,49 +1,51 @@
-"use client";
-import { useSession } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+'use client'
+import { useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
+import React, { useEffect, useState } from 'react'
 import {
   useLoginOrRegisterGoogleCase,
   useRegisterPhoneCase,
-} from "@/application/useCases";
-import { useAuthStoreLs } from "@/application/zustand/stores";
+} from '@/application/useCases'
+import { useAuthStoreLs } from '@/application/zustand/stores'
 
-function VerifyGooglePage() {
-  const [isVerify, setIsVerify] = useState(false);
+const VerifyGooglePage = () => {
+  const [isVerify, setIsVerify] = useState(false)
   const { handleActionService: registerOrLoginGoogle } =
-    useLoginOrRegisterGoogleCase();
-  const { handleActionService: registerPhone } = useRegisterPhoneCase();
-  const { hasValidCode } = useAuthStoreLs();
-  const { data: session, status } = useSession();
-  const searchParams = useSearchParams();
-  const flow = searchParams.get("flow");
+    useLoginOrRegisterGoogleCase()
+  const { handleActionService: registerPhone } = useRegisterPhoneCase()
+  const { hasValidCode } = useAuthStoreLs()
+  const { data: session, status } = useSession()
+  const searchParams = useSearchParams()
+  const flow = searchParams.get('flow')
 
   useEffect(() => {
     if (
       session?.user?.idToken &&
       flow &&
       !isVerify &&
-      status === "authenticated"
+      status === 'authenticated'
     ) {
-      if (flow === "google") {
+      if (flow === 'google') {
         registerOrLoginGoogle({
           idToken: session?.user?.idToken,
-        });
-        return;
+        })
+
+        return
       }
-      if (flow === "phone") {
+      if (flow === 'phone') {
         registerPhone({
           idToken: session?.user?.idToken,
           phone: hasValidCode?.phone as string,
-        });
-        return;
+        })
+
+        return
       }
 
-      setIsVerify(true);
+      setIsVerify(true)
     }
-  }, [session]);
+  }, [session])
 
-  return <div>VerifyGooglePage</div>;
+  return <div>VerifyGooglePage</div>
 }
 
-export default VerifyGooglePage;
+export default VerifyGooglePage

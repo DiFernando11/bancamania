@@ -1,1 +1,1 @@
-export { loginOrRegisterGoogleService } from "./loginOrRegisterGoogleService";
+export { loginOrRegisterGoogleService } from './loginOrRegisterGoogleService'

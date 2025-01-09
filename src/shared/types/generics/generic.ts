@@ -5,4 +5,4 @@ export type StoragePrimitive =
   | null
   | undefined
   | { [key: string]: StoragePrimitive }
-  | Date;
+  | Date

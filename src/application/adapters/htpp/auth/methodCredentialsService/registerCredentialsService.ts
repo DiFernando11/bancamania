@@ -1,5 +1,6 @@
-import { registerCredentialsApi } from "@/infrastructure/api";
-import { AuthenticationResponse, RegisterCredentials } from "@/shared";
+import { apiRoutes } from '@/routes/apiRoutes'
+import { AuthenticationResponse, RegisterCredentials } from '@/shared'
+import { apiRequest } from '@/shared/utils'
 
 export const registerCredentialsService = async ({
   code,
@@ -8,12 +9,16 @@ export const registerCredentialsService = async ({
   email,
   password,
 }: RegisterCredentials): Promise<AuthenticationResponse> => {
-  const data = await registerCredentialsApi({
-    code,
-    firstName,
-    lastName,
-    email,
-    password,
-  });
-  return data;
-};
+  const response = apiRequest<AuthenticationResponse, RegisterCredentials>({
+    data: {
+      code,
+      email,
+      firstName,
+      lastName,
+      password,
+    },
+    url: apiRoutes.auth.registerCredentials,
+  })
+
+  return response
+}

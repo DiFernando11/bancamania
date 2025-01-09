@@ -1,1 +1,1 @@
-export { useLogoutRedirect } from "./useLogoutRedirect";
+export { useLogoutRedirect } from './useLogoutRedirect'

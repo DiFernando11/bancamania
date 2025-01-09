@@ -1,21 +1,18 @@
-const baseLogin = "/login";
-const baseRegister = "/register";
-const baseLoginPhone = `${baseLogin}/phone`;
-const baseLoginCredentials = `${baseLogin}/credentials`;
-const baseRegisterCredentials = `${baseRegister}/credentials`;
+const baseLogin = '/login'
+const baseRegister = '/register'
+const baseLoginPhone = `${baseLogin}/phone`
+const baseLoginCredentials = `${baseLogin}/credentials`
+const baseRegisterCredentials = `${baseRegister}/credentials`
 
-export const publicRoutesAuth = {
+export const routesAuth = {
   login: baseLogin,
-  register: baseRegister,
+  loginCredentials: baseLoginCredentials,
   loginPhone: baseLoginPhone,
   loginValidateCode: `${baseLoginPhone}/validateCode`,
-  loginCredentials: baseLoginCredentials,
+  register: baseRegister,
   registerCredentials: baseRegisterCredentials,
   registerCredentialsConfirmCode: `${baseRegisterCredentials}/confirmCode`,
   registerCredentialsSendCode: `${baseRegisterCredentials}/sendCode`,
-};
-
-export const especialRoutesAuth = {
-  verifyGoogle: `${publicRoutesAuth.login}/verifyGoogle`,
   verificationCode: `${baseLoginPhone}/verifyCode`,
-};
+  verifyGoogle: `${baseLogin}/verifyGoogle`,
+}

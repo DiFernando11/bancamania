@@ -1,15 +1,17 @@
-"use client";
-import { SendServiceTypes } from "@/shared";
-import { useSendService } from "../../generics";
-import { logoutService } from "@/application/adapters/htpp";
+'use client'
+import { logoutService } from '@/application/adapters/htpp'
+import { SendServiceTypes } from '@/shared'
+import { useSendService } from '../../generics'
 
 export const useLogout = (): SendServiceTypes<unknown, unknown> => {
-  const queryResult = useSendService(async () => logoutService());
+  const queryResult = useSendService<unknown, unknown>(async () =>
+    logoutService()
+  )
 
   return {
     handleActionService: queryResult.mutate,
-    isLoading: queryResult.isPending,
     isError: queryResult.isError,
+    isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
-  };
-};
+  }
+}

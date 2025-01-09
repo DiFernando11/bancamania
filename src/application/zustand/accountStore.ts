@@ -5,10 +5,9 @@ interface AccountState {
   increase: (by: number) => void
 }
 
-const useAccountStore = create<AccountState>()((set) => ({
+const useAccountStore = create<AccountState>()(set => ({
   balance: 0,
-  increase: (by) => set((state) => ({ balance: state.balance + by })),
+  increase: by => set(state => ({ balance: state.balance + by })),
 }))
 
-
-export default useAccountStore;
+export default useAccountStore

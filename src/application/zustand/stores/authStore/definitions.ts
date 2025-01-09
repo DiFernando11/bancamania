@@ -1,4 +1,4 @@
 export const definitions = {
-  phoneAuth: "phoneAuth",
-  hasValidCode: "hasValidCode",
-} as const;
+  hasValidCode: 'hasValidCode',
+  phoneAuth: 'phoneAuth',
+} as const

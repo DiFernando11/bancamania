@@ -1,10 +1,17 @@
-import { loginPhoneApi } from "@/infrastructure/api";
-import { ValidateCodePhoneResponse, ValidateCodePhoneType } from "@/shared";
+import { apiRoutes } from '@/routes/apiRoutes'
+import { ValidateCodePhoneResponse, ValidateCodePhoneType } from '@/shared'
+import { apiRequest } from '@/shared/utils'
 
 export const loginPhoneService = async ({
   phone,
   code,
 }: ValidateCodePhoneType): Promise<ValidateCodePhoneResponse> => {
-  const data = await loginPhoneApi({ phone, code });
-  return data;
-};
+  const response = apiRequest<ValidateCodePhoneResponse, ValidateCodePhoneType>(
+    {
+      data: { code, phone },
+      url: apiRoutes.auth.loginPhone,
+    }
+  )
+
+  return response
+}

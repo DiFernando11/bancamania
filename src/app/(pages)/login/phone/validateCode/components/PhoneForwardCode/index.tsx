@@ -1,31 +1,29 @@
-import { useSendCodePhone } from "@/application/hooks";
-import { useAuthStoreLs } from "@/application/zustand/stores";
-import ForwardCode from "@/shared/components/ForwardCode";
-import { Box } from "@/ui/atoms";
-
-import React from "react";
+import React from 'react'
+import { useSendCodePhone } from '@/application/hooks'
+import { useAuthStoreLs } from '@/application/zustand/stores'
+import ForwardCode from '@/shared/components/ForwardCode'
+import { Box } from '@/ui/atoms'
 
 const PhoneForwardCode = () => {
-  const { hasValidCode } = useAuthStoreLs();
-  console.log({ hasValidCode });
-  const { handleActionService } = useSendCodePhone();
-  const phone = hasValidCode?.phone ?? "";
+  const { hasValidCode } = useAuthStoreLs()
+  const { handleActionService } = useSendCodePhone()
+  const phone = hasValidCode?.phone ?? ''
 
   const handleAction = (onSuccess: () => void) => {
-    handleActionService({ phone }, { onSuccess });
-  };
+    handleActionService({ phone }, { onSuccess })
+  }
 
   return (
     <Box>
       <ForwardCode
         handleAction={handleAction}
-        type="registerPhone"
+        type='registerPhone'
         restHasValidCode={{
           phone,
         }}
       />
     </Box>
-  );
-};
+  )
+}
 
-export default PhoneForwardCode;
+export default PhoneForwardCode

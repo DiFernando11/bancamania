@@ -1,24 +1,32 @@
-import type { NextRequest } from "next/server";
+import type { NextRequest } from 'next/server'
+import { globalConfig } from '@/config/globalConfig'
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { token } = body;
+  const body = await request.json()
+  const { token, refreshToken } = body
 
   try {
-    const headers = new Headers();
+    const headers = new Headers()
+
     headers.append(
-      "Set-Cookie",
+      'Set-Cookie',
       `token-session-id=${token}; HttpOnly; Secure; Path=/; Max-Age=${
-        60 * 60 * 24
-      }`
-    );
+        globalConfig.expireInRefreshToken
+      }; SameSite=Strict`
+    )
+
+    headers.append(
+      'Set-Cookie',
+      `refresh-token-session-id=${refreshToken}; HttpOnly; Secure; Path=/; Max-Age=${
+        globalConfig.expireInRefreshToken
+      }; SameSite=Strict`
+    )
 
     return new Response(
-      JSON.stringify({ message: "Cookie establecida", token }),
-      { status: 200, headers }
-    );
+      JSON.stringify({ message: 'Cookies establecidas', token }),
+      { headers, status: 200 }
+    )
   } catch (error) {
-    console.error("Error al hacer login:", error);
-    return new Response(JSON.stringify({ error: error }), { status: 500 });
+    return new Response(JSON.stringify({ error: error }), { status: 500 })
   }
 }
