@@ -27,7 +27,7 @@ export const useLoginCredentialsCase = (): SendServiceTypes<
       { email, password },
       {
         onError: () => {
-          router.push(clientRoutes.login)
+          router.push(clientRoutes.login.path)
         },
         onSuccess: async data => {
           register(
@@ -41,7 +41,7 @@ export const useLoginCredentialsCase = (): SendServiceTypes<
                   ...data.user,
                   redirect: false,
                 })
-                router.push(clientRoutes.home)
+                router.push(clientRoutes.consolidada.path)
               },
             }
           )

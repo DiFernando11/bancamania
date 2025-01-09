@@ -7,7 +7,7 @@ export const LoginWithCreedentials = () => {
   return (
     <Link
       className='border text-center p-3'
-      href={clientRoutes.loginCredentials}
+      href={clientRoutes.loginCredentials.path}
     >
       Inicia con credenciales
     </Link>

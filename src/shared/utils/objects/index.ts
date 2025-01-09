@@ -1,0 +1,1 @@
+export { findRouteByPath } from './findRoutesByPath'

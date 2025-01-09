@@ -1,12 +1,12 @@
-import React, { forwardRef, Ref } from 'react'
-import { BoxProps } from './types'
+import React, { forwardRef } from 'react'
+import { BoxProps } from '@/ui/atoms/box/types'
 
 const Box = forwardRef<HTMLDivElement, BoxProps>(function Box(
-  { id, children, className },
-  ref: Ref<HTMLDivElement>
+  { children, ...rest },
+  ref
 ) {
   return (
-    <div ref={ref} id={id} className={className}>
+    <div ref={ref} {...rest}>
       {children}
     </div>
   )

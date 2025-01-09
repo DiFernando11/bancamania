@@ -1,3 +1,4 @@
+'use client'
 import React, {
   forwardRef,
   useEffect,
@@ -5,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { CountdownTimerProps, TimerRefType } from './type'
+import { CountdownTimerProps, TimerRefType } from '@/ui/atoms/counter/type'
 
 const formatTime = (seconds: number): string => {
   const minutes = Math.floor(seconds / 60)

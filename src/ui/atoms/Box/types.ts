@@ -1,5 +1,1 @@
-export interface BoxProps {
-  id?: string
-  className?: string
-  children: React.ReactNode
-}
+export type BoxProps = React.HTMLAttributes<HTMLDivElement>

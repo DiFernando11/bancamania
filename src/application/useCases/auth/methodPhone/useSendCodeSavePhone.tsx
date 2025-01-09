@@ -32,7 +32,7 @@ export const useSendCodeSavePhone = (): SendServiceTypes<
               phone,
               type: 'registerPhone',
             })
-            router.push(clientRoutes.loginValidateCode)
+            router.push(clientRoutes.loginValidateCode.path)
           },
         }
       )

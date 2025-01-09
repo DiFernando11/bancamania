@@ -1,0 +1,62 @@
+{
+  "login": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/login"
+  },
+  "loginCredentials": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/login/credentials"
+  },
+  "loginPhone": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/login/phone"
+  },
+  "loginValidateCode": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/login/phone/validateCode"
+  },
+  "register": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/register"
+  },
+  "registerCredentials": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/register/credentials"
+  },
+  "registerCredentialsConfirmCode": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/register/credentials/confirmCode"
+  },
+  "registerCredentialsSendCode": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/register/credentials/sendCode"
+  },
+  "verificationCode": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/login/phone/verifyCode"
+  },
+  "verifyGoogle": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "googleVerify",
+    "path": "/login/verifyGoogle"
+  }
+}

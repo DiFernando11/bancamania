@@ -67,13 +67,13 @@ export const useForwardCode = ({
   useEffect(() => {
     window.addEventListener('beforeunload', handleSaveCurrentTime)
     if (!hasValidCode?.expireAt || hasValidCode?.type !== type) {
-      return router.push(clientRoutes.login)
+      return router.push(clientRoutes.login.path)
     }
     const isExpired = new Date() > hasValidCode.expireAt
     if (isExpired && hasValidCode?.type === type) {
       flushHasValidCode()
 
-      return router.push(clientRoutes.login)
+      return router.push(clientRoutes.login.path)
     } else {
       setIsStartCount(true)
     }

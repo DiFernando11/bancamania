@@ -5,7 +5,9 @@ const handlePublicMiddlewareRoute = (request: NextRequest) => {
   const token = request.cookies.get('token-session-id')
 
   if (token) {
-    return NextResponse.redirect(new URL(clientRoutes.home, request.url))
+    return NextResponse.redirect(
+      new URL(clientRoutes.consolidada.path, request.url)
+    )
   }
 
   return NextResponse.next()

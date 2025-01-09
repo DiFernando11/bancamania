@@ -1,7 +1,7 @@
-import { routesAuth } from './authentication'
-import { routesHome } from './home'
+import publics from './commun.json'
+import commun from './public.json'
 
 export const clientRoutes = {
-  ...routesAuth,
-  ...routesHome,
+  ...publics,
+  ...commun,
 }

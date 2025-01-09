@@ -26,9 +26,9 @@ const CredentialsPage = () => {
           <div className='flex flex-col'>
             <label htmlFor='email'>Email:</label>
             <Field
-              className='w-full px-4 py-2 border 
-              border-gray-300 rounded-lg shadow-sm 
-              focus:outline-none focus:ring-2 focus:ring-red-500 
+              className='w-full px-4 py-2 border
+              border-gray-300 rounded-lg shadow-sm
+              focus:outline-none focus:ring-2 focus:ring-red-500
               focus:border-red-500 transition duration-200 placeholder-gray-400'
               type='text'
               id='email'
@@ -44,9 +44,9 @@ const CredentialsPage = () => {
           <div className='flex flex-col'>
             <label htmlFor='password'>Contraseña:</label>
             <Field
-              className='w-full px-4 py-2 border 
-              border-gray-300 rounded-lg shadow-sm focus:outline-none 
-              focus:ring-2 focus:ring-red-500 focus:border-red-500 
+              className='w-full px-4 py-2 border
+              border-gray-300 rounded-lg shadow-sm focus:outline-none
+              focus:ring-2 focus:ring-red-500 focus:border-red-500
               transition duration-200 placeholder-gray-400'
               type='password'
               id='password'
@@ -69,7 +69,7 @@ const CredentialsPage = () => {
       </Formik>
       <Link
         className='text-center'
-        href={clientRoutes.registerCredentialsSendCode}
+        href={clientRoutes.registerCredentialsSendCode.path}
       >
         Ya tienes una cuenta creada? Haz click aqui
       </Link>
