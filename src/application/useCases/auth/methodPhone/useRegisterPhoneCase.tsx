@@ -17,7 +17,7 @@ export const useRegisterPhoneCase = () => {
       { idToken, phone: phone as string },
       {
         onError: () => {
-          router.push(clientRoutes.login)
+          router.push(clientRoutes.login.path)
         },
         onSuccess: async data => {
           register(
@@ -32,7 +32,7 @@ export const useRegisterPhoneCase = () => {
                   redirect: false,
                 })
                 flushHasValidCode()
-                router.push(clientRoutes.home)
+                router.push(clientRoutes.consolidada.path)
               },
             }
           )

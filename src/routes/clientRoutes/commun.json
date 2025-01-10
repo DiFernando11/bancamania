@@ -1,0 +1,20 @@
+{
+  "consolidada": {
+    "enabled": true,
+    "layout": "private",
+    "middleware": "private",
+    "path": "/"
+  },
+  "notFound": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": null,
+    "path": "/notFound"
+  },
+  "perfil": {
+    "enabled": true,
+    "layout": "public",
+    "middleware": "public",
+    "path": "/perfil"
+  }
+}

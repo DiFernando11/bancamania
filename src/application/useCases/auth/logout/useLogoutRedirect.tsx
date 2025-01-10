@@ -20,7 +20,7 @@ export const useLogoutRedirect = (): SendServiceTypes<
         {
           onSuccess: async () => {
             await signOut()
-            router.push(clientRoutes.login)
+            router.push(clientRoutes.login.path)
           },
         }
       )

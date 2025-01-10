@@ -1,24 +1,25 @@
-import { NextRequest, NextResponse, URLPattern } from 'next/server'
-import { stackMiddleware } from './middlewareApp'
+import { NextRequest, NextResponse } from 'next/server'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { findRouteByPath } from '@/shared/utils'
+import { getCurrentMiddleware } from './middlewareApp'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const currentPath = findRouteByPath(pathname)
 
-  for (const { middleware: mwFunction, matcher } of stackMiddleware) {
-    for (const pattern of matcher) {
-      const urlPattern = new URLPattern({ pathname: pattern })
-      if (urlPattern.test({ pathname })) {
-        const response = mwFunction(request)
-        if (response) {
-          return response
-        }
-      }
-    }
+  if (!currentPath || !currentPath?.enabled) {
+    return NextResponse.redirect(
+      new URL(clientRoutes.notFound.path, request.url)
+    )
   }
 
-  return NextResponse.next()
+  const middleware = getCurrentMiddleware(currentPath?.middleware)
+
+  if (!middleware) return NextResponse.next()
+
+  return middleware(request)
 }
 
 export const config = {
-  matcher: ['/home', '/login/:path*', '/register/:path*'],
+  matcher: ['/((?!_next|favicon.ico|api|mockServiceWorker|theme).*)'],
 }

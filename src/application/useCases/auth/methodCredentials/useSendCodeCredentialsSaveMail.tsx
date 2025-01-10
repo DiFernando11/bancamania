@@ -28,7 +28,7 @@ export const useSendCodeCredentialsSaveMail = (): SendServiceTypes<
       { email },
       {
         onError: () => {
-          router.push(clientRoutes.login)
+          router.push(clientRoutes.login.path)
         },
         onSuccess: async data => {
           setHasValidCode({
@@ -40,7 +40,7 @@ export const useSendCodeCredentialsSaveMail = (): SendServiceTypes<
             mail: email,
             type: 'registerCredentials',
           })
-          router.push(clientRoutes.registerCredentialsConfirmCode)
+          router.push(clientRoutes.registerCredentialsConfirmCode.path)
         },
       }
     )

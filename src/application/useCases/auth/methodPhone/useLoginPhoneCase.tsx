@@ -45,7 +45,7 @@ export const useLoginPhoneCase = () => {
                   ...data.user,
                   redirect: false,
                 })
-                router.push(clientRoutes.home)
+                router.push(clientRoutes.consolidada.path)
               },
             }
           )

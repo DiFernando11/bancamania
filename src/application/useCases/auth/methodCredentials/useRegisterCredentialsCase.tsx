@@ -21,7 +21,7 @@ export const useRegisterCredentialsCase = () => {
       { code, email, firstName, lastName, password },
       {
         onError: () => {
-          router.push(clientRoutes.login)
+          router.push(clientRoutes.login.path)
         },
         onSuccess: async data => {
           register(
@@ -35,7 +35,7 @@ export const useRegisterCredentialsCase = () => {
                   ...data.user,
                   redirect: false,
                 })
-                router.push(clientRoutes.home)
+                router.push(clientRoutes.consolidada.path)
               },
             }
           )

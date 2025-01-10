@@ -21,7 +21,7 @@ const Welcome = () => {
   return (
     <Box className='my-5 flex flex-col gap-5'>
       <h1 className='text-center text-3xl'>Bienvenido usuario</h1>
-      <div className='flex flex-col gap-5'>
+      <Box className='flex flex-col gap-5'>
         <p>{sesion.user.firstName}</p>
         <p>{sesion.user.lastName}</p>
         <p>{sesion.user.email}</p>
@@ -36,7 +36,7 @@ const Welcome = () => {
             className='rounded-full'
           />
         )}
-      </div>
+      </Box>
       <button onClick={() => validToken()}>Verificar Token</button>
       <button onClick={handleActionService}>Logout</button>
       <button onClick={() => window.toggleTheme()}>Cambiar Tema</button>
