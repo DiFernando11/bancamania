@@ -13,8 +13,8 @@
   },
   "perfil": {
     "enabled": true,
-    "layout": "public",
-    "middleware": "public",
+    "layout": "private",
+    "middleware": "private",
     "path": "/perfil"
   }
 }

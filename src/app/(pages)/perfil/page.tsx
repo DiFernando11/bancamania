@@ -1,13 +1,13 @@
 import React from 'react'
-import Box from '@/ui/atoms/box'
+import { LayoutAuthenticationPage } from '@/ui/layouts'
 import Welcome from './components/welcome'
 
-const HomePage = () => {
+const PerfilPage = () => {
   return (
-    <Box>
+    <LayoutAuthenticationPage i18nTitle='perfil'>
       <Welcome />
-    </Box>
+    </LayoutAuthenticationPage>
   )
 }
 
-export default HomePage
+export default PerfilPage

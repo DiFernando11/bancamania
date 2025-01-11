@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Box } from '@/ui/atoms'
+import Content from './content'
 import Header from './header'
-import Main from './main'
 import SideBar from './sideBar'
 
 const LayoutAuthentication = ({ children }: { children: ReactNode }) => {
@@ -15,7 +15,7 @@ const LayoutAuthentication = ({ children }: { children: ReactNode }) => {
     >
       <Header />
       <SideBar />
-      <Main>{children}</Main>
+      <Content>{children}</Content>
     </Box>
   )
 }
