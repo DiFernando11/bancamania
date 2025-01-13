@@ -2,18 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Text } from '@/ui/atoms'
 
 const meta = {
-  argTypes: {},
-
-  args: {},
-
   component: Text,
-
-  parameters: {
-    layout: 'centered',
-  },
-
+  parameters: { layout: 'centered' },
   tags: ['autodocs'],
-
   title: 'Example/Text',
 } satisfies Meta<typeof Text>
 
