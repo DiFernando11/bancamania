@@ -14,15 +14,20 @@
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "next",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
   ],
   "overrides": [
     {
       "excludedFiles": "*.json",
-      "files": ["*.json"]
+      "files": [
+        "*.json"
+      ]
     },
     {
-      "files": ["*.tsx"],
+      "files": [
+        "*.tsx"
+      ],
       "rules": {
         "no-restricted-syntax": [
           "error",
@@ -42,7 +47,6 @@
       }
     }
   ],
-
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -63,29 +67,60 @@
     "@typescript-eslint/no-unused-expressions": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^T" }
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^T"
+      }
     ],
-    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/newline-after-import": [
+      "error",
+      {
+        "count": 1
+      }
+    ],
     "import/order": [
       "error",
       {
-        "alphabetize": { "caseInsensitive": true, "order": "asc" },
-        "groups": ["builtin", "external", "internal"],
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
         "newlines-between": "never"
       }
     ],
-    "linebreak-style": ["error", "unix"],
-    "max-len": ["error", { "code": 100, "ignoreComments": true }],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "ignoreComments": true
+      }
+    ],
     "no-console": [
       "warn",
       {
-        "allow": ["warn", "error"]
+        "allow": [
+          "warn",
+          "error"
+        ]
       }
     ],
     "no-unused-vars": "off",
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "next": "return", "prev": "*" }
+      {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*"
+      }
     ],
     "react-hooks/exhaustive-deps": "off",
     "react/function-component-definition": [
@@ -113,7 +148,9 @@
           "pascalCase": false,
           "snakeCase": false
         },
-        "ignore": ["next-i18next.config.js"]
+        "ignore": [
+          "next-i18next.config.js"
+        ]
       }
     ]
   },
