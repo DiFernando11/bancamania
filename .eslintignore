@@ -1,5 +1,5 @@
 # Archivos y carpetas de configuración
-package-lock.json
+package-lock.json --no-ignore
 !package.json
 next-env.d.ts
 !.next-i18next.config.js
