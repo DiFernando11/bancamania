@@ -8,9 +8,6 @@ const LottieLogout = () => {
       width={80}
       height={80}
       mode='cursor'
-      loop={true}
-      autoPlay
-      autoplay
       actions={[
         {
           frames: [0, 100],
