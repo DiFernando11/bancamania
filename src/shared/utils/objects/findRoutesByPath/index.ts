@@ -3,7 +3,7 @@ import { clientRoutes } from '@/routes/clientRoutes'
 type RouteConfig = {
   enabled: boolean
   layout: string
-  middleware: string
+  middleware: string | null
   path: string
 }
 

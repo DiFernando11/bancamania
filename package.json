@@ -6,6 +6,7 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "formik": "^2.4.6",
+    "lottie-react": "^2.4.0",
     "next": "14.2.13",
     "next-auth": "^4.24.10",
     "next-intl": "^3.26.3",
@@ -17,6 +18,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
+    "@eslint/compat": "^1.2.5",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
@@ -28,8 +32,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "14.2.13",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.6",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-boundaries": "^5.0.1",
     "eslint-plugin-dependencies": "^2.5.0",
@@ -42,6 +46,7 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-unicorn": "^56.0.1",
+    "globals": "^15.14.0",
     "husky": "^9.1.7",
     "install": "^0.13.0",
     "jsonc-eslint-parser": "^2.4.0",
@@ -53,9 +58,8 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,md}": [
-      "prettier --write",
-      "eslint --fix --max-warnings=0"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint src/ --max-warnings=0"
     ]
   },
   "name": "bancamania",
@@ -65,8 +69,8 @@
     "build-storybook": "storybook build",
     "dev": "next dev",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0 --no-cache",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --max-warnings=0",
+    "lint": "eslint src/ --max-warnings=0 --no-cache",
+    "lint:fix": "eslint --fix src/",
     "prepare": "husky",
     "start": "next start",
     "storybook": "storybook dev -p 6006"
