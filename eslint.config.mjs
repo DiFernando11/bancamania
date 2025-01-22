@@ -204,7 +204,7 @@ export default [
   },
   {
     files: ['**/*.tsx'],
-
+    ignores: ['**/*.stories.tsx'],
     rules: {
       'no-restricted-syntax': [
         'error',
