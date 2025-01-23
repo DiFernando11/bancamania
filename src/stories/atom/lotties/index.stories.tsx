@@ -19,7 +19,7 @@ export const Lotties: Story = {
   },
   render: () => (
     <Box className='flex justify-center items-center gap-5'>
-      <LottiePlayer name='logout' width={66} height={66} />
+      <LottiePlayer name='logout' sizeLottie={60} />
       <LottiePlayer name='maintenance' />
     </Box>
   ),

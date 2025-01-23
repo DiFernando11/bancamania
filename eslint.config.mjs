@@ -53,8 +53,7 @@ export default [
       'plugin:@typescript-eslint/recommended',
       'prettier',
       'next',
-      'next/core-web-vitals',
-      'plugin:storybook/recommended'
+      'next/core-web-vitals'
     )
   ).map(config => ({
     ...config,
