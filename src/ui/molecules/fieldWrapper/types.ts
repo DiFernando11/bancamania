@@ -1,8 +1,7 @@
-export interface FormFieldProps {
+export interface FormFieldProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string
   label: string
-  type: string
-  component: React.ElementType // Componente personalizado
+  component: React.ElementType
   placeholder?: string
-  [key: string]: unknown // Props adicionales
 }

@@ -59,7 +59,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint src/ --max-warnings=0"
+      "eslint src/ --max-warnings=0",
+      "prettier --write"
     ]
   },
   "name": "bancamania",

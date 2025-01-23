@@ -22,11 +22,6 @@ const FormField: React.FC<FormFieldProps> = ({
             id={name}
             placeholder={placeholder}
             {...props} // Props adicionales
-            className={
-              'w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm ' +
-              'focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 ' +
-              'transition duration-200 placeholder-gray-400'
-            }
           />
         )}
       </Field>
