@@ -14,14 +14,13 @@ const FormField: React.FC<FormFieldProps> = ({
       <label htmlFor={name} className='mb-1 font-medium text-gray-700'>
         {label}
       </label>
-      {/* Renderiza el componente personalizado */}
       <Field name={name}>
         {({ field }: FieldProps) => (
           <Component
-            {...field} // Props de Formik
+            {...field}
             id={name}
             placeholder={placeholder}
-            {...props} // Props adicionales
+            {...props}
           />
         )}
       </Field>

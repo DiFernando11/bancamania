@@ -5,7 +5,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { useLoginCredentialsCase } from '@/application/useCases'
 import { clientRoutes } from '@/routes/clientRoutes'
-import FormField from '@/ui/molecules/fieldWrapper'
+import { FormField } from '@/ui/molecules'
 
 const CredentialsPage = () => {
   const InputElement: React.FC<
@@ -52,7 +52,7 @@ const CredentialsPage = () => {
               label='Contraseña'
               name='password'
               component={InputElement}
-              placeholder='Ingrese su email'
+              placeholder='Ingrese su contraseña'
             />
           </div>
           <button
