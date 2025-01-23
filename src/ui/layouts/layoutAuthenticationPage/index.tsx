@@ -2,7 +2,7 @@
 import classNames from 'classnames'
 import React, { useEffect, useRef, useState } from 'react'
 import { useI18Text } from '@/application/hooks'
-import { LayoutAuthenticationPageProps } from '@/ui/layouts/layoutAuthenticationPage/types'
+import { LayoutAuthenticationPageProps } from './types'
 
 const LayoutAuthenticationPage = ({
   i18nTitle,

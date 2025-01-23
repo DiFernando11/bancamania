@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useLottie, useLottieInteractivity } from 'lottie-react'
 import React from 'react'
 import { useLoadLottie } from '@/shared/hooks'
-import { InteractiveLottiePlayerProps } from '@/ui/atoms/lotties/types'
+import { InteractiveLottiePlayerProps } from '../types'
 
 const LottiePlayerInteractive: React.FC<InteractiveLottiePlayerProps> = ({
   name = 'maintenance',
