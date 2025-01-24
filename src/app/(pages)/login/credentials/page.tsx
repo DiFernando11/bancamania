@@ -1,12 +1,26 @@
 'use client'
-import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { Form, Formik } from 'formik'
 import Link from 'next/link'
 import React from 'react'
 import * as Yup from 'yup'
 import { useLoginCredentialsCase } from '@/application/useCases'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { FormField } from '@/ui/molecules'
 
 const CredentialsPage = () => {
+  const InputElement: React.FC<
+    React.InputHTMLAttributes<HTMLInputElement>
+  > = props => {
+    return (
+      <input
+        {...props}
+        className='w-full px-4 py-2 border
+     border-gray-300 rounded-lg shadow-sm
+     focus:outline-none focus:ring-2 focus:ring-red-500
+     focus:border-red-500 transition duration-200 placeholder-gray-400'
+      />
+    )
+  }
   const { handleActionService } = useLoginCredentialsCase()
 
   return (
@@ -15,8 +29,10 @@ const CredentialsPage = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={Yup.object({
-          email: Yup.string().email('Correo invalido').required('Requerido'),
-          password: Yup.string().required('Requerido'),
+          email: Yup.string().email('Email inválido').required('Requerido'),
+          password: Yup.string()
+            .min(6, 'Debe tener al menos 6 caracteres')
+            .required('Requerido'),
         })}
         onSubmit={values => {
           handleActionService(values)
@@ -24,39 +40,19 @@ const CredentialsPage = () => {
       >
         <Form className='flex flex-col justify-center items-center gap-5'>
           <div className='flex flex-col'>
-            <label htmlFor='email'>Email:</label>
-            <Field
-              className='w-full px-4 py-2 border
-              border-gray-300 rounded-lg shadow-sm
-              focus:outline-none focus:ring-2 focus:ring-red-500
-              focus:border-red-500 transition duration-200 placeholder-gray-400'
-              type='text'
-              id='email'
+            <FormField
               name='email'
-              placeholder='Enter your email'
-            />
-            <ErrorMessage
-              name='email'
-              component='div'
-              className='text-red-500'
+              component={InputElement}
+              placeholder='Ingrese su email'
+              label='Email'
             />
           </div>
           <div className='flex flex-col'>
-            <label htmlFor='password'>Contraseña:</label>
-            <Field
-              className='w-full px-4 py-2 border
-              border-gray-300 rounded-lg shadow-sm focus:outline-none
-              focus:ring-2 focus:ring-red-500 focus:border-red-500
-              transition duration-200 placeholder-gray-400'
-              type='password'
-              id='password'
+            <FormField
+              label='Contraseña'
               name='password'
-              placeholder='Enter your password'
-            />
-            <ErrorMessage
-              name='password'
-              component='div'
-              className='text-red-500'
+              component={InputElement}
+              placeholder='Ingrese su contraseña'
             />
           </div>
           <button

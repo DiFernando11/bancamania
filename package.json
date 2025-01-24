@@ -13,7 +13,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-verification-input": "^4.1.2",
-    "yup": "^1.5.0",
+    "yup": "^1.6.1",
     "zustand": "^5.0.1"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
-    "eslint-plugin-storybook": "^0.11.1",
+    "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-unicorn": "^56.0.1",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
@@ -59,7 +59,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint src/ --max-warnings=0"
+      "eslint src/ --max-warnings=0",
+      "prettier --write"
     ]
   },
   "name": "bancamania",
