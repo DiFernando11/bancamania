@@ -6,6 +6,9 @@ const config: Config = {
   plugins: [],
   theme: {
     extend: {
+      boxShadow: {
+        'bottom-accent': '0 4px 6px -1px var(--accent-200)',
+      },
       colors: {
         accent: {
           100: 'var(--accent-100)',

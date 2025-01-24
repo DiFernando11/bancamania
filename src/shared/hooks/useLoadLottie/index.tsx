@@ -17,21 +17,26 @@ export const useLoadLottie = ({
   const lottieContainerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (lottieContainerRef.current && viewBox) {
-      const observer = new MutationObserver(() => {
-        const svg = lottieContainerRef?.current?.querySelector('svg')
+      const svg = lottieContainerRef?.current?.querySelector('svg')
+      if (svg) {
+        svg.setAttribute('viewBox', viewBox)
+      } else {
+        const observer = new MutationObserver(() => {
+          const svg = lottieContainerRef?.current?.querySelector('svg')
 
-        if (svg) {
-          svg.setAttribute('viewBox', viewBox)
-          observer.disconnect()
-        }
-      })
+          if (svg) {
+            svg.setAttribute('viewBox', viewBox)
+            observer.disconnect()
+          }
+        })
 
-      observer.observe(lottieContainerRef.current, {
-        childList: true,
-        subtree: true,
-      })
+        observer.observe(lottieContainerRef.current, {
+          childList: true,
+          subtree: true,
+        })
 
-      return () => observer.disconnect()
+        return () => observer.disconnect()
+      }
     }
   }, [loading, viewBox])
 
