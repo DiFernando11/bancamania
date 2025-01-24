@@ -28,6 +28,7 @@ const LottiePlayerInteractive = forwardRef<
       actions = [],
       isCursorPointer = true,
       startFrame,
+      showLoading = true,
     },
     ref
   ) => {
@@ -81,7 +82,7 @@ const LottiePlayerInteractive = forwardRef<
       stop: () => lottieObj?.stop(),
     }))
 
-    if (loading)
+    if (loading && showLoading)
       return (
         <div
           className='flex items-center justify-center'

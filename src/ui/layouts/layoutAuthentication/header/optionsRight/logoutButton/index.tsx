@@ -9,11 +9,10 @@ const LogoutButton = () => {
     <button
       onMouseEnter={play}
       onMouseLeave={reset}
-      className='rounded-md flex
-        items-center justify-center gap-2 border pr-2 cursor-pointer'
+      className='rounded-md flex items-center justify-center gap-2 border pr-2 cursor-pointer'
     >
       <LottieLogout ref={lottieRef} />
-      <Text>Cerrar Session</Text>
+      <Text>Cerrar Sesión</Text>
     </button>
   )
 }
