@@ -1,12 +1,15 @@
-import React from 'react'
+'use client'
+import React, { forwardRef } from 'react'
+import { LottiePlayerRef } from '@/shared'
 import LottiePlayerInteractive from '@/ui/atoms/lotties/lottiePlayerInteractive'
 
-const LottieLogout = () => {
+const LottieLogout = forwardRef<LottiePlayerRef, unknown>((_, ref) => {
   return (
     <LottiePlayerInteractive
+      ref={ref}
       name='logout'
-      width={80}
-      height={80}
+      sizeLottie={70}
+      loop={false}
       mode='cursor'
       actions={[
         {
@@ -17,6 +20,8 @@ const LottieLogout = () => {
       ]}
     />
   )
-}
+})
+
+LottieLogout.displayName = 'LottieLogout'
 
 export default LottieLogout
