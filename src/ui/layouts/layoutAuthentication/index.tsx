@@ -9,7 +9,7 @@ const LayoutAuthentication = ({ children }: { children: ReactNode }) => {
     <Box
       className='h-screen grid gap-2'
       style={{
-        gridTemplateColumns: 'clamp(200px, 25%, 300px) 1fr 1fr 1fr',
+        gridTemplateColumns: 'clamp(200px, 25%, 300px) 1fr',
         gridTemplateRows: '80px 1fr',
       }}
     >
