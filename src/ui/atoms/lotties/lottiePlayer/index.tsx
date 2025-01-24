@@ -11,9 +11,13 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
   sizeLoading,
   className,
   isCursorPointer = true,
+  viewBox,
   ...props
 }) => {
-  const { loading, animationData } = useLoadLottie({ name })
+  const { loading, animationData, lottieContainerRef } = useLoadLottie({
+    name,
+    viewBox,
+  })
 
   // Cambiar a component Spinner
   if (loading)
@@ -33,15 +37,17 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
     )
 
   return (
-    <Lottie
-      className={classNames({ 'cursor-pointer': isCursorPointer }, className)}
-      animationData={animationData}
-      style={{
-        height: sizeLottie,
-        width: sizeLottie,
-      }}
-      {...props}
-    />
+    <div ref={lottieContainerRef}>
+      <Lottie
+        className={classNames({ 'cursor-pointer': isCursorPointer }, className)}
+        animationData={animationData}
+        style={{
+          height: sizeLottie,
+          width: sizeLottie,
+        }}
+        {...props}
+      />
+    </div>
   )
 }
 

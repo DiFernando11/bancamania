@@ -8,12 +8,14 @@ export interface LottiePlayerProps
   sizeLottie?: number
   sizeLoading?: number
   isCursorPointer?: boolean
+  viewBox?: string
 }
 
 export type CustomLottiePlayer = Omit<LottiePlayerProps, 'name'>
 
 export interface InteractiveLottiePlayerProps extends LottiePlayerProps {
   mode?: 'cursor' | 'scroll'
+  startFrame?: number
   actions: Array<{
     frames: [number] | [number, number]
     type: 'seek' | 'play' | 'stop' | 'loop'

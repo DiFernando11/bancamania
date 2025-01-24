@@ -1,7 +1,12 @@
 'use client'
 import classNames from 'classnames'
 import { useLottie, useLottieInteractivity } from 'lottie-react'
-import React, { forwardRef, useImperativeHandle } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { LottiePlayerRef } from '@/shared'
 import { useLoadLottie } from '@/shared/hooks'
 import { InteractiveLottiePlayerProps } from '../types'
@@ -16,17 +21,25 @@ const LottiePlayerInteractive = forwardRef<
       sizeLottie = 40,
       sizeLoading,
       className,
-      loop,
+      loop = false,
+      autoplay = false,
       mode = 'cursor',
+      viewBox,
       actions = [],
       isCursorPointer = true,
+      startFrame,
     },
     ref
   ) => {
-    const { animationData, loading } = useLoadLottie({ name })
+    const [hasSetStartFrame, setHasSetStartFrame] = useState(false)
+    const { animationData, loading, lottieContainerRef } = useLoadLottie({
+      name,
+      viewBox,
+    })
 
     const options = {
       animationData,
+      autoplay,
       loop,
     }
 
@@ -42,6 +55,13 @@ const LottiePlayerInteractive = forwardRef<
       lottieObj,
       mode,
     })
+
+    useEffect(() => {
+      if (animationData && lottieObj && !hasSetStartFrame && startFrame) {
+        lottieObj.goToAndStop(startFrame, true)
+        setHasSetStartFrame(true)
+      }
+    }, [animationData, lottieObj, startFrame, hasSetStartFrame])
 
     useImperativeHandle(ref, () => ({
       destroy: () => lottieObj?.destroy(),
@@ -79,6 +99,7 @@ const LottiePlayerInteractive = forwardRef<
 
     return (
       <div
+        ref={lottieContainerRef}
         className={classNames({ 'cursor-pointer': isCursorPointer }, className)}
       >
         {Animation}

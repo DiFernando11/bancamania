@@ -8,9 +8,10 @@ const LottieLogout = forwardRef<LottiePlayerRef, unknown>((_, ref) => {
     <LottiePlayerInteractive
       ref={ref}
       name='logout'
-      sizeLottie={70}
+      sizeLottie={60}
       loop={false}
       mode='cursor'
+      viewBox='60 60 500 500'
       actions={[
         {
           frames: [0, 100],
