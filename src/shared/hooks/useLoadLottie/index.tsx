@@ -1,12 +1,39 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LottieAnimationData, LottieNames } from '@/shared/types'
 import { lotties } from '@/ui/atoms/lotties'
 
-export const useLoadLottie = ({ name }: { name: LottieNames }) => {
+export const useLoadLottie = ({
+  name,
+  viewBox,
+}: {
+  name: LottieNames
+  viewBox?: string
+}) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [animationData, setAnimationData] =
     useState<LottieAnimationData | null>(null)
+
+  const lottieContainerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (lottieContainerRef.current && viewBox) {
+      const observer = new MutationObserver(() => {
+        const svg = lottieContainerRef?.current?.querySelector('svg')
+
+        if (svg) {
+          svg.setAttribute('viewBox', viewBox)
+          observer.disconnect()
+        }
+      })
+
+      observer.observe(lottieContainerRef.current, {
+        childList: true,
+        subtree: true,
+      })
+
+      return () => observer.disconnect()
+    }
+  }, [loading, viewBox])
 
   useEffect(() => {
     const loadAnimation = async (animationName: string) => {
@@ -23,5 +50,5 @@ export const useLoadLottie = ({ name }: { name: LottieNames }) => {
     loadAnimation(name)
   }, [name])
 
-  return { animationData, loading }
+  return { animationData, loading, lottieContainerRef }
 }

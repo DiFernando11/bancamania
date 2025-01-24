@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
+import ChangeModeMenu from './changeModeMenu'
 
 const SideBar = () => {
   const t = useI18Text('commonAriaLabel')
@@ -24,6 +25,7 @@ const SideBar = () => {
           <li>
             <a href='#opcion3'>Opción 3</a>
           </li>
+          <ChangeModeMenu />
         </ul>
       </nav>
     </aside>

@@ -6,6 +6,8 @@ import { LottiePlayerRef } from '@/shared/types'
 export const useLottieMethods = () => {
   const lottieRef = useRef<LottiePlayerRef>(null)
 
+  const isLoadLottie = Boolean(lottieRef?.current)
+
   const play = () => {
     lottieRef?.current?.play()
   }
@@ -46,15 +48,23 @@ export const useLottieMethods = () => {
     lottieRef?.current?.setSubframe(useSubFrames)
   }
 
+  const reset = () => {
+    if (lottieRef?.current) {
+      lottieRef.current.goToAndStop(0, true)
+    }
+  }
+
   return {
     destroy,
     getDuration,
     goToAndPlay,
     goToAndStop,
+    isLoadLottie,
     lottieRef,
     pause,
     play,
     playSegments,
+    reset,
     setSpeed,
     setSubframe,
     stop,

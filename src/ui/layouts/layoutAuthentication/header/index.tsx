@@ -2,26 +2,29 @@
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
 import { useLottieMethods } from '@/shared/hooks'
-import { LottieLogout, Text } from '@/ui/atoms'
+import { Icon, LottieLogout, Text } from '@/ui/atoms'
 
 const Header = () => {
   const t = useI18Text('commonAriaLabel')
-  const { lottieRef, play, stop } = useLottieMethods()
+  const { lottieRef, play, reset } = useLottieMethods()
 
   return (
     <header
       aria-label={t('header')}
-      className='p-4 col-span-4 border flex items-center'
+      className='px-4 col-span-4 flex items-center'
     >
-      Header
-      <button
-        onMouseEnter={play}
-        onMouseLeave={stop}
-        className='flex ml-auto items-center justify-center gap-1 border px-2 cursor-pointer'
-      >
-        <LottieLogout ref={lottieRef} />
-        <Text>Cerrar Session</Text>
-      </button>
+      <Icon name='Logo' />
+      <div className='gap-2 flex flex-row ml-auto'>
+        <button
+          onMouseEnter={play}
+          onMouseLeave={reset}
+          className='rounded-md flex
+         items-center justify-center gap-2 border pr-2 cursor-pointer'
+        >
+          <LottieLogout ref={lottieRef} />
+          <Text>Cerrar Session</Text>
+        </button>
+      </div>
     </header>
   )
 }
