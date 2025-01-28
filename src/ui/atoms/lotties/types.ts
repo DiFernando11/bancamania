@@ -9,6 +9,7 @@ export interface LottiePlayerProps
   sizeLoading?: number
   isCursorPointer?: boolean
   viewBox?: string
+  showLoading?: boolean
 }
 
 export type CustomLottiePlayer = Omit<LottiePlayerProps, 'name'>

@@ -12,6 +12,7 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
   className,
   isCursorPointer = true,
   viewBox,
+  showLoading = true,
   ...props
 }) => {
   const { loading, animationData, lottieContainerRef } = useLoadLottie({
@@ -20,7 +21,7 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
   })
 
   // Cambiar a component Spinner
-  if (loading)
+  if (loading && showLoading)
     return (
       <div
         className='flex items-center justify-center'

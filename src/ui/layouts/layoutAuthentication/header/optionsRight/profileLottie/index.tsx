@@ -9,7 +9,8 @@ const ProfileLottie = () => {
 
   return (
     <span
-      className='relative rounded-full bg-cover bg-center flex items-center justify-center'
+      className='relative rounded-full bg-cover bg-center
+      flex items-center justify-center shadow-custom'
       onMouseEnter={pause}
       onMouseLeave={play}
     >
@@ -22,6 +23,7 @@ const ProfileLottie = () => {
         name='profile'
         sizeLottie={60}
         viewBox='70 60 260 260'
+        showLoading={false}
       />
     </span>
   )
