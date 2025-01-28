@@ -1,14 +1,7 @@
 'use client'
-import { create } from 'zustand'
 import { HasValidCode } from '@/shared'
-import { definitions } from './definitions'
-import { AuthStore } from './types'
-import { createReducer, createReducerLs } from '../../reducers'
+import { createReducerLs } from '../../reducers'
 import { flushStoredValue } from '../../reducers/createReducerLs'
-
-export const useAuthStore = create<AuthStore>(set => ({
-  ...createReducer(definitions.phoneAuth, null, set),
-}))
 
 const initialAuthPersist = {
   hasValidCode: null,
@@ -27,5 +20,3 @@ export const useAuthStoreLs = () => {
     flushAll: () => flushStoredValue(STORAGE_KEY),
   }
 }
-
-export default useAuthStore

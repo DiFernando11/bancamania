@@ -105,6 +105,9 @@ export default [
       '@typescript-eslint/no-unused-expressions': 'off',
       'storybook/default-exports': 'off',
       'storybook/prefer-pascal-case': 'off',
+      'jsx-a11y/no-noninteractive-element-interactions': 'off',
+      'jsx-a11y/click-events-have-key-events': 'off',
+      'jsx-a11y/no-static-element-interactions': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
