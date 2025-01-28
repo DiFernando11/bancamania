@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
+import { ReactPortal } from '@/ui/atoms'
 import { DefineLayoutType } from '@/ui/layouts'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
         <ReactQueryProvider>
           <SessionAuthProvider>
             <NextIntlClientProvider messages={messages}>
+              <ReactPortal />
               <DefineLayoutType>{children}</DefineLayoutType>
             </NextIntlClientProvider>
           </SessionAuthProvider>
