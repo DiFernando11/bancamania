@@ -1,0 +1,1 @@
+export { isSM } from './mediasQueries'
