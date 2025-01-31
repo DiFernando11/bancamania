@@ -7,7 +7,11 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
+        'all-accent': '0 0 12px 0 var(--accent-200)',
         'bottom-accent': '0 4px 6px -1px var(--accent-200)',
+        'left-accent': '-4px 0 6px -1px var(--accent-200)',
+        'right-accent': '4px 0 6px -1px var(--accent-200)',
+        'top-accent': '0 -4px 6px -1px var(--accent-200)',
       },
       colors: {
         accent: {
@@ -28,6 +32,10 @@ const config: Config = {
           100: 'var(--text-100)',
           200: 'var(--text-200)',
         },
+      },
+      height: {
+        'content-destokp': `calc(100vh - (80px + 1.5rem))`,
+        'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
       },
     },
   },
