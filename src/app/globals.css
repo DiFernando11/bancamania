@@ -13,18 +13,12 @@
   --bg-100: #000000;
   --bg-200: #161616;
   --bg-300: #2c2c2c;
-  /* --bg-100-translucent: #00000090; */
 }
 
 body {
-  /* background: var(--bg-100)
-  url('../../public/bg-layout.png')
-  no-repeat center center; */
   background: var(--bg-100)
   url('../../public/bg-layout.png')
   repeat;
-  opacity: 1;
-/* background-size: cover; */
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
