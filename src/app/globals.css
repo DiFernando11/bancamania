@@ -3,19 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --primary-100: #a5d6a7;
-  --primary-200: #66bb6a;
-  --primary-300: #388e3c;
-  --accent-100: #81c784;
-  --accent-200: #004d00;
-  --text-100: #212121;
-  --text-200: #616161;
-  --bg-100: #ffffff;
-  --bg-200: #f5f5f5;
-  --bg-300: #eeeeee;
-}
-
-.dark {
   --primary-100: #2e7d32;
   --primary-200: #60ad5e;
   --primary-300: #c3ffbd;
@@ -26,10 +13,18 @@
   --bg-100: #000000;
   --bg-200: #161616;
   --bg-300: #2c2c2c;
+  /* --bg-100-translucent: #00000090; */
 }
 
 body {
-  background: var(--bg-100);
+  /* background: var(--bg-100)
+  url('../../public/bg-layout.png')
+  no-repeat center center; */
+  background: var(--bg-100)
+  url('../../public/bg-layout.png')
+  repeat;
+  opacity: 1;
+/* background-size: cover; */
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
 }

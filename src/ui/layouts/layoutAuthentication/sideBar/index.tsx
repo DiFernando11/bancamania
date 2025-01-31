@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
-import ChangeModeMenu from './changeModeMenu'
 
 const SideBar = () => {
   const t = useI18Text('commonAriaLabel')
@@ -10,8 +9,10 @@ const SideBar = () => {
     <aside
       aria-label={t('aside')}
       className={classNames(
-        'p-4 row-start-2 col-start-1 col-span-1 border hidden',
-        'sm:block'
+        'p-4 hidden bg-bg-translucent-100',
+        'row-start-2 col-start-1 col-span-1 ',
+        'shadow-right-accent border-accent-200',
+        'sm:block rounded-b-3xl'
       )}
     >
       <nav>
@@ -25,7 +26,6 @@ const SideBar = () => {
           <li>
             <a href='#opcion3'>Opción 3</a>
           </li>
-          <ChangeModeMenu />
         </ul>
       </nav>
     </aside>

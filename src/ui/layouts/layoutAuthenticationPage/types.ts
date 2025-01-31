@@ -11,3 +11,17 @@ export interface LayoutAuthenticationPageProps {
   footerBox?: ReactElement
   contextualMenu?: ContextualMenuItem[]
 }
+
+export interface LayoutPageAuthFooter {
+  footerBox?: ReactElement
+}
+
+export interface LayoutPageAuthHeader {
+  isContextualMenu: boolean
+  i18nTitle: string
+}
+
+export interface LayoutPageAuthContent
+  extends Omit<LayoutAuthenticationPageProps, 'contextualMenu'> {
+  isContextualMenu: boolean
+}

@@ -1,11 +1,17 @@
 import classNames from 'classnames'
 import React, { ReactNode } from 'react'
+import { Box } from '@/ui/atoms'
 
 const Content = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={classNames('row-start-2 col-span-2', 'sm:col-span-1')}>
+    <Box
+      className={classNames(
+        'row-start-2 row-end-3 col-span-1',
+        'sm:px-6 sm:pt-6'
+      )}
+    >
       {children}
-    </div>
+    </Box>
   )
 }
 
