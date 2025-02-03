@@ -58,12 +58,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint src/ --max-warnings=0",
-      "prettier --write"
-    ]
-  },
   "name": "bancamania",
   "private": true,
   "scripts": {
@@ -73,7 +67,6 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint src/ --max-warnings=0 --no-cache",
     "lint:fix": "eslint --fix src/",
-    "prepare": "husky",
     "start": "next start",
     "storybook": "storybook dev -p 6006"
   },

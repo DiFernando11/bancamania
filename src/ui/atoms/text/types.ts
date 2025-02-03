@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import React, { ReactNode, ElementType } from 'react'
 
-export interface TextProps {
-  variant?: 'h1' | 'h2' | 'h3' | 'p' | 'span'
+export type TextProps<T extends ElementType = 'p'> = {
+  variant?: T
   textType?: 'headingLarge' | 'headingMedium' | 'headingSmall'
   className?: string
   children?: ReactNode
-}
+} & React.ComponentPropsWithoutRef<T>

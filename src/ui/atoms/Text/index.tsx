@@ -1,18 +1,23 @@
 import classNames from 'classnames'
-import React from 'react'
-import { TextProps } from '@/ui/atoms/text/types'
+import React, { ElementType } from 'react'
+import { TextProps } from './types'
 
-const Text: React.FC<TextProps> = ({
-  variant = 'p',
+const Text = <T extends ElementType = 'p'>({
+  variant,
   textType = 'headingMedium',
   className = '',
   children,
-}) => {
-  const Element = variant
+  ...props
+}: TextProps<T>) => {
+  const Element = (variant || 'p') as ElementType
 
   const combinedClasses = classNames(textType, className)
 
-  return <Element className={combinedClasses}>{children}</Element>
+  return (
+    <Element className={combinedClasses} {...props}>
+      {children}
+    </Element>
+  )
 }
 
 export default Text
