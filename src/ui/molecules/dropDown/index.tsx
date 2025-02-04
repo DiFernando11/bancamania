@@ -3,20 +3,34 @@ import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
-import { DropdownContent, DropdownItem, RecursiveDropdownProps } from './types'
+import { IconArrown, IconMinus, IconPlus } from './constants'
+import {
+  DropdownContent,
+  DropdownItemProps,
+  RecursiveDropdownProps,
+} from './types'
 
 const backgroundColors = ['#111111', '#222222', '#333333', '#444444']
 
-const DropDownItem: React.FC<{ item: DropdownItem; level: number }> = ({
+const DropDownItem: React.FC<DropdownItemProps> = ({
   item,
   level,
+  isRoot,
+  levelDifferent = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const backgroundColor =
     backgroundColors[Math.min(level, backgroundColors.length - 1)]
 
+  const childrenOpen = isOpen ? IconMinus : IconPlus
+  const iconName = isRoot ? IconArrown : childrenOpen
+
   return (
-    <li className='rounded-md'>
+    <li
+      className={classNames('', {
+        'border-l border-accent-200 rounded-b-lg': !isRoot,
+      })}
+    >
       <button
         onClick={() => {
           if (item.children) {
@@ -26,15 +40,20 @@ const DropDownItem: React.FC<{ item: DropdownItem; level: number }> = ({
             item.onClick()
           }
         }}
-        className='flex items-center w-full py-3 px-2 border-b border-bg-200'
+        className={classNames('flex items-center w-full py-3 px-2 border-b', {
+          'border-accent-200 rounded-b-lg': !isRoot,
+          'border-l shadow-bottom-accent rounded-lg ': isRoot,
+        })}
       >
-        <Box
-          className='h-1 rounded-sm'
-          style={{
-            backgroundColor,
-            width: `${level * 1}rem`,
-          }}
-        />
+        {levelDifferent && (
+          <Box
+            className='h-1 rounded-sm'
+            style={{
+              backgroundColor,
+              width: `${level * 1}rem`,
+            }}
+          />
+        )}
         <Box className='flex-1 ml-2 overflow-hidden'>{item.label}</Box>
         {item.children && (
           <Box
@@ -43,7 +62,11 @@ const DropDownItem: React.FC<{ item: DropdownItem; level: number }> = ({
               { 'rotate-0': !isOpen, 'rotate-180': isOpen }
             )}
           >
-            <Icon name='Arrown' width={12} height={12} />
+            <Icon
+              name={iconName.name}
+              width={iconName.size}
+              height={iconName.size}
+            />
           </Box>
         )}
       </button>
@@ -57,7 +80,12 @@ const DropDownItem: React.FC<{ item: DropdownItem; level: number }> = ({
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             {item.children.map((child, index) => (
-              <DropDownItem key={index} item={child} level={level + 1} />
+              <DropDownItem
+                key={index}
+                item={child}
+                level={level + 1}
+                isRoot={false}
+              />
             ))}
           </AnimationContainer>
         )}
@@ -68,9 +96,9 @@ const DropDownItem: React.FC<{ item: DropdownItem; level: number }> = ({
 
 const DropDown = ({ items }: RecursiveDropdownProps) => {
   return (
-    <ul className='w-full shadow-md rounded-md'>
+    <ul className='w-full shadow-lg rounded-md'>
       {items.map((item, index) => (
-        <DropDownItem key={index} item={item} level={0} />
+        <DropDownItem key={index} item={item} level={0} isRoot={true} />
       ))}
     </ul>
   )

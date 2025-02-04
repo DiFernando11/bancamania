@@ -12,9 +12,9 @@ const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
       id='Capa_1'
       x='0px'
       y='0px'
+      viewBox='0 0 284.929 284.929'
       width={width}
       height={height}
-      viewBox='0 0 284.929 284.929'
       fill={color}
       data-enable-background='new 0 0 284.929 284.929'
     >

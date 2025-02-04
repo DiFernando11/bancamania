@@ -6,6 +6,14 @@ export interface DropdownItem {
   onClick?: () => void
   children?: DropdownItem[]
 }
+
+export interface DropdownItemProps {
+  item: DropdownItem
+  level: number
+  isRoot: boolean
+  levelDifferent?: boolean
+}
+
 export interface DropdownContent {
   text: string
   nameIcon?: IconNames
@@ -13,4 +21,9 @@ export interface DropdownContent {
 
 export interface RecursiveDropdownProps {
   items: DropdownItem[]
+}
+
+export interface IconConfigureDropDown {
+  name: IconNames
+  size: number
 }

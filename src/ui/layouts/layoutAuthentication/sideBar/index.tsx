@@ -41,7 +41,7 @@ const SideBar = () => {
     <aside
       aria-label={t('aside')}
       className={classNames(
-        'py-4 px-1 hidden bg-bg-100',
+        'py-4 px-1 hidden',
         'row-start-2 col-start-1 col-span-1 ',
         'shadow-right-accent border-accent-200',
         'sm:block rounded-b-3xl'
