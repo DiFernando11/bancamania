@@ -1,12 +1,14 @@
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { useI18Text } from '@/application/hooks'
 import { useMenuBuild, useModal } from '@/shared/hooks'
-import { Box, Icon } from '@/ui/atoms'
+import { Box } from '@/ui/atoms'
 import DropDown from '../../dropDown'
 import Modal from '../modal'
 
 const ModalMenuBottom = () => {
+  const t = useI18Text()
   const route = useRouter()
   const { closeModal } = useModal()
   const handleClick = (path: string) => {
@@ -34,7 +36,7 @@ const ModalMenuBottom = () => {
       maxHeight={'calc(100vh - 80px)'}
     >
       <Modal.Header className='flex justify-between w-full items-center'>
-        <Modal.Title title='Que quieres hacer ?' />
+        <Modal.Title title={t('titleMenu')} />
         <Modal.Cerrar />
       </Modal.Header>
       <Box

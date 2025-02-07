@@ -1,6 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import './globals.css'
 import type { Metadata } from 'next'
+import { Roboto } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { ReactPortal } from '@/ui/atoms'
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
   title: 'Create Next App',
 }
 
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '500', '700'],
+})
+
 export default async function RootLayout({
   children,
 }: {
@@ -21,9 +28,9 @@ export default async function RootLayout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${roboto.variable}`}>
       <head />
-      <body>
+      <body className='font-roboto'>
         <ReactQueryProvider>
           <SessionAuthProvider>
             <NextIntlClientProvider messages={messages}>

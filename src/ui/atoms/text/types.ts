@@ -1,8 +1,17 @@
 import React, { ReactNode, ElementType } from 'react'
 
+export type TextType =
+  | 'headingLarge'
+  | 'headingMedium'
+  | 'headingSmall'
+  | 'font_14_fw_bold_fm_rob'
+  | 'font_16_fw_bold_fm_rob_text-200'
+  | 'font_16_fw_bold_fm_rob'
+  | 'font_20-30_fw_bold_fm_rob_text-200'
+
 export type TextProps<T extends ElementType = 'p'> = {
   variant?: T
-  textType?: 'headingLarge' | 'headingMedium' | 'headingSmall'
+  textType?: TextType
   className?: string
   children?: ReactNode
 } & React.ComponentPropsWithoutRef<T>

@@ -34,6 +34,9 @@ const config: Config = {
           200: 'var(--text-200)',
         },
       },
+      fontFamily: {
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+      },
       height: {
         'content-destokp': `calc(100vh - (80px + 1.5rem))`,
         'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
