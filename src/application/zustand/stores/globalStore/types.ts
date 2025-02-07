@@ -1,13 +1,17 @@
 import { ReactNode } from 'react'
 
-export interface ModalState {
-  isOpen: boolean
-  content: React.ReactNode | null
-  backgroundClassName?: string | null
+interface ModalOptions {
+  backgroundClassName?: string
   onCloseBackground?: () => void
-  openModal: (
-    content: React.ReactNode,
-    options?: { backgroundClassName?: string; onCloseBackground?: () => void }
-  ) => void
+}
+
+export interface ModalState {
+  backgroundClassName: string | null
+  content: ReactNode | null
+  isOpen: boolean
+  isVisible: boolean
+  onCloseBackground?: () => void
+  openModal: (content: ReactNode, options?: ModalOptions) => void
   closeModal: () => void
+  destroyModal: () => void
 }
