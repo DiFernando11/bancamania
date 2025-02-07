@@ -1,0 +1,9 @@
+{
+  "tarjetas": {
+    "layout": "private",
+    "middleware": null,
+    "path": "/tarjetas",
+    "code": "TARJETAS",
+    "enabled": true
+  }
+}
