@@ -2,14 +2,12 @@
 import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
-import { useModal } from '@/shared/hooks'
 import { Icon, Text } from '@/ui/atoms'
-import { Modal, ModalMenuBottom } from '@/ui/molecules'
+import { ModalMenuBottom } from '@/ui/molecules'
 import OptionsRight from './optionsRight'
 
 const Header = () => {
   const t = useI18Text('commonAriaLabel')
-  const { openModal } = useModal()
 
   return (
     <header
@@ -20,10 +18,7 @@ const Header = () => {
         'sm:col-span-2'
       )}
     >
-      <div
-        className='flex gap-2 justify-center items-center'
-        onClick={() => openModal(<ModalMenuBottom />)}
-      >
+      <div className='flex gap-2 justify-center items-center'>
         <Icon name='Logo' />
         <Text>BancaMania</Text>
       </div>

@@ -19,7 +19,11 @@ export const Icons: Story = {
   },
   render: () => (
     <Box className='flex justify-center items-center gap-5'>
-      <Icon name='Close' width={14} height={14} />
+      <Icon name='Close' width={60} height={60} />
+      <Icon name='Home' width={60} height={60} />
+      <Icon name='Transfers' width={60} height={60} />
+      <Icon name='Tarjetas' width={60} height={60} />
+      <Icon name='Logo' width={60} height={60} />
     </Box>
   ),
 }
