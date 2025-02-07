@@ -6,7 +6,7 @@ const Icon: React.FC<IconProps> = ({
   name,
   width,
   height,
-  color = 'currentColor',
+  color = 'white',
   ...props
 }) => {
   const IconComponent = iconsMap[name]
