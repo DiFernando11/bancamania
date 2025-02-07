@@ -2,12 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { findRouteByPath } from '@/shared/utils'
 import { getCurrentMiddleware } from './middlewareApp'
+import { codesEnabled } from './routes/access'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const currentPath = findRouteByPath(pathname)
 
-  if (!currentPath || !currentPath?.enabled) {
+  const { code, lineageCode } = currentPath ?? {}
+
+  const isCodeEnabled = codesEnabled[code as string] ?? false
+  const isLineageEnabled = lineageCode
+    ? (codesEnabled[lineageCode] ?? false)
+    : true
+
+  if (!currentPath || !isCodeEnabled || !isLineageEnabled) {
     return NextResponse.redirect(
       new URL(clientRoutes.notFound.path, request.url)
     )

@@ -1,6 +1,18 @@
-export const codesEnabled = {
+export const codesEnabled: Record<string, boolean> = {
   CONSOLIDADA: true,
   CUENTAS: true,
   CUENTAS_DETALLE: true,
+  LOGIN: true,
+  LOGIN_CREDENTIALS: true,
+  LOGIN_PHONE: true,
+  LOGIN_PHONE_VERIFY: true,
+  LOGIN_VALIDATE_CODE: true,
+  LOGIN_VERIFY_GOOGLE: true,
+  NOT_FOUND: true,
+  PERFIL: true,
+  REGISTER: true,
+  REGISTER_CRED: true,
+  REGISTER_CRED_CODE: true,
+  REGISTER_CRED_CONFIRM: true,
   TARJETAS: true,
 }

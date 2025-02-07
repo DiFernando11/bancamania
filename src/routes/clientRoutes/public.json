@@ -1,13 +1,11 @@
 {
   "login": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/login",
     "code": "LOGIN"
   },
   "loginCredentials": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/login/credentials",
@@ -15,7 +13,6 @@
     "lineageCode": "LOGIN"
   },
   "loginPhone": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/login/phone",
@@ -23,7 +20,6 @@
     "lineageCode": "LOGIN"
   },
   "loginValidateCode": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/login/phone/validateCode",
@@ -31,14 +27,12 @@
     "lineageCode": "LOGIN"
   },
   "register": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/register",
     "code": "REGISTER"
   },
   "registerCredentials": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/register/credentials",
@@ -46,7 +40,6 @@
     "code": "REGISTER_CRED"
   },
   "registerCredentialsConfirmCode": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/register/credentials/confirmCode",
@@ -54,7 +47,6 @@
     "code": "REGISTER_CRED_CONFIRM"
   },
   "registerCredentialsSendCode": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/register/credentials/sendCode",
@@ -62,7 +54,6 @@
     "code": "REGISTER_CRED_CODE"
   },
   "verificationCode": {
-    "enabled": true,
     "layout": "public",
     "middleware": "public",
     "path": "/login/phone/verifyCode",
@@ -70,7 +61,6 @@
     "lineageCode": "LOGIN"
   },
   "verifyGoogle": {
-    "enabled": true,
     "layout": "public",
     "middleware": "googleVerify",
     "path": "/login/verifyGoogle",
