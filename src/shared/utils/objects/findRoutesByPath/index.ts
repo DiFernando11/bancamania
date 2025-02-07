@@ -1,10 +1,11 @@
 import { clientRoutes } from '@/routes/clientRoutes'
 
 type RouteConfig = {
-  enabled: boolean
   layout: string
   middleware: string | null
   path: string
+  code: string
+  lineageCode?: string | null
 }
 
 type Routes = Record<string, RouteConfig>

@@ -3,7 +3,6 @@
     "layout": "private",
     "middleware": null,
     "path": "/tarjetas",
-    "code": "TARJETAS",
-    "enabled": true
+    "code": "TARJETAS"
   }
 }
