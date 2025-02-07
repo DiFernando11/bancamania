@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <Box
       className={classNames(
-        'flex shadow-top-accent px-4 rounded-t-xl items-center justify-between',
+        'flex shadow-top-accent rounded-t-xl items-center justify-between',
         'sm:hidden',
         'row-start-3 row-end-4 col-span-1'
       )}
