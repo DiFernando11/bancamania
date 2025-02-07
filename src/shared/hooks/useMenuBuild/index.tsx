@@ -1,21 +1,22 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { buildMenu } from '@/shared/utils'
 import { DropDown } from '@/ui/molecules'
 import { useCurrentPath } from '../useCurrentPath'
 
-export const useMenuBuild = () => {
+export const useMenuBuild = ({
+  handleClick,
+}: {
+  handleClick: (path: string) => void
+}) => {
   const { cuentas, tarjetas, consolidada } = clientRoutes
   const path = useCurrentPath()
-
-  const router = useRouter()
 
   const menuOptions = [
     {
       label: <DropDown.Content text='Mi Consolidada' />,
-      onClick: () => router.push(consolidada.path),
+      onClick: () => handleClick(consolidada.path),
       ...consolidada,
     },
     {
@@ -24,7 +25,7 @@ export const useMenuBuild = () => {
       children: [
         {
           label: <DropDown.Content text='Cuentas' />,
-          onClick: () => router.push(cuentas.path),
+          onClick: () => handleClick(cuentas.path),
           ...cuentas,
         },
       ],
@@ -35,7 +36,7 @@ export const useMenuBuild = () => {
       children: [
         {
           label: <DropDown.Content text='Tarjetas' />,
-          onClick: () => router.push(tarjetas.path),
+          onClick: () => handleClick(tarjetas.path),
           ...tarjetas,
         },
       ],

@@ -1,4 +1,5 @@
 export { default as FormField } from './formField'
 export { default as Avatar } from './avatar'
 export { default as Modal } from './modals/modal'
+export { default as ModalMenuBottom } from './modals/modalMenuBottom'
 export { default as DropDown } from './dropDown'
