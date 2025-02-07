@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React, { CSSProperties } from 'react'
-import { AnimationContainer, Text } from '@/ui/atoms'
+import { useModal } from '@/shared/hooks'
+import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
 import { ContentProps, ModalProps } from './types'
 
 const Modal = ({
@@ -32,8 +33,8 @@ const Modal = ({
   })
 
   const modalClasses = classNames(
-    'bg-white flex flex-col cursor-default pointer-events-auto',
-    'border-accent-200  dark:bg-bg-100',
+    'flex flex-col cursor-default pointer-events-auto',
+    'border-accent-200 bg-bg-100',
     {
       'rounded-e-lg border-r-4': position === 'left',
       'rounded-l-lg border-l-4': position === 'right',
@@ -50,7 +51,7 @@ const Modal = ({
   }
 
   return (
-    <div className={wrapperClasses}>
+    <Box className={wrapperClasses}>
       <AnimationContainer
         className={modalClasses}
         style={styles}
@@ -61,7 +62,7 @@ const Modal = ({
       >
         {children}
       </AnimationContainer>
-    </div>
+    </Box>
   )
 }
 
@@ -72,26 +73,37 @@ const TitleModal = ({ title }: { title: string }) => (
 )
 
 const Header = ({ children, className }: ContentProps) => (
-  <div className={classNames('border-b p-4 border-accent-100', className)}>
+  <Box className={classNames('border-b p-4 border-accent-100', className)}>
     {children}
-  </div>
+  </Box>
 )
 
 const Content = ({ children, className }: ContentProps) => (
-  <div className={classNames('flex-grow p-4 border-accent-100', className)}>
+  <Box className={classNames('flex-grow p-4 border-accent-100', className)}>
     {children}
-  </div>
+  </Box>
 )
 
 const Footer = ({ children, className }: ContentProps) => (
-  <div className={classNames('border-t p-4 border-accent-100', className)}>
+  <Box className={classNames('border-t p-4 border-accent-100', className)}>
     {children}
-  </div>
+  </Box>
 )
+
+const CerrarModal = () => {
+  const { closeModal } = useModal()
+
+  return (
+    <Box onClick={closeModal} className='cursor-pointer'>
+      <Icon name='Close' width={14} height={14} />
+    </Box>
+  )
+}
 
 Modal.Header = Header
 Modal.Content = Content
 Modal.Footer = Footer
 Modal.Title = TitleModal
+Modal.Cerrar = CerrarModal
 
 export default Modal

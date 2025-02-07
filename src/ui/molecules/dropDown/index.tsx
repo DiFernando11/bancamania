@@ -1,5 +1,6 @@
 'use client'
 
+import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
@@ -67,8 +68,10 @@ const DropDown = ({ items, component: Component }: RecursiveDropdownProps) => {
   )
 }
 
-const Content = ({ text, nameIcon }: DropdownContent) => (
-  <Box className='flex justify-center items-center gap-2'>
+const Content = ({ text, nameIcon, className }: DropdownContent) => (
+  <Box
+    className={classNames('flex justify-center items-center gap-2', className)}
+  >
     {nameIcon && <Icon name={nameIcon} width={12} height={12} />}
     <Text className='truncate block w-full text-left' title={text}>
       {text}

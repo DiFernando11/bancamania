@@ -19,17 +19,14 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
           item.onClick()
         }
       }}
-      className={classNames(
-        'flex items-center w-full py-4 px-2 border-b border-l',
-        {
-          'bg-accent-230': item?.isActive,
-          'border-accent-200 rounded-b-lg': !isRoot,
-          'border-l shadow-bottom-accent rounded-lg ': isRoot,
-          'cursor-default': item?.isChildrenActive || item?.isActive,
-        }
-      )}
+      className={classNames('flex items-center w-full p-4 border-b', {
+        'bg-accent-230': item?.isActive,
+        'border-accent-200 rounded-b-lg': !isRoot,
+        'cursor-default': item?.isChildrenActive || item?.isActive,
+        'shadow-bottom-accent rounded-lg ': isRoot,
+      })}
     >
-      <Box className='flex-1 ml-2 overflow-hidden'>{item.label}</Box>
+      <Box className='flex-1 overflow-hidden'>{item.label}</Box>
       {item.children && (
         <Box
           className={classNames('ml-2 transition-all duration-300 transform', {

@@ -1,5 +1,6 @@
 'use client'
 import classNames from 'classnames'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
 import { useMenuBuild } from '@/shared/hooks'
@@ -8,7 +9,9 @@ import { DropDown } from '@/ui/molecules'
 
 const SideBar = () => {
   const t = useI18Text('commonAriaLabel')
-  const { menu } = useMenuBuild()
+  const router = useRouter()
+  const handleClick = (path: string) => router.push(path)
+  const { menu } = useMenuBuild({ handleClick })
 
   return (
     <aside
