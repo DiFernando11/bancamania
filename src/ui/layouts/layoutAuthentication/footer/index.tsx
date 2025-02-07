@@ -2,6 +2,7 @@
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { useModal } from '@/shared/hooks'
 import { Box, Icon, Text } from '@/ui/atoms'
@@ -10,6 +11,7 @@ import { ModalMenuBottom } from '@/ui/molecules'
 const Footer = () => {
   const router = useRouter()
   const { openModal } = useModal()
+  const t = useI18Text()
 
   return (
     <Box
@@ -30,7 +32,9 @@ const Footer = () => {
         onClick={() => openModal(<ModalMenuBottom />)}
       >
         <Icon name='Logo' width={50} height={50} />
-        <Text className='text-sm mt-1'>Menu</Text>
+        <Text className='mt-1' textType='font_14_fw_bold_fm_rob'>
+          {t('menu')}
+        </Text>
       </Box>
       <Box className='flex-1 flex justify-center items-center text-sm cursor-pointer'>
         <Icon name='Transfers' />

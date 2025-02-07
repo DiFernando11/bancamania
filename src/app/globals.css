@@ -41,3 +41,22 @@ div {
     text-wrap: balance;
   }
 }
+
+/* fonts  */
+
+.font_14_fw_bold_fm_rob {
+  @apply text-sm font-bold font-roboto;
+}
+
+.font_16_fw_bold_fm_rob {
+  @apply text-base font-bold font-roboto;
+}
+
+.font_16_fw_bold_fm_rob_text-200 {
+  @apply text-base font-bold font-roboto text-primary-200;
+}
+
+.font_20-30_fw_bold_fm_rob_text-200 {
+  @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
+}
+

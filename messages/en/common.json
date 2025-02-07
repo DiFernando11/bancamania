@@ -1,4 +1,12 @@
 {
-  "hello": "Hola",
-  "world": "Mundo"
+  "menu": "Menú",
+  "titleMenu": "What do you want to do ?",
+  "titlePage": "Bancamania",
+  "option": {
+    "consolidada": "My consolidated",
+    "misCuentas": "My accounts",
+    "cuentas": "Accounts",
+    "misTarjetas": "My Cards",
+    "tarjetas": "Cards"
+  }
 }

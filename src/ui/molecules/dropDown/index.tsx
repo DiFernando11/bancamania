@@ -68,12 +68,21 @@ const DropDown = ({ items, component: Component }: RecursiveDropdownProps) => {
   )
 }
 
-const Content = ({ text, nameIcon, className }: DropdownContent) => (
+const Content = ({
+  text,
+  nameIcon,
+  className,
+  textClassName,
+}: DropdownContent) => (
   <Box
     className={classNames('flex justify-center items-center gap-2', className)}
   >
     {nameIcon && <Icon name={nameIcon} width={12} height={12} />}
-    <Text className='truncate block w-full text-left' title={text}>
+    <Text
+      className={classNames('truncate block w-full text-left', textClassName)}
+      title={text}
+      textType='font_16_fw_bold_fm_rob'
+    >
       {text}
     </Text>
   </Box>

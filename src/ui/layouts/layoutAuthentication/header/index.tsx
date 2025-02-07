@@ -3,11 +3,11 @@ import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
 import { Icon, Text } from '@/ui/atoms'
-import { ModalMenuBottom } from '@/ui/molecules'
 import OptionsRight from './optionsRight'
 
 const Header = () => {
   const t = useI18Text('commonAriaLabel')
+  const tCommon = useI18Text()
 
   return (
     <header
@@ -20,7 +20,13 @@ const Header = () => {
     >
       <div className='flex gap-2 justify-center items-center'>
         <Icon name='Logo' />
-        <Text>BancaMania</Text>
+        <Text
+          variant='h4'
+          textType='font_20-30_fw_bold_fm_rob_text-200'
+          className='uppercase'
+        >
+          {tCommon('titlePage')}
+        </Text>
       </div>
       <OptionsRight />
     </header>
