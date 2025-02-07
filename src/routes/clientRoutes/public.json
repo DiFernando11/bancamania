@@ -3,60 +3,78 @@
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/login"
+    "path": "/login",
+    "code": "LOGIN"
   },
   "loginCredentials": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/login/credentials"
+    "path": "/login/credentials",
+    "code": "LOGIN_CREDENTIALS",
+    "lineageCode": "LOGIN"
   },
   "loginPhone": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/login/phone"
+    "path": "/login/phone",
+    "code": "LOGIN_PHONE",
+    "lineageCode": "LOGIN"
   },
   "loginValidateCode": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/login/phone/validateCode"
+    "path": "/login/phone/validateCode",
+    "code": "LOGIN_VALIDATE_CODE",
+    "lineageCode": "LOGIN"
   },
   "register": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/register"
+    "path": "/register",
+    "code": "REGISTER"
   },
   "registerCredentials": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/register/credentials"
+    "path": "/register/credentials",
+    "lineageCode": "REGISTER",
+    "code": "REGISTER_CRED"
   },
   "registerCredentialsConfirmCode": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/register/credentials/confirmCode"
+    "path": "/register/credentials/confirmCode",
+    "lineageCode": "REGISTER",
+    "code": "REGISTER_CRED_CONFIRM"
   },
   "registerCredentialsSendCode": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/register/credentials/sendCode"
+    "path": "/register/credentials/sendCode",
+    "lineageCode": "REGISTER",
+    "code": "REGISTER_CRED_CODE"
   },
   "verificationCode": {
     "enabled": true,
     "layout": "public",
     "middleware": "public",
-    "path": "/login/phone/verifyCode"
+    "path": "/login/phone/verifyCode",
+    "code": "LOGIN_PHONE_VERIFY",
+    "lineageCode": "LOGIN"
   },
   "verifyGoogle": {
     "enabled": true,
     "layout": "public",
     "middleware": "googleVerify",
-    "path": "/login/verifyGoogle"
+    "path": "/login/verifyGoogle",
+    "code": "LOGIN_VERIFY_GOOGLE",
+    "lineageCode": "LOGIN"
   }
 }

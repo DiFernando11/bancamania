@@ -1,0 +1,17 @@
+{
+  "cuentas": {
+    "layout": "private",
+    "middleware": null,
+    "path": "/cuentas",
+    "enabled": true,
+    "code": "CUENTAS"
+  },
+  "cuentasDetalle": {
+    "layout": "private",
+    "middleware": null,
+    "enabled": true,
+    "path": "/cuentas/id",
+    "code": "CUENTAS_DETALLE",
+    "lineageCode": "CUENTAS"
+  }
+}

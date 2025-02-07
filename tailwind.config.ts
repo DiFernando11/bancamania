@@ -17,6 +17,7 @@ const config: Config = {
         accent: {
           100: 'var(--accent-100)',
           200: 'var(--accent-200)',
+          230: 'var(--accent-230)',
         },
         bg: {
           100: 'var(--bg-100)',
@@ -36,6 +37,7 @@ const config: Config = {
       height: {
         'content-destokp': `calc(100vh - (80px + 1.5rem))`,
         'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
+        'menu-destokp': `calc(100vh - 80px)`,
       },
     },
   },
