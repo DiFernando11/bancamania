@@ -5,20 +5,13 @@ import { createPortal } from 'react-dom'
 import { useModalStore } from '@/application/zustand'
 
 const ReactPortal: React.FC = () => {
-  const {
-    isOpen,
-    content,
-    closeModal,
-    backgroundClassName,
-    onCloseBackground,
-  } = useModalStore()
+  const { isOpen, content, backgroundClassName, onCloseBackground } =
+    useModalStore()
   if (!isOpen) return null
 
   const handleCloseBackground = () => {
     if (onCloseBackground) {
       onCloseBackground()
-    } else {
-      closeModal()
     }
   }
 

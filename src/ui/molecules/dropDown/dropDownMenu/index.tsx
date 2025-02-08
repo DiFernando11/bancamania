@@ -15,7 +15,7 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
         if (item.children && !item?.isChildrenActive) {
           setIsOpen(!isOpen)
         }
-        if (item.onClick) {
+        if (item.onClick && !item?.isActive) {
           item.onClick()
         }
       }}

@@ -1,5 +1,7 @@
+'use client'
 import classNames from 'classnames'
-import React, { CSSProperties } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import React, { CSSProperties, useState } from 'react'
 import { useModal } from '@/shared/hooks'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
 import { ContentProps, ModalProps } from './types'
@@ -15,6 +17,7 @@ const Modal = ({
   children,
 }: ModalProps) => {
   const isVertical = position === 'left' || position === 'right'
+  const { closeModal, destroyModal, isVisible } = useModal()
 
   const styles: CSSProperties = {
     height: height || (isVertical ? '100vh' : 'auto'),
@@ -44,25 +47,58 @@ const Modal = ({
   )
 
   const animations = {
-    bottom: { animate: { y: 0 }, initial: { y: '100%' } },
-    center: { animate: { x: 0, y: 0 }, initial: { x: '200%' } },
-    left: { animate: { x: 0 }, initial: { x: '-100%' } },
-    right: { animate: { x: 0 }, initial: { x: '100%' } },
+    bottom: {
+      animate: { y: 0 },
+      exit: { y: '100%' },
+      initial: { y: '100%' },
+    },
+    center: {
+      animate: { x: 0, y: 0 },
+      exit: { x: '200%' },
+      initial: { x: '200%', y: 0 },
+    },
+    left: {
+      animate: { x: 0 },
+      exit: { x: '-100%' },
+      initial: { x: '-100%' },
+    },
+    right: {
+      animate: { x: 0 },
+      exit: { x: '100%' },
+      initial: { x: '100%' },
+    },
   }
 
   return (
-    <Box className={wrapperClasses}>
-      <AnimationContainer
-        className={modalClasses}
-        style={styles}
-        onClick={e => e.stopPropagation()}
-        initial={animations[position]?.initial}
-        animate={animations[position]?.animate}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-      >
-        {children}
-      </AnimationContainer>
-    </Box>
+    <AnimatePresence
+      onExitComplete={() => {
+        destroyModal()
+      }}
+    >
+      {isVisible && (
+        <AnimationContainer
+          key='overlay'
+          className={wrapperClasses}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 1 }}
+          onClick={closeModal}
+        >
+          <AnimationContainer
+            key='modal'
+            className={modalClasses}
+            style={styles}
+            onClick={e => e.stopPropagation()}
+            initial={animations[position].initial}
+            animate={animations[position].animate}
+            exit={animations[position].exit}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            {children}
+          </AnimationContainer>
+        </AnimationContainer>
+      )}
+    </AnimatePresence>
   )
 }
 

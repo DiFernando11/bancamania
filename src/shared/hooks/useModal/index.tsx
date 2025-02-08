@@ -2,7 +2,12 @@
 import { useModalStore } from '@/application/zustand'
 
 export const useModal = () => {
-  const { openModal, closeModal } = useModalStore()
+  const { openModal, closeModal, isVisible, destroyModal } = useModalStore()
 
-  return { closeModal, openModal }
+  return {
+    closeModal,
+    destroyModal,
+    isVisible,
+    openModal,
+  }
 }
