@@ -18,7 +18,7 @@ const Header = () => {
         'sm:col-span-2'
       )}
     >
-      <div className='flex gap-2 justify-center items-center'>
+      <Box className='flex gap-2 justify-center items-center'>
         <Box className='hidden sm:block'>
           <Icon name='Logo' />
         </Box>
@@ -29,7 +29,7 @@ const Header = () => {
         >
           {tCommon('titlePage')}
         </Text>
-      </div>
+      </Box>
       <OptionsRight />
     </header>
   )
