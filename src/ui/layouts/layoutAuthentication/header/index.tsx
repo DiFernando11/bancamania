@@ -2,7 +2,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
-import { Icon, Text } from '@/ui/atoms'
+import { Box, Icon, Text } from '@/ui/atoms'
 import OptionsRight from './optionsRight'
 
 const Header = () => {
@@ -19,7 +19,9 @@ const Header = () => {
       )}
     >
       <div className='flex gap-2 justify-center items-center'>
-        <Icon name='Logo' />
+        <Box className='hidden sm:block'>
+          <Icon name='Logo' />
+        </Box>
         <Text
           variant='h4'
           textType='font_20-30_fw_bold_fm_rob_text-200'
