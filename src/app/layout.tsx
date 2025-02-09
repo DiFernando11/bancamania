@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 import { ReactPortal } from '@/ui/atoms'
 import { DefineLayoutType } from '@/ui/layouts'
+import InitialClientApp from './initialClientApp'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
 export const metadata: Metadata = {
@@ -34,8 +35,7 @@ export default async function RootLayout({
         <ReactQueryProvider>
           <SessionAuthProvider>
             <NextIntlClientProvider messages={messages}>
-              <ReactPortal />
-              <DefineLayoutType>{children}</DefineLayoutType>
+              <InitialClientApp locale={locale}>{children}</InitialClientApp>
             </NextIntlClientProvider>
           </SessionAuthProvider>
         </ReactQueryProvider>

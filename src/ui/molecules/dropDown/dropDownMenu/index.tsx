@@ -19,10 +19,13 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
           item.onClick()
         }
       }}
+      aria-disabled={item?.isLoading}
+      disabled={item?.isLoading}
       className={classNames('flex items-center w-full p-4 border-b', {
         'bg-accent-230': item?.isActive,
         'border-accent-200 rounded-b-lg': !isRoot,
         'cursor-default': item?.isChildrenActive || item?.isActive,
+        'cursor-wait bg-loading-100': item?.isLoading,
         'shadow-bottom-accent rounded-lg ': isRoot,
       })}
     >

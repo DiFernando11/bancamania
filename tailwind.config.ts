@@ -24,6 +24,9 @@ const config: Config = {
           200: 'var(--bg-200)',
           300: 'var(--bg-300)',
         },
+        loading: {
+          100: 'var(--loading-100)',
+        },
         primary: {
           100: 'var(--primary-100)',
           200: 'var(--primary-200)',

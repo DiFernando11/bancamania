@@ -3,6 +3,7 @@
   "titleMenu": "Qué es lo que quieres hacer ?",
   "titlePage": "Bancamania",
   "logout": "Cerrar Sesión",
+  "languague": "Cambiar idioma - {locale}",
   "option": {
     "consolidada": "Mi Consolidada",
     "misCuentas": "Mis Cuentas",
