@@ -2,8 +2,14 @@ import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
-import { useChangeLang, useMenuBuild, useModal } from '@/shared/hooks'
-import { Box } from '@/ui/atoms'
+import { useLogoutRedirect } from '@/application/useCases'
+import {
+  useChangeLang,
+  useLottieMethods,
+  useMenuBuild,
+  useModal,
+} from '@/shared/hooks'
+import { Box, LottieLogout, Text } from '@/ui/atoms'
 import { ChangeLangComponent } from '@/ui/organisms'
 import DropDown from '../../dropDown'
 import Modal from '../modal'
@@ -12,6 +18,7 @@ const ModalMenuBottom = () => {
   const t = useI18Text()
   const route = useRouter()
   const { handleChangeLanguage, isLoading } = useChangeLang()
+  const { handleActionService } = useLogoutRedirect()
 
   const { closeModal } = useModal()
   const handleClick = (path: string) => {
@@ -22,19 +29,18 @@ const ModalMenuBottom = () => {
 
   const additionalOptions = [
     {
-      label: <DropDown.Content text='Cerrar Session' />,
-    },
-    {
-      label: (
-        <DropDown.Content text='Ultima conexion' className='cursor-default' />
-      ),
-    },
-    {
       isLoading,
       label: <ChangeLangComponent />,
       onClick: () => {
         closeModal()
         handleChangeLanguage()
+      },
+    },
+    {
+      label: <DropDown.Content text={t('logout')} nameIcon='Logout' />,
+      onClick: () => {
+        closeModal()
+        handleActionService({})
       },
     },
   ]
