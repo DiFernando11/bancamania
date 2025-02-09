@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Logout: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 30,
-  height = 30,
+  width = 38,
+  height = 38,
 }) => {
   return (
     <svg

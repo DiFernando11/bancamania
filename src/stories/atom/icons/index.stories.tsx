@@ -25,6 +25,7 @@ export const Icons: Story = {
       <Icon name='Tarjetas' width={60} height={60} />
       <Icon name='Logo' width={60} height={60} />
       <Icon name='Logout' width={60} height={60} />
+      <Icon name='Account' width={60} height={60} />
     </Box>
   ),
 }

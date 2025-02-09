@@ -14,7 +14,6 @@ const ChangeLangComponent = () => {
       })}
       nameIcon='Language'
       className='text-left'
-      size={30}
     />
   )
 }
