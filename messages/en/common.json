@@ -2,6 +2,7 @@
   "menu": "Menú",
   "titleMenu": "What do you want to do ?",
   "titlePage": "Bancamania",
+  "languague": "Change language - {locale}",
   "logout": "Log out",
   "option": {
     "consolidada": "My consolidated",

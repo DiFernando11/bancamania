@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { useCurrentPath } from '@/shared/hooks'
 import { DefineLayoutTypeProps, LayoutMap } from './types'

@@ -1,2 +1,2 @@
 export { useSendService } from './useSendService'
-export { useChangeLanguage } from './useLanguage'
+export { useChangeLanguage } from './useChangeLanguage'

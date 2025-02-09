@@ -1,19 +1,20 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { changeLanguageService } from '@/application/adapters/htpp'
-import { AuthenticationResponse, Languague, SendServiceTypes } from '@/shared'
+import { GetLanguage, Languague, SendServiceTypes } from '@/shared'
 import { useSendService } from '../../generics'
 
 export const useChangeLanguage = (): SendServiceTypes<
-  AuthenticationResponse,
+  GetLanguage,
   Languague
 > => {
   const router = useRouter()
-  const queryResult = useSendService<AuthenticationResponse, Languague>(
-    async ({ lang }) => changeLanguageService({ lang })
+  const queryResult = useSendService<GetLanguage, Languague>(async ({ lang }) =>
+    changeLanguageService({ lang })
   )
 
   return {
+    data: queryResult.data,
     handleActionService: ({ lang }: Languague) => {
       queryResult.mutate(
         { lang },

@@ -7,6 +7,7 @@ export interface DropdownItem {
   children?: DropdownItem[]
   isChildrenActive?: boolean
   isActive?: boolean
+  isLoading?: boolean
 }
 
 export interface DropdownItemProps {
@@ -22,6 +23,7 @@ export interface DropdownContent {
   nameIcon?: IconNames
   className?: string
   textClassName?: string
+  size?: number
 }
 
 export interface RecursiveDropdownProps {

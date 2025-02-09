@@ -25,3 +25,13 @@ export const useModalStore = create<ModalState>(set => ({
       onCloseBackground: options?.onCloseBackground,
     }),
 }))
+
+interface GlobalStoreState {
+  locale: string | null
+  setLocale: (locale: string) => void
+}
+
+export const useGlobalStore = create<GlobalStoreState>(set => ({
+  locale: null,
+  setLocale: locale => set({ locale }),
+}))

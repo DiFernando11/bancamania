@@ -2,14 +2,17 @@ import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
-import { useMenuBuild, useModal } from '@/shared/hooks'
+import { useChangeLang, useMenuBuild, useModal } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
+import { ChangeLangComponent } from '@/ui/organisms'
 import DropDown from '../../dropDown'
 import Modal from '../modal'
 
 const ModalMenuBottom = () => {
   const t = useI18Text()
   const route = useRouter()
+  const { handleChangeLanguage, isLoading } = useChangeLang()
+
   const { closeModal } = useModal()
   const handleClick = (path: string) => {
     route.push(path)
@@ -25,6 +28,14 @@ const ModalMenuBottom = () => {
       label: (
         <DropDown.Content text='Ultima conexion' className='cursor-default' />
       ),
+    },
+    {
+      isLoading,
+      label: <ChangeLangComponent />,
+      onClick: () => {
+        closeModal()
+        handleChangeLanguage()
+      },
     },
   ]
 

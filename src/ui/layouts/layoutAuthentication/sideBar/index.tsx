@@ -6,6 +6,7 @@ import { useI18Text } from '@/application/hooks/commons'
 import { useMenuBuild } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import { DropDown } from '@/ui/molecules'
+import BottomSideBar from './bottomSideBar'
 
 const SideBar = () => {
   const t = useI18Text('commonAriaLabel')
@@ -36,14 +37,7 @@ const SideBar = () => {
         >
           <DropDown items={menu} component={DropDown.Menu} />
         </Box>
-        <Box className='flex flex-col border-t-2 border-accent-200'>
-          <button className='text-left p-4'>
-            <DropDown.Content text='Detalle' />
-          </button>
-          <button className='text-left p-4 border-t border-accent-200'>
-            <DropDown.Content text='Detalle' />
-          </button>
-        </Box>
+        <BottomSideBar />
       </Box>
     </aside>
   )

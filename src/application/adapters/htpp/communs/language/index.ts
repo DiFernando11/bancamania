@@ -1,16 +1,16 @@
 import { apiRoutes } from '@/routes/apiRoutes'
-import { AuthenticationResponse, Languague } from '@/shared'
+import { GetLanguage, Languague } from '@/shared'
 import { apiRequestInternal } from '@/shared/utils'
 
 export const changeLanguageService = async ({
   lang,
-}: Languague): Promise<AuthenticationResponse> => {
-  const response = apiRequestInternal<AuthenticationResponse, Languague>({
+}: Languague): Promise<GetLanguage> => {
+  const response = apiRequestInternal<GetLanguage, Languague>({
     data: {
       lang,
     },
 
-    url: apiRoutes.internas.internalLanguage,
+    url: apiRoutes.internas.internalChangeLanguage,
   })
 
   return response
