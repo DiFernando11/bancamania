@@ -41,6 +41,27 @@ div {
   .text-balance {
     text-wrap: balance;
   }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 0.5rem;
+    cursor: pointer;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #2e7d324f;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-100);
+  }
 }
 
 /* fonts  */
