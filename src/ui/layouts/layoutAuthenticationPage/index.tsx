@@ -14,7 +14,7 @@ const LayoutAuthenticationPage = ({
     <Box
       className={classNames('grid gap-6', 'h-full', {
         'grid-cols-1': !contextualMenu,
-        'md:grid-cols-[1fr_180px]': contextualMenu,
+        'lg:grid-cols-[1fr_180px]': contextualMenu,
       })}
     >
       <Content
@@ -28,7 +28,7 @@ const LayoutAuthenticationPage = ({
         <div
           className={classNames(
             'hidden border items-center justify-center',
-            'md:flex',
+            'lg:flex',
             'h-20'
           )}
         >

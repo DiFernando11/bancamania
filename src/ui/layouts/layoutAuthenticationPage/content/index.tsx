@@ -24,8 +24,8 @@ const Content = ({
       <main
         aria-label={tArialabel('main')}
         className={classNames(
-          'grid rounded-t-3xl w-full h-content-mobile',
-          'sm:shadow-all-accent lg:w-5/6 sm:h-content-destokp sm:pt-4',
+          'grid rounded-t-3xl w-full h-content-mobile mx-w-30',
+          'sm:h-content-tablet lg:shadow-all-accent lg:h-content-destokp lg:pt-4',
           {
             'grid-rows-[1fr]': !footerBox,
             'grid-rows-[1fr_auto]': footerBox,
@@ -33,7 +33,13 @@ const Content = ({
         )}
       >
         <Box className={classNames('overflow-auto scrollbar-custom')}>
-          <Box className='pl-4 pr-2'>
+          <Box
+            className={classNames(
+              'pl-4 pr-2 pt-0',
+              'sm:pl-8 sm:pr-6 sm:pt-8',
+              'lg:pl-4 lg:pr-2 lg:pt-0'
+            )}
+          >
             <Header isContextualMenu={isContextualMenu} i18nTitle={i18nTitle} />
             <Box>{children}</Box>
           </Box>

@@ -7,7 +7,7 @@ const Content = ({ children }: { children: ReactNode }) => {
     <Box
       className={classNames(
         'row-start-2 row-end-3 col-span-1',
-        'sm:px-6 sm:pt-6'
+        'lg:px-6 lg:pt-6'
       )}
     >
       {children}
