@@ -29,12 +29,7 @@ const SideBar = () => {
           'grid h-menu-destokp w-full grid-rows-[1fr_auto]'
         )}
       >
-        <Box
-          className={classNames('overflow-auto')}
-          style={{
-            scrollbarWidth: 'none',
-          }}
-        >
+        <Box className={classNames('overflow-auto scrollbar-custom')}>
           <DropDown items={menu} component={DropDown.Menu} />
         </Box>
         <BottomSideBar />
