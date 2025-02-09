@@ -43,6 +43,7 @@ const config: Config = {
       height: {
         'content-destokp': `calc(100vh - (80px + 1.5rem))`,
         'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
+        'content-tablet': `calc(100vh - (80px))`,
         'menu-destokp': `calc(100vh - 80px)`,
       },
     },

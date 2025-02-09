@@ -10,7 +10,7 @@ const Header = ({ isContextualMenu, i18nTitle }: LayoutPageAuthHeader) => {
     <div className='flex items-center '>
       <h1>{t('title')}</h1>
       {isContextualMenu && (
-        <span className={classNames('ml-auto flex', 'md:hidden')}>...</span>
+        <span className={classNames('ml-auto flex', 'lg:hidden')}>...</span>
       )}
     </div>
   )

@@ -62,6 +62,10 @@ div {
   .scrollbar-custom::-webkit-scrollbar-thumb:hover {
     background: var(--primary-100);
   }
+
+  .mx-w-30 {
+    max-width: 60rem;
+  }
 }
 
 /* fonts  */
