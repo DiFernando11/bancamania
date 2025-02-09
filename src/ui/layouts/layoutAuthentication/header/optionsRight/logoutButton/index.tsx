@@ -1,10 +1,12 @@
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
+import { useLogoutRedirect } from '@/application/useCases'
 import { useLottieMethods } from '@/shared/hooks'
 import { Box, LottieLogout, Text } from '@/ui/atoms'
 
 const LogoutButton = () => {
   const { lottieRef, play, reset, setSpeed } = useLottieMethods()
+  const { handleActionService } = useLogoutRedirect()
   const t = useI18Text()
 
   const playAnimation = () => {
@@ -14,6 +16,7 @@ const LogoutButton = () => {
 
   return (
     <button
+      onClick={handleActionService}
       onMouseEnter={playAnimation}
       onMouseLeave={reset}
       className='rounded-md rounded-br-3xl
