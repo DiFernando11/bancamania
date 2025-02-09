@@ -6,6 +6,7 @@ export type TextType =
   | 'headingSmall'
   | 'font_14_fw_bold_fm_rob'
   | 'font_16_fw_bold_fm_rob_text-200'
+  | 'font_18_fw_bold_fm_rob_text-200'
   | 'font_16_fw_bold_fm_rob'
   | 'font_20-30_fw_bold_fm_rob_text-200'
 

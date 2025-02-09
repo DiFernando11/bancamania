@@ -57,6 +57,10 @@ div {
   @apply text-base font-bold font-roboto text-primary-200;
 }
 
+.font_18_fw_bold_fm_rob_text-200 {
+  @apply text-lg font-bold font-roboto text-primary-200;
+}
+
 .font_20-30_fw_bold_fm_rob_text-200 {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
 }

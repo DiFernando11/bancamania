@@ -103,7 +103,7 @@ const Modal = ({
 }
 
 const TitleModal = ({ title }: { title: string }) => (
-  <Text textType='font_16_fw_bold_fm_rob_text-200' variant='h3'>
+  <Text textType='font_18_fw_bold_fm_rob_text-200' variant='h3'>
     {title}
   </Text>
 )

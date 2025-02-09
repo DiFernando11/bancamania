@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Languague: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 60,
-  height = 60,
+  width = 38,
+  height = 38,
 }) => {
   return (
     <svg
@@ -27,7 +27,10 @@ const Languague: React.FC<React.SVGProps<SVGSVGElement>> = ({
             className='color000000 svgShape'
           ></path>
           <path
-            d='M25,6H7a5.006,5.006,0,0,0-5,5V23a5.006,5.006,0,0,0,5,5H8v3.293a1.5,1.5,0,0,0,2.561,1.061L14.914,28H16V22a6.956,6.956,0,0,1,.3-2H13.462L11.91,23.414a1,1,0,0,1-1.82-.828l5-11a1,1,0,0,1,1.82,0l2.117,4.657h0A6.952,6.952,0,0,1,23,15h7V11A5.006,5.006,0,0,0,25,6Z'
+            d='M25,6H7a5.006,5.006,0,0,0-5,5V23a5.006,5.006,0,0,0,5,5H8v3.293a1.5,
+            1.5,0,0,0,2.561,1.061L14.914,28H16V22a6.956,6.956,0,0,1,.3-2H13.462L11.91,
+            23.414a1,1,0,0,1-1.82-.828l5-11a1,1,0,0,1,1.82,0l2.117,4.657h0A6.952,6.952,
+            0,0,1,23,15h7V11A5.006,5.006,0,0,0,25,6Z'
             fill='#14ce81'
             className='color000000 svgShape'
           ></path>

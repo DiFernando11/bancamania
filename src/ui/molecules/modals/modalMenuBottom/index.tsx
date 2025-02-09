@@ -3,13 +3,8 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { useLogoutRedirect } from '@/application/useCases'
-import {
-  useChangeLang,
-  useLottieMethods,
-  useMenuBuild,
-  useModal,
-} from '@/shared/hooks'
-import { Box, LottieLogout, Text } from '@/ui/atoms'
+import { useChangeLang, useMenuBuild, useModal } from '@/shared/hooks'
+import { Box } from '@/ui/atoms'
 import { ChangeLangComponent } from '@/ui/organisms'
 import DropDown from '../../dropDown'
 import Modal from '../modal'

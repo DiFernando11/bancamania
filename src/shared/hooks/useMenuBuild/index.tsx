@@ -24,6 +24,7 @@ export const useMenuBuild = ({
         <DropDown.Content
           text={t('option.consolidada')}
           textClassName={textClass(consolidada.path)}
+          nameIcon='Home'
         />
       ),
       onClick: () => handleClick(consolidada.path),
@@ -33,6 +34,7 @@ export const useMenuBuild = ({
       label: (
         <DropDown.Content
           text={t('option.misCuentas')}
+          nameIcon='Account'
           textClassName={textClass(cuentas.path, false)}
         />
       ),
@@ -53,6 +55,7 @@ export const useMenuBuild = ({
     {
       label: (
         <DropDown.Content
+          nameIcon='Tarjetas'
           text={t('option.misTarjetas')}
           textClassName={textClass(tarjetas.path, false)}
         />
