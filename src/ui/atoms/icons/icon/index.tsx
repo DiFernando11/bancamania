@@ -7,13 +7,22 @@ const Icon: React.FC<IconProps> = ({
   width,
   height,
   color = 'white',
+  className,
   ...props
 }) => {
   const IconComponent = iconsMap[name]
 
   if (!IconComponent) return null
 
-  return <IconComponent width={width} height={height} fill={color} {...props} />
+  return (
+    <IconComponent
+      width={width}
+      className={className}
+      height={height}
+      fill={color}
+      {...props}
+    />
+  )
 }
 
 export default Icon

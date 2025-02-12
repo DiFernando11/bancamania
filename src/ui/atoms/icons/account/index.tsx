@@ -1,17 +1,13 @@
 /* eslint-disable max-len */
 import React from 'react'
 
-const Account: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 38,
-  height = 38,
-}) => {
+const Account: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 512 512'
       id='Book'
-      width={width}
-      height={height}
+      className={className}
     >
       <path
         fill='#14ce81'

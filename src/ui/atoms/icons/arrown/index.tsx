@@ -1,9 +1,8 @@
 import React from 'react'
 
 const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 60,
-  height = 60,
   color = 'white',
+  className,
 }) => {
   return (
     <svg
@@ -13,8 +12,7 @@ const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
       x='0px'
       y='0px'
       viewBox='0 0 284.929 284.929'
-      width={width}
-      height={height}
+      className={className}
       fill={color}
       data-enable-background='new 0 0 284.929 284.929'
     >

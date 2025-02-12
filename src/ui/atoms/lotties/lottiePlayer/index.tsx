@@ -7,7 +7,6 @@ import { LottiePlayerProps } from '../types'
 
 const LottiePlayer: React.FC<LottiePlayerProps> = ({
   name = 'maintenance',
-  sizeLottie = 40,
   sizeLoading,
   className,
   isCursorPointer = true,
@@ -24,11 +23,10 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
   if (loading && showLoading)
     return (
       <div
-        className='flex items-center justify-center'
-        style={{
-          height: sizeLoading ?? sizeLottie,
-          width: sizeLoading ?? sizeLottie,
-        }}
+        className={classNames(
+          'flex items-center justify-center',
+          sizeLoading ?? className
+        )}
       >
         <div
           className='animate-spin border-4 border-t-4 rounded-full
@@ -42,10 +40,6 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({
       <Lottie
         className={classNames({ 'cursor-pointer': isCursorPointer }, className)}
         animationData={animationData}
-        style={{
-          height: sizeLottie,
-          width: sizeLottie,
-        }}
         {...props}
       />
     </div>

@@ -5,11 +5,11 @@ import { LottieNames } from '@/shared'
 export interface LottiePlayerProps
   extends Omit<ComponentProps<typeof Lottie>, 'animationData'> {
   name: LottieNames
-  sizeLottie?: number
   sizeLoading?: number
   isCursorPointer?: boolean
   viewBox?: string
   showLoading?: boolean
+  className?: string
 }
 
 export type CustomLottiePlayer = Omit<LottiePlayerProps, 'name'>
