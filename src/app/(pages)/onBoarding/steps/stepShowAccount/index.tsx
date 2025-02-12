@@ -2,7 +2,7 @@ import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { StepProps } from '@/ui/molecules/stepWizard/types'
-import { CardAccount } from '@/ui/organisms'
+import { CardAccount, CardProduct } from '@/ui/organisms'
 import NextStep from '../../nextStep'
 
 const StepShowAccount = ({ next }: StepProps) => {

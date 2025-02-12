@@ -1,10 +1,11 @@
 'use client'
 import classNames from 'classnames'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useI18Text } from '@/application/hooks'
 import { maskReplace } from '@/shared/utils/strings'
 import { Box, Icon, Text } from '@/ui/atoms'
 import { BitcoinSymbol } from '@/ui/molecules'
+import CardProduct from '../cardProduct'
 import { CardAccountProps } from './types'
 
 const CardAccount = ({
@@ -18,27 +19,22 @@ const CardAccount = ({
   const t = useI18Text('onBoarding')
 
   return (
-    <Box
+    <CardProduct
       onClick={onClick}
-      className={classNames(
-        className,
-        'bg-account bg-primary-100 w-full shadow-all-accent rounded-lg flex flex-col'
-      )}
+      className={classNames(className, 'p-4 bg-account bg-primary-100')}
     >
-      <Box className='pl-2 pr-4 pt-4 flex justify-between flex-grow'>
-        <Icon name='Account' className='w-20 h-20' />
-        <Box className='cursor-pointer' onClick={() => setIsShow(!isShow)}>
-          <Icon name={isShow ? 'EyeOpen' : 'EyeClose'} className='w-8 h-8' />
-        </Box>
-      </Box>
-      <Box className='px-4 pb-4 pt-4'>
+      <CardProduct.HeaderCard>
+        <Icon name='Wallet' className='w-14 h-14' />
+        <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
+      </CardProduct.HeaderCard>
+      <Box>
         <BitcoinSymbol
           classContainer={classNames({ 'blur-lg': !isShow })}
           textType='font_30_fw_bold_fm_rob'
           classIcon='w-6 h-6'
           text={balance}
         />
-        <Box className='flex items-center justify-between gap-3'>
+        <CardProduct.FooterCard>
           <Text textType='font_16_fw_bold_fm_rob'>
             {t('savings', {
               balance: isShow
@@ -49,10 +45,9 @@ const CardAccount = ({
           <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
             BANCAMANIA
           </Text>
-        </Box>
+        </CardProduct.FooterCard>
       </Box>
-    </Box>
+    </CardProduct>
   )
 }
-
 export default CardAccount
