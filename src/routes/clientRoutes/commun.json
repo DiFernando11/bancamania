@@ -16,5 +16,11 @@
     "middleware": "private",
     "path": "/perfil",
     "code": "PERFIL"
+  },
+  "onBoarding": {
+    "layout": "public",
+    "middleware": null,
+    "path": "/onBoarding",
+    "code": "ON_BOARDING"
   }
 }

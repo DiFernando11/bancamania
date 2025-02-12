@@ -37,6 +37,10 @@ div {
   color: var(--text-100);
 }
 
+.overflow-auto {
+  overflow: auto;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -78,6 +82,14 @@ div {
   @apply text-base font-bold font-roboto;
 }
 
+.font_18_fw_bold_fm_rob {
+  @apply text-lg font-bold font-roboto;
+}
+
+.font_16_18_fw_bold_fm_rob {
+  @apply text-base sm:text-lg font-bold font-roboto;
+}
+
 .font_16_fw_bold_fm_rob_text-200 {
   @apply text-base font-bold font-roboto text-primary-200;
 }
@@ -88,5 +100,9 @@ div {
 
 .font_20-30_fw_bold_fm_rob_text-200 {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
+}
+
+.font_30_48_fw_bold_fm_rob_text-200 {
+  @apply text-3xl font-bold font-roboto text-primary-200 sm:text-5xl;
 }
 

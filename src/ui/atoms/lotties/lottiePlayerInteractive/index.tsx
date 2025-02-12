@@ -18,7 +18,6 @@ const LottiePlayerInteractive = forwardRef<
   (
     {
       name = 'maintenance',
-      sizeLottie = 40,
       sizeLoading,
       className,
       loop = false,
@@ -45,8 +44,8 @@ const LottiePlayerInteractive = forwardRef<
     }
 
     const style = {
-      height: sizeLottie,
-      width: sizeLottie,
+      height: '100%',
+      width: '100%',
     }
 
     const lottieObj = useLottie(options, style)
@@ -85,11 +84,10 @@ const LottiePlayerInteractive = forwardRef<
     if (loading && showLoading)
       return (
         <div
-          className='flex items-center justify-center'
-          style={{
-            height: sizeLoading ?? sizeLottie,
-            width: sizeLoading ?? sizeLottie,
-          }}
+          className={classNames(
+            'flex items-center justify-center',
+            sizeLoading ?? className
+          )}
         >
           <div
             className='animate-spin border-4 border-t-4 rounded-full
