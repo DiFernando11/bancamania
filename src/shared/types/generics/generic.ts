@@ -17,3 +17,11 @@ export interface MenuOption {
   onClick?: () => void
   path: string
 }
+
+export interface StepWizardHandle {
+  next: () => void
+  prev: () => void
+  goToStep: (step: number) => void
+  reset: () => void
+  isLastStep: () => boolean
+}

@@ -9,6 +9,7 @@ export const codesEnabled: Record<string, boolean> = {
   LOGIN_VALIDATE_CODE: true,
   LOGIN_VERIFY_GOOGLE: true,
   NOT_FOUND: true,
+  ON_BOARDING: true,
   PERFIL: true,
   REGISTER: true,
   REGISTER_CRED: true,
