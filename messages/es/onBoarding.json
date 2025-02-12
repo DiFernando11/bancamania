@@ -4,5 +4,9 @@
   "congratulation": "¡Felicidades! 🎉",
   "giftWelcome": "Regalo de Bienvenida",
   "giftMessage": "Te damos la bienvenida con 50₿ para comenzar.",
-  "surprise": " ¡Tenemos una sorpresa para ti! Ábrelo y descúbrela."
+  "surprise": " ¡Tenemos una sorpresa para ti! Ábrelo y descúbrela.",
+  "yourAccount": "Tú cuenta de ahorros",
+  "initialBalance": "50",
+  "thanksTrusting": "Gracias por confiar en nosotros.",
+  "savings": "AHORROS {balance}"
 }

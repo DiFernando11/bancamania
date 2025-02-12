@@ -70,7 +70,15 @@ div {
   .mx-w-30 {
     max-width: 60rem;
   }
+
+  .bg-account {
+    background-image: url('../../public/bg-account.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
+
+
 
 /* fonts  */
 
@@ -84,6 +92,10 @@ div {
 
 .font_18_fw_bold_fm_rob {
   @apply text-lg font-bold font-roboto;
+}
+
+.font_30_fw_bold_fm_rob {
+  @apply text-3xl font-bold font-roboto;
 }
 
 .font_16_18_fw_bold_fm_rob {

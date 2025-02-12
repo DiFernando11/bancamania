@@ -18,15 +18,17 @@ export const Icons: Story = {
     name: 'Close',
   },
   render: () => (
-    <Box className='flex justify-center items-center gap-5'>
+    <Box className='bg-black flex justify-center items-center gap-5'>
       <Icon name='Close' width={60} height={60} />
       <Icon name='Home' width={60} height={60} />
       <Icon name='Transfers' width={60} height={60} />
       <Icon name='Tarjetas' width={60} height={60} />
-      <Icon name='Logo' width={60} height={60} />
+      <Icon name='Logo' className='w-16 h-16' />
       <Icon name='Logout' width={60} height={60} />
-      <Icon name='Account' width={60} height={60} />
-      <Icon name='Bitcoin' width={60} height={60} />
+      <Icon name='Account' className='w-16 h-16' />
+      <Icon name='Bitcoin' className='w-16 h-16' />
+      <Icon name='EyeClose' className='w-16 h-16' />
+      <Icon name='EyeOpen' className='w-16 h-16' />
     </Box>
   ),
 }

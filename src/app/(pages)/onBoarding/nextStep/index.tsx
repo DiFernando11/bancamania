@@ -13,7 +13,7 @@ const NextStep = ({ next }: { next: () => void }) => {
         'rounded-lg w-full h-20 from-transparent items-center p-3 shadow-lg',
         'bg-gradient-to-b via-[#2e7d3265] to-[#61ad5e81]',
         'sm:absolute sm:right-0 sm:bg-gradient-to-r',
-        'sm:rounded-l-lg sm:h-full sm:w-20',
+        'sm:h-full sm:w-20',
         'lg:w-40'
       )}
       onClick={next}

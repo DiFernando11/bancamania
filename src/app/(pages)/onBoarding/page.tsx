@@ -3,10 +3,12 @@ import { StepWizard } from '@/ui/molecules'
 import { StepProps } from '@/ui/molecules/stepWizard/types'
 import { StepAccountCreate } from './steps/stepAccountCreate'
 import { StepGiftAccountCreate } from './steps/stepGiftAccountCreate'
+import StepShowAccount from './steps/stepShowAccount'
 
 const steps: ((props: StepProps) => JSX.Element)[] = [
   props => <StepAccountCreate {...props} />,
   props => <StepGiftAccountCreate {...props} />,
+  props => <StepShowAccount {...props} />,
 ]
 
 const OnBoardingPage = () => {
