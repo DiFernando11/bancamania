@@ -1,4 +1,8 @@
 {
   "welcome": "Bienvenido {name}",
-  "benefits": "¡Crea tu cuenta y únete a nuestro exclusivo club de clientes!"
+  "benefits": "¡Crea tu cuenta y únete a nuestro exclusivo club de clientes!",
+  "congratulation": "¡Felicidades! 🎉",
+  "giftWelcome": "Regalo de Bienvenida",
+  "giftMessage": "Te damos la bienvenida con 50₿ para comenzar.",
+  "surprise": " ¡Tenemos una sorpresa para ti! Ábrelo y descúbrela."
 }

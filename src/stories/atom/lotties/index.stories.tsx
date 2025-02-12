@@ -22,6 +22,7 @@ export const Lotties: Story = {
       <LottiePlayer name='logout' className='w-20 h-20' />
       <LottiePlayer name='maintenance' className='w-20 h-20' />
       <LottiePlayer name='createAccount' className='w-20 h-20' />
+      <LottiePlayer name='giftDollar' className='w-20 h-20' />
     </Box>
   ),
 }
