@@ -19,7 +19,7 @@
   },
   "onBoarding": {
     "layout": "public",
-    "middleware": null,
+    "middleware": "onBoarding",
     "path": "/onBoarding",
     "code": "ON_BOARDING"
   }

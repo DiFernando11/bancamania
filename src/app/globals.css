@@ -94,6 +94,10 @@ div {
   @apply text-lg font-bold font-roboto;
 }
 
+.font_20_fw_bold_fm_rob {
+  @apply text-xl font-bold font-roboto;
+}
+
 .font_30_fw_bold_fm_rob {
   @apply text-3xl font-bold font-roboto;
 }

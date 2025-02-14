@@ -24,7 +24,12 @@ const CardAccount = ({
       className={classNames(className, 'p-4 bg-account bg-primary-100')}
     >
       <CardProduct.HeaderCard>
-        <Icon name='Wallet' className='w-14 h-14' />
+        <Box className='flex flex-col'>
+          <Icon name='Wallet' className='w-14 h-14 self-center' />
+          <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
+            {t('savings')}
+          </Text>
+        </Box>
         <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
       </CardProduct.HeaderCard>
       <Box>
@@ -36,11 +41,7 @@ const CardAccount = ({
         />
         <CardProduct.FooterCard>
           <Text textType='font_16_fw_bold_fm_rob'>
-            {t('savings', {
-              balance: isShow
-                ? textAccount
-                : maskReplace({ text: textAccount }),
-            })}
+            {isShow ? textAccount : maskReplace({ text: textAccount })}
           </Text>
           <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
             BANCAMANIA

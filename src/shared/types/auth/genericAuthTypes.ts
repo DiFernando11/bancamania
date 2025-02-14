@@ -12,3 +12,7 @@ export interface HasValidCode extends Record<string, StoragePrimitive> {
   lastName?: string
   firstName?: string
 }
+
+export interface SetStepOnBoardingProps {
+  step: number
+}

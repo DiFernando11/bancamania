@@ -14,6 +14,7 @@ export interface AuthenticationResponse {
   token: string
   refreshToken: string
   user: User
+  finishedOnBoarding: boolean
 }
 
 export interface LoginType {

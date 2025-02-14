@@ -2,11 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { findRouteByPath } from '@/shared/utils'
 import { getCurrentMiddleware } from './middlewareApp'
+import onBoardingStepMiddleware from './middlewareApp/onBoardingStepMiddleware'
 import { codesEnabled } from './routes/access'
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const currentPath = findRouteByPath(pathname)
+
+  const onBoardingResponse = onBoardingStepMiddleware(request)
+  if (onBoardingResponse) {
+    return onBoardingResponse
+  }
 
   const { code, lineageCode } = currentPath ?? {}
 

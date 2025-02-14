@@ -1,7 +1,6 @@
 'use client'
 import classNames from 'classnames'
 import React from 'react'
-import { Text } from '@/ui/atoms'
 import { Card } from '@/ui/molecules'
 import FooterCard from './footerCard'
 import HeaderCard from './headerCard'

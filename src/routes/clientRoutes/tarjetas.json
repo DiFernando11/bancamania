@@ -1,7 +1,7 @@
 {
   "tarjetas": {
     "layout": "private",
-    "middleware": null,
+    "middleware": "private",
     "path": "/tarjetas",
     "code": "TARJETAS"
   }
