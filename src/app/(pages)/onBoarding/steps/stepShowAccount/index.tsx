@@ -1,12 +1,35 @@
-import React from 'react'
-import { useI18Text } from '@/application/hooks'
+'use client'
+import { useRouter } from 'next/navigation'
+import React, { useEffect } from 'react'
+import { useI18Text, useSetStepOnBoarding } from '@/application/hooks'
+import { useDeleteStepOnBoarding } from '@/application/hooks/auth/commun/useDeleteStepOnBoarding'
+import { clientRoutes } from '@/routes/clientRoutes'
 import { Box, Text } from '@/ui/atoms'
-import { StepProps } from '@/ui/molecules/stepWizard/types'
-import { CardAccount, CardProduct } from '@/ui/organisms'
+import { CardAccount } from '@/ui/organisms'
 import NextStep from '../../nextStep'
 
-const StepShowAccount = ({ next }: StepProps) => {
+const StepShowAccount = () => {
   const t = useI18Text('onBoarding')
+  const { handleActionService: deleteStep } = useDeleteStepOnBoarding()
+  const router = useRouter()
+
+  const handleRedirect = () => {
+    deleteStep(
+      {},
+      {
+        onSuccess: () => {
+          console.log('REDIRIGIENDO ?')
+          router.push(clientRoutes.consolidada.path)
+        },
+      }
+    )
+  }
+
+  const { handleActionService } = useSetStepOnBoarding()
+
+  useEffect(() => {
+    handleActionService({ step: 2 })
+  }, [])
 
   return (
     <Box className='flex flex-col sm:flex-row h-full w-full'>
@@ -19,7 +42,7 @@ const StepShowAccount = ({ next }: StepProps) => {
           {t('yourAccount')}
         </Text>
         <CardAccount
-          className='max-w-[800px] sm:max-w-[480px] min-h-[240px]'
+          className='max-w-[800px] sm:max-w-[400px] min-h-[240px] lg:max-w-[480px]'
           balance={t('initialBalance')}
           textAccount={'1234567890'}
         />
@@ -31,7 +54,7 @@ const StepShowAccount = ({ next }: StepProps) => {
           {t('thanksTrusting')}
         </Text>
       </Box>
-      <NextStep next={next} />
+      <NextStep toHome next={handleRedirect} />
     </Box>
   )
 }

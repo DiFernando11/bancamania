@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
-import { useI18Text } from '@/application/hooks'
+import { useEffect, useState } from 'react'
+import { useI18Text, useSetStepOnBoarding } from '@/application/hooks'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
 import { StepProps } from '@/ui/molecules/stepWizard/types'
 import GiftLottie from './GiftLottie'
@@ -8,13 +8,18 @@ import NextStep from '../../nextStep'
 
 export const StepGiftAccountCreate = ({ next }: StepProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const { handleActionService } = useSetStepOnBoarding()
+
   const t = useI18Text('onBoarding')
+  useEffect(() => {
+    handleActionService({ step: 1 })
+  }, [])
 
   return (
     <Box className='flex flex-col sm:flex-row h-full w-full'>
       <Box
         className='flex flex-1 flex-col justify-center
-        items-center w-full h-full'
+        items-center w-full h-full px-4'
       >
         <Text
           textType='font_30_48_fw_bold_fm_rob_text-200'

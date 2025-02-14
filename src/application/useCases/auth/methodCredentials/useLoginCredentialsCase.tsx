@@ -1,7 +1,11 @@
 'use-client'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
-import { useAuthentication, useLoginCredentials } from '@/application/hooks'
+import {
+  useAuthentication,
+  useLoginCredentials,
+  useSetStepOnBoarding,
+} from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import {
   AuthenticationResponse,
@@ -21,6 +25,7 @@ export const useLoginCredentialsCase = (): SendServiceTypes<
     isSuccess,
   } = useLoginCredentials()
   const { handleActionService: register } = useAuthentication()
+  const { handleActionService } = useSetStepOnBoarding()
 
   const handleSubmit = ({ email, password }: LoginCredentials) => {
     loginCredentials(
@@ -41,7 +46,18 @@ export const useLoginCredentialsCase = (): SendServiceTypes<
                   ...data.user,
                   redirect: false,
                 })
-                router.push(clientRoutes.consolidada.path)
+                if (data.finishedOnBoarding) {
+                  router.push(clientRoutes.consolidada.path)
+                } else {
+                  handleActionService(
+                    { step: 0 },
+                    {
+                      onSuccess: () => {
+                        router.push(clientRoutes.onBoarding.path)
+                      },
+                    }
+                  )
+                }
               },
             }
           )

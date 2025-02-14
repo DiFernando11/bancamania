@@ -1,13 +1,13 @@
 {
   "cuentas": {
     "layout": "private",
-    "middleware": null,
+    "middleware": "private",
     "path": "/cuentas",
     "code": "CUENTAS"
   },
   "cuentasDetalle": {
     "layout": "private",
-    "middleware": null,
+    "middleware": "private",
     "path": "/cuentas/id",
     "code": "CUENTAS_DETALLE",
     "lineageCode": "CUENTAS"
