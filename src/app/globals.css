@@ -21,7 +21,6 @@ body {
   background: var(--bg-100)
   url('../../public/bg-layout.png')
   repeat;
-  font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
 p,
@@ -78,8 +77,6 @@ div {
   }
 }
 
-
-
 /* fonts  */
 
 .font_14_fw_bold_fm_rob {
@@ -100,6 +97,10 @@ div {
 
 .font_30_fw_bold_fm_rob {
   @apply text-3xl font-bold font-roboto;
+}
+
+.font_30_48_fw_bold_fm_rob {
+  @apply text-3xl font-bold font-roboto sm:text-5xl;
 }
 
 .font_16_18_fw_bold_fm_rob {

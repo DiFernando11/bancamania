@@ -14,7 +14,6 @@ const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
       viewBox='0 0 284.929 284.929'
       className={className}
       fill={color}
-      data-enable-background='new 0 0 284.929 284.929'
     >
       <g>
         <path

@@ -8,10 +8,10 @@ import {
 import { useChangeLang } from '@/shared/hooks'
 import { Box, LottiePlayer, Text } from '@/ui/atoms'
 import { ChangeLanguageButton } from '@/ui/molecules'
-import { StepProps } from '@/ui/molecules/stepWizard/types'
+import { StepProps } from '@/ui/organisms/stepSlider/types'
 import NextStep from '../../nextStep'
 
-export const StepAccountCreate = ({ next }: StepProps) => {
+export const StepAccountCreate = ({ next, stepIsActive }: StepProps) => {
   const t = useI18Text('onBoarding')
   const { handleActionService } = useSetStepOnBoarding()
   const { handleActionService: createAccount } = useCreateAccount()
@@ -25,6 +25,8 @@ export const StepAccountCreate = ({ next }: StepProps) => {
   useEffect(() => {
     handleActionService({ step: 0 })
   }, [])
+
+  if (!stepIsActive) return null
 
   return (
     <Box className='flex flex-col lg:flex-row h-full w-full'>
