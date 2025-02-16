@@ -1,4 +1,4 @@
-import { QueryObserverResult, UseMutateFunction } from '@tanstack/react-query'
+import { UseMutateFunction } from '@tanstack/react-query'
 
 export interface SendServiceTypes<TData, TVariables = unknown> {
   isLoading: boolean
@@ -13,5 +13,4 @@ export interface SendFechTypes<TData> {
   isError: boolean
   isSuccess: boolean
   data?: TData
-  refetch: () => Promise<QueryObserverResult<TData, unknown>>
 }

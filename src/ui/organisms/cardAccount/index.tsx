@@ -2,21 +2,21 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 import { useI18Text } from '@/application/hooks'
-import { maskReplace } from '@/shared/utils/strings'
 import { Box, Icon, Text } from '@/ui/atoms'
-import { BitcoinSymbol } from '@/ui/molecules'
 import CardProduct from '../cardProduct'
 import { CardAccountProps } from './types'
 
 const CardAccount = ({
-  textAccount,
-  balance,
+  textAccount = '',
+  balance = '',
   className,
   onClick,
+  isLoading,
 }: CardAccountProps) => {
   const [isShow, setIsShow] = useState(true)
 
   const t = useI18Text('onBoarding')
+  const tI18 = useI18Text()
 
   return (
     <CardProduct
@@ -33,18 +33,19 @@ const CardAccount = ({
         <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
       </CardProduct.HeaderCard>
       <Box>
-        <BitcoinSymbol
-          classContainer={classNames({ 'blur-lg': !isShow })}
-          textType='font_30_fw_bold_fm_rob'
-          classIcon='w-6 h-6'
-          text={balance}
+        <CardProduct.Balance
+          balance={balance}
+          isLoading={isLoading}
+          isShow={isShow}
         />
         <CardProduct.FooterCard>
-          <Text textType='font_16_fw_bold_fm_rob'>
-            {isShow ? textAccount : maskReplace({ text: textAccount })}
-          </Text>
+          <CardProduct.TextAccount
+            isLoading={isLoading}
+            isShow={isShow}
+            textAccount={textAccount}
+          />
           <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
-            BANCAMANIA
+            {tI18('titlePage').toUpperCase()}
           </Text>
         </CardProduct.FooterCard>
       </Box>

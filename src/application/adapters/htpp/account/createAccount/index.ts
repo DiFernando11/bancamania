@@ -5,7 +5,7 @@ import { apiRequest } from '@/shared/utils'
 export const createAccountService =
   async (): Promise<CreateAccountResponse> => {
     const response = apiRequest<CreateAccountResponse, unknown>({
-      url: apiRoutes.createAccount,
+      url: apiRoutes.accountUser,
     })
 
     return response
