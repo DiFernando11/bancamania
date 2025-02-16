@@ -1,16 +1,12 @@
 import React from 'react'
 
-const Logout: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 38,
-  height = 38,
-}) => {
+const Logout: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
       id='Logout'
-      width={width}
-      height={height}
+      className={className}
     >
       <path
         d='M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4

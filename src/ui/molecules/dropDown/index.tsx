@@ -73,12 +73,12 @@ const Content = ({
   nameIcon,
   className,
   textClassName,
-  size,
+  iconClassName,
 }: DropdownContent) => (
   <Box
     className={classNames('flex justify-center items-center gap-2', className)}
   >
-    {nameIcon && <Icon name={nameIcon} width={size} height={size} />}
+    {nameIcon && <Icon name={nameIcon} className={iconClassName} />}
     <Text
       className={classNames('truncate block w-full text-left', textClassName)}
       title={text}

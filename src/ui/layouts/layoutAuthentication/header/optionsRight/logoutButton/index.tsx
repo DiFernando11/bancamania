@@ -20,10 +20,10 @@ const LogoutButton = () => {
       onMouseEnter={playAnimation}
       onMouseLeave={reset}
       className='rounded-md rounded-br-3xl
-      flex items-center justify-between border cursor-pointer pr-3 gap-4'
+      flex items-center justify-between border cursor-pointer px-3'
       style={{ minWidth: '180px' }}
     >
-      <Box className='w-12 flex-shrink-0'>
+      <Box>
         <LottieLogout ref={lottieRef} />
       </Box>
       <Text textType='font_16_fw_bold_fm_rob' className='flex-grow text-center'>

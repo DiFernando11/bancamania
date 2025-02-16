@@ -1,17 +1,15 @@
 import React from 'react'
 
 const Close: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 60,
-  height = 60,
   color = 'white',
+  className,
 }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='4.5 4.5 14 14'
       id='close'
-      width={width}
-      height={height}
+      className={className}
       fill={color}
     >
       <path

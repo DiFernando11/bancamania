@@ -1,8 +1,7 @@
 import React from 'react'
 
 const Plus: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 60,
-  height = 60,
+  className,
   color = 'white',
 }) => {
   return (
@@ -10,8 +9,7 @@ const Plus: React.FC<React.SVGProps<SVGSVGElement>> = ({
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
       fill-rule='evenodd'
-      width={width}
-      height={height}
+      className={className}
       fill={color}
     >
       <path

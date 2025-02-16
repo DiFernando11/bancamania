@@ -131,7 +131,7 @@ const CerrarModal = () => {
 
   return (
     <Box onClick={closeModal} className='cursor-pointer'>
-      <Icon name='Close' width={14} height={14} />
+      <Icon name='Close' className='w-4 h-4' />
     </Box>
   )
 }

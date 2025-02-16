@@ -1,11 +1,7 @@
-const Tarjetas: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 40,
-  height = 38,
-}) => {
+const Tarjetas: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
-      width={width}
-      height={height}
+      className={className}
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
       id='debit'

@@ -1,16 +1,12 @@
 import React from 'react'
 
-const Languague: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 38,
-  height = 38,
-}) => {
+const Languague: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 48 48'
       id='language'
-      width={width}
-      height={height}
+      className={className}
     >
       <g id='_31_-_40' fill='#14ce81' className='color000000 svgShape'>
         <g id='Language' fill='#14ce81' className='color000000 svgShape'>

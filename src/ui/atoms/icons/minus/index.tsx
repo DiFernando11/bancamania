@@ -1,16 +1,14 @@
 import React from 'react'
 
 const Minus: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 60,
-  height = 60,
+  className,
   color = 'white',
 }) => {
   return (
     <svg
       viewBox='0 0 24 24'
       xmlns='http://www.w3.org/2000/svg'
-      width={width}
-      height={height}
+      className={className}
       fill='none'
       id='minus'
     >

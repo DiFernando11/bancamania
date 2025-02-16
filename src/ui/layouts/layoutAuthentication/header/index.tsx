@@ -20,7 +20,7 @@ const Header = () => {
     >
       <Box className='flex gap-2 justify-center items-center'>
         <Box className='hidden sm:block'>
-          <Icon name='Logo' />
+          <Icon name='Logo' className='w-12 h-12' />
         </Box>
         <Text
           variant='h4'

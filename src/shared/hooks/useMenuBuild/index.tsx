@@ -25,6 +25,7 @@ export const useMenuBuild = ({
           text={t('option.consolidada')}
           textClassName={textClass(consolidada.path)}
           nameIcon='Home'
+          iconClassName='w-10 h-10'
         />
       ),
       onClick: () => handleClick(consolidada.path),
@@ -36,6 +37,7 @@ export const useMenuBuild = ({
           text={t('option.misCuentas')}
           nameIcon='Account'
           textClassName={textClass(cuentas.path, false)}
+          iconClassName='w-10 h-10'
         />
       ),
       ...cuentas,
@@ -58,6 +60,7 @@ export const useMenuBuild = ({
           nameIcon='Tarjetas'
           text={t('option.misTarjetas')}
           textClassName={textClass(tarjetas.path, false)}
+          iconClassName='w-10 h-10'
         />
       ),
       ...tarjetas,
