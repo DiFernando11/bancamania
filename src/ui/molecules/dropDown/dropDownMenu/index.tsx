@@ -38,11 +38,7 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
             'rotate-180': isOpen,
           })}
         >
-          <Icon
-            name={IconArrown.name}
-            width={IconArrown.size}
-            height={IconArrown.size}
-          />
+          <Icon name={IconArrown.name} className='w-3 h-3' />
         </Box>
       )}
     </button>

@@ -32,7 +32,13 @@ const ModalMenuBottom = () => {
       },
     },
     {
-      label: <DropDown.Content text={t('logout')} nameIcon='Logout' />,
+      label: (
+        <DropDown.Content
+          text={t('logout')}
+          nameIcon='Logout'
+          iconClassName='w-10 h-10'
+        />
+      ),
       onClick: () => {
         closeModal()
         handleActionService({})

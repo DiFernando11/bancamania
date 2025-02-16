@@ -1,16 +1,10 @@
-const Home: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  width = 38,
-  height = 38,
-  ...props
-}) => {
+const Home: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 1792 1792'
       id='Home'
-      width={width}
-      height={height}
-      {...props}
+      className={className}
     >
       <path
         d='M1472 992v480q0 26-19 45t-45 19h-384v-384H768v384H384q-26 0-45-19t-19-45V992q0-1

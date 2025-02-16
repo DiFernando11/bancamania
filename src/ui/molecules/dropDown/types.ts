@@ -23,7 +23,7 @@ export interface DropdownContent {
   nameIcon?: IconNames
   className?: string
   textClassName?: string
-  size?: number
+  iconClassName?: string
 }
 
 export interface RecursiveDropdownProps {
