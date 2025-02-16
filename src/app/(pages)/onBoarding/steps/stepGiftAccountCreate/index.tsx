@@ -16,7 +16,7 @@ export const StepGiftAccountCreate = ({ next }: StepProps) => {
   }, [])
 
   return (
-    <Box className='flex flex-col sm:flex-row h-full w-full'>
+    <Box className='flex flex-col lg:flex-row h-full w-full'>
       <Box
         className='flex flex-1 flex-col justify-center
         items-center w-full h-full px-4'

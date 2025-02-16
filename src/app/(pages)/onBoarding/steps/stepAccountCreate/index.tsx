@@ -27,7 +27,7 @@ export const StepAccountCreate = ({ next }: StepProps) => {
   }, [])
 
   return (
-    <Box className='flex flex-col sm:flex-row h-full w-full'>
+    <Box className='flex flex-col lg:flex-row h-full w-full'>
       <ChangeLanguageButton
         handleClick={handleChangeLanguage}
         locale={changeLang.toUpperCase()}
