@@ -2,18 +2,19 @@
 import { useEffect, useState } from 'react'
 import { useI18Text, useSetStepOnBoarding } from '@/application/hooks'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
-import { StepProps } from '@/ui/molecules/stepWizard/types'
+import { StepProps } from '@/ui/organisms/stepSlider/types'
 import GiftLottie from './GiftLottie'
 import NextStep from '../../nextStep'
 
-export const StepGiftAccountCreate = ({ next }: StepProps) => {
+export const StepGiftAccountCreate = ({ next, stepIsActive }: StepProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const { handleActionService } = useSetStepOnBoarding()
-
   const t = useI18Text('onBoarding')
   useEffect(() => {
     handleActionService({ step: 1 })
   }, [])
+
+  if (!stepIsActive) return null
 
   return (
     <Box className='flex flex-col lg:flex-row h-full w-full'>

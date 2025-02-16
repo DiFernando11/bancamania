@@ -1,11 +1,11 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
-import { Box } from '@/ui/atoms'
-import { StepWizard } from '@/ui/molecules'
-import { StepProps } from '@/ui/molecules/stepWizard/types'
+import { StepSlider } from '@/ui/organisms'
+import { StepProps } from '@/ui/organisms/stepSlider/types'
 import { StepAccountCreate } from './steps/stepAccountCreate'
 import { StepGiftAccountCreate } from './steps/stepGiftAccountCreate'
 import StepShowAccount from './steps/stepShowAccount'
+import './style/index.css'
 
 const steps: ((props: StepProps) => JSX.Element)[] = [
   props => <StepAccountCreate {...props} />,
@@ -18,13 +18,15 @@ const OnBoardingPage = () => {
   const step = searchParams.get('step')
 
   return (
-    <Box className='w-full h-screen flex justify-center relative'>
-      <StepWizard
-        className='w-full'
-        steps={steps}
-        initialStep={Number(step) || 0}
-      />
-    </Box>
+    <StepSlider.SliderCubeAnimation
+      className='w-full h-screen'
+      classNameStep='w-full h-full flex justify-center relative'
+      steps={steps}
+      startupScreen={
+        <StepSlider.PresentationLogo iconClass='w-24 h-24 sm:w-32 sm:h-32' />
+      }
+      initialStep={Number(step) || 0}
+    />
   )
 }
 
