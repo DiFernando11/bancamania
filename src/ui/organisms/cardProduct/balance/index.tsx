@@ -9,8 +9,8 @@ const Balance = ({ isShow, balance, isLoading }: BalanceProps) => {
     <SkeletonLoader isLoading={isLoading} height='h-6' width='w-12'>
       <BitcoinSymbol
         classContainer={classNames({ 'blur-lg': !isShow })}
-        textType='font_30_fw_bold_fm_rob'
-        classIcon='w-6 h-6'
+        textType='font_36_fw_bold_fm_rob'
+        classIcon='w-8 h-8'
         text={balance}
       />
     </SkeletonLoader>

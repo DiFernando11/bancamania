@@ -75,6 +75,16 @@ div {
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .bg-account-back {
+    background-image: url('../../public/bg-account-back.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .max-w-content{
+    max-width: 600px;
+  }
 }
 
 /* fonts  */
@@ -97,6 +107,10 @@ div {
 
 .font_30_fw_bold_fm_rob {
   @apply text-3xl font-bold font-roboto;
+}
+
+.font_36_fw_bold_fm_rob {
+  @apply text-4xl font-bold font-roboto;
 }
 
 .font_30_48_fw_bold_fm_rob {

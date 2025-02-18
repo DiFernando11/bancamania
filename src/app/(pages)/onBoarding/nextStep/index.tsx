@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { motion } from 'framer-motion'
 import React from 'react'
-import { Box, Icon } from '@/ui/atoms'
+import { AnimationContainer, Box, Icon } from '@/ui/atoms'
 import { NextStepProps } from './types'
 
 const NextStep = ({ next, toHome = false }: NextStepProps) => {
@@ -17,7 +16,7 @@ const NextStep = ({ next, toHome = false }: NextStepProps) => {
       )}
       onClick={next}
     >
-      <motion.div
+      <AnimationContainer
         animate={{
           x: [0, 5, 0],
         }}
@@ -44,7 +43,7 @@ const NextStep = ({ next, toHome = false }: NextStepProps) => {
             className={classNames('w-8 h-8 -rotate-90', 'lg:w-20 lg:h-20')}
           />
         )}
-      </motion.div>
+      </AnimationContainer>
     </Box>
   )
 }

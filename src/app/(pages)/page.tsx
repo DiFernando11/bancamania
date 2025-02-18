@@ -1,37 +1,24 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import AwesomeSlider from 'react-awesome-slider'
-import { useGetAccount } from '@/application/hooks'
+import React from 'react'
 import { Box } from '@/ui/atoms'
-import { CardAccount } from '@/ui/organisms'
+import { StepSlider } from '@/ui/organisms'
+import { StepProps } from '@/ui/organisms/stepSlider/types'
+import FlipCardAccount from '../components/flipCardAccount'
+import './styles/index.css'
+
+const steps: ((props: StepProps) => JSX.Element)[] = [
+  props => <FlipCardAccount {...props} isNextStep />,
+  props => <FlipCardAccount {...props} isNextStep />,
+]
 
 const ConsolidadaPage = () => {
-  const startupScreen = <div>HOAL COMO ESTAS</div>
-  const [loading, setLoading] = useState(true)
-  // const { data, isLoading } = useGetAccount()
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000)
-  }, [])
-
   return (
-    <main className='p-4 h-full w-full'>
-      <Box className='flex flex-col lg:flex-row gap-8'>
-        <CardAccount
-          balance={'50'}
-          // balance={data?.account?.balance}
-          className='min-h-[200px] max-w-[500px]'
-          textAccount={'13123213'}
-          // textAccount={data?.account?.accountNumber}
-          isLoading={loading}
-        />
-        <CardAccount
-          balance='50'
-          className='min-h-[200px] max-w-[500px]'
-          textAccount='1231323'
-          isLoading={loading}
+    <main className='w-full flex flex-col h-full p-6 lg:p-0'>
+      <Box className='w-full flex flex-col gap-8 max-w-content self-center'>
+        <StepSlider.SliderFallAnimation
+          startupDelay={0}
+          classNameStep='w-full'
+          steps={steps}
         />
       </Box>
     </main>

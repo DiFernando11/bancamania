@@ -10,11 +10,16 @@ const TextAccount = ({
   textAccount = '',
 }: TextAccountProps) => {
   return (
-    <>
-      <SkeletonLoader height='h-4' width='w-24' isLoading={isLoading}>
-        <Text>{isShow ? textAccount : maskReplace({ text: textAccount })}</Text>
-      </SkeletonLoader>
-    </>
+    <SkeletonLoader
+      height='h-4'
+      width='w-24'
+      className='self-end'
+      isLoading={isLoading}
+    >
+      <Text className='font_18_fw_bold_fm_rob'>
+        # {isShow ? textAccount : maskReplace({ text: textAccount })}
+      </Text>
+    </SkeletonLoader>
   )
 }
 
