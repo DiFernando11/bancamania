@@ -3,6 +3,8 @@ import classNames from 'classnames'
 import React, { useState } from 'react'
 import AwesomeSlider from 'react-awesome-slider'
 import 'react-awesome-slider/dist/styles.css'
+import { ArrowButtonAnimation } from '@/ui/molecules'
+import { ArrowButtonNext } from './buttonStep'
 import PresentationLogo from './presentationLogo'
 import SliderCubeAnimation from './sliderCubeAnimation'
 import SliderFallAnimation from './sliderFallAnimation'
@@ -72,5 +74,6 @@ const StepSlider = ({
 StepSlider.PresentationLogo = PresentationLogo
 StepSlider.SliderCubeAnimation = SliderCubeAnimation
 StepSlider.SliderFallAnimation = SliderFallAnimation
+StepSlider.ArrowButtonNext = ArrowButtonNext
 
 export default StepSlider

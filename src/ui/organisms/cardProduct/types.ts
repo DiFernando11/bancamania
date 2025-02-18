@@ -1,7 +1,11 @@
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export interface CardProductProps {
-  onClick?: () => void
   className?: string
-  children: ReactNode
+  onClick?: () => void
+  LeftContent: ReactNode
+  RightContent: ReactNode
+  height?: CSSProperties['height']
+  maxHeight?: CSSProperties['maxHeight']
+  minHeight?: CSSProperties['minHeight']
 }

@@ -5,7 +5,7 @@ import { StepProps } from '@/ui/organisms/stepSlider/types'
 import { StepAccountCreate } from './steps/stepAccountCreate'
 import { StepGiftAccountCreate } from './steps/stepGiftAccountCreate'
 import StepShowAccount from './steps/stepShowAccount'
-import './style/index.css'
+import './styles/index.css'
 
 const steps: ((props: StepProps) => JSX.Element)[] = [
   props => <StepAccountCreate {...props} />,

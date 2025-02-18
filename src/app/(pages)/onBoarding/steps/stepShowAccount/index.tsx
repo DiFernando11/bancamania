@@ -1,22 +1,20 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
+import FlipCardAccount from '@/app/components/flipCardAccount'
 import {
   useDeleteStepOnBoarding,
-  useGetAccount,
   useI18Text,
   useSetStepOnBoarding,
 } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { Box, Text } from '@/ui/atoms'
-import { CardAccount } from '@/ui/organisms'
 import NextStep from '../../nextStep'
 
 const StepShowAccount = () => {
   const t = useI18Text('onBoarding')
   const { handleActionService: deleteStep } = useDeleteStepOnBoarding()
   const { handleActionService } = useSetStepOnBoarding()
-  const { data, isLoading } = useGetAccount()
   const router = useRouter()
 
   const handleRedirect = () => {
@@ -42,12 +40,9 @@ const StepShowAccount = () => {
         >
           {t('yourAccount')}
         </Text>
-        <CardAccount
-          isLoading={isLoading}
-          className='max-w-[480px] min-h-[240px]'
-          balance={data?.account?.balance}
-          textAccount={data?.account?.accountNumber}
-        />
+        <Box className='max-w-[480px] w-full'>
+          <FlipCardAccount isNextStep={false} />
+        </Box>
         <Text
           textType='font_16_18_fw_bold_fm_rob'
           variant='h2'

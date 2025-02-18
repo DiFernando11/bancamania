@@ -1,5 +1,6 @@
+import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
-import { AnimationContainer } from '@/ui/atoms'
+import { AnimationContainer, Box } from '@/ui/atoms'
 import { Skeleton } from '@/ui/molecules'
 import { SkeletonLoaderProps } from './types'
 
@@ -9,12 +10,16 @@ const SkeletonLoader = ({
   width,
   height,
   rounded,
+  className,
+  classNameSkeleton,
 }: SkeletonLoaderProps) => {
   return (
-    <div style={{ height, width }}>
+    <Box className={className} style={{ height, width }}>
       <AnimatePresence mode='wait'>
         {isLoading ? (
-          <Skeleton width={width} height={height} rounded={rounded} />
+          <Skeleton
+            className={classNames(classNameSkeleton, width, height, rounded)}
+          />
         ) : (
           <AnimationContainer
             key='content'
@@ -27,7 +32,7 @@ const SkeletonLoader = ({
           </AnimationContainer>
         )}
       </AnimatePresence>
-    </div>
+    </Box>
   )
 }
 

@@ -1,0 +1,16 @@
+.awssld__container{
+  padding: 0;
+  height: 200px;
+}
+
+.awssld__wrapper{
+  overflow: visible !important;
+}
+
+.awssld__content{
+  overflow: visible !important;
+}
+
+.awssld__controls{
+  visibility: visible !important;
+}

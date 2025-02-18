@@ -9,7 +9,10 @@ const ShowBalance = ({
   setIsShow: (isShow: boolean) => void
 }) => {
   return (
-    <Box className='cursor-pointer' onClick={() => setIsShow(!isShow)}>
+    <Box
+      className='cursor-pointer flex justify-end items-center'
+      onClick={() => setIsShow(!isShow)}
+    >
       <Icon name={isShow ? 'EyeOpen' : 'EyeClose'} className='w-8 h-8' />
     </Box>
   )
