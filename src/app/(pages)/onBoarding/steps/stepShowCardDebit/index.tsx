@@ -1,17 +1,34 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 import FlipCardAccount from '@/app/components/flipCardAccount'
-import { useI18Text, useSetStepOnBoarding } from '@/application/hooks'
+import FlipCardDebit from '@/app/components/flipCardDebit'
+import {
+  useDeleteStepOnBoarding,
+  useI18Text,
+  useSetStepOnBoarding,
+} from '@/application/hooks'
+import { clientRoutes } from '@/routes/clientRoutes'
 import { Box, Text } from '@/ui/atoms'
-import { StepProps } from '@/ui/organisms/stepSlider/types'
 import NextStep from '../../nextStep'
 
-const StepShowAccount = ({ next }: StepProps) => {
+const StepShowCardDebit = () => {
   const t = useI18Text('onBoarding')
+  const { handleActionService: deleteStep } = useDeleteStepOnBoarding()
   const { handleActionService } = useSetStepOnBoarding()
+  const router = useRouter()
+
+  const handleRedirect = () => {
+    deleteStep(
+      {},
+      {
+        onSuccess: () => router.push(clientRoutes.consolidada.path),
+      }
+    )
+  }
 
   useEffect(() => {
-    handleActionService({ step: 2 })
+    handleActionService({ step: 3 })
   }, [])
 
   return (
@@ -22,22 +39,22 @@ const StepShowAccount = ({ next }: StepProps) => {
           className='text-center'
           variant='h1'
         >
-          {t('yourAccount')}
+          {t('yourCardDebit')}
         </Text>
         <Box className='max-w-[480px] w-full'>
-          <FlipCardAccount isNextStep={false} />
+          <FlipCardDebit isNextStep={false} />
         </Box>
         <Text
           textType='font_16_18_fw_bold_fm_rob'
           variant='h2'
           className='text-center'
         >
-          {t('thanksTrusting')}
+          {t('activeCard')}
         </Text>
       </Box>
-      <NextStep next={next} />
+      <NextStep toHome next={handleRedirect} />
     </Box>
   )
 }
 
-export default StepShowAccount
+export default StepShowCardDebit

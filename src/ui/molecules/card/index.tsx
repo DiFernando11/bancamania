@@ -9,7 +9,7 @@ const Card = ({ onClick, className, children, style }: CardProps) => {
       onClick={onClick}
       className={classNames(
         className,
-        'w-full shadow-all-accent rounded-lg flex p-4'
+        'w-full shadow-all-accent rounded-lg flex'
       )}
       style={style}
     >

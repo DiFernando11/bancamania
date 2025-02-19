@@ -3,20 +3,25 @@ import classNames from 'classnames'
 import React from 'react'
 import { Box } from '@/ui/atoms'
 import { Card } from '@/ui/molecules'
+import BackBankingCard from './backBankingCard'
 import BackFlip from './backFlip'
 import Balance from './balance'
+import BankingCard from './bankingCard'
+import CvText from './cvText'
+import HeaderLogo from './headerLogo'
+import HeaderMasterCard from './headerMasterCard'
 import NameOwner from './nameOwner'
 import NextProduct from './nextProduct'
 import ShowBalance from './showBalance'
 import TextAccount from './textAccount'
 import { CardProductProps } from './types'
+import ValidThru from './validThru'
+import WavesCard from './wavesCard'
 
-// Definir manualmente el tipo del componente para permitir propiedades extra
 const CardProduct = ({
   className,
   onClick,
-  LeftContent,
-  RightContent,
+  children,
   height,
   maxHeight,
   minHeight,
@@ -25,10 +30,9 @@ const CardProduct = ({
     <Card
       style={{ height, maxHeight, minHeight }}
       onClick={onClick}
-      className={classNames(className, 'p-4 shadow-all-accent border')}
+      className={classNames('shadow-all-accent border', className)}
     >
-      <Box className='flex flex-col justify-between'>{LeftContent}</Box>
-      <Box className='flex flex-col justify-between'>{RightContent}</Box>
+      {children}
     </Card>
   )
 }
@@ -40,5 +44,12 @@ CardProduct.NextProduct = NextProduct
 CardProduct.BackFlip = BackFlip
 CardProduct.NameOwner = NameOwner
 CardProduct.Balance = Balance
+CardProduct.HeaderMasterCard = HeaderMasterCard
+CardProduct.HeaderLogo = HeaderLogo
+CardProduct.WavesCard = WavesCard
+CardProduct.BankingCard = BankingCard
+CardProduct.BackBankingCard = BackBankingCard
+CardProduct.ValidThru = ValidThru
+CardProduct.CvText = CvText
 
 export default CardProduct

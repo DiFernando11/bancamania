@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-export interface CardAccountProps {
+export interface CardDebitProps {
   balance?: string
   className?: string
   onClick?: () => void
@@ -9,12 +9,13 @@ export interface CardAccountProps {
   nextStepComponent: ReactNode
 }
 
-export interface CardAccountBackProps {
+export interface CardDebitBackProps {
   isLoading: boolean
   onClickFlip: () => void
   onClick?: () => void
   name?: string
-  textAccount?: string
   className?: string
   nextStepComponent: ReactNode
+  cv?: string
+  validThru?: string
 }

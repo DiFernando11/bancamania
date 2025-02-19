@@ -15,6 +15,7 @@
   --bg-200: #161616;
   --bg-300: #2c2c2c;
   --loading-100: #87858562;
+  --card-wave: #6b6a6a;
 }
 
 body {
@@ -82,12 +83,33 @@ div {
     background-repeat: no-repeat;
   }
 
+  .heightCards {
+    height: 220px;
+  }
+
+  .bg-debit {
+    background-image: url('../../public/debit.jpg');
+    background-position: bottom;
+  }
+
   .max-w-content{
     max-width: 600px;
   }
 }
 
 /* fonts  */
+
+.font_8_fw_bold_fm_rob {
+  @apply text-xxxs leading-xxxs font-bold font-roboto;
+}
+
+.font_10_fw_bold_fm_rob {
+  @apply text-xxs leading-xxs font-bold font-roboto;
+}
+
+.font_12_fw_bold_fm_rob {
+  @apply text-xs font-bold font-roboto;
+}
 
 .font_14_fw_bold_fm_rob {
   @apply text-sm font-bold font-roboto;
@@ -103,6 +125,10 @@ div {
 
 .font_20_fw_bold_fm_rob {
   @apply text-xl font-bold font-roboto;
+}
+
+.font_24_fw_bold_fm_rob {
+  @apply text-2xl font-bold font-roboto;
 }
 
 .font_30_fw_bold_fm_rob {

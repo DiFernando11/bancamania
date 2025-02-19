@@ -8,16 +8,18 @@ const TextAccount = ({
   isShow,
   isLoading,
   textAccount = '',
+  textType = 'font_18_fw_bold_fm_rob',
+  className,
 }: TextAccountProps) => {
   return (
     <SkeletonLoader
       height='h-4'
       width='w-24'
-      className='self-end'
+      className={className}
       isLoading={isLoading}
     >
-      <Text className='font_18_fw_bold_fm_rob'>
-        # {isShow ? textAccount : maskReplace({ text: textAccount })}
+      <Text textType={textType}>
+        {isShow ? textAccount : maskReplace({ text: textAccount })}
       </Text>
     </SkeletonLoader>
   )
