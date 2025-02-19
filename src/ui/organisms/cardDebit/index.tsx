@@ -7,6 +7,7 @@ const CardDebit = ({
   isLoading,
   onClickFlip,
   nextStepComponent,
+  textAccount,
 }: CardDebitProps) => {
   return (
     <CardProduct.BankingCard
@@ -16,7 +17,7 @@ const CardDebit = ({
       onClick={onClick}
       footerRightComponent={<CardProduct.BackFlip onClickFlip={onClickFlip} />}
       nextStepComponent={nextStepComponent}
-      textAccount='123213213'
+      textAccount={textAccount}
     />
   )
 }

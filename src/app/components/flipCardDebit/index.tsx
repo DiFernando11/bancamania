@@ -1,15 +1,15 @@
 'use client'
 import classNames from 'classnames'
 import React from 'react'
-import { useGetAccount } from '@/application/hooks'
+import { useGetCardDebit } from '@/application/hooks'
 import { normalizeName } from '@/shared/utils'
 import { FlipCard } from '@/ui/molecules'
-import { CardAccount, CardDebit, CardProduct } from '@/ui/organisms'
+import { CardDebit, CardProduct } from '@/ui/organisms'
 import { FlipCardDebitProps } from './types'
 import './index.css'
 
 const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
-  const { data, isLoading } = useGetAccount()
+  const { data, isLoading } = useGetCardDebit()
 
   return (
     <FlipCard
@@ -17,12 +17,12 @@ const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
       FrontContent={({ flip }) => (
         <CardDebit
           onClickFlip={flip}
-          balance={data?.account?.balance}
           className={classNames('w-full self-center')}
           isLoading={isLoading}
           nextStepComponent={
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
+          textAccount={data?.debitCard?.cardNumber}
         />
       )}
       BackContent={({ flip }) => (
@@ -33,9 +33,12 @@ const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
           nextStepComponent={
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
-          cv='1234'
-          name='Diego Apolo'
-          validThru='07/28'
+          cv={data?.debitCard?.cvv}
+          name={normalizeName({
+            firstName: data?.firstName,
+            lastName: data?.lastName,
+          }).toLocaleUpperCase()}
+          validThru={data?.debitCard?.expirationDate}
         />
       )}
     />
