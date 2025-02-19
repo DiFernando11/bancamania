@@ -5,10 +5,11 @@ import { StepSlider } from '@/ui/organisms'
 import { StepProps } from '@/ui/organisms/stepSlider/types'
 import FlipCardAccount from '../components/flipCardAccount'
 import './styles/index.css'
+import FlipCardDebit from '../components/flipCardDebit'
 
 const steps: ((props: StepProps) => JSX.Element)[] = [
   props => <FlipCardAccount {...props} isNextStep />,
-  props => <FlipCardAccount {...props} isNextStep />,
+  props => <FlipCardDebit {...props} isNextStep />,
 ]
 
 const ConsolidadaPage = () => {

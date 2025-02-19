@@ -6,11 +6,13 @@ import { StepAccountCreate } from './steps/stepAccountCreate'
 import { StepGiftAccountCreate } from './steps/stepGiftAccountCreate'
 import StepShowAccount from './steps/stepShowAccount'
 import './styles/index.css'
+import StepShowCardDebit from './steps/stepShowCardDebit'
 
 const steps: ((props: StepProps) => JSX.Element)[] = [
   props => <StepAccountCreate {...props} />,
   props => <StepGiftAccountCreate {...props} />,
   StepShowAccount,
+  StepShowCardDebit,
 ]
 
 const OnBoardingPage = () => {

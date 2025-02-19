@@ -29,6 +29,9 @@ export const Icons: Story = {
       <Icon name='Bitcoin' className='w-16 h-16' />
       <Icon name='EyeClose' className='w-16 h-16' />
       <Icon name='EyeOpen' className='w-16 h-16' />
+      <Icon name='ChipCard' className='w-16 h-16' />
+      <Icon name='MasterCard' className='w-16 h-16' />
+      <Icon name='Waves' className='w-16 h-16' />
     </Box>
   ),
 }

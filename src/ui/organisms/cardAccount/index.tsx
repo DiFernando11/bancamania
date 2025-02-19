@@ -13,7 +13,6 @@ const CardAccount = ({
   onClick,
   isLoading,
   onClickFlip,
-  height = '200px',
   nextStepComponent,
 }: CardAccountProps) => {
   const [isShow, setIsShow] = useState(true)
@@ -26,32 +25,28 @@ const CardAccount = ({
       className={classNames(
         className,
         'flex justify-between',
-        'bg-account bg-primary-100'
+        'bg-account bg-primary-100 h-full p-4'
       )}
-      height={height}
-      RightContent={
-        <>
-          <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
-          {nextStepComponent && nextStepComponent}
-          <CardProduct.BackFlip onClickFlip={onClickFlip} />
-        </>
-      }
-      LeftContent={
-        <>
-          <Box>
-            <Icon name='Wallet' className='w-14 h-14' />
-            <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
-              {t('savings')}
-            </Text>
-          </Box>
-          <CardProduct.Balance
-            balance={balance}
-            isLoading={isLoading}
-            isShow={isShow}
-          />
-        </>
-      }
-    />
+    >
+      <Box className='flex flex-col justify-between'>
+        <Box>
+          <Icon name='Wallet' className='w-14 h-14' />
+          <Text textType='font_16_fw_bold_fm_rob' className='break-all'>
+            {t('savings')}
+          </Text>
+        </Box>
+        <CardProduct.Balance
+          balance={balance}
+          isLoading={isLoading}
+          isShow={isShow}
+        />
+      </Box>
+      <Box className='flex flex-col justify-between'>
+        <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
+        {nextStepComponent && nextStepComponent}
+        <CardProduct.BackFlip onClickFlip={onClickFlip} />
+      </Box>
+    </CardProduct>
   )
 }
 

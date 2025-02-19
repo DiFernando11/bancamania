@@ -24,6 +24,9 @@ const config: Config = {
           200: 'var(--bg-200)',
           300: 'var(--bg-300)',
         },
+        comun: {
+          'card-wave': 'var(--card-wave)',
+        },
         loading: {
           100: 'var(--loading-100)',
         },
@@ -40,11 +43,22 @@ const config: Config = {
       fontFamily: {
         roboto: ['var(--font-roboto)', 'sans-serif'],
       },
+      fontSize: {
+        xxs: '0.625rem',
+        xxxs: '0.5rem',
+      },
       height: {
         'content-destokp': `calc(100vh - (80px + 1.5rem))`,
         'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
         'content-tablet': `calc(100vh - (80px))`,
         'menu-destokp': `calc(100vh - 80px)`,
+      },
+      lineHeight: {
+        xxs: '0.875rem',
+        xxxs: '0.75rem',
+      },
+      width: {
+        22: '5.5rem',
       },
     },
   },

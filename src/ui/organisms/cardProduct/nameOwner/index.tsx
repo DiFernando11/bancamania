@@ -1,20 +1,20 @@
 import React from 'react'
-import { Text } from '@/ui/atoms'
 import { NameOwnerProps } from './types'
-import SkeletonLoader from '../../skeletonLoader'
+import TextLoading from '../../textLoading'
 
-const NameOwner = ({ isLoading, name }: NameOwnerProps) => {
+const NameOwner = ({
+  isLoading,
+  name,
+  textType = 'font_18_fw_bold_fm_rob',
+  classNameSkeleton = 'h-4 w-24',
+}: NameOwnerProps) => {
   return (
-    <SkeletonLoader
-      height='h-4'
-      width='w-24'
-      className='self-end'
+    <TextLoading
+      classNameSkeleton={classNameSkeleton}
+      text={name}
       isLoading={isLoading}
-    >
-      <Text textType='font_18_fw_bold_fm_rob' className='flex flex-col'>
-        {name}
-      </Text>
-    </SkeletonLoader>
+      textType={textType}
+    />
   )
 }
 
