@@ -1,5 +1,5 @@
 import CardProduct from '../../cardProduct'
-import { CardDebitBackProps, CardDebitProps } from '../types'
+import { CardDebitBackProps } from '../types'
 
 const CardDebitBack = ({
   onClick,

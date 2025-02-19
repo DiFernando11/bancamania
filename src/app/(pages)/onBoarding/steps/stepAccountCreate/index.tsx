@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import {
   useCreateAccount,
+  useCreateDebit,
   useI18Text,
   useSetStepOnBoarding,
 } from '@/application/hooks'
@@ -15,11 +16,18 @@ export const StepAccountCreate = ({ next, stepIsActive }: StepProps) => {
   const t = useI18Text('onBoarding')
   const { handleActionService } = useSetStepOnBoarding()
   const { handleActionService: createAccount } = useCreateAccount()
+  const { handleActionService: createDebit } = useCreateDebit()
   const { changeLang, handleChangeLanguage } = useChangeLang()
 
   const handleNextStep = () => {
-    next()
-    createAccount({})
+    createAccount(
+      {},
+      {
+        onSuccess: () => {
+          createDebit({}, { onSuccess: () => next() })
+        },
+      }
+    )
   }
 
   useEffect(() => {
