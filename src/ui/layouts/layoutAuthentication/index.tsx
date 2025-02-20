@@ -11,10 +11,10 @@ const LayoutAuthentication = ({ children }: { children: ReactNode }) => {
     <Box
       className={classNames(
         'h-screen grid',
-        'grid-rows-[80px_1fr_50px]',
+        'grid-rows-[5rem_1fr_3.125rem]',
         'grid-cols-1',
-        'sm:grid-rows-[80px_1fr]',
-        'sm:grid-cols-[clamp(150px,25%,300px)_1fr]'
+        'sm:grid-rows-[5rem_1fr]',
+        'sm:grid-cols-[clamp(9.375rem,25%,18.75rem)_1fr]'
       )}
     >
       <Header />

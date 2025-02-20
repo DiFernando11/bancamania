@@ -21,7 +21,7 @@ const LogoutButton = () => {
       onMouseLeave={reset}
       className='rounded-md rounded-br-3xl
       flex items-center justify-between border cursor-pointer px-3'
-      style={{ minWidth: '180px' }}
+      style={{ minWidth: '11.25rem' }}
     >
       <Box>
         <LottieLogout ref={lottieRef} />

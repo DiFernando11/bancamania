@@ -14,7 +14,7 @@ const LayoutAuthenticationPage = ({
     <Box
       className={classNames('grid gap-6', 'h-full', {
         'grid-cols-1': !contextualMenu,
-        'lg:grid-cols-[1fr_180px]': contextualMenu,
+        'lg:grid-cols-[1fr_11.25rem]': contextualMenu,
       })}
     >
       <Content

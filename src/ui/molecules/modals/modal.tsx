@@ -23,8 +23,8 @@ const Modal = ({
     height: height || (isVertical ? '100vh' : 'auto'),
     maxHeight,
     maxWidth,
-    minHeight: minHeight || (!isVertical ? '300px' : undefined),
-    minWidth: minWidth || (isVertical ? '300px' : undefined),
+    minHeight: minHeight || (!isVertical ? '18.75rem' : undefined),
+    minWidth: minWidth || (isVertical ? '18.75rem' : undefined),
     width: width || (isVertical ? 'auto' : '100%'),
   }
 
@@ -41,7 +41,7 @@ const Modal = ({
     {
       'rounded-e-lg border-r-4': position === 'left',
       'rounded-l-lg border-l-4': position === 'right',
-      'rounded-lg max-w-[600px] m-5  border-4': position === 'center',
+      'rounded-lg max-w-[37.5rem] m-5  border-4': position === 'center',
       'rounded-t-2xl border-t-8': position === 'bottom',
     }
   )

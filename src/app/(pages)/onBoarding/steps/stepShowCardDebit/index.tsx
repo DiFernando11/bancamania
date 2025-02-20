@@ -41,7 +41,7 @@ const StepShowCardDebit = () => {
         >
           {t('yourCardDebit')}
         </Text>
-        <Box className='max-w-[480px] w-full'>
+        <Box className='max-w-[30rem] w-full'>
           <FlipCardDebit isNextStep={false} />
         </Box>
         <Text
