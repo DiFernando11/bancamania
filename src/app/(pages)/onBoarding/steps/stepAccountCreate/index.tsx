@@ -6,7 +6,7 @@ import {
   useI18Text,
   useSetStepOnBoarding,
 } from '@/application/hooks'
-import { useChangeLang } from '@/shared/hooks'
+import { useChangeLang, useGlobalLoading } from '@/shared/hooks'
 import { Box, LottiePlayer, Text } from '@/ui/atoms'
 import { ChangeLanguageButton } from '@/ui/molecules'
 import { StepProps } from '@/ui/organisms/stepSlider/types'
@@ -15,9 +15,15 @@ import NextStep from '../../nextStep'
 export const StepAccountCreate = ({ next, stepIsActive }: StepProps) => {
   const t = useI18Text('onBoarding')
   const { handleActionService } = useSetStepOnBoarding()
-  const { handleActionService: createAccount } = useCreateAccount()
-  const { handleActionService: createDebit } = useCreateDebit()
-  const { changeLang, handleChangeLanguage } = useChangeLang()
+  const { handleActionService: createAccount, isLoading } = useCreateAccount()
+  const { handleActionService: createDebit, isLoading: isLoadingDebit } =
+    useCreateDebit()
+  const {
+    changeLang,
+    handleChangeLanguage,
+    isLoading: isLoadingChangeLang,
+  } = useChangeLang()
+  useGlobalLoading([isLoading, isLoadingDebit, isLoadingChangeLang])
 
   const handleNextStep = () => {
     createAccount(

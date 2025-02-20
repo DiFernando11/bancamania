@@ -5,7 +5,6 @@ const Waves: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      enable-background='new 0 0 24 24'
       viewBox='0 0 24 24'
       className={className}
       id='Wireless'
