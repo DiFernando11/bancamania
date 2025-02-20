@@ -7,11 +7,11 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        'all-accent': '0 0 12px 0 var(--accent-200)',
-        'bottom-accent': '0 4px 6px -1px var(--accent-200)',
-        'left-accent': '-4px 0 6px -1px var(--accent-200)',
-        'right-accent': '4px 0 6px -1px var(--accent-200)',
-        'top-accent': '0 -4px 6px -1px var(--accent-200)',
+        'all-accent': '0 0 0.75rem 0 var(--accent-200)',
+        'bottom-accent': '0 0.25rem 0.375rem -0.0625rem var(--accent-200)',
+        'left-accent': '-0.25rem 0 0.375rem -0.0625rem var(--accent-200)',
+        'right-accent': '0.25rem 0 0.375rem -0.0625rem var(--accent-200)',
+        'top-accent': '0 -0.25rem 0.375rem -0.0625rem var(--accent-200)',
       },
       colors: {
         accent: {
@@ -48,10 +48,10 @@ const config: Config = {
         xxxs: '0.5rem',
       },
       height: {
-        'content-destokp': `calc(100vh - (80px + 1.5rem))`,
-        'content-mobile': `calc(100vh - (80px + 50px + 2.5rem))`,
-        'content-tablet': `calc(100vh - (80px))`,
-        'menu-destokp': `calc(100vh - 80px)`,
+        'content-destokp': `calc(100vh - (5rem + 1.5rem))`,
+        'content-mobile': `calc(100vh - (5rem + 3.125rem + 2.5rem))`,
+        'content-tablet': `calc(100vh - (5rem))`,
+        'menu-destokp': `calc(100vh - 5rem)`,
       },
       lineHeight: {
         xxs: '0.875rem',

@@ -24,7 +24,7 @@ const StepShowAccount = ({ next }: StepProps) => {
         >
           {t('yourAccount')}
         </Text>
-        <Box className='max-w-[480px] w-full'>
+        <Box className='max-w-[30rem] w-full'>
           <FlipCardAccount isNextStep={false} />
         </Box>
         <Text

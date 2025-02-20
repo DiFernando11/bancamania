@@ -52,7 +52,7 @@ const ModalMenuBottom = () => {
       position='bottom'
       height={'auto'}
       minHeight={'0px'}
-      maxHeight={'calc(100vh - 80px)'}
+      maxHeight={'calc(100vh - 5rem)'}
     >
       <Modal.Header className='flex justify-between w-full items-center'>
         <Modal.Title title={t('titleMenu')} />
