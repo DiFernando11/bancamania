@@ -15,3 +15,14 @@ export interface ModalState {
   closeModal: () => void
   destroyModal: () => void
 }
+
+export interface GlobalStoreState {
+  locale: string | null
+  setLocale: (locale: string) => void
+}
+
+export interface GlobalLoadingState {
+  globalLoading: boolean
+  loadingStates: Map<string, boolean>
+  verifyStatesLoading: (id: string, loading: boolean) => void
+}

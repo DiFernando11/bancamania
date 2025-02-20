@@ -3,6 +3,7 @@ import React, { ReactNode, useEffect } from 'react'
 import { useGlobalStore } from '@/application/zustand'
 import { ReactPortal } from '@/ui/atoms'
 import { DefineLayoutType } from '@/ui/layouts'
+import GlobalLoading from '../components/globalLoading'
 
 const InitialClientApp = ({
   locale,
@@ -20,6 +21,7 @@ const InitialClientApp = ({
 
   return (
     <>
+      <GlobalLoading />
       <ReactPortal />
       <DefineLayoutType>{children}</DefineLayoutType>
     </>

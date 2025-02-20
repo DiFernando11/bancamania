@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { ModalState } from './types'
+import { GlobalLoadingState, GlobalStoreState, ModalState } from './types'
 
 export const useModalStore = create<ModalState>(set => ({
   backgroundClassName: null,
@@ -26,12 +26,27 @@ export const useModalStore = create<ModalState>(set => ({
     }),
 }))
 
-interface GlobalStoreState {
-  locale: string | null
-  setLocale: (locale: string) => void
-}
-
 export const useGlobalStore = create<GlobalStoreState>(set => ({
   locale: null,
   setLocale: locale => set({ locale }),
+}))
+
+export const useGlobalLoadingStore = create<GlobalLoadingState>(set => ({
+  globalLoading: false,
+  loadingStates: new Map(),
+  verifyStatesLoading: (id, loading) => {
+    set(state => {
+      const newLoadingStates = new Map(state.loadingStates)
+      if (loading) {
+        newLoadingStates.set(id, true)
+      } else {
+        newLoadingStates.delete(id)
+      }
+
+      return {
+        globalLoading: newLoadingStates.size > 0,
+        loadingStates: newLoadingStates,
+      }
+    })
+  },
 }))
