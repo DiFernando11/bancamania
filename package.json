@@ -13,6 +13,7 @@
     "next-intl": "^3.26.3",
     "react": "^18",
     "react-awesome-slider": "^4.1.0",
+    "react-custom-roulette": "^1.4.1",
     "react-dom": "^18",
     "react-verification-input": "^4.1.2",
     "yup": "^1.6.1",

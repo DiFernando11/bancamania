@@ -1,0 +1,13 @@
+.bhdLno {
+  width: 100% !important;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  max-height: none !important;
+  max-width: 18.75rem !important;
+}
+
+@media (min-width: 640px) {
+  .bhdLno {
+    max-width: 25rem !important;
+  }
+}
