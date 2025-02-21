@@ -1,5 +1,6 @@
 .bannerSlider .awssld__content{
   height: 5rem !important;
+  background-color: transparent !important;
 }
 
 .bannerSlider .awssld__container{
@@ -7,14 +8,22 @@
   height: 5rem;
 }
 
-.bannerSlider .awssld__wrapper{
-  overflow: visible !important;
+.bannerSlider .awssld__controls__arrow-right {
+  height: 16px;
+  opacity: 1 !important;
 }
 
-.bannerSlider .awssld__content{
-  overflow: visible !important;
+.bannerSlider .awssld__controls__arrow-left  {
+  height: 16px;
+  opacity: 1 !important;
 }
 
-.bannerSlider .awssld__controls{
-  visibility: visible !important;
+.bannerSlider .awssld__bullets{
+  bottom: -18px !important;
 }
+
+.bannerSlider .awssld__bullets button{
+  width: 6px;
+  height: 6px;
+}
+

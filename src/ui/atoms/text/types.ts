@@ -20,6 +20,7 @@ export type TextType =
   | 'font_12_fw_bold_fm_rob'
   | 'font_10_fw_bold_fm_rob'
   | 'font_8_fw_bold_fm_rob'
+  | 'font_14_16_fw_bold_fm_rob'
 
 export type TextProps<T extends ElementType = 'p'> = {
   variant?: T

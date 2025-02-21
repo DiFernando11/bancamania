@@ -15,7 +15,7 @@ const PresentationLogo = ({
     <Box
       className={classNames(
         className,
-        'bg-[radial-gradient(circle,_rgba(46,125,50,0.5)_50%,_rgba(97,173,94,0)_100%)]',
+        'bg-gradient-primary',
         'flex flex-col justify-center items-center'
       )}
     >

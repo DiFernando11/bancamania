@@ -1,17 +1,26 @@
 import React from 'react'
-import AwesomeSlider from 'react-awesome-slider'
-import { StepAutoPlaySlider, StepSlider } from '@/ui/organisms'
-import { StepProps } from '@/ui/organisms/stepSlider/types'
-import CardOffert from './cardOffert'
+import { Box } from '@/ui/atoms'
+import { StepAutoPlaySlider } from '@/ui/organisms'
+import CardActiveDebit from './cardsOffert/cardActiveDebit'
+import CardPresentation from './cardsOffert/cardPresentation'
 import './index.css'
 
 const steps: (() => JSX.Element)[] = [
-  () => <CardOffert>Primer Step</CardOffert>,
-  () => <CardOffert>Segudno Step</CardOffert>,
+  () => <CardPresentation />,
+  () => <CardActiveDebit />,
 ]
 
 const BannerOffers = () => {
-  return <StepAutoPlaySlider.fallAnimation isStopHover steps={steps} />
+  return (
+    <Box className='w-full h-[6rem]'>
+      <StepAutoPlaySlider.sacaleOutAnimation
+        className='bannerSlider'
+        classNameStep='w-full'
+        isStopHover
+        steps={steps}
+      />
+    </Box>
+  )
 }
 
 export default BannerOffers
