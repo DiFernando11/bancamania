@@ -1,7 +1,12 @@
 import React from 'react'
+import RouletteLook from './rouleteLook'
 
 const RoulettePage = () => {
-  return <div>RoulettePage</div>
+  return (
+    <main className='w-full h-full'>
+      <RouletteLook />
+    </main>
+  )
 }
 
 export default RoulettePage
