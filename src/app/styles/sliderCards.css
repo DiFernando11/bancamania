@@ -1,0 +1,17 @@
+.awesome-card .awssld__container{
+  padding: 0;
+  height: 13.75rem;
+}
+
+.awesome-card .awssld__wrapper{
+  overflow: visible !important;
+}
+
+.awesome-card .awssld__content{
+  overflow: visible !important;
+  height: 13.75rem !important;
+}
+
+.awesome-card .awssld__controls{
+  visibility: visible !important;
+}

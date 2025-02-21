@@ -1,0 +1,20 @@
+.bannerSlider .awssld__content{
+  height: 5rem !important;
+}
+
+.bannerSlider .awssld__container{
+  padding: 0;
+  height: 5rem;
+}
+
+.bannerSlider .awssld__wrapper{
+  overflow: visible !important;
+}
+
+.bannerSlider .awssld__content{
+  overflow: visible !important;
+}
+
+.bannerSlider .awssld__controls{
+  visibility: visible !important;
+}

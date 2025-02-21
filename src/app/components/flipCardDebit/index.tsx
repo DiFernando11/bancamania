@@ -6,7 +6,6 @@ import { normalizeName } from '@/shared/utils'
 import { FlipCard } from '@/ui/molecules'
 import { CardDebit, CardProduct } from '@/ui/organisms'
 import { FlipCardDebitProps } from './types'
-import './index.css'
 
 const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
   const { data, isLoading } = useGetCardDebit()

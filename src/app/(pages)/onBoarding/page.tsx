@@ -21,7 +21,7 @@ const OnBoardingPage = () => {
 
   return (
     <StepSlider.SliderCubeAnimation
-      className='w-full h-screen'
+      className='w-full h-screen onBoardingCards'
       classNameStep='w-full h-full flex justify-center relative'
       steps={steps}
       startupScreen={
