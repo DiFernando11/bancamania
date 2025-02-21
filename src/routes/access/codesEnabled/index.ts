@@ -15,5 +15,6 @@ export const codesEnabled: Record<string, boolean> = {
   REGISTER_CRED: true,
   REGISTER_CRED_CODE: true,
   REGISTER_CRED_CONFIRM: true,
+  ROULETTE: true,
   TARJETAS: true,
 }

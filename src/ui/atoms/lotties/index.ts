@@ -1,6 +1,7 @@
 import changeMode from './changeMode.json'
 import clickHere from './clickHere.json'
 import createAccount from './createAccount.json'
+import game from './game.json'
 import giftDollar from './giftDollar.json'
 import logout from './logout.json'
 import maintenance from './maintenance.json'
@@ -12,6 +13,7 @@ export const lotties = {
   changeMode,
   clickHere,
   createAccount,
+  game,
   giftDollar,
   logout,
   maintenance,

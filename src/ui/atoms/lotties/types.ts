@@ -5,7 +5,7 @@ import { LottieNames } from '@/shared'
 export interface LottiePlayerProps
   extends Omit<ComponentProps<typeof Lottie>, 'animationData'> {
   name: LottieNames
-  sizeLoading?: number
+  sizeLoading?: string
   isCursorPointer?: boolean
   viewBox?: string
   showLoading?: boolean
