@@ -22,5 +22,11 @@
     "middleware": "onBoarding",
     "path": "/onBoarding",
     "code": "ON_BOARDING"
+  },
+  "roulette": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/roulette",
+    "code": "ROULETTE"
   }
 }
