@@ -14,8 +14,8 @@ const LoadingMaxScreen = ({ isLoading }: { isLoading: boolean }) => {
         <AnimationContainer
           className={classNames(
             'fixed inset-0 flex flex-col gap-4 items-center justify-center',
-            'bg-[radial-gradient(circle,_rgba(46,125,50,0.5)_50%,_rgba(97,173,94,0)_100%)]',
-            'backdrop-blur-md z-[10000]'
+            'bg-gradient-primary',
+            'z-[10000]'
           )}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

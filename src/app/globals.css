@@ -95,6 +95,11 @@ div {
   .max-w-content{
     max-width: 37.5rem;
   }
+
+  .bg-gradient-primary {
+    background: radial-gradient(circle, rgba(46, 125, 50, 0.5) 50%, rgba(97, 173, 94, 0) 100%);
+    backdrop-filter: blur(12px);
+  }
 }
 
 /* fonts  */
@@ -143,10 +148,16 @@ div {
   @apply text-3xl font-bold font-roboto sm:text-5xl;
 }
 
+/* Responsives */
+.font_14_16_fw_bold_fm_rob {
+  @apply text-sm sm:text-base font-bold font-roboto;
+}
+
 .font_16_18_fw_bold_fm_rob {
   @apply text-base sm:text-lg font-bold font-roboto;
 }
 
+/* text primary */
 .font_16_fw_bold_fm_rob_text-200 {
   @apply text-base font-bold font-roboto text-primary-200;
 }
@@ -155,6 +166,7 @@ div {
   @apply text-lg font-bold font-roboto text-primary-200;
 }
 
+/* Responsives - text-primary*/
 .font_20-30_fw_bold_fm_rob_text-200 {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
 }
