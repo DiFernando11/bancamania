@@ -4,7 +4,6 @@ import { useGetAccount } from '@/application/hooks'
 import { normalizeName } from '@/shared/utils'
 import { FlipCard } from '@/ui/molecules'
 import { CardAccount, CardProduct } from '@/ui/organisms'
-import './index.css'
 import { FlipCardAccountProps } from './types'
 
 const FlipCardAccount = ({ next, isNextStep = true }: FlipCardAccountProps) => {
