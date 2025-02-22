@@ -4,6 +4,7 @@ import { Box } from '@/ui/atoms'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { BannerOffers, Cards } from '../components/consolidate'
 import PlayToWin from '../components/consolidate/playToWinCard'
+import QuickAccess from '../components/consolidate/quickAccess'
 
 const ConsolidadaPage = () => {
   return (
@@ -12,6 +13,7 @@ const ConsolidadaPage = () => {
         <BannerOffers />
         <Cards />
         <PlayToWin />
+        <QuickAccess />
       </Box>
     </LayoutAuthenticationPage>
   )

@@ -96,6 +96,15 @@ div {
     background: radial-gradient(circle, rgba(46, 125, 50, 0.5) 50%, rgba(97, 173, 94, 0) 100%);
     backdrop-filter: blur(12px);
   }
+
+  .quickAccess{
+    background: rgba(46, 125, 50, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(46, 125, 50, 0.3);
+  }
 }
 
 /* fonts  */
