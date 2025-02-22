@@ -50,7 +50,6 @@ const config: Config = {
       height: {
         'content-destokp': `calc(100vh - (5rem + 1.5rem))`,
         'content-mobile': `calc(100vh - (5rem + 3.125rem + 2.5rem))`,
-        'content-tablet': `calc(100vh - (5rem))`,
         'menu-destokp': `calc(100vh - 5rem)`,
       },
       lineHeight: {

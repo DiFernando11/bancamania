@@ -67,10 +67,6 @@ div {
     background: var(--primary-100);
   }
 
-  .mx-w-30 {
-    max-width: 60rem;
-  }
-
   .bg-account {
     background-image: url('../../public/bg-account.png');
     background-position: center;
@@ -93,7 +89,7 @@ div {
   }
 
   .max-w-content{
-    max-width: 37.5rem;
+    max-width: 60rem;
   }
 
   .bg-gradient-primary {
