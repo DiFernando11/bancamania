@@ -7,7 +7,7 @@ interface ContextualMenuItem {
 
 export interface LayoutAuthenticationPageProps {
   children: React.ReactNode
-  i18nTitle: string
+  i18nTitle?: string
   footerBox?: ReactElement
   contextualMenu?: ContextualMenuItem[]
 }

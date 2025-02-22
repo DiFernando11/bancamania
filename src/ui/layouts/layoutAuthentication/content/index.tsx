@@ -4,12 +4,7 @@ import { Box } from '@/ui/atoms'
 
 const Content = ({ children }: { children: ReactNode }) => {
   return (
-    <Box
-      className={classNames(
-        'row-start-2 row-end-3 col-span-1',
-        'lg:px-6 lg:pt-6'
-      )}
-    >
+    <Box className={classNames('row-start-2 row-end-3 col-span-1')}>
       {children}
     </Box>
   )
