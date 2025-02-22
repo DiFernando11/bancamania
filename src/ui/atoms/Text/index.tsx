@@ -4,7 +4,7 @@ import { TextProps } from './types'
 
 const Text = <T extends ElementType = 'p'>({
   variant,
-  textType = 'headingMedium',
+  textType = 'font_16_fw_bold_fm_rob',
   className = '',
   children,
   ...props
