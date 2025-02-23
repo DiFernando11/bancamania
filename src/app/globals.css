@@ -154,6 +154,10 @@ div {
 }
 
 /* Responsives */
+.font_12_10_fw_bold_fm_rob {
+  @apply text-xxs sm:text-xs font-bold font-roboto;
+}
+
 .font_14_16_fw_bold_fm_rob {
   @apply text-sm sm:text-base font-bold font-roboto;
 }
