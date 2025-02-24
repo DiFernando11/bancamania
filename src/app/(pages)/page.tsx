@@ -5,6 +5,7 @@ import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { BannerOffers, Cards } from '../components/consolidate'
 import PlayToWin from '../components/consolidate/playToWinCard'
 import QuickAccess from '../components/consolidate/quickAccess'
+import LastMovements from '../components/lastMovements'
 
 const ConsolidadaPage = () => {
   return (
@@ -14,6 +15,7 @@ const ConsolidadaPage = () => {
         <Cards />
         <PlayToWin />
         <QuickAccess />
+        <LastMovements />
       </Box>
     </LayoutAuthenticationPage>
   )
