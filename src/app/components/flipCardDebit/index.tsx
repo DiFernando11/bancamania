@@ -21,7 +21,7 @@ const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
           nextStepComponent={
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
-          textAccount={data?.debitCard?.cardNumber}
+          textAccount={data?.cardNumber}
         />
       )}
       BackContent={({ flip }) => (
@@ -32,12 +32,9 @@ const FlipCardDebit = ({ next, isNextStep = true }: FlipCardDebitProps) => {
           nextStepComponent={
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
-          cv={data?.debitCard?.cvv}
-          name={normalizeName({
-            firstName: data?.firstName,
-            lastName: data?.lastName,
-          }).toLocaleUpperCase()}
-          validThru={data?.debitCard?.expirationDate}
+          cv={data?.cvv}
+          name={data?.owner?.toLocaleUpperCase()}
+          validThru={data?.expirationDate}
         />
       )}
     />

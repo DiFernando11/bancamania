@@ -4,15 +4,10 @@ export interface CreateAccountResponse {
   numberAccount: string
 }
 
-export interface AccountResponse {
+export interface GetAccountResponse {
   id: string
   accountNumber: string
   balance: string
   status: string
-}
-
-export interface GetAccountResponse {
-  firstName: string
-  lastName: string
-  account: AccountResponse
+  owner: string
 }
