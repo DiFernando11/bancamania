@@ -22,7 +22,7 @@ export const Icons: Story = {
       <Icon name='Close' className='w-16 h-16' />
       <Icon name='Home' className='w-16 h-16' />
       <Icon name='Transfers' className='w-16 h-16' />
-      <Icon name='Tarjetas' className='w-16 h-16' />
+      <Icon name='Card' className='w-16 h-16' />
       <Icon name='Logo' className='w-16 h-16' />
       <Icon name='Logout' className='w-16 h-16' />
       <Icon name='Account' className='w-16 h-16' />
@@ -32,6 +32,7 @@ export const Icons: Story = {
       <Icon name='ChipCard' className='w-16 h-16' />
       <Icon name='MasterCard' className='w-16 h-16' />
       <Icon name='Waves' className='w-16 h-16' />
+      <Icon name='Gift' className='w-16 h-16' />
     </Box>
   ),
 }

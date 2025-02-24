@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { useGetAccount } from '@/application/hooks'
-import { normalizeName } from '@/shared/utils'
 import { FlipCard } from '@/ui/molecules'
 import { CardAccount, CardProduct } from '@/ui/organisms'
 import { FlipCardAccountProps } from './types'
