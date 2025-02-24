@@ -11,7 +11,7 @@ const IconMovement = ({
     <Box
       className={classNames(
         'rounded-full border',
-        'w-8 h-8 flex justify-center items-center quickAccess'
+        'w-8 h-8 flex justify-center items-center quickAccess min-w-8 min-h-8'
       )}
     >
       <Icon name={iconName} className={classNames(classNameIcon)} />

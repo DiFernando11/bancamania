@@ -10,7 +10,7 @@ export const buildTarjetasOption = ({
 }: BuildOptionProps) => ({
   label: (
     <DropDown.Content
-      nameIcon='Tarjetas'
+      nameIcon='Card'
       text={t('option.misTarjetas')}
       textClassName={textClass(tarjetas.path, false)}
       iconClassName='w-10 h-10'

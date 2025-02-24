@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Box, Text } from '@/ui/atoms'
 import IconMovement from './iconMovement'
+import SkeletonMovement from './skeleton'
 
 const Movements = ({
   leftIconMovement,
@@ -14,7 +15,7 @@ const Movements = ({
   balanceComponent: ReactNode
 }) => {
   return (
-    <Box className='flex justify-between gap-4'>
+    <Box className='flex justify-between gap-8'>
       <Box className='flex gap-4 items-center'>
         {leftIconMovement && leftIconMovement}
         <Box>
@@ -28,5 +29,6 @@ const Movements = ({
 }
 
 Movements.Icon = IconMovement
+Movements.Skeleton = SkeletonMovement
 
 export default Movements
