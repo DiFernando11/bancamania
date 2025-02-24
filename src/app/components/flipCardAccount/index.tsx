@@ -15,7 +15,7 @@ const FlipCardAccount = ({ next, isNextStep = true }: FlipCardAccountProps) => {
       FrontContent={({ flip }) => (
         <CardAccount
           onClickFlip={flip}
-          balance={data?.account?.balance}
+          balance={data?.balance}
           className='w-full self-center'
           isLoading={isLoading}
           nextStepComponent={
@@ -27,12 +27,9 @@ const FlipCardAccount = ({ next, isNextStep = true }: FlipCardAccountProps) => {
         <CardAccount.Back
           onClickFlip={flip}
           className='w-full self-center'
-          textAccount={data?.account?.accountNumber}
+          textAccount={data?.accountNumber}
           isLoading={isLoading}
-          name={normalizeName({
-            firstName: data?.firstName,
-            lastName: data?.lastName,
-          }).toLocaleUpperCase()}
+          name={data?.owner?.toLocaleUpperCase()}
           nextStepComponent={
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
