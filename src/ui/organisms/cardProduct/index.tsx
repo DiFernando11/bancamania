@@ -1,11 +1,10 @@
 'use client'
 import classNames from 'classnames'
 import React from 'react'
-import { Box } from '@/ui/atoms'
 import { Card } from '@/ui/molecules'
 import BackBankingCard from './backBankingCard'
 import BackFlip from './backFlip'
-import Balance from './balance'
+import BalanceProduct from './balance'
 import BankingCard from './bankingCard'
 import CvText from './cvText'
 import HeaderLogo from './headerLogo'
@@ -43,7 +42,7 @@ CardProduct.TextAccount = TextAccount
 CardProduct.NextProduct = NextProduct
 CardProduct.BackFlip = BackFlip
 CardProduct.NameOwner = NameOwner
-CardProduct.Balance = Balance
+CardProduct.Balance = BalanceProduct
 CardProduct.HeaderMasterCard = HeaderMasterCard
 CardProduct.HeaderLogo = HeaderLogo
 CardProduct.WavesCard = WavesCard

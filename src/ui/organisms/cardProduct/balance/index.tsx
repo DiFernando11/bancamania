@@ -1,20 +1,19 @@
-import classNames from 'classnames'
 import React from 'react'
-import { BitcoinSymbol } from '@/ui/molecules'
 import { BalanceProps } from './types'
-import SkeletonLoader from '../../skeletonLoader'
+import Balance from '../../balance'
 
-const Balance = ({ isShow, balance, isLoading }: BalanceProps) => {
+const BalanceProduct = ({ isShow, balance, isLoading }: BalanceProps) => {
   return (
-    <SkeletonLoader isLoading={isLoading} height='h-6' width='w-12'>
-      <BitcoinSymbol
-        classContainer={classNames({ 'blur-lg': !isShow })}
-        textType='font_36_fw_bold_fm_rob'
-        classIcon='w-8 h-8'
-        text={balance}
-      />
-    </SkeletonLoader>
+    <Balance
+      isLoading={isLoading}
+      textType='font_36_fw_bold_fm_rob'
+      classIcon='w-8 h-8'
+      balance={balance}
+      isShow={isShow}
+      height='h-6'
+      width='w-12'
+    />
   )
 }
 
-export default Balance
+export default BalanceProduct
