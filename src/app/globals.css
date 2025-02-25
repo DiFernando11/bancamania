@@ -180,6 +180,10 @@ div {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
 }
 
+.font_30_36_fw_bold_fm_rob_text-200 {
+  @apply text-3xl font-bold font-roboto text-primary-200 sm:text-4xl;
+}
+
 .font_30_48_fw_bold_fm_rob_text-200 {
   @apply text-3xl font-bold font-roboto text-primary-200 sm:text-5xl;
 }

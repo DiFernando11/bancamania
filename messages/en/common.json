@@ -6,6 +6,8 @@
   "logout": "Log out",
   "share": "Share",
   "loading": "LOADING",
+  "back": "Go back",
+  "next": "Next",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My accounts",
