@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Icon } from '@/ui/atoms'
+import { OpenCloseEye } from '@/ui/molecules'
 
 const ShowBalance = ({
   isShow,
@@ -9,12 +9,12 @@ const ShowBalance = ({
   setIsShow: (isShow: boolean) => void
 }) => {
   return (
-    <Box
-      className='cursor-pointer flex justify-end items-center'
-      onClick={() => setIsShow(!isShow)}
-    >
-      <Icon name={isShow ? 'EyeOpen' : 'EyeClose'} className='w-8 h-8' />
-    </Box>
+    <OpenCloseEye
+      className='flex justify-end items-center'
+      setIsShow={setIsShow}
+      isShow={isShow}
+      iconClass={'w-8 h-8'}
+    />
   )
 }
 

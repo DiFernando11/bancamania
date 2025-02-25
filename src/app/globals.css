@@ -158,12 +158,21 @@ div {
   @apply text-xxs sm:text-xs font-bold font-roboto;
 }
 
+.font_12_14_fw_bold_fm_rob {
+  @apply text-xs sm:text-sm font-bold font-roboto;
+}
+
 .font_14_16_fw_bold_fm_rob {
   @apply text-sm sm:text-base font-bold font-roboto;
 }
 
 .font_16_18_fw_bold_fm_rob {
   @apply text-base sm:text-lg font-bold font-roboto;
+}
+
+/* subtitle */
+.font_24_30_fw_bold_fm_rob {
+  @apply text-2xl font-bold font-roboto sm:text-3xl;
 }
 
 /* text primary */
@@ -176,6 +185,12 @@ div {
 }
 
 /* Responsives - text-primary*/
+/* descriptions */
+.font_16-20_fw_bold_fm_rob_text-200 {
+  @apply text-base font-bold font-roboto text-primary-200 sm:text-xl;
+}
+
+/* title */
 .font_20-30_fw_bold_fm_rob_text-200 {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
 }
