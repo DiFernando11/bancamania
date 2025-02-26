@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
-import { ReactPortal } from '@/ui/atoms'
-import { DefineLayoutType } from '@/ui/layouts'
 import InitialClientApp from './initialClientApp'
 import { ReactQueryProvider, SessionAuthProvider } from './providers'
 
