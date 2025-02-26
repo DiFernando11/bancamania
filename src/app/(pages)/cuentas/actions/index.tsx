@@ -1,11 +1,12 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import ModalYourCards from '@/app/components/modalYourCards'
-import { useI18Text } from '@/application/hooks'
+import { useGetMonthMovements, useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { useModal } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import ButtonsActions from './buttonActions'
+import ModalMonthsMovements from '../modalMonthsMovements'
 
 const Actions = () => {
   const t = useI18Text('account')
@@ -18,10 +19,7 @@ const Actions = () => {
       <ButtonsActions
         text={t('transfer')}
         iconName='Transfers'
-        onClick={() => {
-          console.log('TRANFERENCIA')
-          router.push(clientRoutes.transfer.path)
-        }}
+        onClick={() => router.push(clientRoutes.transfer.path)}
       />
       <ButtonsActions
         iconClass='w-9 h-9 sm:w-12 sm:h-12'
@@ -33,7 +31,9 @@ const Actions = () => {
         iconClass='w-9 h-9 sm:w-11 sm:h-11 sm:mt-1'
         text={t('statement')}
         iconName='Statement'
-        onClick={() => console.log('')}
+        onClick={() => {
+          openModal(<ModalMonthsMovements />)
+        }}
       />
     </Box>
   )

@@ -10,8 +10,11 @@ export function useFetchService<
   TQueryKey extends readonly unknown[] = readonly [unknown],
 >(
   queryKey: TQueryKey,
-  queryFn: QueryFunction<TData>,
-  options?: UseQueryOptions<TData, unknown, TData, TQueryKey>
+  queryFn: QueryFunction<TData, TQueryKey>,
+  options?: Omit<
+    UseQueryOptions<TData, unknown, TData, TQueryKey>,
+    'queryKey' | 'queryFn'
+  >
 ): UseQueryResult<TData, unknown> {
   return useQuery({
     queryFn,

@@ -6,7 +6,7 @@ const Icon: React.FC<IconProps> = ({
   name,
   width,
   height,
-  color = 'white',
+  color,
   className,
   ...props
 }) => {
