@@ -1,0 +1,8 @@
+{
+  "transfer": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/transfer",
+    "code": "TRANSFER"
+  }
+}

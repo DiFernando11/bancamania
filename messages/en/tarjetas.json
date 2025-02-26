@@ -3,5 +3,6 @@
   "code": "SECURITY",
   "security": "CODE",
   "propBanca": "THIS CARD IS ISSUED AND PROPERTY OF BANCAMANIA",
-  "debit": "Debit"
+  "debit": "Debit",
+  "selectCard": "Select a card."
 }

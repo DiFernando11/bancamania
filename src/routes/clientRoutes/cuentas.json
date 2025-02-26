@@ -4,12 +4,5 @@
     "middleware": "private",
     "path": "/cuentas",
     "code": "CUENTAS"
-  },
-  "cuentasDetalle": {
-    "layout": "private",
-    "middleware": "private",
-    "path": "/cuentas/id",
-    "code": "CUENTAS_DETALLE",
-    "lineageCode": "CUENTAS"
   }
 }
