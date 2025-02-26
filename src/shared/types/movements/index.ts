@@ -25,3 +25,5 @@ export interface GetMovementRequest {
   accountId?: string | number
   debitCardId?: string | number
 }
+
+export type GetMonthMovementsResponse = { text: string; id: string }[]
