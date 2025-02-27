@@ -5,13 +5,16 @@ import { TextLoadingProps } from './types'
 
 const TextLoading = ({
   isLoading,
-  text = '',
   textType = 'font_16_fw_bold_fm_rob',
   classNameSkeleton,
+  children,
+  classText,
 }: TextLoadingProps) => {
   return (
     <SkeletonLoader classNameSkeleton={classNameSkeleton} isLoading={isLoading}>
-      <Text textType={textType}>{text}</Text>
+      <Text className={classText} textType={textType}>
+        {children}
+      </Text>
     </SkeletonLoader>
   )
 }

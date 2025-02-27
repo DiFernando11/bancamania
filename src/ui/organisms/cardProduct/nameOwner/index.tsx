@@ -14,7 +14,9 @@ const NameOwner = ({
       text={name}
       isLoading={isLoading}
       textType={textType}
-    />
+    >
+      {name}
+    </TextLoading>
   )
 }
 
