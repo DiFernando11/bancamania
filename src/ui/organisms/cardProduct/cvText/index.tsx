@@ -2,7 +2,6 @@ import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import SkeletonLoader from '../../skeletonLoader'
-import TextLoading from '../../textLoading'
 
 const CvText = ({ isLoading, cv }: { isLoading: boolean; cv?: string }) => {
   const t = useI18Text('tarjetas')

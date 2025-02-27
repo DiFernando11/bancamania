@@ -5,8 +5,6 @@ export interface BalanceProps {
   isLoading: boolean
   classIcon: string
   textType: TextType
-  width: string
-  height: string
   balance?: string
   classSkeleton?: string
 }

@@ -11,16 +11,9 @@ const Balance = ({
   classIcon,
   textType,
   classSkeleton,
-  width,
-  height,
 }: BalanceProps) => {
   return (
-    <SkeletonLoader
-      isLoading={isLoading}
-      className={classSkeleton}
-      height={height}
-      width={width}
-    >
+    <SkeletonLoader isLoading={isLoading} classNameSkeleton={classSkeleton}>
       <BitcoinSymbol
         classContainer={classNames({ 'blur-lg': !isShow })}
         textType={textType}

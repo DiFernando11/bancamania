@@ -4,7 +4,6 @@ import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import CardProduct from '..'
 import { BackBankingCardProps } from './types'
-import TextLoading from '../../textLoading'
 
 const BackBankingCard = ({
   className,
