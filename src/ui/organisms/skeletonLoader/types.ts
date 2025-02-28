@@ -5,3 +5,8 @@ export type SkeletonLoaderProps = {
   children: ReactNode
   classNameSkeleton?: string
 }
+
+export type SkeletonLoaderPropsWithoutChildren = Omit<
+  SkeletonLoaderProps,
+  'children'
+>

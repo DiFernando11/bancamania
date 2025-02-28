@@ -8,3 +8,4 @@ export { default as LottiePlayerInteractive } from './lotties/lottiePlayerIntera
 export * from './lotties/customLottie'
 export { default as ReactPortal } from './reactPortal'
 export { default as Button } from './button'
+export { default as Spinner } from './spinner'

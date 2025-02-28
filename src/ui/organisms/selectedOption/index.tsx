@@ -12,9 +12,11 @@ const SelectedOption = ({
   classIcon = 'w-5 h-5',
   onClick,
   isLoading,
+  classNameSkeleton,
+  IconAction = <Icon name='Arrown' className='w-4 h-4 -rotate-90' />,
 }: SelectedOptionProps) => {
   return (
-    <SkeletonLoader isLoading={isLoading} height='h-12' width='w-full'>
+    <SkeletonLoader isLoading={isLoading} classNameSkeleton={classNameSkeleton}>
       <Box
         className={classNames(
           className,
@@ -30,7 +32,7 @@ const SelectedOption = ({
           textType={textType}
           iconColor='white'
         />
-        <Icon name='Arrown' className='w-4 h-4 -rotate-90' />
+        {IconAction}
       </Box>
     </SkeletonLoader>
   )

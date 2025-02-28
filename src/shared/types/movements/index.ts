@@ -27,3 +27,11 @@ export interface GetMovementRequest {
 }
 
 export type GetMonthMovementsResponse = { text: string; id: string }[]
+
+export interface GetMonthMovementRequest {
+  accountId?: string | number
+}
+
+export interface DownloadStatementRequest {
+  fechaDesde: string | Date
+}
