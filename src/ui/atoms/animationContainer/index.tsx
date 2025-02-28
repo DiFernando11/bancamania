@@ -1,9 +1,9 @@
+'use client'
 import { motion } from 'framer-motion'
 import React, { ElementType, ComponentPropsWithRef } from 'react'
 import { AnimatedWrapperProps } from './types'
 
 const AnimationContainer = <T extends ElementType = 'div'>({
-  as,
   children,
   className,
   variants,
@@ -12,10 +12,8 @@ const AnimationContainer = <T extends ElementType = 'div'>({
   ...props
 }: AnimatedWrapperProps<T> &
   Omit<ComponentPropsWithRef<T>, keyof AnimatedWrapperProps<T>>) => {
-  const MotionComponent = motion.create(as || 'div')
-
   return (
-    <MotionComponent
+    <motion.div
       initial={initial}
       animate={animate}
       variants={variants}
@@ -23,7 +21,7 @@ const AnimationContainer = <T extends ElementType = 'div'>({
       {...props}
     >
       {children}
-    </MotionComponent>
+    </motion.div>
   )
 }
 

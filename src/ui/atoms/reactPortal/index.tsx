@@ -1,12 +1,31 @@
 'use client'
 import classNames from 'classnames'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useModalStore } from '@/application/zustand'
 
 const ReactPortal: React.FC = () => {
   const { isOpen, content, onCloseBackground } = useModalStore()
-  if (!isOpen) return null
+  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null)
+
+  useEffect(() => {
+    let modalContainer = document.getElementById('modal-root')
+
+    if (!modalContainer) {
+      modalContainer = document.createElement('div')
+      modalContainer.id = 'modal-root'
+      document.body.appendChild(modalContainer)
+    }
+    setModalRoot(modalContainer)
+
+    return () => {
+      if (modalContainer && modalContainer.parentNode) {
+        modalContainer.parentNode.removeChild(modalContainer)
+      }
+    }
+  }, [])
+
+  if (!isOpen || !modalRoot) return null
 
   const handleCloseBackground = () => {
     if (onCloseBackground) {
@@ -27,7 +46,7 @@ const ReactPortal: React.FC = () => {
     >
       {content}
     </div>,
-    document.body
+    modalRoot
   )
 }
 
