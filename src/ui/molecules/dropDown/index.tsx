@@ -1,5 +1,4 @@
 'use client'
-
 import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
 import React, { useState } from 'react'
@@ -20,17 +19,18 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
   const [isOpen, setIsOpen] = useState(item?.isChildrenActive)
 
   return (
-    <li>
-      <Component
-        item={item}
-        setIsOpen={setIsOpen}
-        isOpen={isOpen}
-        isRoot={isRoot}
-      />
+    <>
+      <li>
+        <Component
+          item={item}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          isRoot={isRoot}
+        />
+      </li>
       <AnimatePresence>
         {isOpen && item.children && (
           <AnimationContainer
-            as='ul'
             initial={{ height: 0, opacity: 0, y: -10 }}
             animate={{ height: 'auto', opacity: 1, y: 0 }}
             exit={{ height: 0, opacity: 0, y: -10 }}
@@ -48,7 +48,7 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
           </AnimationContainer>
         )}
       </AnimatePresence>
-    </li>
+    </>
   )
 }
 
