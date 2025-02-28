@@ -4,5 +4,6 @@
   "payCard": "Pagar tarjetas",
   "statement": "Estado de cuenta",
   "transactional": "Cuenta transaccional",
-  "numberAccount": "Nro. {number}"
+  "numberAccount": "Nro. {number}",
+  "associatedCard": "Tarjeta asociada"
 }

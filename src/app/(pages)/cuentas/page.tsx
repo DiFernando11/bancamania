@@ -2,8 +2,11 @@
 import React from 'react'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useGetAccount, useI18Text } from '@/application/hooks'
+import { Box } from '@/ui/atoms'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
+import { CardProduct } from '@/ui/organisms'
 import Actions from './actions'
+import CardAsociate from './cardAsociate'
 import Description from './description'
 
 const CuentasPage = () => {
@@ -20,8 +23,11 @@ const CuentasPage = () => {
         />
       }
     >
-      <Description isLoading={isLoading} data={data} />
-      <Actions accountId={data?.id} isLoading={isLoading} />
+      <Box className='flex flex-col gap-4'>
+        <Description isLoading={isLoading} data={data} />
+        <Actions accountId={data?.id} isLoading={isLoading} />
+        <CardAsociate />
+      </Box>
     </LayoutAuthenticationPage>
   )
 }

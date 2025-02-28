@@ -4,5 +4,6 @@
   "payCard": "Pay cards",
   "statement": "Statement",
   "transactional": "Transactional account",
-  "numberAccount": "No. {number}"
+  "numberAccount": "No. {number}",
+  "associatedCard": "Associated card"
 }
