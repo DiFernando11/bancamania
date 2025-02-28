@@ -11,6 +11,7 @@ export const apiRequest = async <T, D = unknown>({
   data,
   params = {},
   headers = {},
+  responseType = 'json',
 }: ApiRequestOptions<D>): Promise<T> => {
   try {
     const response: ApiResponse<T> = await apiAxios({
@@ -18,8 +19,13 @@ export const apiRequest = async <T, D = unknown>({
       headers,
       method,
       params,
+      responseType,
       url,
     })
+
+    if (responseType === 'blob') {
+      return response.data as unknown as T
+    }
 
     if (response?.data?.ok) {
       return response.data.data

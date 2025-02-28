@@ -1,27 +1,31 @@
 'use client'
 import React, { useState } from 'react'
-import { useGetAccount, useI18Text } from '@/application/hooks'
+import { useI18Text } from '@/application/hooks'
+import { GetAccountResponse } from '@/shared'
 import { Box, Text } from '@/ui/atoms'
 import { OpenCloseEye } from '@/ui/molecules'
-import { Balance, SkeletonLoader } from '@/ui/organisms'
+import { Balance, TextLoading } from '@/ui/organisms'
 
-const Description = () => {
+const Description = ({
+  isLoading,
+  data,
+}: {
+  isLoading: boolean
+  data?: GetAccountResponse
+}) => {
   const t = useI18Text('account')
   const [showBalance, setShowBalance] = useState<boolean>(true)
-  const { data, isLoading } = useGetAccount()
 
   return (
     <Box className='flex flex-col gap-4'>
       <Box className='flex gap-5 items-center'>
         <Balance
-          classSkeleton='flex items-center'
+          classSkeleton='flex items-center w-24 sm:w-28 h-6 sm:h-8'
           isLoading={isLoading}
           textType='font_24_30_fw_bold_fm_rob'
           classIcon='w-6 h-6 sm:w-7 sm:h-7'
           balance={data?.balance}
           isShow={showBalance}
-          width='w-24 sm:w-28'
-          height='h-6 sm:h-8'
         />
         <OpenCloseEye
           setIsShow={setShowBalance}
@@ -33,16 +37,14 @@ const Description = () => {
         <Text className='text-end' textType='font_16_18_fw_bold_fm_rob'>
           {t('transactional')}
         </Text>
-        <SkeletonLoader
-          className='flex justify-end'
+        <TextLoading
+          textType='font_16_18_fw_bold_fm_rob'
           isLoading={isLoading}
-          height='h-4 sm:h-5'
-          width='w-32 sm:w-36'
+          classNameSkeleton='self-end h-5 sm:h-6 w-32 sm:w-36'
+          classText='text-end'
         >
-          <Text textType='font_16_18_fw_bold_fm_rob' className='text-end'>
-            {t('numberAccount', { number: data?.accountNumber })}
-          </Text>
-        </SkeletonLoader>
+          {t('numberAccount', { number: data?.accountNumber })}
+        </TextLoading>
       </Box>
     </Box>
   )

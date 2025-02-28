@@ -7,6 +7,7 @@ export interface ApiRequestOptions<T> {
   params?: Record<string, unknown>
   headers?: Record<string, string>
   successStatus?: number
+  responseType?: 'json' | 'blob' | 'text'
 }
 
 export interface ApiResponse<T> {
