@@ -1,7 +1,9 @@
 export const codesEnabled: Record<string, boolean> = {
+  CARDS: true,
   CONSOLIDADA: true,
   CUENTAS: true,
   CUENTAS_DETALLE: true,
+  DEBIT: true,
   LOGIN: true,
   LOGIN_CREDENTIALS: true,
   LOGIN_PHONE: true,
@@ -16,6 +18,5 @@ export const codesEnabled: Record<string, boolean> = {
   REGISTER_CRED_CODE: true,
   REGISTER_CRED_CONFIRM: true,
   ROULETTE: true,
-  TARJETAS: true,
   TRANSFER: true,
 }

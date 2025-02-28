@@ -49,6 +49,7 @@ const config: Config = {
       },
       height: {
         '22': '5.5rem',
+        '50': '12.5rem',
         'content-destokp': `calc(100vh - (5rem + 1.5rem))`,
         'content-mobile': `calc(100vh - (5rem + 3.125rem + 2.5rem))`,
         'menu-destokp': `calc(100vh - 5rem)`,

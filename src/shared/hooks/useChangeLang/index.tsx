@@ -9,7 +9,6 @@ export const useChangeLang = () => {
 
   const handleChangeLanguage = async () => {
     handleActionService({ lang: changeLang })
-    window.location.reload()
   }
 
   return {
