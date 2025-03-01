@@ -58,7 +58,11 @@ const config: Config = {
         xxs: '0.875rem',
         xxxs: '0.75rem',
       },
+      maxWidth: {
+        '160': '40rem',
+      },
       width: {
+        '160': '40rem',
         22: '5.5rem',
       },
     },
