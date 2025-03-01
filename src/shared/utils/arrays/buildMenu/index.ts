@@ -6,13 +6,16 @@ export const buildMenu = (
   currentPath: string | null
 ): MenuOption[] => {
   return options
-    .filter(
-      option =>
+    .filter(option => {
+      if (option.alwaysShow) return true
+
+      return (
         option.code &&
         codesEnabled[option.code as keyof typeof codesEnabled] &&
         (!option.lineageCode ||
           codesEnabled[option.lineageCode as keyof typeof codesEnabled])
-    )
+      )
+    })
     .map(option => {
       const children = option.children
         ? buildMenu(option.children, currentPath)
@@ -25,6 +28,7 @@ export const buildMenu = (
       return {
         isActive: option?.path === currentPath && !option?.children?.length,
         isChildrenActive,
+        isDefaultOpen: option.isDefaultOpen ?? false,
         label: option.label,
         onClick: option?.onClick,
         path: option.path,

@@ -4,10 +4,10 @@ import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useGetAccount, useI18Text } from '@/application/hooks'
 import { Box } from '@/ui/atoms'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
-import { CardProduct } from '@/ui/organisms'
-import Actions from './actions'
-import CardAsociate from './cardAsociate'
-import Description from './description'
+import Actions from './components/actions'
+import CardAsociate from './components/cardAsociate'
+import Description from './components/description'
+import { menuContextual } from './shared/menuContextual'
 
 const CuentasPage = () => {
   const t = useI18Text()
@@ -22,10 +22,13 @@ const CuentasPage = () => {
           primaryText={t('share')}
         />
       }
+      contextualMenu={menuContextual}
     >
       <Box className='flex flex-col gap-4'>
         <Description isLoading={isLoading} data={data} />
         <Actions accountId={data?.id} isLoading={isLoading} />
+        <CardAsociate />
+        <CardAsociate />
         <CardAsociate />
       </Box>
     </LayoutAuthenticationPage>

@@ -2,38 +2,31 @@ import classNames from 'classnames'
 import React from 'react'
 import { Box } from '@/ui/atoms'
 import Content from './content'
+import DestokpMenuContextual from './menuContextual/destokp'
 import { LayoutAuthenticationPageProps } from './types'
 
 const LayoutAuthenticationPage = ({
   i18nTitle,
   footerBox,
-  contextualMenu,
+  contextualMenu = [],
   children,
 }: LayoutAuthenticationPageProps) => {
   return (
     <Box
-      className={classNames('grid gap-6', 'h-full', {
+      className={classNames('grid gap-2', 'h-full', {
         'grid-cols-1': !contextualMenu,
-        'lg:grid-cols-[1fr_11.25rem]': contextualMenu,
+        'lg:grid-cols-[1fr_14rem]': contextualMenu,
       })}
     >
       <Content
         i18nTitle={i18nTitle}
         footerBox={footerBox}
-        isContextualMenu={Boolean(contextualMenu)}
+        contextualMenu={contextualMenu}
       >
         {children}
       </Content>
-      {contextualMenu && (
-        <div
-          className={classNames(
-            'hidden border items-center justify-center',
-            'lg:flex',
-            'h-20'
-          )}
-        >
-          Menu contextual
-        </div>
+      {contextualMenu?.length > 0 && (
+        <DestokpMenuContextual options={contextualMenu} />
       )}
     </Box>
   )

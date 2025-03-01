@@ -24,6 +24,7 @@ const ModalYourCards = () => {
           className='bg-debit h-48 cursor-pointer'
           headerBankCard={<CardProduct.HeaderMasterCard />}
           textAccount={'1212121'}
+          isLoading
         />
       </Box>
     </Modal>

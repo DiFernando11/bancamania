@@ -13,13 +13,15 @@ const CardAsociate = () => {
   return (
     <Box>
       <Text textType='font_16_18_fw_bold_fm_rob'>{t('associatedCard')}</Text>
-      <CardProduct.BankingCard
-        className='mt-2 bg-debit h-50 cursor-pointer'
-        headerBankCard={<CardProduct.HeaderMasterCard />}
-        textAccount={data?.cardNumber}
-        isLoading={isLoading}
-        onClick={() => route.push(clientRoutes.debit.path)}
-      />
+      <Box className='h-50'>
+        <CardProduct.BankingCard
+          className='mt-2 bg-debit cursor-pointer'
+          headerBankCard={<CardProduct.HeaderMasterCard />}
+          textAccount={data?.cardNumber}
+          isLoading={isLoading}
+          onClick={() => route.push(clientRoutes.debit.path)}
+        />
+      </Box>
     </Box>
   )
 }

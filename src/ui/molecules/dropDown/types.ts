@@ -6,8 +6,10 @@ export interface DropdownItem {
   onClick?: () => void
   children?: DropdownItem[]
   isChildrenActive?: boolean
+  isDefaultOpen?: boolean
   isActive?: boolean
   isLoading?: boolean
+  className?: string
 }
 
 export interface DropdownItemProps {
@@ -16,6 +18,7 @@ export interface DropdownItemProps {
   isRoot: boolean
   levelDifferent?: boolean
   component: React.FC<DropDownMenuProps>
+  className?: string
 }
 
 export interface DropdownContent {
@@ -29,6 +32,7 @@ export interface DropdownContent {
 export interface RecursiveDropdownProps {
   items: DropdownItem[]
   component: React.FC<DropDownMenuProps>
+  className?: string
 }
 
 export interface IconConfigureDropDown {
@@ -41,4 +45,5 @@ export interface DropDownMenuProps {
   setIsOpen: (isOpen: boolean) => void
   isOpen: boolean | undefined
   isRoot: boolean
+  className?: string
 }

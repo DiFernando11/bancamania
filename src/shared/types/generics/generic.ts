@@ -15,7 +15,9 @@ export interface MenuOption {
   lineageCode?: string
   children?: MenuOption[]
   onClick?: () => void
-  path: string
+  path?: string
+  alwaysShow?: boolean
+  isDefaultOpen?: boolean
 }
 
 export interface StepWizardHandle {
