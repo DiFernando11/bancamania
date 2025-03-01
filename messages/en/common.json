@@ -5,9 +5,12 @@
   "languague": "Change language - {locale}",
   "logout": "Log out",
   "share": "Share",
+  "copy": "Copy",
+  "others": "Others",
   "loading": "LOADING",
   "back": "Go back",
   "next": "Next",
+  "options": "Options",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My accounts",

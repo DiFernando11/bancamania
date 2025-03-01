@@ -1,5 +1,6 @@
 'use client'
 import React, { useMemo } from 'react'
+import { useI18Text } from '@/application/hooks'
 import { MenuOption } from '@/shared'
 import { useBuildActiveOption } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
@@ -7,6 +8,7 @@ import { DropDown } from '@/ui/molecules'
 
 const DestokpMenuContextual = ({ options = [] }: { options: MenuOption[] }) => {
   const { menu } = useBuildActiveOption({ options })
+  const t = useI18Text()
 
   const menuOptions = useMemo(
     () => [
@@ -14,7 +16,7 @@ const DestokpMenuContextual = ({ options = [] }: { options: MenuOption[] }) => {
         alwaysShow: true,
         children: menu,
         isDefaultOpen: true,
-        label: <DropDown.Content text={'Options'} />,
+        label: <DropDown.Content text={t('options')} />,
       },
     ],
     [options]

@@ -8,7 +8,10 @@
   "debit": "Débito",
   "loading": "CARGANDO",
   "back": "Regresar",
+  "others": "Otros",
+  "copy": "Copiar",
   "next": "Siguiente",
+  "options": "Opciones",
   "option": {
     "consolidada": "Mi Consolidada",
     "misCuentas": "Mis Cuentas",
