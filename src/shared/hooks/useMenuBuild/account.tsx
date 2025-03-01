@@ -2,7 +2,7 @@ import { clientRoutes } from '@/routes/clientRoutes'
 import { DropDown } from '@/ui/molecules'
 import { BuildOptionProps } from './types'
 
-const { cuentas } = clientRoutes
+const { account } = clientRoutes
 export const buildCuentasOption = ({
   t,
   handleClick,
@@ -12,21 +12,10 @@ export const buildCuentasOption = ({
     <DropDown.Content
       text={t('option.misCuentas')}
       nameIcon='Account'
-      textClassName={textClass(cuentas.path, false)}
+      textClassName={textClass(account.path, false)}
       iconClassName='w-10 h-10'
     />
   ),
-  ...cuentas,
-  children: [
-    {
-      label: (
-        <DropDown.Content
-          text={t('option.cuentas')}
-          textClassName={textClass(cuentas.path)}
-        />
-      ),
-      onClick: () => handleClick(cuentas.path),
-      ...cuentas,
-    },
-  ],
+  onClick: () => handleClick(account.path),
+  ...account,
 })

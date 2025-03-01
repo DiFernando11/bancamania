@@ -1,11 +1,15 @@
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { ReactElement } from 'react'
 import { MenuOption } from '@/shared'
 
 export interface LayoutAuthenticationPageProps {
-  children: React.ReactNode
   i18nTitle?: string
-  footerBox?: ReactElement
-  contextualMenu?: MenuOption[]
+  footerBox?: React.ReactElement
+  contextualMenu?: (params: {
+    route: AppRouterInstance
+    t: (key: string) => string
+  }) => MenuOption[]
+  children: React.ReactNode
 }
 
 export interface LayoutPageAuthFooter {
