@@ -15,8 +15,11 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
   level,
   isRoot,
   component: Component,
+  className,
 }) => {
-  const [isOpen, setIsOpen] = useState(item?.isChildrenActive)
+  const [isOpen, setIsOpen] = useState(
+    item?.isChildrenActive || item?.isDefaultOpen
+  )
 
   return (
     <>
@@ -26,6 +29,7 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
           setIsOpen={setIsOpen}
           isOpen={isOpen}
           isRoot={isRoot}
+          className={className}
         />
       </li>
       <AnimatePresence>
@@ -43,6 +47,7 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
                 level={level + 1}
                 isRoot={false}
                 component={Component}
+                className={child.className}
               />
             ))}
           </AnimationContainer>
@@ -52,7 +57,11 @@ const DropDownItem: React.FC<DropdownItemProps> = ({
   )
 }
 
-const DropDown = ({ items, component: Component }: RecursiveDropdownProps) => {
+const DropDown = ({
+  items,
+  className,
+  component: Component,
+}: RecursiveDropdownProps) => {
   return (
     <ul className='w-full shadow-lg rounded-md'>
       {items.map((item, index) => (
@@ -62,6 +71,7 @@ const DropDown = ({ items, component: Component }: RecursiveDropdownProps) => {
           level={0}
           isRoot={true}
           component={Component}
+          className={className}
         />
       ))}
     </ul>

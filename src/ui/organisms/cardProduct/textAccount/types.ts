@@ -1,9 +1,8 @@
 import { TextType } from '@/ui/atoms/text/types'
+import { SkeletonLoaderPropsWithoutChildren } from '../../skeletonLoader/types'
 
-export interface TextAccountProps {
+export interface TextAccountProps extends SkeletonLoaderPropsWithoutChildren {
   isShow: boolean
-  isLoading: boolean
   textAccount?: string
   textType?: TextType
-  className?: string
 }

@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 export interface BankingCardProps {
   className: string
   headerBankCard: ReactNode
-  isLoading?: boolean
+  isLoading: boolean
   footerRightComponent?: ReactNode
   onClick?: () => void
   nextStepComponent?: ReactNode

@@ -1,3 +1,4 @@
+'use client'
 import { useTranslations } from 'next-intl'
 
 export const useI18Text = (namespace = 'common') => {

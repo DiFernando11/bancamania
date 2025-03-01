@@ -8,6 +8,7 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
   setIsOpen,
   isOpen,
   isRoot,
+  className,
 }) => {
   return (
     <button
@@ -21,13 +22,17 @@ export const DropDownMenu: React.FC<DropDownMenuProps> = ({
       }}
       aria-disabled={item?.isLoading}
       disabled={item?.isLoading}
-      className={classNames('flex items-center w-full p-4 border-b', {
-        'bg-accent-230': item?.isActive,
-        'border-accent-200 rounded-b-lg': !isRoot,
-        'cursor-default': item?.isChildrenActive || item?.isActive,
-        'cursor-wait bg-loading-100': item?.isLoading,
-        'shadow-bottom-accent rounded-lg ': isRoot,
-      })}
+      className={classNames(
+        className,
+        'flex items-center w-full p-4 border-b',
+        {
+          'bg-accent-230': item?.isActive,
+          'border-accent-200 rounded-b-lg': !isRoot,
+          'cursor-default': item?.isChildrenActive || item?.isActive,
+          'cursor-wait bg-loading-100': item?.isLoading,
+          'shadow-bottom-accent rounded-lg ': isRoot,
+        }
+      )}
     >
       <Box className='flex-1 overflow-hidden'>{item.label}</Box>
       {item.children && (
