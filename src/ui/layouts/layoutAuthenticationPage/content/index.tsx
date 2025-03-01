@@ -14,7 +14,6 @@ const Content = ({
 }: LayoutPageAuthContent) => {
   const tArialabel = useI18Text('commonAriaLabel')
   const scrollRef = useRef(null)
-  const t = useI18Text(i18nTitle)
 
   return (
     <Box
@@ -53,7 +52,7 @@ const Content = ({
           >
             {i18nTitle && (
               <Text variant='h1' textType='font_30_36_fw_bold_fm_rob_text-200'>
-                {t('title')}
+                {i18nTitle}
               </Text>
             )}
             {children}

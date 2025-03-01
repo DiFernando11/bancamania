@@ -1,0 +1,15 @@
+{
+  "account": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/account",
+    "code": "ACCOUNT"
+  },
+  "movementsAccount": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/account/movements",
+    "lineageCode": "ACCOUNT",
+    "code": "MOV_ACCOUNT"
+  }
+}

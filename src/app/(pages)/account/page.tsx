@@ -12,18 +12,19 @@ import Description from './components/description'
 import { menuContextual } from './shared/menuContextual'
 
 const CuentasPage = () => {
-  const t = useI18Text()
+  const t = useI18Text('account')
+  const tCommon = useI18Text()
   const { data, isLoading } = useGetAccount()
   const { openModal } = useModal()
 
   return (
     <LayoutAuthenticationPage
-      i18nTitle={'account'}
+      i18nTitle={t('title')}
       footerBox={
         <ButtonActionSimple
           disablePrimary={isLoading}
           primaryOnClick={() => openModal(<ModalShare data={data} />)}
-          primaryText={t('share')}
+          primaryText={tCommon('share')}
         />
       }
       contextualMenu={menuContextual}

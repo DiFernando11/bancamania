@@ -1,3 +1,4 @@
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { ReactNode } from 'react'
 
 export type StoragePrimitive =
@@ -26,4 +27,9 @@ export interface StepWizardHandle {
   goToStep: (step: number) => void
   reset: () => void
   isLastStep: () => boolean
+}
+
+export interface MenuContextualProps {
+  t: (key: string) => string
+  route: AppRouterInstance
 }

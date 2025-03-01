@@ -3,10 +3,10 @@ import { useMemo } from 'react'
 import { useI18Text } from '@/application/hooks'
 import { buildMenu } from '@/shared/utils'
 import { useCurrentPath } from '../useCurrentPath'
+import { buildCuentasOption } from './account'
+import { buildTarjetasOption } from './cards'
 import { buildConsolidadaOption } from './consolidada'
-import { buildCuentasOption } from './cuentas'
 import { buildRouletteOption } from './roulette'
-import { buildTarjetasOption } from './tarjetas'
 
 export const useMenuBuild = ({
   handleClick,
