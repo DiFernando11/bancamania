@@ -1,24 +1,12 @@
-'use client'
 import React from 'react'
-import { useGetMovements, useI18Text } from '@/application/hooks'
-import { Box, Icon, Text } from '@/ui/atoms'
 import { IconNames } from '@/ui/atoms/icons/icon/types'
 import { BitcoinSymbol, Movements } from '@/ui/molecules'
 import Skeleton from './skeleton'
+import { LastMovementsProps } from './types'
 
-const LastMovements = () => {
-  const t = useI18Text('home')
-
-  const { data: movements, isLoading } = useGetMovements({
-    limit: 3,
-  })
-
+const LastMovements = ({ movements, isLoading }: LastMovementsProps) => {
   return (
-    <Box className='flex flex-col p-4 shadow-all-accent rounded-lg gap-8'>
-      <Box className='flex items-center gap-3'>
-        <Text>{t('lastMoves')}</Text>
-        <Icon name='Arrown' className='w-3 h-3 sm:w-4 sm:h-4 -rotate-90' />
-      </Box>
+    <>
       {isLoading ? (
         <Skeleton />
       ) : (
@@ -42,7 +30,7 @@ const LastMovements = () => {
           />
         ))
       )}
-    </Box>
+    </>
   )
 }
 

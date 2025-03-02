@@ -15,7 +15,7 @@ const Movements = ({
   balanceComponent: ReactNode
 }) => {
   return (
-    <Box className='flex justify-between gap-8'>
+    <Box className='flex justify-between gap-8 border-b border-primary-100 pb-4'>
       <Box className='flex gap-4 items-center'>
         {leftIconMovement && leftIconMovement}
         <Box>
