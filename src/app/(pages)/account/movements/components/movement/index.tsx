@@ -1,20 +1,37 @@
 import React from 'react'
-import LastMovements from '@/app/components/lastMovements'
+import Skeleton from '@/app/components/lastMovements/skeleton'
+import PaginationMoves from '@/app/components/paginationMoves'
 import { useGetAccount, useGetMovements } from '@/application/hooks'
-import { Box } from '@/ui/atoms'
+import { IconNames } from '@/ui/atoms/icons/icon/types'
+import { PaginationWrapper } from '@/ui/layouts'
+import { BitcoinSymbol, Movements } from '@/ui/molecules'
 
 const Movement = () => {
-  const { data } = useGetAccount()
-  const { data: movements, isLoading } = useGetMovements({
+  const { data, isLoading: loadingAccount } = useGetAccount()
+  const LIMIT = 10
+  const {
+    data: movements,
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetMovements({
     accountId: data?.id,
     enabled: Boolean(data?.id),
-    limit: 10,
+    limit: LIMIT,
   })
 
+  const loadingFull = isLoading || loadingAccount
+
   return (
-    <Box className='flex flex-col gap-4'>
-      <LastMovements isLoading={isLoading} movements={movements} />
-    </Box>
+    <PaginationMoves
+      isInitialLoading={loadingFull}
+      fetchNextPage={fetchNextPage}
+      hasNextPage={hasNextPage}
+      isFetchingNextPage={isFetchingNextPage}
+      movements={movements}
+      countSkeleton={LIMIT}
+    />
   )
 }
 
