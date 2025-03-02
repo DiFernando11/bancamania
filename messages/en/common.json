@@ -7,10 +7,11 @@
   "share": "Share",
   "copy": "Copy",
   "others": "Others",
-  "loading": "LOADING",
+  "loading": "Loading",
   "back": "Go back",
   "next": "Next",
   "options": "Options",
+  "seeMore": "See more",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My account",

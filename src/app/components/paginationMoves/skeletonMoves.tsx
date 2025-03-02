@@ -2,14 +2,14 @@ import React from 'react'
 import { Box } from '@/ui/atoms'
 import { Movements } from '@/ui/molecules'
 
-const Skeleton = () => {
+const SkeletonMoves = ({ count = 10 }: { count?: number }) => {
   return (
     <Box className='flex flex-col gap-8'>
-      {[1, 2, 3].map(key => (
-        <Movements.Skeleton key={key} />
+      {[...Array(count)].map((_, index) => (
+        <Movements.Skeleton key={index} />
       ))}
     </Box>
   )
 }
 
-export default Skeleton
+export default SkeletonMoves
