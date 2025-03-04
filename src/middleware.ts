@@ -6,13 +6,13 @@ import onBoardingStepMiddleware from './middlewareApp/onBoardingStepMiddleware'
 import { codesEnabled } from './routes/access'
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
-  const currentPath = findRouteByPath(pathname)
-
   const onBoardingResponse = onBoardingStepMiddleware(request)
   if (onBoardingResponse) {
     return onBoardingResponse
   }
+
+  const pathname = request.nextUrl.pathname
+  const currentPath = findRouteByPath(pathname)
 
   const { code, lineageCode } = currentPath ?? {}
 
