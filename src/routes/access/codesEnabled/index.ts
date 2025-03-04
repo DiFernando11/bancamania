@@ -14,6 +14,7 @@ export const codesEnabled: Record<string, boolean> = {
   NOT_FOUND: true,
   ON_BOARDING: true,
   PERFIL: true,
+  RECEIPTS: false,
   REGISTER: true,
   REGISTER_CRED: true,
   REGISTER_CRED_CODE: true,

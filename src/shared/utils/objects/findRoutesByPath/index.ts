@@ -1,20 +1,16 @@
 import { clientRoutes } from '@/routes/clientRoutes'
-
-type RouteConfig = {
-  layout: string
-  middleware: string | null
-  path: string
-  code: string
-  lineageCode?: string | null
-}
-
-type Routes = Record<string, RouteConfig>
+import { RouteConfig, Routes } from './types'
 
 export const findRouteByPath = (pathname: string): RouteConfig | null => {
   const routes: Routes = clientRoutes
 
   for (const key in routes) {
-    if (routes[key].path === pathname) {
+    const routePath = routes[key].path
+    const regexPattern = routePath.replace(/:[a-zA-Z0-9_]+/g, '([^/]+)')
+    const regex = new RegExp(`^${regexPattern}$`)
+
+    const match = pathname.match(regex)
+    if (match) {
       return routes[key]
     }
   }
