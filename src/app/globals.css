@@ -109,6 +109,12 @@ div {
 
 /* fonts  */
 
+.font_16_fm_rob {
+  @apply text-base font-roboto;
+}
+
+/* bold */
+
 .font_8_fw_bold_fm_rob {
   @apply text-xxxs leading-xxxs font-bold font-roboto;
 }

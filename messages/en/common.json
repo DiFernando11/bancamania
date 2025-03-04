@@ -12,6 +12,7 @@
   "next": "Next",
   "options": "Options",
   "seeMore": "See more",
+  "date": "Date: {date}",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My account",
