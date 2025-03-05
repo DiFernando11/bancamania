@@ -6,6 +6,7 @@ import { useCurrentPath } from '../useCurrentPath'
 import { buildCuentasOption } from './account'
 import { buildTarjetasOption } from './cards'
 import { buildConsolidadaOption } from './consolidada'
+import { buildReceipts } from './receipts'
 import { buildRouletteOption } from './roulette'
 
 export const useMenuBuild = ({
@@ -24,6 +25,7 @@ export const useMenuBuild = ({
     buildRouletteOption({ handleClick, t, textClass }),
     buildCuentasOption({ handleClick, t, textClass }),
     buildTarjetasOption({ handleClick, t, textClass }),
+    buildReceipts({ handleClick, t, textClass }),
   ]
 
   const menu = useMemo(

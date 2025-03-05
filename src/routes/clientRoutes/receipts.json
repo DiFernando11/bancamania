@@ -1,0 +1,15 @@
+{
+  "receipts": {
+    "layout": "private",
+    "middleware": "private",
+    "code": "RECEIPTS",
+    "path": "/receipts"
+  },
+  "receiptsID": {
+    "layout": "private",
+    "middleware": "private",
+    "code": "RECEIPTSID",
+    "path": "/receipts/:id",
+    "lineageCode": "RECEIPTS"
+  }
+}

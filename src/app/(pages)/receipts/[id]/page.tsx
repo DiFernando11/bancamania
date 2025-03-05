@@ -1,12 +1,11 @@
 'use client'
 import React from 'react'
-import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useGetReceiptByUUID, useI18Text } from '@/application/hooks'
 import { Box, Icon, Text } from '@/ui/atoms'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { ButtonText } from '@/ui/molecules'
 
-const ReceiptsPage = ({ params }: { params: { id: string } }) => {
+const ReceiptByUUUIDPage = ({ params }: { params: { id: string } }) => {
   const { data } = useGetReceiptByUUID({ receiptId: params.id })
 
   const { title, id, dataReceipts, createdAt } = data || {}
@@ -58,4 +57,4 @@ const ReceiptsPage = ({ params }: { params: { id: string } }) => {
   )
 }
 
-export default ReceiptsPage
+export default ReceiptByUUUIDPage

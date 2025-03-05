@@ -15,11 +15,12 @@
   "seeMore": "Ver más",
   "date": "Fecha: {date}",
   "option": {
-    "consolidada": "Mi Consolidada",
-    "misCuentas": "Mi Cuenta",
+    "consolidada": "Mi consolidada",
+    "misCuentas": "Mi cuenta",
     "cuentas": "Cuentas",
-    "misTarjetas": "Mis Tarjetas",
+    "misTarjetas": "Mis tarjetas",
     "tarjetas": "Tarjetas",
-    "roulette": "Ruleta de la suerte"
+    "roulette": "Ruleta de la suerte",
+    "receipts": "Mis comprobantes"
   }
 }
