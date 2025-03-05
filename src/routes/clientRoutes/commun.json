@@ -5,12 +5,6 @@
     "code": "CONSOLIDADA",
     "path": "/"
   },
-  "receipts": {
-    "layout": "private",
-    "middleware": "private",
-    "code": "RECEIPTS",
-    "path": "/receipts/:id"
-  },
   "notFound": {
     "layout": "public",
     "middleware": null,

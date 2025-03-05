@@ -1,12 +1,8 @@
-import { TextType } from '@/ui/atoms/text/types'
-import { SkeletonLoaderPropsWithoutChildren } from '../skeletonLoader/types'
+import { ReactNode } from 'react'
 
-export interface SelectedOptionProps
-  extends SkeletonLoaderPropsWithoutChildren {
-  text: string
+export interface SelectedOptionProps {
   onClick: () => void
+  children: ReactNode
   className?: string
-  textType?: TextType
-  classIcon?: string
-  IconAction?: React.ReactNode
+  ComponentAction?: React.ReactNode
 }

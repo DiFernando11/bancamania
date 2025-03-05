@@ -17,8 +17,9 @@
     "consolidada": "My consolidated",
     "misCuentas": "My account",
     "cuentas": "Accounts",
-    "misTarjetas": "My Cards",
+    "misTarjetas": "My cards",
     "tarjetas": "Cards",
-    "roulette": "Wheel of fortune"
+    "roulette": "Wheel of fortune",
+    "receipts": "My receipts"
   }
 }

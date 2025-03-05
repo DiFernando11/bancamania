@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  color = 'white',
+  fill = 'white',
   className,
 }) => {
   return (
@@ -13,7 +13,7 @@ const Arrown: React.FC<React.SVGProps<SVGSVGElement>> = ({
       y='0px'
       viewBox='0 0 284.929 284.929'
       className={className}
-      fill={color}
+      fill={fill}
     >
       <g>
         <path

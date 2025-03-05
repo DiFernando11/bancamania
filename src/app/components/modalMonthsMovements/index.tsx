@@ -2,9 +2,9 @@
 import classNames from 'classnames'
 import React, { useState } from 'react'
 import { useDownloadStatement, useGetMonthMovements } from '@/application/hooks'
-import { Box, Icon, Spinner } from '@/ui/atoms'
+import { Box } from '@/ui/atoms'
 import { Modal } from '@/ui/molecules'
-import { SelectedOption } from '@/ui/organisms'
+import MonthsMovements from './monthsMovements'
 import { ModalMovementsProps } from './types'
 
 const ModalMothMovements = ({ title, idType, id }: ModalMovementsProps) => {
@@ -35,18 +35,12 @@ const ModalMothMovements = ({ title, idType, id }: ModalMovementsProps) => {
       >
         {data?.length &&
           data.map(mov => (
-            <SelectedOption
+            <MonthsMovements
+              isLoading={isLoading}
               onClick={() => handleAction(mov.id)}
               key={mov.id}
               text={mov.text}
-              isLoading={isLoading}
-              IconAction={
-                loadingStatement && selectId === mov.id ? (
-                  <Spinner sizeSpinner='w-4 h-4' />
-                ) : (
-                  <Icon name='Download' className='w-5 h-5' />
-                )
-              }
+              loadingSelected={loadingStatement && selectId === mov.id}
             />
           ))}
       </Box>
