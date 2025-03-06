@@ -8,6 +8,7 @@ import { buildTarjetasOption } from './cards'
 import { buildConsolidadaOption } from './consolidada'
 import { buildReceipts } from './receipts'
 import { buildRouletteOption } from './roulette'
+import { buildTransferOption } from './transfer'
 
 export const useMenuBuild = ({
   handleClick,
@@ -22,6 +23,7 @@ export const useMenuBuild = ({
 
   const menuOptions = [
     buildConsolidadaOption({ handleClick, t, textClass }),
+    buildTransferOption({ handleClick, t, textClass }),
     buildRouletteOption({ handleClick, t, textClass }),
     buildCuentasOption({ handleClick, t, textClass }),
     buildTarjetasOption({ handleClick, t, textClass }),
