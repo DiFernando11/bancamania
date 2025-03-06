@@ -14,6 +14,8 @@
   "options": "Opciones",
   "seeMore": "Ver más",
   "date": "Fecha: {date}",
+  "download": "Descargar",
+  "actions": "Acciones",
   "option": {
     "consolidada": "Mi consolidada",
     "misCuentas": "Mi cuenta",

@@ -1,3 +1,4 @@
 {
-  "title": "My receipts"
+  "title": "My receipts",
+  "nrReceipt": "Receipt {nro}"
 }

@@ -190,6 +190,10 @@ div {
   @apply text-lg font-bold font-roboto text-primary-200;
 }
 
+.font_20_fw_bold_fm_rob_text-200 {
+  @apply text-xl font-bold font-roboto text-primary-200;
+}
+
 /* Responsives - text-primary*/
 /* descriptions */
 .font_16-20_fw_bold_fm_rob_text-200 {
