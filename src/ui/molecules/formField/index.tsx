@@ -1,33 +1,41 @@
-import { Field, ErrorMessage, FieldProps } from 'formik'
-import React from 'react'
+import React, { ComponentProps } from 'react'
+import { useFormContext, Controller, FieldValues } from 'react-hook-form'
 import { FormFieldProps } from './types'
 
-const FormField: React.FC<FormFieldProps> = ({
+const FormField = <T extends FieldValues>({
   name,
   label,
   component: Component,
-  placeholder,
+  className = '',
   ...props
-}) => {
+}: FormFieldProps<T>) => {
+  const { control } = useFormContext<T>()
+
   return (
-    <div className='flex flex-col'>
+    <div className={`flex flex-col ${className}`}>
       <label htmlFor={name} className='mb-1 font-medium text-gray-700'>
         {label}
       </label>
-      <Field name={name}>
-        {({ field }: FieldProps) => (
-          <Component
-            {...field}
-            id={name}
-            placeholder={placeholder}
-            {...props}
-          />
-        )}
-      </Field>
-      <ErrorMessage
+      <Controller
         name={name}
-        component='div'
-        className='text-sm text-red-500 mt-1'
+        control={control}
+        render={({
+          field: { value, onChange, onBlur },
+          fieldState: { error },
+        }) => (
+          <>
+            <Component
+              {...(props as ComponentProps<typeof Component>)}
+              value={value}
+              onChange={onChange}
+              onBlur={onBlur}
+              id={name}
+            />
+            {error && (
+              <p className='text-sm text-red-500 mt-1'>{error.message}</p>
+            )}
+          </>
+        )}
       />
     </div>
   )

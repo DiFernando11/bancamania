@@ -1,68 +1,81 @@
 'use client'
-import { Form, Formik } from 'formik'
 import Link from 'next/link'
 import React from 'react'
-import * as Yup from 'yup'
+import { z } from 'zod'
 import { useLoginCredentialsCase } from '@/application/useCases'
 import { clientRoutes } from '@/routes/clientRoutes'
+import FormState from '@/ui/atoms/formState'
 import { FormField } from '@/ui/molecules'
+import { CredentialsForm } from './types'
+
+const schema: z.ZodSchema<CredentialsForm> = z.object({
+  email: z.string().email('Correo inválido').min(1, 'Requerido'),
+  password: z
+    .string()
+    .min(6, 'Debe tener al menos 6 caracteres')
+    .min(1, 'Requerido'),
+})
 
 const CredentialsPage = () => {
-  const InputElement: React.FC<
-    React.InputHTMLAttributes<HTMLInputElement>
-  > = props => {
+  const CustomInput = ({
+    value,
+    onChange,
+    onBlur,
+    placeholder,
+  }: {
+    value: string
+    onChange: (val: string) => void
+    onBlur: () => void
+    placeholder?: string
+  }) => {
     return (
       <input
-        {...props}
-        className='w-full px-4 py-2 border
-     border-gray-300 rounded-lg shadow-sm
-     focus:outline-none focus:ring-2 focus:ring-red-500
-     focus:border-red-500 transition duration-200 placeholder-gray-400'
+        className='border border-gray-300 px-3 py-2 text-black
+        rounded focus:ring-2 focus:ring-blue-500 focus:outline-none'
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        onBlur={onBlur}
+        placeholder={placeholder}
       />
     )
   }
   const { handleActionService } = useLoginCredentialsCase()
 
+  const onSubmit = (data: CredentialsForm) => {
+    handleActionService(data)
+  }
+
   return (
     <div className='flex flex-col gap-10 my-5'>
       <h1 className='text-center text-3xl'>Pagina de Login con credenciales</h1>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validationSchema={Yup.object({
-          email: Yup.string().email('Email inválido').required('Requerido'),
-          password: Yup.string()
-            .min(6, 'Debe tener al menos 6 caracteres')
-            .required('Requerido'),
-        })}
-        onSubmit={values => {
-          handleActionService(values)
-        }}
+      <FormState
+        defaultValues={{ email: '', password: '' }}
+        schema={schema}
+        onSubmit={onSubmit}
       >
-        <Form className='flex flex-col justify-center items-center gap-5'>
-          <div className='flex flex-col'>
-            <FormField
-              name='email'
-              component={InputElement}
-              placeholder='Ingrese su email'
-              label='Email'
-            />
-          </div>
-          <div className='flex flex-col'>
-            <FormField
-              label='Contraseña'
-              name='password'
-              component={InputElement}
-              placeholder='Ingrese su contraseña'
-            />
-          </div>
-          <button
-            className='border border-gray-300 rounded-lg shadow-sm py-2 px-5'
-            type='submit'
-          >
-            Enviar
-          </button>
-        </Form>
-      </Formik>
+        <div className='flex flex-col'>
+          <FormField<CredentialsForm>
+            name='email'
+            component={CustomInput}
+            placeholder='Ingrese su email'
+            label='Email'
+          />
+        </div>
+        <div className='flex flex-col'>
+          <FormField<CredentialsForm>
+            label='Contraseña'
+            name='password'
+            component={CustomInput}
+            placeholder='Ingrese su contraseña'
+          />
+        </div>
+        <button
+          className='border border-gray-300 rounded-lg shadow-sm py-2 px-5'
+          type='submit'
+        >
+          Enviar
+        </button>
+      </FormState>
       <Link
         className='text-center'
         href={clientRoutes.registerCredentialsSendCode.path}
