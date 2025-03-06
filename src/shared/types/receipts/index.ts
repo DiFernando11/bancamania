@@ -30,9 +30,6 @@ export interface ReceiptI {
   createdAt: string
   description: string
 }
-
-// Tipo para un arreglo de recibos
-
 export interface GetReceiptsResponse {
   receipts: ReceiptI[]
   currentPage: number
@@ -41,4 +38,8 @@ export interface GetReceiptsResponse {
   totalPages: number
   nextCursor?: number
   prevCursor?: number
+}
+
+export interface GetReceiptsBlobResponse {
+  blob: Blob
 }

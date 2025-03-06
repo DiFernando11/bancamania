@@ -1,58 +1,30 @@
 'use client'
 import React from 'react'
+import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useGetReceiptByUUID, useI18Text } from '@/application/hooks'
-import { Box, Icon, Text } from '@/ui/atoms'
+import { useModal } from '@/shared/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
-import { ButtonText } from '@/ui/molecules'
+import ModalShareReceipt from './components/modalShareReceipt'
+import Receipt from './components/receipt'
 
 const ReceiptByUUUIDPage = ({ params }: { params: { id: string } }) => {
-  const { data } = useGetReceiptByUUID({ receiptId: params.id })
-
-  const { title, id, dataReceipts, createdAt } = data || {}
-  const t = useI18Text()
+  const tCommon = useI18Text()
+  const { openModal } = useModal()
+  const { data, isLoading } = useGetReceiptByUUID({ receiptId: params.id })
 
   return (
     <LayoutAuthenticationPage
       footerBox={
-        <Box className='flex w-full gap-4 my-4'>
-          <ButtonText
-            className='flex-1'
-            onClick={() => console.log('red')}
-            text={'Compartir'}
-          />
-          <ButtonText
-            className='flex-1'
-            onClick={() => console.log('red')}
-            text={'Share'}
-          />
-        </Box>
+        <ButtonActionSimple
+          primaryOnClick={() =>
+            openModal(<ModalShareReceipt receiptId={params.id} />)
+          }
+          disablePrimary={isLoading}
+          primaryText={tCommon('actions')}
+        />
       }
     >
-      <Box className='receipts flex flex-col gap-6'>
-        <Box className='flex justify-center flex-col items-center'>
-          <Icon name='Success' className='w-16 h-16' />
-          <Text textType='font_24_fw_bold_fm_rob'>{title}</Text>
-          <Text textType='font_16_fw_bold_fm_rob' className='text-center'>
-            Comprobante {id}
-          </Text>
-        </Box>
-        <Text textType='font_16_fw_bold_fm_rob'>
-          {t('date', { date: createdAt })}
-        </Text>
-        <div className='dataReceipts'>
-          {dataReceipts?.map(({ key, value, style }, index) => (
-            <Box key={index}>
-              <Box className='flex gap-4 justify-between'>
-                <Text textType='font_16_fw_bold_fm_rob'>{key}</Text>
-                <Text textType='font_16_fm_rob' className='break-all text-end'>
-                  {value}
-                </Text>
-              </Box>
-              {style?.hr && <hr className='mb-4' />}
-            </Box>
-          ))}
-        </div>
-      </Box>
+      <Receipt data={data} isLoading={isLoading} />
     </LayoutAuthenticationPage>
   )
 }

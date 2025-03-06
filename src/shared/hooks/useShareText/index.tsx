@@ -1,19 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
 
-export const useShareText = (message: string) => {
-  const [canShare, setCanShare] = useState(false)
-
-  useEffect(() => {
-    setCanShare(!!navigator.share)
-  }, [])
-
-  const shareViaWhatsApp = () => {
+export const useShareText = () => {
+  const shareViaWhatsApp = (message: string) => {
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 
-  const copyToClipboard = async () => {
+  const copyToClipboard = async (message: string) => {
     try {
       await navigator.clipboard.writeText(message)
       alert('Copiado al portapapeles')
@@ -22,21 +15,68 @@ export const useShareText = (message: string) => {
     }
   }
 
-  const shareViaNavigator = async () => {
+  const copyImageToClipboard = async (imageBlob: Blob): Promise<void> => {
+    try {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          'image/png': imageBlob,
+        }),
+      ])
+      alert(
+        'Imagen copiada al portapapeles. Ahora puedes pegarla en WhatsApp u otra app.'
+      )
+    } catch (error) {
+      console.error('Error al copiar la imagen:', error)
+      alert('No se pudo copiar la imagen. Intenta manualmente.')
+    }
+  }
+
+  const shareImage = async (file: File, imageBlob: Blob): Promise<void> => {
+    if (navigator.share && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        text: 'Aquí tienes tu comprobante en imagen.',
+        title: 'Comprobante',
+      })
+    } else {
+      copyImageToClipboard(imageBlob)
+      alert(`Tu dispositivo no soporta compartir imágenes,
+        se ha copiado la imagen para que puedas compartila manualmente`)
+    }
+  }
+
+  const shareViaNavigator = async (message: string) => {
     if (navigator.share) {
       try {
         await navigator.share({ text: message })
       } catch (error) {
-        console.error('Error al compartir:', error)
+        console.error(error)
+        alert(
+          `Tu dispositivo no soporta compartir text,
+          se ha copiado para que lo puedas hacer manualmente`
+        )
       }
     } else {
-      copyToClipboard()
+      copyToClipboard(message)
     }
   }
 
+  const downloadImage = (imageUrl: string, title: string): void => {
+    const a = document.createElement('a')
+    a.href = imageUrl
+    a.download = `${title}.png`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(imageUrl)
+  }
+
   return {
+    copyImageToClipboard,
     copyToClipboard,
-    shareViaNavigator: canShare ? shareViaNavigator : undefined,
+    downloadImage,
+    shareImage,
+    shareViaNavigator,
     shareViaWhatsApp,
   }
 }

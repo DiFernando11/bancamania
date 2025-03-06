@@ -1,59 +1,46 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import classNames from 'classnames'
+import React, { ReactNode } from 'react'
 import { useI18Text } from '@/application/hooks'
-import { GetAccountResponse } from '@/shared'
-import { useShareText } from '@/shared/hooks'
-import { Box, Button, Icon, Text } from '@/ui/atoms'
+import { Box } from '@/ui/atoms'
 import { Modal } from '@/ui/molecules'
+import CopyToClipboard from './copyToClipboard'
+import DownloadPdf from './donwloadPdf'
+import DownloadImage from './downloadImage'
+import ShareNavigator from './shareNavigator'
+import ShareWhatsapp from './shareWhatsapp'
 
-const ModalShare = ({ data }: { data?: GetAccountResponse }) => {
+const ModalShare = ({
+  children,
+  className,
+  title,
+}: {
+  children: ReactNode
+  className?: string
+  title?: string
+}) => {
   const t = useI18Text()
-  const tb = useI18Text('onBoarding')
-
-  // TODO: Sacar gmail de useAuth
-  const numberAccount = `${tb('savings')}: ${data?.accountNumber}`
-  const message = `${data?.owner}\n${t('titlePage')}\n${numberAccount}\ndiegoapolo2011@gmail.com`
-
-  const { copyToClipboard, shareViaNavigator, shareViaWhatsApp } =
-    useShareText(message)
+  const titleShare = title ?? t('share')
 
   return (
     <Modal position='bottom' minHeight={'auto'}>
       <Modal.Header className='flex justify-between w-full items-center'>
-        <Modal.Title title={t('share')} />
+        <Modal.Title title={titleShare} />
         <Modal.Cerrar />
       </Modal.Header>
-      <Box className='flex justify-center w-full'>
-        <Box className='grid grid-cols-2 sm:grid-cols-3 gap-2 w-full my-5 mx-2 max-w-160'>
-          <Button
-            onClick={shareViaWhatsApp}
-            variant='secondary'
-            className='flex justify-center'
-          >
-            <Icon name='WhatsApp' className='w-10 h-10' />
-          </Button>
-          <Button
-            className='flex gap-1 justify-center items-center'
-            onClick={copyToClipboard}
-            variant='secondary'
-          >
-            <Icon name='Copy' className='w-10 h-10' />
-            <Text> {t('copy')}</Text>
-          </Button>
-          {shareViaNavigator && (
-            <Button
-              variant='secondary'
-              onClick={shareViaNavigator}
-              className='flex gap-2 justify-center items-center col-span-3 sm:col-span-1'
-            >
-              <Icon name='Share' className='w-8 h-8' />
-              <Text> {t('others')}</Text>
-            </Button>
-          )}
+      <Box className={classNames('flex justify-center w-full')}>
+        <Box className={classNames('w-full my-5 mx-2 max-w-160', className)}>
+          {children}
         </Box>
       </Box>
     </Modal>
   )
 }
+
+ModalShare.ShareNavigator = ShareNavigator
+ModalShare.ShareWhatsapp = ShareWhatsapp
+ModalShare.CopyToClipboard = CopyToClipboard
+ModalShare.DownloadImage = DownloadImage
+ModalShare.DownloadPdf = DownloadPdf
 
 export default ModalShare

@@ -1,7 +1,7 @@
 'use client'
 import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
-import React, { CSSProperties, useState } from 'react'
+import React, { CSSProperties } from 'react'
 import { useModal } from '@/shared/hooks'
 import { AnimationContainer, Box, Icon, Text } from '@/ui/atoms'
 import { ContentProps, ModalProps } from './types'
@@ -88,7 +88,7 @@ const Modal = ({
             key='modal'
             className={modalClasses}
             style={styles}
-            onClick={e => e.stopPropagation()}
+            onClick={(e: Event) => e.stopPropagation()}
             initial={animations[position].initial}
             animate={animations[position].animate}
             exit={animations[position].exit}
