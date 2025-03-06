@@ -4,6 +4,7 @@ import React from 'react'
 import { z } from 'zod'
 import { useLoginCredentialsCase } from '@/application/useCases'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { InputText } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField } from '@/ui/molecules'
 import { CredentialsForm } from './types'
@@ -17,28 +18,6 @@ const schema: z.ZodSchema<CredentialsForm> = z.object({
 })
 
 const CredentialsPage = () => {
-  const CustomInput = ({
-    value,
-    onChange,
-    onBlur,
-    placeholder,
-  }: {
-    value: string
-    onChange: (val: string) => void
-    onBlur: () => void
-    placeholder?: string
-  }) => {
-    return (
-      <input
-        className='border border-gray-300 px-3 py-2 text-black
-        rounded focus:ring-2 focus:ring-blue-500 focus:outline-none'
-        value={value}
-        onChange={e => onChange(e.target.value)}
-        onBlur={onBlur}
-        placeholder={placeholder}
-      />
-    )
-  }
   const { handleActionService } = useLoginCredentialsCase()
 
   const onSubmit = (data: CredentialsForm) => {
@@ -56,7 +35,7 @@ const CredentialsPage = () => {
         <div className='flex flex-col'>
           <FormField<CredentialsForm>
             name='email'
-            component={CustomInput}
+            component={InputText}
             placeholder='Ingrese su email'
             label='Email'
           />
@@ -65,8 +44,9 @@ const CredentialsPage = () => {
           <FormField<CredentialsForm>
             label='Contraseña'
             name='password'
-            component={CustomInput}
+            component={InputText}
             placeholder='Ingrese su contraseña'
+            type='password'
           />
         </div>
         <button
