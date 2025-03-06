@@ -4,9 +4,8 @@ import React from 'react'
 import { z } from 'zod'
 import { useLoginCredentialsCase } from '@/application/useCases'
 import { clientRoutes } from '@/routes/clientRoutes'
-import { InputText } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
-import { FormField } from '@/ui/molecules'
+import { FormField, InputText } from '@/ui/molecules'
 import { CredentialsForm } from './types'
 
 const schema: z.ZodSchema<CredentialsForm> = z.object({
