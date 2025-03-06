@@ -1,5 +1,6 @@
 import React, { ComponentProps } from 'react'
 import { useFormContext, Controller, FieldValues } from 'react-hook-form'
+import { Box, Text } from '@/ui/atoms'
 import { FormFieldProps } from './types'
 
 const FormField = <T extends FieldValues>({
@@ -12,10 +13,8 @@ const FormField = <T extends FieldValues>({
   const { control } = useFormContext<T>()
 
   return (
-    <div className={`flex flex-col ${className}`}>
-      <label htmlFor={name} className='mb-1 font-medium text-gray-700'>
-        {label}
-      </label>
+    <Box className={`flex flex-col gap-1 ${className}`}>
+      {label && <label htmlFor={name}>{label}</label>}
       <Controller
         name={name}
         control={control}
@@ -24,20 +23,24 @@ const FormField = <T extends FieldValues>({
           fieldState: { error },
         }) => (
           <>
-            <Component
-              {...(props as ComponentProps<typeof Component>)}
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-              id={name}
-            />
+            {Component && (
+              <Component
+                {...(props as ComponentProps<typeof Component>)}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                id={name}
+              />
+            )}
             {error && (
-              <p className='text-sm text-red-500 mt-1'>{error.message}</p>
+              <Text textType='font_14_fw_bold_fm_rob' className='text-red-500'>
+                {error.message}
+              </Text>
             )}
           </>
         )}
       />
-    </div>
+    </Box>
   )
 }
 

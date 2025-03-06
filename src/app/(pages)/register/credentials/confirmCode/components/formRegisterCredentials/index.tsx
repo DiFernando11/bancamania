@@ -4,10 +4,8 @@ import VerificationInput from 'react-verification-input'
 import { z } from 'zod'
 import { useRegisterCredentialsCase } from '@/application/useCases'
 import { useAuthStoreLs } from '@/application/zustand/stores'
-import { VerificationInputCasted } from '@/shared'
-import { InputText } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
-import { FormField } from '@/ui/molecules'
+import { FormField, InputText } from '@/ui/molecules'
 import ForwardCodeCredentials from '../forwardCodeCredentials'
 import { FormRegisterCredentialsVal } from './types'
 
@@ -65,7 +63,7 @@ const FormRegisterCredentials = () => {
       />
       <div className='flex flex-col gap-5 justify-center items-center'>
         <FormField<FormRegisterCredentialsVal>
-          component={VerificationInput as VerificationInputCasted}
+          component={VerificationInput}
           name='code'
         />
         <ForwardCodeCredentials />

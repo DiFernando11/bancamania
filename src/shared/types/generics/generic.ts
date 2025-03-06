@@ -1,14 +1,6 @@
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { ReactNode } from 'react'
 
-export type VerificationInputCasted = React.ComponentType<
-  {
-    value: string
-    onChange: (value: string) => void
-    onBlur: () => void
-  } & Record<string, unknown>
->
-
 export type StoragePrimitive =
   | string
   | number

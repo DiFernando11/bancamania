@@ -1,9 +1,9 @@
 export interface ButtonFormSimpleProps {
-  primaryOnClick: () => void
+  primaryOnClick?: (...args: never[]) => void
   formId?: string
   secondaryText?: string
   primaryText?: string
-  secondaryOnClick?: () => void
+  secondaryOnClick?: (...args: never[]) => void
   disablePrimary?: boolean
   disableSecondary?: boolean
 }
