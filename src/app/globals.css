@@ -16,6 +16,11 @@
   --bg-300: #2c2c2c;
   --loading-100: #87858562;
   --card-wave: #6b6a6a;
+  --success: #60ad5e;
+  --warning: #ffcc80;
+  --error: #e57373;
+  --info: #64b5f6;
+  --icon-default: #14ce81
 }
 
 body {
