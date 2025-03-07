@@ -6,7 +6,7 @@ import { FormStateProps } from './types'
 const FormState = <T extends FieldValues>({
   defaultValues,
   schema,
-  mode = 'onChange',
+  mode = 'onTouched',
   id,
   onSubmit,
   children,
@@ -14,6 +14,7 @@ const FormState = <T extends FieldValues>({
   const methods = useForm<T>({
     defaultValues,
     mode,
+    reValidateMode: 'onChange',
     resolver: schema ? zodResolver(schema) : undefined,
   })
 

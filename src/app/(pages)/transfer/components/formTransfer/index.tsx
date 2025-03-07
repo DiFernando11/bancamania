@@ -1,8 +1,9 @@
+'use client'
 import React from 'react'
 import { z } from 'zod'
 import FormState from '@/ui/atoms/formState'
-import { FormField, InputText } from '@/ui/molecules'
 import { FormTransferI } from './types'
+import ValidateAccount from '../validateAccount'
 
 export const formTransferSchema = z.object({
   accountId: z
@@ -14,6 +15,9 @@ export const formTransferSchema = z.object({
       /^\d+$/,
       'El número de cuenta solo puede contener dígitos numéricos'
     ),
+  hasValidateAccount: z.literal(true, {
+    errorMap: () => ({ message: 'Debes validar la cuenta para continuar' }),
+  }),
 })
 
 const FormTransfer = ({ formID }: { formID: string }) => {
@@ -25,16 +29,10 @@ const FormTransfer = ({ formID }: { formID: string }) => {
     <FormState
       schema={formTransferSchema}
       id={formID}
-      defaultValues={{ accountId: '' }}
+      defaultValues={{ accountId: '', hasValidateAccount: false }}
       onSubmit={onSubmit}
     >
-      <FormField<FormTransferI>
-        label={'Numero de cuenta'}
-        name='accountId'
-        component={InputText}
-        placeholder='Escribe la cuenta del usuario'
-        maxLength={10}
-      />
+      <ValidateAccount />
     </FormState>
   )
 }

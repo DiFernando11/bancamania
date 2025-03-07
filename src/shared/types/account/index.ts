@@ -11,3 +11,13 @@ export interface GetAccountResponse {
   status: string
   owner: string
 }
+
+export interface VerifyAccountRequest {
+  accountId: string
+}
+export interface VerifyAccountResponse {
+  accountNumber: string
+  email: string
+  id: string
+  owner: string
+}

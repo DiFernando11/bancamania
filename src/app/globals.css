@@ -160,6 +160,10 @@ div {
 }
 
 /* Responsives */
+.font_16_18_fm_rob {
+  @apply text-base sm:text-lg font-roboto;
+}
+
 .font_12_10_fw_bold_fm_rob {
   @apply text-xxs sm:text-xs font-bold font-roboto;
 }

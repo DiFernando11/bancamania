@@ -15,40 +15,37 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
   Skeleton,
   isLockAutoScroll = false,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
   const lastItemRef = useRef<HTMLDivElement>(null)
   const t = useI18Text()
 
-  useEffect(() => {
-    if (lastItemRef.current && !isLockAutoScroll) {
-      setTimeout(() => {
-        lastItemRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }, 500)
-    }
-  }, [children])
+  // useEffect(() => {
+  //   if (lastItemRef.current && !isLockAutoScroll) {
+  //     setTimeout(() => {
+  //       lastItemRef.current?.scrollIntoView({
+  //         behavior: 'smooth',
+  //         block: 'start',
+  //       })
+  //     }, 500)
+  //   }
+  // }, [children])
 
   return (
-    <Box className='flex flex-col items-center w-full gap-4' ref={containerRef}>
+    <Box className='flex flex-col items-center w-full gap-4'>
       <Box className='w-full flex flex-col gap-4'>
-        {isInitialLoading
-          ? Skeleton
-          : Array.isArray(children) &&
-            children.map((child, index) => (
-              <AnimationExpand
-                key={index}
-                ref={index === children.length - 1 ? lastItemRef : null}
-              >
-                {child}
-              </AnimationExpand>
-            ))}
-        <AnimatePresence>
+        {Array.isArray(children) &&
+          children.map((child, index) => (
+            <AnimationExpand
+              key={index}
+              // ref={index === children.length - 1 ? lastItemRef : null}
+            >
+              {child}
+            </AnimationExpand>
+          ))}
+        {/* <AnimatePresence>
           {isFetchingNextPage && <AnimationExpand>{Skeleton}</AnimationExpand>}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </Box>
-      {hasNextPage && (
+      {/* {hasNextPage && (
         <Box className='w-32 ml-auto self-end'>
           <ButtonText
             onClick={fetchNextPage}
@@ -57,7 +54,7 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
             text={t(isFetchingNextPage ? 'loading' : 'seeMore')}
           />
         </Box>
-      )}
+      )} */}
     </Box>
   )
 }
