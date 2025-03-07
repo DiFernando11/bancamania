@@ -27,6 +27,11 @@ const config: Config = {
         comun: {
           'card-wave': 'var(--card-wave)',
         },
+        error: 'var(--error)',
+        icon: {
+          default: 'var(--icon-default)',
+        },
+        info: 'var(--info)',
         loading: {
           100: 'var(--loading-100)',
         },
@@ -35,10 +40,12 @@ const config: Config = {
           200: 'var(--primary-200)',
           300: 'var(--primary-300)',
         },
+        success: 'var(--success)',
         text: {
           100: 'var(--text-100)',
           200: 'var(--text-200)',
         },
+        warning: 'var(--warning)',
       },
       fontFamily: {
         roboto: ['var(--font-roboto)', 'sans-serif'],
