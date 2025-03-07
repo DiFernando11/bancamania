@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useVerifyAccount } from '@/application/hooks'
 import { Box, Button } from '@/ui/atoms'
 import { FormField, InputText } from '@/ui/molecules'
-import { PairSkeletonGroup } from '@/ui/organisms'
+import { AlertErrorService, PairSkeletonGroup } from '@/ui/organisms'
 import DataAccount from '../dataAccount'
 import { FormTransferI } from '../formTransfer/types'
 
 const ValidateAccount = () => {
-  const { handleActionService, data, isLoading } = useVerifyAccount()
+  const { handleActionService, data, isLoading, error, reset } =
+    useVerifyAccount()
 
-  console.log(data, 'DATA')
   const {
     setFocus,
     formState: { errors },
     getValues,
+    watch,
   } = useFormContext<FormTransferI>()
 
   const handleValidateAccount = () => {
@@ -30,6 +31,16 @@ const ValidateAccount = () => {
     })
   }
 
+  useEffect(() => {
+    const subscription = watch((_, { name }) => {
+      if (name === 'accountId' && error) {
+        reset()
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [watch, error, reset])
+
   return (
     <>
       <Box className='flex gap-4 w-full justify-center flex-col sm:flex-row'>
@@ -40,6 +51,7 @@ const ValidateAccount = () => {
           placeholder='Escribe la cuenta del usuario'
           maxLength={10}
           className='w-full'
+          disabled={Boolean(data)}
         />
         <Button
           type='button'
@@ -47,11 +59,12 @@ const ValidateAccount = () => {
           onClick={handleValidateAccount}
           disabled={!!errors.accountId}
         >
-          Validar cuenta
+          {data ? 'Limpiar' : 'Validar cuenta'}
         </Button>
       </Box>
       {isLoading && <PairSkeletonGroup />}
       {data && <DataAccount data={data} />}
+      <AlertErrorService error={error} />
     </>
   )
 }

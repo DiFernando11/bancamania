@@ -18,3 +18,9 @@ export interface ApiResponse<T> {
   status: number
   statusText: string
 }
+
+export interface ApiResponseError {
+  message: string
+  ok: boolean
+  statusCode: number
+}
