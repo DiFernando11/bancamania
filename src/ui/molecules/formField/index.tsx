@@ -18,18 +18,12 @@ const FormField = <T extends FieldValues>({
       <Controller
         name={name}
         control={control}
-        render={({
-          field: { value, onChange, onBlur, ref },
-          fieldState: { error },
-        }) => (
+        render={({ field, fieldState: { error } }) => (
           <>
             {Component && (
               <Component
                 {...(props as ComponentProps<typeof Component>)}
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                ref={ref}
+                {...field}
                 id={name}
               />
             )}

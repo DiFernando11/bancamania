@@ -1,7 +1,14 @@
+import { AnimatePresence } from 'framer-motion'
 import { ReactNode } from 'react'
 import { AnimationContainer } from '@/ui/atoms'
 
-const AnimationVisible = ({ children }: { children: ReactNode }) => {
+const AnimationVisible = ({
+  children,
+  isVisible,
+}: {
+  children: ReactNode
+  isVisible: boolean
+}) => {
   const variants = {
     exit: { opacity: 0, scale: 0.8 },
     hidden: { opacity: 0, scale: 0.8 },
@@ -9,15 +16,19 @@ const AnimationVisible = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <AnimationContainer
-      initial='hidden'
-      animate='visible'
-      exit='exit'
-      variants={variants}
-      transition={{ duration: 0.3 }}
-    >
-      {children}
-    </AnimationContainer>
+    <AnimatePresence mode='wait'>
+      {isVisible && (
+        <AnimationContainer
+          initial='hidden'
+          animate='visible'
+          exit='exit'
+          variants={variants}
+          transition={{ duration: 0.3 }}
+        >
+          {children}
+        </AnimationContainer>
+      )}
+    </AnimatePresence>
   )
 }
 

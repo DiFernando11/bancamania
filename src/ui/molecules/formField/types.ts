@@ -8,4 +8,7 @@ export interface FormFieldProps<T extends FieldValues>
   label?: string
   placeholder?: string
   className?: string
+  autoSuggestion?: boolean
+  suggestionPlaceholder?: string
+  suggestionValue?: string
 }
