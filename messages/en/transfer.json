@@ -1,3 +1,8 @@
 {
-  "title": "Transfer money"
+  "title": "Transfer money",
+  "numberAccountPH": "Enter the account number to verify.",
+  "numberAccount": "Account number",
+  "validateAccount": "Validate account",
+  "numberAccountKey": "Account number: ",
+  "addresseeKey": "Addressee: "
 }

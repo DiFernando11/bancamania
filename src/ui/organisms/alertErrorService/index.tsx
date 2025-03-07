@@ -1,17 +1,18 @@
-import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { ApiResponseError } from '@/shared/types/generics/apiRequest'
 import { Alert, AnimationVisible } from '@/ui/molecules'
 
-const AlertErrorService = ({ error }: { error?: ApiResponseError | null }) => {
+const AlertErrorService = ({
+  error,
+  isError,
+}: {
+  error?: ApiResponseError | null
+  isError: boolean
+}) => {
   return (
-    <AnimatePresence mode='wait'>
-      {error && (
-        <AnimationVisible key={error.message}>
-          <Alert text={error.message} type='error' />
-        </AnimationVisible>
-      )}
-    </AnimatePresence>
+    <AnimationVisible isVisible={isError}>
+      <Alert text={error?.message || ''} type='error' />
+    </AnimationVisible>
   )
 }
 

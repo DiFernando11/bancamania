@@ -16,6 +16,10 @@
   "date": "Fecha: {date}",
   "download": "Descargar",
   "actions": "Acciones",
+  "clean": "Limpiar",
+  "nameKey": "Nombre: ",
+  "email": "Email: ",
+  "suggestion": "Sugerencia: {sug} - presione (TAB ↹).",
   "option": {
     "consolidada": "Mi consolidada",
     "misCuentas": "Mi cuenta",

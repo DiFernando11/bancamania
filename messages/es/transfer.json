@@ -1,3 +1,8 @@
 {
-  "title": "Transferir dinero"
+  "title": "Transferir dinero",
+  "numberAccountPH": "Ingresa el número de cuenta a verificar.",
+  "numberAccount": "Número de cuenta",
+  "validateAccount": "Validar cuenta",
+  "addresseeKey": "Destinatario: ",
+  "numberAccountKey": "Número de cuenta: "
 }

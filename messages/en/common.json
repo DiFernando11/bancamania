@@ -15,6 +15,10 @@
   "date": "Date: {date}",
   "download": "Download",
   "actions": "Actions",
+  "clean": "Clean",
+  "nameKey": "Name :",
+  "email": "Email: ",
+  "suggestion": "Hint: {sug} - press (TAB ↹)",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My account",
