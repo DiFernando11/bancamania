@@ -19,7 +19,7 @@ const FormField = <T extends FieldValues>({
         name={name}
         control={control}
         render={({
-          field: { value, onChange, onBlur },
+          field: { value, onChange, onBlur, ref },
           fieldState: { error },
         }) => (
           <>
@@ -29,6 +29,7 @@ const FormField = <T extends FieldValues>({
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
+                ref={ref}
                 id={name}
               />
             )}

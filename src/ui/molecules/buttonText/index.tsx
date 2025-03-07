@@ -11,7 +11,9 @@ const ButtonText: React.FC<ButtonTextProps> = ({
 }) => {
   return (
     <Button className={className} variant={variant} {...rest}>
-      <Text textType={textType}>{text}</Text>
+      <Text className='break-all' textType={textType}>
+        {text}
+      </Text>
     </Button>
   )
 }
