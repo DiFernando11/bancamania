@@ -1,18 +1,18 @@
 import {
   useMutation,
-  UseMutationOptions,
   UseMutationResult,
   useQueryClient,
 } from '@tanstack/react-query'
+import { ApiResponseError } from '@/shared'
 import { MutationFunction, UseSendServiceOptions } from './types'
 
 export function useSendService<TData = unknown, TVariables = void>(
   mutationFn: MutationFunction<TData, TVariables>,
   options?: UseSendServiceOptions<TData, TVariables>
-): UseMutationResult<TData, unknown, TVariables, unknown> {
+): UseMutationResult<TData, ApiResponseError, TVariables, unknown> {
   const queryClient = useQueryClient()
 
-  return useMutation({
+  return useMutation<TData, ApiResponseError, TVariables, unknown>({
     mutationFn,
     ...options,
     onSuccess: (data, variables, context) => {
