@@ -1,6 +1,7 @@
 import React, { ComponentProps } from 'react'
 import { useFormContext, Controller, FieldValues } from 'react-hook-form'
 import { Box, Text } from '@/ui/atoms'
+import { TextError } from '@/ui/organisms'
 import { FormFieldProps } from './types'
 
 const FormField = <T extends FieldValues>({
@@ -27,11 +28,7 @@ const FormField = <T extends FieldValues>({
                 id={name}
               />
             )}
-            {error && (
-              <Text textType='font_14_fw_bold_fm_rob' className='text-red-500'>
-                {error.message}
-              </Text>
-            )}
+            <TextError id={name} error={error} isValidate={Boolean(error)} />
           </>
         )}
       />

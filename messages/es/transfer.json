@@ -4,5 +4,13 @@
   "numberAccount": "Número de cuenta",
   "validateAccount": "Validar cuenta",
   "addresseeKey": "Destinatario: ",
-  "numberAccountKey": "Número de cuenta: "
+  "numberAccountKey": "Número de cuenta: ",
+  "personalInf": "Información Personal",
+  "accountInformation": "Información de la cuenta",
+  "errors": {
+    "account_required": "El número de cuenta es obligatorio",
+    "account_exact_length": "El número de cuenta debe tener exactamente 10 dígitos",
+    "account_numeric": "El número de cuenta solo puede contener dígitos numéricos",
+    "account_must_validate": "Debes validar la cuenta para continuar"
+  }
 }
