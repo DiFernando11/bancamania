@@ -9,3 +9,9 @@ export enum FORM_TRANSFER_NAME {
   hasValidateAccount = 'hasValidateAccount',
   saveAccount = 'saveAccount',
 }
+
+export interface FormTransferProps<T> {
+  formID: string
+  nextStep: () => void
+  updateData: (data: Partial<T>) => void
+}
