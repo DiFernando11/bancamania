@@ -8,13 +8,13 @@ const FormField = <T extends FieldValues>({
   name,
   label,
   component: Component,
-  className = '',
+  classNameForm = '',
   ...props
 }: FormFieldProps<T>) => {
   const { control } = useFormContext<T>()
 
   return (
-    <Box className={`flex flex-col gap-1 ${className}`}>
+    <Box className={`flex flex-col gap-1 ${classNameForm}`}>
       {label && <label htmlFor={name}>{label}</label>}
       <Controller
         name={name}

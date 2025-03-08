@@ -7,7 +7,7 @@ export interface FormFieldProps<T extends FieldValues>
   component: ElementType
   label?: string
   placeholder?: string
-  className?: string
+  classNameForm?: string
   autoSuggestion?: boolean
   suggestionPlaceholder?: string
   suggestionValue?: string

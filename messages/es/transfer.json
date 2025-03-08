@@ -11,6 +11,7 @@
     "account_required": "El número de cuenta es obligatorio",
     "account_exact_length": "El número de cuenta debe tener exactamente 10 dígitos",
     "account_numeric": "El número de cuenta solo puede contener dígitos numéricos",
-    "account_must_validate": "Debes validar la cuenta para continuar"
+    "account_must_validate": "Debes validar la cuenta para continuar",
+    "amount_greater_zero": "El monto debe ser mayor a 0.00"
   }
 }

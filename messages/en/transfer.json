@@ -11,6 +11,7 @@
     "account_required": "The account number is required",
     "account_exact_length": "The account number must be exactly 10 digits long",
     "account_numeric": "The account number can only contain numeric digits",
-    "account_must_validate": "You must validate the account to continue"
+    "account_must_validate": "You must validate the account to continue",
+    "amount_greater_zero": "The amount must be greater than 0.00"
   }
 }
