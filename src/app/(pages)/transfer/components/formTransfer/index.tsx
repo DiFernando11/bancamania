@@ -3,10 +3,15 @@ import React, { useMemo } from 'react'
 import { z } from 'zod'
 import { useI18Text } from '@/application/hooks'
 import FormState from '@/ui/atoms/formState'
-import { FormTransferI } from './types'
+import { FormTransferI, FormTransferProps } from './types'
+import { DataTransfer } from '../../types'
 import ValidateAccount from '../validateAccount'
 
-const FormTransfer = ({ formID }: { formID: string }) => {
+const FormTransfer = ({
+  formID,
+  nextStep,
+  updateData,
+}: FormTransferProps<DataTransfer>) => {
   const t = useI18Text('transfer')
 
   const formTransferSchema = useMemo(
@@ -27,7 +32,8 @@ const FormTransfer = ({ formID }: { formID: string }) => {
   )
 
   const onSubmit = (val: FormTransferI) => {
-    console.log(val)
+    updateData({ numberAccount: val.accountId })
+    nextStep()
   }
 
   return (
