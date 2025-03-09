@@ -6,7 +6,7 @@ import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataTransfer } from '../../types'
 import FormConfirmTransfer from './components/FormConfirmTransfer'
 
-const ConfirmTransfer = ({ prevStep }: StepProps<DataTransfer>) => {
+const ConfirmTransfer = ({ prevStep, stepData }: StepProps<DataTransfer>) => {
   const t = useI18Text('transfer')
   const formID = 'FORM_CONFIRM_TRANSFER'
 
@@ -17,7 +17,7 @@ const ConfirmTransfer = ({ prevStep }: StepProps<DataTransfer>) => {
       }
       i18nTitle={t('title')}
     >
-      <FormConfirmTransfer formID={formID} />
+      <FormConfirmTransfer formID={formID} stepData={stepData} />
     </LayoutAuthenticationPage>
   )
 }

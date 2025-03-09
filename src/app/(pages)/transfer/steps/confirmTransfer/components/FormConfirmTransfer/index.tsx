@@ -1,4 +1,5 @@
 'use client'
+import classNames from 'classnames'
 import React, { useMemo } from 'react'
 import { z } from 'zod'
 import { useI18Text } from '@/application/hooks'
@@ -6,9 +7,14 @@ import { formatToMoney } from '@/shared/utils'
 import { Box } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField, InputMoney } from '@/ui/molecules'
-import { FormConfirmTransferI } from './types'
+import { FormConfirmTransferI, FormConfirmTransferProps } from './types'
+import DataDestination from '../dataDestination'
+import DataOrigin from '../dataOrigin'
 
-const FormConfirmTransfer = ({ formID }: { formID: string }) => {
+const FormConfirmTransfer = ({
+  formID,
+  stepData,
+}: FormConfirmTransferProps) => {
   const t = useI18Text('transfer')
   const formTransferSchema = useMemo(
     () =>
@@ -20,6 +26,7 @@ const FormConfirmTransfer = ({ formID }: { formID: string }) => {
     [t]
   )
 
+  console.log(stepData, 'stepData')
   const handleSubmit = (val: FormConfirmTransferI) => {
     const numberFormat = formatToMoney(val.amount)
   }
@@ -35,16 +42,20 @@ const FormConfirmTransfer = ({ formID }: { formID: string }) => {
         originAccountId: '',
       }}
     >
-      <Box className='w-full'>
-        <Box className='flex justify-center w-full'>
-          <FormField<FormConfirmTransferI>
-            name='amount'
-            className='w-full max-w-[16rem] sm:max-w-[20rem] text-4xl sm:text-5xl text-center'
-            component={InputMoney}
-            placeholder='0.00'
-            maxLength={10}
-          />
-        </Box>
+      <Box className='flex flex-col justify-center w-full gap-4'>
+        <DataDestination stepData={stepData} />
+        <FormField<FormConfirmTransferI>
+          name='amount'
+          className={classNames(
+            'w-full self-center !max-w-[16rem] !text-4xl text-center',
+            'sm:!max-w-[20rem] sm:!text-5xl'
+          )}
+          classNameTextError='text-center'
+          component={InputMoney}
+          placeholder='0.00'
+          maxLength={10}
+        />
+        <DataOrigin />
       </Box>
     </FormState>
   )

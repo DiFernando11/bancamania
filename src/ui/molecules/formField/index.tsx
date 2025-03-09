@@ -9,6 +9,7 @@ const FormField = <T extends FieldValues>({
   label,
   component: Component,
   classNameForm = '',
+  classNameTextError,
   ...props
 }: FormFieldProps<T>) => {
   const { control } = useFormContext<T>()
@@ -28,7 +29,12 @@ const FormField = <T extends FieldValues>({
                 id={name}
               />
             )}
-            <TextError id={name} error={error} isValidate={Boolean(error)} />
+            <TextError
+              className={classNameTextError}
+              id={name}
+              error={error}
+              isValidate={Boolean(error)}
+            />
           </>
         )}
       />

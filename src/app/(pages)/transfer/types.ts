@@ -1,3 +1,5 @@
-export interface DataTransfer {
-  numberAccount: string
+import { VerifyAccountResponse } from '@/shared'
+
+export interface DataTransfer extends VerifyAccountResponse {
+  amount?: number
 }
