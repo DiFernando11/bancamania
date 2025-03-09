@@ -2,14 +2,16 @@
 import React, { useMemo } from 'react'
 import { z } from 'zod'
 import {
+  useCreateContact,
   useGetDataByKey,
   useI18Text,
   useLazyGetDataByKey,
   useVerifyAccount,
 } from '@/application/hooks'
+import { GetAccountResponse } from '@/shared'
 import { VERIFY_ACCOUNT } from '@/shared/utils/constantsQuery'
 import FormState from '@/ui/atoms/formState'
-import { FormTransferProps } from './types'
+import { FormTransferI, FormTransferProps } from './types'
 import { DataTransfer } from '../../types'
 import ValidateAccount from '../validateAccount'
 
@@ -19,7 +21,8 @@ const FormTransfer = ({
   updateData,
 }: FormTransferProps<DataTransfer>) => {
   const t = useI18Text('transfer')
-  const getValue = useLazyGetDataByKey()
+  const getValue = useLazyGetDataByKey<GetAccountResponse>()
+  const { handleActionService } = useCreateContact()
 
   const formTransferSchema = useMemo(
     () =>
@@ -38,12 +41,26 @@ const FormTransfer = ({
     [t]
   )
 
-  const onSubmit = () => {
-    const data = getValue([VERIFY_ACCOUNT])
+  const nextStepValidate = (data?: GetAccountResponse) => {
     if (data) {
       updateData(data)
     }
     nextStep()
+  }
+
+  const onSubmit = (val: FormTransferI) => {
+    const data = getValue([VERIFY_ACCOUNT])
+    if (val.saveAccount) {
+      return handleActionService(
+        { accountId: data?.id ?? '', alias: 'hola' },
+        {
+          onSettled: () => {
+            nextStepValidate(data)
+          },
+        }
+      )
+    }
+    nextStepValidate(data)
   }
 
   return (
