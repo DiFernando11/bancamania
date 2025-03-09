@@ -7,7 +7,7 @@ import {
 
 export function useFetchService<
   TData = unknown,
-  TQueryKey extends readonly unknown[] = readonly [unknown],
+  TQueryKey extends readonly unknown[] = readonly unknown[],
 >(
   queryKey: TQueryKey,
   queryFn: QueryFunction<TData, TQueryKey>,
