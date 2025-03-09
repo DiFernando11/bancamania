@@ -10,6 +10,7 @@ import { FormField, InputMoney } from '@/ui/molecules'
 import { FormConfirmTransferI, FormConfirmTransferProps } from './types'
 import DataDestination from '../dataDestination'
 import DataOrigin from '../dataOrigin'
+import Motive from '../motive'
 
 const FormConfirmTransfer = ({
   formID,
@@ -21,13 +22,14 @@ const FormConfirmTransfer = ({
       z.object({
         amount: z.number().gt(0, t('errors.amount_greater_zero')),
         destinationAccountId: z.string(),
+        motive: z.string(),
         originAccountId: z.string(),
       }),
     [t]
   )
 
-  console.log(stepData, 'stepData')
   const handleSubmit = (val: FormConfirmTransferI) => {
+    console.log('haciendo submit')
     const numberFormat = formatToMoney(val.amount)
   }
 
@@ -56,6 +58,7 @@ const FormConfirmTransfer = ({
           maxLength={10}
         />
         <DataOrigin />
+        <Motive />
       </Box>
     </FormState>
   )

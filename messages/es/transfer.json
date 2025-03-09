@@ -9,6 +9,9 @@
   "accountInformation": "Información de la cuenta",
   "availableBalance": "Saldo disponible",
   "from": "Desde",
+  "reason": "Motivo",
+  "reasonPh": "Ingresa el motivo de tu transferencia",
+  "reasonSugestion": "Pago de renta",
   "errors": {
     "account_required": "El número de cuenta es obligatorio",
     "account_exact_length": "El número de cuenta debe tener exactamente 10 dígitos",

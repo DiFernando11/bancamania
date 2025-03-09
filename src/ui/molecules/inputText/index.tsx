@@ -3,8 +3,16 @@ import { InputBaseProps } from '@/ui/atoms/inputBase/types'
 import InputBase from '../../atoms/inputBase'
 
 const InputText = forwardRef<HTMLInputElement, InputBaseProps>(
-  ({ value, ...props }, ref) => {
-    return <InputBase {...props} ref={ref} type='text' value={value} />
+  ({ value, maxLength = 24, ...props }, ref) => {
+    return (
+      <InputBase
+        {...props}
+        ref={ref}
+        type='text'
+        value={value}
+        maxLength={maxLength}
+      />
+    )
   }
 )
 

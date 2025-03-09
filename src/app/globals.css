@@ -142,6 +142,10 @@ input:focus {
 
 /* fonts  */
 
+.font_12_fm_rob {
+  @apply text-xs font-roboto;
+}
+
 .font_16_fm_rob {
   @apply text-base font-roboto;
 }

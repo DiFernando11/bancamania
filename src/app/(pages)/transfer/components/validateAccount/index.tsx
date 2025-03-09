@@ -65,6 +65,7 @@ const ValidateAccount = () => {
         <Box className='w-full flex flex-col gap-1'>
           <FormField<FormTransferI>
             label={t('numberAccount')}
+            isRequired
             name={FORM_TRANSFER_NAME.accountId}
             component={InputText}
             placeholder={t('numberAccountPH')}
