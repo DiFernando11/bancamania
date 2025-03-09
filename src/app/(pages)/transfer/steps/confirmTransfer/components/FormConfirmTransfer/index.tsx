@@ -1,9 +1,17 @@
 'use client'
 import classNames from 'classnames'
+import { useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { z } from 'zod'
-import { useI18Text } from '@/application/hooks'
-import { formatToMoney } from '@/shared/utils'
+import {
+  useGetAccount,
+  useI18Text,
+  useRemoveQueries,
+} from '@/application/hooks'
+import { useCreateTransfer } from '@/application/hooks/transfers/useCreateTransfer'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { formatToMoney, replaceDynamicsRoutes } from '@/shared/utils'
+import { GET_ACCOUNT } from '@/shared/utils/constantsQuery'
 import { Box } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField, InputMoney } from '@/ui/molecules'
@@ -17,6 +25,10 @@ const FormConfirmTransfer = ({
   stepData,
 }: FormConfirmTransferProps) => {
   const t = useI18Text('transfer')
+  const { handleActionService } = useCreateTransfer()
+  const { data, isLoading } = useGetAccount()
+  const { invalidate } = useRemoveQueries()
+  const router = useRouter()
   const formTransferSchema = useMemo(
     () =>
       z.object({
@@ -29,8 +41,25 @@ const FormConfirmTransfer = ({
   )
 
   const handleSubmit = (val: FormConfirmTransferI) => {
-    console.log('haciendo submit')
     const numberFormat = formatToMoney(val.amount)
+    handleActionService(
+      {
+        amount: numberFormat,
+        destinationAccountId: stepData.id,
+        motive: val.motive,
+        originAccountId: data?.id ?? '',
+      },
+      {
+        onSuccess: val => {
+          invalidate({ queryKey: [GET_ACCOUNT] })
+          router.push(
+            replaceDynamicsRoutes(clientRoutes.receiptsID.path, {
+              id: val.receiptId,
+            })
+          )
+        },
+      }
+    )
   }
 
   return (
@@ -41,6 +70,7 @@ const FormConfirmTransfer = ({
       defaultValues={{
         amount: 0.0,
         destinationAccountId: '',
+        motive: '',
         originAccountId: '',
       }}
     >
@@ -57,7 +87,7 @@ const FormConfirmTransfer = ({
           placeholder='0.00'
           maxLength={10}
         />
-        <DataOrigin />
+        <DataOrigin data={data} isLoading={isLoading} />
         <Motive />
       </Box>
     </FormState>

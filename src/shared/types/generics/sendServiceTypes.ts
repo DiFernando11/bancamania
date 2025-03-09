@@ -8,7 +8,7 @@ export interface SendServiceTypes<TData, TVariables = unknown> {
   handleActionService: UseMutateFunction<TData, unknown, TVariables, unknown>
   data?: TData
   error?: ApiResponseError | null
-  reset: () => void
+  reset?: () => void
 }
 
 export interface SendFechTypes<TData> {

@@ -1,10 +1,8 @@
 import { TextType } from '@/ui/atoms/text/types'
+import { BitcoinSymbolProps } from '@/ui/molecules/bitcoinSymbol/types'
 
-export interface BalanceProps {
+export interface BalanceProps extends BitcoinSymbolProps {
   isShow: boolean
   isLoading: boolean
-  classIcon: string
-  textType: TextType
-  balance?: string
   classSkeleton?: string
 }

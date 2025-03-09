@@ -29,7 +29,7 @@ const PaginationMoves = ({
           balanceComponent={
             mov.balance && (
               <BitcoinSymbol
-                text={mov.balance.toString()}
+                balance={mov.balance.toString()}
                 classIcon='w-4 h-4 sm:w-5 sm:h-5'
               />
             )
