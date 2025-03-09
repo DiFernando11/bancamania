@@ -19,6 +19,8 @@
   "clean": "Limpiar",
   "nameKey": "Nombre: ",
   "email": "Email: ",
+  "optional": "(opcional)",
+  "required": "*requerido",
   "suggestion": "Sugerencia: {sug} - presione (TAB ↹).",
   "option": {
     "consolidada": "Mi consolidada",

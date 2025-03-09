@@ -1,5 +1,8 @@
+'use client'
+import classNames from 'classnames'
 import React, { ComponentProps } from 'react'
 import { useFormContext, Controller, FieldValues } from 'react-hook-form'
+import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { TextError } from '@/ui/organisms'
 import { FormFieldProps } from './types'
@@ -10,13 +13,25 @@ const FormField = <T extends FieldValues>({
   component: Component,
   classNameForm = '',
   classNameTextError,
+  isRequired = false,
   ...props
 }: FormFieldProps<T>) => {
   const { control } = useFormContext<T>()
+  const t = useI18Text()
 
   return (
     <Box className={`flex flex-col gap-1 ${classNameForm}`}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && (
+        <Box className='flex gap-2 items-center'>
+          <label htmlFor={name}>{label}</label>
+          <Text
+            className={classNames({ 'text-error': isRequired })}
+            textType='font_12_fm_rob'
+          >
+            {isRequired ? t('required') : t('optional')}
+          </Text>
+        </Box>
+      )}
       <Controller
         name={name}
         control={control}

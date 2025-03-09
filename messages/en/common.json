@@ -18,6 +18,8 @@
   "clean": "Clean",
   "nameKey": "Name :",
   "email": "Email: ",
+  "optional": "(optional)",
+  "required": "*required",
   "suggestion": "Hint: {sug} - press (TAB ↹)",
   "option": {
     "consolidada": "My consolidated",

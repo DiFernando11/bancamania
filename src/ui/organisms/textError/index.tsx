@@ -13,7 +13,7 @@ const TextError = ({
   error?: FieldError
   isValidate: boolean
   id: string
-  className: string
+  className?: string
 }) => {
   return (
     <AnimationVisible isVisible={isValidate}>

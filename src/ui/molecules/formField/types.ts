@@ -11,5 +11,6 @@ export interface FormFieldProps<T extends FieldValues>
   autoSuggestion?: boolean
   suggestionPlaceholder?: string
   suggestionValue?: string
-  classNameTextError: string
+  classNameTextError?: string
+  isRequired?: boolean
 }

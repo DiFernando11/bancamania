@@ -8,6 +8,9 @@
   "personalInf": "Personal Information",
   "accountInformation": "Account Information",
   "availableBalance": "Available balance",
+  "reason": "Reason",
+  "reasonPh": "Enter the reason for your transfer",
+  "reasonSugestion": "Rent payment",
   "from": "From",
   "errors": {
     "account_required": "The account number is required",
