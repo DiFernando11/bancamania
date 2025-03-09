@@ -5,6 +5,7 @@ import {
   VerifyAccountRequest,
   VerifyAccountResponse,
 } from '@/shared'
+import { VERIFY_ACCOUNT } from '@/shared/utils/constantsQuery'
 import { useSendService } from '../../generics'
 
 export const useVerifyAccount = (): SendServiceTypes<
@@ -14,7 +15,9 @@ export const useVerifyAccount = (): SendServiceTypes<
   const queryResult = useSendService<
     VerifyAccountResponse,
     VerifyAccountRequest
-  >(async ({ accountId }) => verifyAccountService({ accountId }))
+  >(async ({ accountId }) => verifyAccountService({ accountId }), {
+    cacheKey: VERIFY_ACCOUNT,
+  })
 
   return {
     data: queryResult.data,

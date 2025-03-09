@@ -1,9 +1,15 @@
 'use client'
 import React, { useMemo } from 'react'
 import { z } from 'zod'
-import { useI18Text } from '@/application/hooks'
+import {
+  useGetDataByKey,
+  useI18Text,
+  useLazyGetDataByKey,
+  useVerifyAccount,
+} from '@/application/hooks'
+import { VERIFY_ACCOUNT } from '@/shared/utils/constantsQuery'
 import FormState from '@/ui/atoms/formState'
-import { FormTransferI, FormTransferProps } from './types'
+import { FormTransferProps } from './types'
 import { DataTransfer } from '../../types'
 import ValidateAccount from '../validateAccount'
 
@@ -13,6 +19,7 @@ const FormTransfer = ({
   updateData,
 }: FormTransferProps<DataTransfer>) => {
   const t = useI18Text('transfer')
+  const getValue = useLazyGetDataByKey()
 
   const formTransferSchema = useMemo(
     () =>
@@ -31,8 +38,11 @@ const FormTransfer = ({
     [t]
   )
 
-  const onSubmit = (val: FormTransferI) => {
-    updateData({ numberAccount: val.accountId })
+  const onSubmit = () => {
+    const data = getValue([VERIFY_ACCOUNT])
+    if (data) {
+      updateData(data)
+    }
     nextStep()
   }
 

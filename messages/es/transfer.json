@@ -7,6 +7,8 @@
   "numberAccountKey": "Número de cuenta: ",
   "personalInf": "Información Personal",
   "accountInformation": "Información de la cuenta",
+  "availableBalance": "Saldo disponible",
+  "from": "Desde",
   "errors": {
     "account_required": "El número de cuenta es obligatorio",
     "account_exact_length": "El número de cuenta debe tener exactamente 10 dígitos",

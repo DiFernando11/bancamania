@@ -7,6 +7,8 @@
   "addresseeKey": "Addressee: ",
   "personalInf": "Personal Information",
   "accountInformation": "Account Information",
+  "availableBalance": "Available balance",
+  "from": "From",
   "errors": {
     "account_required": "The account number is required",
     "account_exact_length": "The account number must be exactly 10 digits long",
