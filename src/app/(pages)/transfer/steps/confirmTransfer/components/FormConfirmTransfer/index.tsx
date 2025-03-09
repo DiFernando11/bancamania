@@ -1,5 +1,4 @@
 'use client'
-import { useQueryClient } from '@tanstack/react-query'
 import classNames from 'classnames'
 import { useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
@@ -26,7 +25,6 @@ const FormConfirmTransfer = ({
   stepData,
 }: FormConfirmTransferProps) => {
   const t = useI18Text('transfer')
-  const queryClient = useQueryClient()
   const { handleActionService } = useCreateTransfer()
   const { data, isLoading } = useGetAccount()
   const { invalidate } = useRemoveQueries()
