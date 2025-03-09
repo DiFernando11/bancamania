@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react'
-import { formatToMoney } from '@/shared/utils'
+import { formatToMoneyString } from '@/shared/utils'
 import InputBase from '@/ui/atoms/inputBase'
 import { InputMoneyProps } from './types'
 
 const InputMoney = forwardRef<HTMLInputElement, InputMoneyProps>(
   ({ value, onChange, ...props }, ref) => {
     const integerCents = typeof value === 'number' && !isNaN(value) ? value : 0
-    const displayValue = formatToMoney(integerCents.toString())
+    const displayValue = formatToMoneyString(integerCents.toString())
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const raw = e.target.value.replace(/\D/g, '')

@@ -1,13 +1,19 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { useGetAccount, useI18Text } from '@/application/hooks'
+import { useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { GetAccountResponse } from '@/shared'
 import { Box, Icon, Text } from '@/ui/atoms'
-import { BitcoinSymbol } from '@/ui/molecules'
+import { Balance, SkeletonLoader } from '@/ui/organisms'
 
-const DataOrigin = () => {
-  const { data } = useGetAccount()
+const DataOrigin = ({
+  data,
+  isLoading,
+}: {
+  data?: GetAccountResponse
+  isLoading: boolean
+}) => {
   const router = useRouter()
   const t = useI18Text('account')
   const tTransfer = useI18Text('transfer')
@@ -19,18 +25,23 @@ const DataOrigin = () => {
     >
       <Box className='space-y-2'>
         <Text className='break-all'>{tTransfer('from')}</Text>
-        <Text className='break-all'>
-          {t('numberAccount', { number: data?.accountNumber })}
-        </Text>
+        <SkeletonLoader isLoading={isLoading} classNameSkeleton='w-28 h-4'>
+          <Text className='break-all'>
+            {t('numberAccount', { number: data?.accountNumber })}
+          </Text>
+        </SkeletonLoader>
       </Box>
       <Box className='flex items-center gap-4'>
         <Box className='flex flex-col gap-2'>
-          <BitcoinSymbol
+          <Balance
+            isShow
             classContainer='self-end'
-            textType='font_24_fw_bold_fm_rob'
-            classText='!leading-4'
             classIcon='w-6 h-6'
-            text={data?.balance}
+            isLoading={isLoading}
+            textType='font_24_fw_bold_fm_rob'
+            classSkeleton='w-20 h-6 self-end'
+            balance={data?.balance}
+            classText='!leading-4'
           />
           <Text className='text-end hidden sm:block'>
             {tTransfer('availableBalance')}
