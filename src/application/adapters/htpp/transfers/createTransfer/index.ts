@@ -12,7 +12,7 @@ export const createTransferService = async ({
     data: {
       amount: amount,
       destinationAccountId,
-      // motive,
+      motive,
       originAccountId,
     },
     url: apiRoutes.createTransfer,

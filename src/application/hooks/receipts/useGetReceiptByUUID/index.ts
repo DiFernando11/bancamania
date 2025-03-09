@@ -8,8 +8,11 @@ export const useGetReceiptByUUID = ({
   receiptId,
 }: GetReceiptsByUUIDRequest) => {
   const queryResult = useFetchService<GetReceiptsByUUIDResponse>(
-    [GET_MONTH_MOVEMENTS],
-    () => getReceiptByUUID({ receiptId })
+    [GET_MONTH_MOVEMENTS, receiptId],
+    () => getReceiptByUUID({ receiptId }),
+    {
+      enabled: !!receiptId,
+    }
   )
 
   return {
