@@ -10,13 +10,16 @@ import { DataTransfer } from '../../types'
 const ValidateAccountStep = ({
   nextStep,
   updateData,
+  prevStep,
 }: StepProps<DataTransfer>) => {
   const t = useI18Text('transfer')
   const formID = 'FORM_TRANSFER'
 
   return (
     <LayoutAuthenticationPage
-      footerBox={<ButtonActionSimple formId={formID} />}
+      footerBox={
+        <ButtonActionSimple formId={formID} secondaryOnClick={prevStep} />
+      }
       i18nTitle={t('title')}
     >
       <FormTransfer

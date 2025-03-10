@@ -37,16 +37,14 @@ const SaveAccount = ({
       <Box
         className={classNames(
           { 'border-gray-500 !cursor-not-allowed': disabled },
-          'border-2 border-primary-100',
+          'border-2 border-primary-100 rounded-lg',
           'p-4 flex justify-between items-center cursor-pointer',
           'transition-colors duration-300 ease-in-out'
         )}
         onClick={handleClick}
       >
         <IconText
-          text={
-            data?.isAddContact ? 'Ya tienes este contacto' : 'Guardar contacto'
-          }
+          text={data?.isAddContact ? t('existedContact') : t('saveContact')}
           classIcon={classNames(
             'w-10 h-10 transition-colors duration-300 ease-in-out',
             {
