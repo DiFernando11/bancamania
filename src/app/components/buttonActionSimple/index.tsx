@@ -39,14 +39,16 @@ const ButtonActionSimple: React.FC<ButtonFormSimpleProps> = ({
         text={textBack}
         disabled={disableSecondary}
       />
-      <ButtonText
-        className='flex-1'
-        onClick={primaryOnClick}
-        form={formId}
-        type={formId ? 'submit' : 'button'}
-        text={textNext}
-        disabled={disablePrimary}
-      />
+      {(primaryOnClick || formId) && (
+        <ButtonText
+          className='flex-1'
+          onClick={primaryOnClick}
+          form={formId}
+          type={formId ? 'submit' : 'button'}
+          text={textNext}
+          disabled={disablePrimary}
+        />
+      )}
     </Box>
   )
 }

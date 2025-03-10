@@ -24,3 +24,12 @@ export interface ApiResponseError {
   ok: boolean
   statusCode: number
 }
+
+export interface PaginationData {
+  currentPage: number
+  isLastPage: boolean
+  totalItems: number
+  totalPages: number
+  nextCursor?: number
+  prevCursor?: number
+}
