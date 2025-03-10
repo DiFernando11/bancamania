@@ -20,4 +20,5 @@ export interface VerifyAccountResponse {
   email: string
   id: string
   owner: string
+  isAddContact: boolean
 }

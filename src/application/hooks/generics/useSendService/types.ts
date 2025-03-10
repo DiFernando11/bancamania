@@ -12,5 +12,5 @@ export type UseSendServiceOptions<TData, TVariables> = UseMutationOptions<
   TVariables,
   unknown
 > & {
-  cacheKey?: string
+  cacheKey?: (variables: TVariables) => (string | number | undefined)[]
 }
