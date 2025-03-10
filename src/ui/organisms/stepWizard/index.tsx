@@ -13,22 +13,35 @@ const StepWizardComponent = <T extends object>({
   const validInitialStep = Math.min(Math.max(initialStep, 0), steps.length - 1)
   const [currentStep, setCurrentStep] = useState(validInitialStep)
   const [direction, setDirection] = useState(1)
+  const [history, setHistory] = useState<number[]>([validInitialStep])
 
   const nextStep = useCallback(() => {
     setDirection(1)
-    setCurrentStep(prev => (prev < steps.length - 1 ? prev + 1 : prev))
+    setCurrentStep(prev => {
+      const nextStep = prev < steps.length - 1 ? prev + 1 : prev
+      setHistory(prevHistory => [...prevHistory, nextStep])
+
+      return nextStep
+    })
   }, [steps.length])
 
   const prevStep = useCallback(() => {
     setDirection(-1)
-    setCurrentStep(prev => (prev > 0 ? prev - 1 : prev))
-  }, [])
+    setCurrentStep(prev => {
+      const prevStep =
+        history.length > 1 ? history[history.length - 2] : Math.max(prev - 1, 0)
+      setHistory(prevHistory => prevHistory.slice(0, prevHistory.length - 1))
+
+      return prevStep
+    })
+  }, [history])
 
   const goToStep = useCallback(
     (step: number) => {
       const validStep = Math.min(Math.max(step, 0), steps.length - 1)
       setDirection(validStep > currentStep ? 1 : -1)
       setCurrentStep(validStep)
+      setHistory(prevHistory => [...prevHistory, validStep])
     },
     [steps.length, currentStep]
   )
@@ -52,7 +65,7 @@ const StepWizardComponent = <T extends object>({
           initial='enter'
           animate='center'
           exit='exit'
-          transition={{ duration: 0.5, type: 'tween' }}
+          transition={{ duration: 0.3, type: 'tween' }}
           custom={direction}
           className='absolute w-full h-full'
         >
