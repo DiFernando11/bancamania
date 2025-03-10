@@ -8,6 +8,9 @@ const CheckBox = forwardRef<HTMLInputElement, InputBaseProps>(
     return (
       <InputBase
         {...props}
+        ref={ref}
+        type='checkbox'
+        disabled={disabled}
         className={classNames(
           'w-6 h-6 cursor-pointer rounded-md border border-primary-100',
           'appearance-none transition-all duration-300 ease-in-out',
@@ -22,9 +25,6 @@ const CheckBox = forwardRef<HTMLInputElement, InputBaseProps>(
           },
           className
         )}
-        ref={ref}
-        type='checkbox'
-        disabled={disabled}
       />
     )
   }

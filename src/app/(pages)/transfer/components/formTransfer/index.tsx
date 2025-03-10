@@ -3,10 +3,8 @@ import React, { useMemo } from 'react'
 import { z } from 'zod'
 import {
   useCreateContact,
-  useGetDataByKey,
   useI18Text,
   useLazyGetDataByKey,
-  useVerifyAccount,
 } from '@/application/hooks'
 import { GetAccountResponse } from '@/shared'
 import { VERIFY_ACCOUNT } from '@/shared/utils/constantsQuery'
@@ -26,18 +24,29 @@ const FormTransfer = ({
 
   const formTransferSchema = useMemo(
     () =>
-      z.object({
-        accountId: z
-          .string()
-          .min(1, t('errors.account_required'))
-          .min(10, t('errors.account_exact_length'))
-          .max(10, t('errors.account_exact_length'))
-          .regex(/^\d+$/, t('errors.account_numeric')),
-        hasValidateAccount: z.literal(true, {
-          errorMap: () => ({ message: t('errors.account_must_validate') }),
+      z
+        .object({
+          accountId: z
+            .string()
+            .min(1, t('errors.account_required'))
+            .min(10, t('errors.account_exact_length'))
+            .max(10, t('errors.account_exact_length'))
+            .regex(/^\d+$/, t('errors.account_numeric')),
+          alias: z.string().optional(),
+          hasValidateAccount: z.literal(true, {
+            errorMap: () => ({ message: t('errors.account_must_validate') }),
+          }),
+          saveAccount: z.boolean(),
+        })
+        .superRefine((data, ctx) => {
+          if (data.saveAccount && (!data.alias || data.alias.trim() === '')) {
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              message: t('errors.field_required'),
+              path: ['alias'],
+            })
+          }
         }),
-        saveAccount: z.boolean(),
-      }),
     [t]
   )
 
@@ -52,7 +61,7 @@ const FormTransfer = ({
     const data = getValue([VERIFY_ACCOUNT])
     if (val.saveAccount) {
       return handleActionService(
-        { accountId: data?.id ?? '', alias: 'hola' },
+        { accountId: data?.id as string, alias: val.alias?.trim() as string },
         {
           onSettled: () => {
             nextStepValidate(data)
@@ -69,6 +78,7 @@ const FormTransfer = ({
       id={formID}
       defaultValues={{
         accountId: '',
+        alias: undefined,
         hasValidateAccount: false,
         saveAccount: false,
       }}
