@@ -44,12 +44,14 @@ const SaveAccount = ({
         onClick={handleClick}
       >
         <IconText
-          text='Guardar contacto'
+          text={
+            data?.isAddContact ? 'Ya tienes este contacto' : 'Guardar contacto'
+          }
           classIcon={classNames(
             'w-10 h-10 transition-colors duration-300 ease-in-out',
             {
-              'text-gray-500': disabled,
-              'text-primary-100': !disabled,
+              '!text-gray-500': disabled,
+              '!text-primary-100': !disabled,
             }
           )}
           nameIcon='AddContact'

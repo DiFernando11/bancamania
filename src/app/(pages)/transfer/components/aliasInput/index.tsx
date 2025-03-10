@@ -17,8 +17,8 @@ const AliasInput = ({
   const t = useI18Text('transfer')
 
   return (
-    <ScrollIntoView isVisible={isVisible}>
-      <AnimationVisible isVisible={isVisible}>
+    <AnimationVisible isVisible={isVisible}>
+      <ScrollIntoView isVisible={isVisible}>
         <FormField<FormTransferI>
           label={t('alias')}
           isRequired
@@ -33,8 +33,8 @@ const AliasInput = ({
           })}
           suggestionValue={data?.owner}
         />
-      </AnimationVisible>
-    </ScrollIntoView>
+      </ScrollIntoView>
+    </AnimationVisible>
   )
 }
 

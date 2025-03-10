@@ -4,10 +4,9 @@ import { z } from 'zod'
 import {
   useCreateContact,
   useI18Text,
-  useLazyGetDataByKey,
+  useVerifyAccount,
 } from '@/application/hooks'
-import { GetAccountResponse } from '@/shared'
-import { VERIFY_ACCOUNT } from '@/shared/utils/constantsQuery'
+import { VerifyAccountResponse } from '@/shared'
 import FormState from '@/ui/atoms/formState'
 import { FormTransferI, FormTransferProps } from './types'
 import { DataTransfer } from '../../types'
@@ -19,7 +18,7 @@ const FormTransfer = ({
   updateData,
 }: FormTransferProps<DataTransfer>) => {
   const t = useI18Text('transfer')
-  const getValue = useLazyGetDataByKey<GetAccountResponse>()
+  const { getDataLazy, removeQuery } = useVerifyAccount()
   const { handleActionService } = useCreateContact()
 
   const formTransferSchema = useMemo(
@@ -50,7 +49,7 @@ const FormTransfer = ({
     [t]
   )
 
-  const nextStepValidate = (data?: GetAccountResponse) => {
+  const nextStepValidate = (data?: VerifyAccountResponse) => {
     if (data) {
       updateData(data)
     }
@@ -58,13 +57,16 @@ const FormTransfer = ({
   }
 
   const onSubmit = (val: FormTransferI) => {
-    const data = getValue([VERIFY_ACCOUNT])
+    const data = getDataLazy({ accountId: val.accountId })
     if (val.saveAccount) {
       return handleActionService(
         { accountId: data?.id as string, alias: val.alias?.trim() as string },
         {
           onSettled: () => {
             nextStepValidate(data)
+          },
+          onSuccess: () => {
+            removeQuery({ accountId: val.accountId })
           },
         }
       )

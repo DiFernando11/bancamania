@@ -9,6 +9,8 @@ export interface SendServiceTypes<TData, TVariables = unknown> {
   data?: TData
   error?: ApiResponseError | null
   reset?: () => void
+  removeQuery?: (params: TVariables) => void
+  getDataLazy?: (params?: TVariables) => TData | undefined
 }
 
 export interface SendFechTypes<TData> {

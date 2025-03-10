@@ -14,10 +14,10 @@ export function useSendService<TData = unknown, TVariables = void>(
 
   return useMutation<TData, ApiResponseError, TVariables, unknown>({
     mutationFn,
-    ...options,
     onSuccess: (data, variables, context) => {
       if (options?.cacheKey) {
-        queryClient.setQueryData([options.cacheKey], data)
+        const dynamicKey = options.cacheKey(variables)
+        queryClient.setQueryData(dynamicKey, data)
       }
 
       if (options?.onSuccess) {

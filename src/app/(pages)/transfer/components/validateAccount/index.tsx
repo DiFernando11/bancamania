@@ -31,7 +31,7 @@ const ValidateAccount = () => {
       setValue(FORM_TRANSFER_NAME.hasValidateAccount, false)
       setValue(FORM_TRANSFER_NAME.saveAccount, false)
 
-      return reset && reset()
+      return reset()
     }
 
     if (accountId?.length < 10) {
@@ -40,6 +40,9 @@ const ValidateAccount = () => {
     handleActionService(
       { accountId },
       {
+        onError: () => {
+          setValue(FORM_TRANSFER_NAME.accountId, '')
+        },
         onSuccess: () => {
           setValue(FORM_TRANSFER_NAME.hasValidateAccount, true)
           clearErrors(FORM_TRANSFER_NAME.hasValidateAccount)
@@ -51,7 +54,7 @@ const ValidateAccount = () => {
   useEffect(() => {
     const subscription = watch((_, { name }) => {
       if (name === FORM_TRANSFER_NAME.accountId && error) {
-        return reset && reset()
+        return reset()
       }
     })
 
@@ -99,7 +102,10 @@ const ValidateAccount = () => {
       {isLoading && <PairSkeletonGroup />}
       <DataAccount data={data} />
       <AlertErrorService error={error} isError={isError} />
-      <SaveAccount disabled={Boolean(!data)} data={data} />
+      <SaveAccount
+        disabled={Boolean(!data || data?.isAddContact)}
+        data={data}
+      />
     </Box>
   )
 }

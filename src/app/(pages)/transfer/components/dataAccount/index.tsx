@@ -10,8 +10,8 @@ const DataAccount = ({ data }: { data?: VerifyAccountResponse }) => {
   const tCommon = useI18Text()
 
   return (
-    <ScrollIntoView isVisible={Boolean(data)}>
-      <AnimationVisible isVisible={Boolean(data)}>
+    <AnimationVisible isVisible={Boolean(data)}>
+      <ScrollIntoView isVisible={Boolean(data)}>
         <Box className='space-y-1'>
           <Text textType='font_18_fw_bold_fm_rob'>{t('addresseeKey')}</Text>
           <PairText
@@ -24,8 +24,8 @@ const DataAccount = ({ data }: { data?: VerifyAccountResponse }) => {
           />
           <PairText textKey={tCommon('email')} textValue={data?.email || ''} />
         </Box>
-      </AnimationVisible>
-    </ScrollIntoView>
+      </ScrollIntoView>
+    </AnimationVisible>
   )
 }
 

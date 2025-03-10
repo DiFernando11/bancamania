@@ -16,8 +16,8 @@ const TextError = ({
   className?: string
 }) => {
   return (
-    <ScrollIntoView isVisible={isValidate}>
-      <AnimationVisible isVisible={isValidate}>
+    <AnimationVisible isVisible={isValidate}>
+      <ScrollIntoView isVisible={isValidate}>
         <Text
           id={`error-${id}`}
           textType='font_14_fw_bold_fm_rob'
@@ -25,8 +25,8 @@ const TextError = ({
         >
           {error?.message}
         </Text>
-      </AnimationVisible>
-    </ScrollIntoView>
+      </ScrollIntoView>
+    </AnimationVisible>
   )
 }
 
