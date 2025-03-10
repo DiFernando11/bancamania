@@ -1,12 +1,12 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormProvider, useForm, FieldValues, Path } from 'react-hook-form'
+import { FormProvider, useForm, FieldValues } from 'react-hook-form'
 import { FormStateProps } from './types'
 
 const FormState = <T extends FieldValues>({
   defaultValues,
   schema,
-  mode = 'onTouched',
+  mode = 'onChange',
   id,
   onSubmit,
   children,
@@ -21,18 +21,14 @@ const FormState = <T extends FieldValues>({
   const {
     handleSubmit,
     formState: { errors },
-    setFocus,
   } = methods
 
   const onError = () => {
     const firstErrorKey = Object.keys(errors)[0]
     const inputExists = document.querySelector(`[name='${firstErrorKey}']`)
-
-    if (firstErrorKey && inputExists) {
-      setFocus(firstErrorKey as Path<T>)
-    } else {
+    if (firstErrorKey && !inputExists) {
       document
-        .getElementById(firstErrorKey)
+        .getElementById(`error-${firstErrorKey}`)
         ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
   }

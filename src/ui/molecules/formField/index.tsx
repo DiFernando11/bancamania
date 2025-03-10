@@ -41,6 +41,10 @@ const FormField = <T extends FieldValues>({
               <Component
                 {...(props as ComponentProps<typeof Component>)}
                 {...field}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  field.onChange(e)
+                  props.onChange?.(e)
+                }}
                 id={name}
               />
             )}

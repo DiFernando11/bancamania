@@ -3,16 +3,25 @@ import classNames from 'classnames'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useI18Text } from '@/application/hooks'
+import { VerifyAccountResponse } from '@/shared'
 import { Box, Text } from '@/ui/atoms'
 import { CheckBox, FormField, IconText } from '@/ui/molecules'
+import AliasInput from '../aliasInput'
 import { FORM_TRANSFER_NAME } from '../formTransfer/types'
 
-const SaveAccount = ({ disabled }: { disabled: boolean }) => {
+const SaveAccount = ({
+  disabled,
+  data,
+}: {
+  disabled: boolean
+  data?: VerifyAccountResponse
+}) => {
   const { setValue, watch, setFocus } = useFormContext()
   const t = useI18Text('transfer')
   const isChecked = watch(FORM_TRANSFER_NAME.saveAccount) || false
 
   const handleClick = () => {
+    setValue(FORM_TRANSFER_NAME.alias, '')
     if (!disabled) {
       return setValue(FORM_TRANSFER_NAME.saveAccount, !isChecked, {
         shouldValidate: true,
@@ -50,9 +59,10 @@ const SaveAccount = ({ disabled }: { disabled: boolean }) => {
           name={FORM_TRANSFER_NAME.saveAccount}
           checked={isChecked}
           disabled={disabled}
-          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+          onChange={handleClick}
         />
       </Box>
+      <AliasInput isVisible={isChecked} data={data} />
     </Box>
   )
 }
