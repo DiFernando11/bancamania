@@ -1,4 +1,5 @@
 import { IconNames } from '@/ui/atoms/icons/icon/types'
+import { PaginationData } from '../generics'
 
 export interface Movement {
   id: number
@@ -9,13 +10,7 @@ export interface Movement {
   createdAt: string
 }
 
-export interface GetMovementsResponse {
-  currentPage: number
-  isLastPage: boolean
-  totalItems: number
-  totalPages: number
-  nextCursor?: number
-  prevCursor?: number
+export interface GetMovementsResponse extends PaginationData {
   movements: Movement[]
 }
 

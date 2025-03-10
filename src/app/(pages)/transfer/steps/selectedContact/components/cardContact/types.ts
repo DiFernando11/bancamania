@@ -1,6 +1,6 @@
-import { DataTransfer } from '@/app/(pages)/transfer/types'
-import { StepProps } from '@/ui/organisms/stepWizard/types'
+import { ContactData } from '@/shared'
 
 export type CardContactProps = {
   handleClick: () => void
+  data?: ContactData
 }
