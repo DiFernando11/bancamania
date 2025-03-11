@@ -12,7 +12,7 @@ const SelectedContact = ({ goToStep, updateData }: StepProps<DataTransfer>) => {
   return (
     <LayoutAuthenticationPage
       footerBox={<ButtonActionSimple />}
-      i18nTitle={t('title')}
+      i18nTitle={t('stepSelectedTitle')}
     >
       <MyContacts updateData={updateData} goToStep={goToStep} />
     </LayoutAuthenticationPage>

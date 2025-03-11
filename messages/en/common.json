@@ -17,6 +17,7 @@
   "actions": "Actions",
   "clean": "Clean",
   "nameKey": "Name :",
+  "notFoundResult": "No results found",
   "email": "Email: ",
   "optional": "(optional)",
   "required": "*required",

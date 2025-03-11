@@ -4,9 +4,12 @@ import { z } from 'zod'
 import {
   useCreateContact,
   useI18Text,
+  useRemoveQueries,
   useVerifyAccount,
 } from '@/application/hooks'
 import { VerifyAccountResponse } from '@/shared'
+import { useGlobalLoading } from '@/shared/hooks'
+import { GET_CONTACTS } from '@/shared/utils/constantsQuery'
 import FormState from '@/ui/atoms/formState'
 import { FormTransferI, FormTransferProps } from './types'
 import { DataTransfer } from '../../types'
@@ -19,7 +22,10 @@ const FormTransfer = ({
 }: FormTransferProps<DataTransfer>) => {
   const t = useI18Text('transfer')
   const { getDataLazy, removeQuery } = useVerifyAccount()
-  const { handleActionService } = useCreateContact()
+  const { invalidate } = useRemoveQueries()
+  const { handleActionService, isLoading } = useCreateContact()
+
+  useGlobalLoading([isLoading])
 
   const formTransferSchema = useMemo(
     () =>
@@ -74,6 +80,7 @@ const FormTransfer = ({
           },
           onSuccess: () => {
             removeQuery({ accountId: val.accountId })
+            invalidate({ exact: true, queryKey: [GET_CONTACTS, ''] })
           },
         }
       )
