@@ -7,4 +7,5 @@ export interface IconTextProps {
   classIcon: string
   textType?: TextType
   iconColor?: string
+  classText?: string
 }
