@@ -11,7 +11,6 @@ const PaginationMoves = ({
   isFetchingNextPage,
   isInitialLoading,
   hasNextPage,
-  isLockAutoScroll,
   countSkeleton = 10,
 }: PaginationMovesProps) => {
   return (
@@ -21,7 +20,6 @@ const PaginationMoves = ({
       fetchNextPage={fetchNextPage}
       isInitialLoading={isInitialLoading}
       Skeleton={<SkeletonMoves count={countSkeleton} />}
-      isLockAutoScroll={isLockAutoScroll}
     >
       {movements?.map(mov => (
         <Movements

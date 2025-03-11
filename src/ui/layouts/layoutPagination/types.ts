@@ -7,5 +7,4 @@ export interface PaginationWrapperProps {
   isFetchingNextPage?: boolean
   isInitialLoading: boolean
   Skeleton: ReactNode
-  isLockAutoScroll?: boolean
 }
