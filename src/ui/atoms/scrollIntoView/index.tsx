@@ -1,3 +1,4 @@
+'use client'
 import classNames from 'classnames'
 import { useEffect, useRef } from 'react'
 import { ScrollIntoViewWrapperProps } from './types'

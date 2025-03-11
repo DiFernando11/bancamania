@@ -8,6 +8,7 @@ import maintenance from './maintenance.json'
 import manGreatting from './manGreatting.json'
 import paymentCard from './paymentCard.json'
 import profile from './profile.json'
+import transfer from './transfer.json'
 
 export const lotties = {
   changeMode,
@@ -20,4 +21,5 @@ export const lotties = {
   manGreatting,
   paymentCard,
   profile,
+  transfer,
 }

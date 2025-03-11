@@ -5,7 +5,7 @@ import { useGlobalLoadingStore } from '@/application/zustand'
 import { LoadingMaxScreen } from '@/ui/molecules'
 
 const GlobalLoading = () => {
-  const { globalLoading } = useGlobalLoadingStore()
+  const { globalLoading, loadingContent } = useGlobalLoadingStore()
 
   const [container, setContainer] = useState<HTMLElement | null>(null)
 
@@ -29,7 +29,13 @@ const GlobalLoading = () => {
 
   if (!container) return null
 
-  return createPortal(<LoadingMaxScreen isLoading={globalLoading} />, container)
+  return createPortal(
+    <LoadingMaxScreen
+      isLoading={globalLoading}
+      loadingContent={loadingContent}
+    />,
+    container
+  )
 }
 
 export default GlobalLoading

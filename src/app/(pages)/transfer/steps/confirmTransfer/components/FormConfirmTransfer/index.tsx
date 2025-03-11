@@ -17,7 +17,7 @@ import {
   GET_MOVEMENTS,
   GET_PREVIEW_RECEIPT,
 } from '@/shared/utils/constantsQuery'
-import { Box } from '@/ui/atoms'
+import { Box, LottiePlayer, Text } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField, InputMoney } from '@/ui/molecules'
 import { FormConfirmTransferI, FormConfirmTransferProps } from './types'
@@ -35,7 +35,12 @@ const FormConfirmTransfer = ({
   const { data, isLoading } = useGetAccount()
   const { invalidate } = useRemoveQueries()
   const router = useRouter()
-  useGlobalLoading([isLoadingCreate])
+
+  useGlobalLoading(
+    [isLoadingCreate],
+    <LottiePlayer name='transfer' className='w-60 h-60' />
+  )
+
   const formTransferSchema = useMemo(
     () =>
       z.object({
