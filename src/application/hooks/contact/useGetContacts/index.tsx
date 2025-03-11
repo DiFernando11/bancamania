@@ -31,15 +31,20 @@ export const useGetContacts = ({
 
   return {
     data: queryResult.data,
+    dataUpdatedAt: queryResult.dataUpdatedAt,
     fetchNextPage: queryResult.fetchNextPage,
     fetchPreviousPage: queryResult.fetchPreviousPage,
+    fetchStatus: queryResult.fetchStatus,
     hasNextPage: queryResult.hasNextPage,
     hasPreviousPage: queryResult.hasPreviousPage,
     isError: queryResult.isError,
+    isFetched: queryResult.isFetched,
+    isFetching: queryResult.isFetching,
     isFetchingNextPage: queryResult.isFetchingNextPage,
     isFetchingPreviousPage: queryResult.isFetchingPreviousPage,
     isLoading: queryResult.isLoading,
+    isPlaceholderData: queryResult.isPlaceholderData,
+    isRefetching: queryResult.isRefetching,
     isSuccess: queryResult.isSuccess,
-    refetch: queryResult.refetch,
   }
 }

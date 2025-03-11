@@ -13,13 +13,12 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
   isInitialLoading,
   isFetchingNextPage = false,
   Skeleton,
-  isLockAutoScroll = false,
 }) => {
   const lastItemRef = useRef<HTMLDivElement>(null)
   const t = useI18Text()
 
   useEffect(() => {
-    if (lastItemRef.current && !isLockAutoScroll) {
+    if (lastItemRef.current && isFetchingNextPage) {
       setTimeout(() => {
         lastItemRef.current?.scrollIntoView({
           behavior: 'smooth',

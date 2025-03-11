@@ -22,7 +22,6 @@ const Movements = () => {
         isFetchingNextPage={false}
         movements={movements}
         countSkeleton={LIMIT}
-        isLockAutoScroll
       />
     </Box>
   )

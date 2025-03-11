@@ -9,8 +9,7 @@ import { MyContactsProps } from './types'
 const MyContacts = ({ updateData, goToStep }: MyContactsProps) => {
   const t = useI18Text('transfer')
   const [search, setSearch] = useState('')
-  const limit = 10
-
+  const limit = 3
   const { fetchNextPage, isLoading, data, hasNextPage, isFetchingNextPage } =
     useGetContacts({
       enabled: true,
