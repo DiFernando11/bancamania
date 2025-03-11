@@ -5,6 +5,8 @@
   "validateAccount": "Validate account",
   "numberAccountKey": "Account number: ",
   "addresseeKey": "Addressee: ",
+  "stepSelectedTitle": "Select who to transfer to",
+  "stepSaveTitle": "Add contact",
   "personalInf": "Personal Information",
   "accountInformation": "Account Information",
   "addContact": "Add new contact",

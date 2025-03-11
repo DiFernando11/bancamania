@@ -20,7 +20,7 @@ const ValidateAccountStep = ({
       footerBox={
         <ButtonActionSimple formId={formID} secondaryOnClick={prevStep} />
       }
-      i18nTitle={t('title')}
+      i18nTitle={t('stepSaveTitle')}
     >
       <FormTransfer
         formID={formID}

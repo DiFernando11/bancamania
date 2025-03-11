@@ -10,8 +10,13 @@ import {
 } from '@/application/hooks'
 import { useCreateTransfer } from '@/application/hooks/transfers/useCreateTransfer'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useGlobalLoading } from '@/shared/hooks'
 import { formatToMoney, replaceDynamicsRoutes } from '@/shared/utils'
-import { GET_ACCOUNT } from '@/shared/utils/constantsQuery'
+import {
+  GET_ACCOUNT,
+  GET_MOVEMENTS,
+  GET_PREVIEW_RECEIPT,
+} from '@/shared/utils/constantsQuery'
 import { Box } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField, InputMoney } from '@/ui/molecules'
@@ -25,10 +30,12 @@ const FormConfirmTransfer = ({
   stepData,
 }: FormConfirmTransferProps) => {
   const t = useI18Text('transfer')
-  const { handleActionService } = useCreateTransfer()
+  const { handleActionService, isLoading: isLoadingCreate } =
+    useCreateTransfer()
   const { data, isLoading } = useGetAccount()
   const { invalidate } = useRemoveQueries()
   const router = useRouter()
+  useGlobalLoading([isLoadingCreate])
   const formTransferSchema = useMemo(
     () =>
       z.object({
@@ -52,6 +59,8 @@ const FormConfirmTransfer = ({
       {
         onSuccess: val => {
           invalidate({ queryKey: [GET_ACCOUNT] })
+          invalidate({ queryKey: [GET_PREVIEW_RECEIPT] })
+          invalidate({ queryKey: [GET_MOVEMENTS] })
           router.push(
             replaceDynamicsRoutes(clientRoutes.receiptsID.path, {
               id: val.receiptId,
