@@ -1,15 +1,15 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useGetReceipts } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
 import { replaceDynamicsRoutes } from '@/shared/utils'
 import { PaginationWrapper } from '@/ui/layouts'
 import ReceiptPreview from '../receiptPreview'
 import SkeletonsReceipts from '../skeletonsReceipts'
 
 const PaginationReceipts = () => {
-  const route = useRouter()
+  const route = useNavigation()
   const LIMIT = 3
   const {
     data: receipts,

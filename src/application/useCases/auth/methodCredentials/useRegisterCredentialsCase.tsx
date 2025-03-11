@@ -1,12 +1,12 @@
 'use-client'
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useAuthentication, useRegisterCredentials } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { RegisterCredentials } from '@/shared'
+import { useNavigation } from '@/shared/hooks'
 
 export const useRegisterCredentialsCase = () => {
-  const router = useRouter()
+  const router = useNavigation()
   const { handleActionService: registerCredentials } = useRegisterCredentials()
   const { handleActionService: register } = useAuthentication()
 

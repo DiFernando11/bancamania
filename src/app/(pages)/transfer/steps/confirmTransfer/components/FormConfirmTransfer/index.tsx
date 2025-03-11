@@ -1,6 +1,5 @@
 'use client'
 import classNames from 'classnames'
-import { useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { z } from 'zod'
 import {
@@ -10,14 +9,14 @@ import {
 } from '@/application/hooks'
 import { useCreateTransfer } from '@/application/hooks/transfers/useCreateTransfer'
 import { clientRoutes } from '@/routes/clientRoutes'
-import { useGlobalLoading } from '@/shared/hooks'
+import { useGlobalLoading, useNavigation } from '@/shared/hooks'
 import { formatToMoney, replaceDynamicsRoutes } from '@/shared/utils'
 import {
   GET_ACCOUNT,
   GET_MOVEMENTS,
   GET_PREVIEW_RECEIPT,
 } from '@/shared/utils/constantsQuery'
-import { Box, LottiePlayer, Text } from '@/ui/atoms'
+import { Box, LottiePlayer } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField, InputMoney } from '@/ui/molecules'
 import { FormConfirmTransferI, FormConfirmTransferProps } from './types'
@@ -34,7 +33,7 @@ const FormConfirmTransfer = ({
     useCreateTransfer()
   const { data, isLoading } = useGetAccount()
   const { invalidate } = useRemoveQueries()
-  const router = useRouter()
+  const router = useNavigation()
 
   useGlobalLoading(
     [isLoadingCreate],

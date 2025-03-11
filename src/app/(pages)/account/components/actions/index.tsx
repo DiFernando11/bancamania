@@ -1,10 +1,9 @@
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import ModalMothMovements from '@/app/components/modalMonthsMovements'
 import ModalYourCards from '@/app/components/modalYourCards'
 import { useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
-import { useModal } from '@/shared/hooks'
+import { useModal, useNavigation } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import ButtonsActions from './buttonActions'
 
@@ -16,7 +15,7 @@ const Actions = ({
   isLoading: boolean
 }) => {
   const t = useI18Text('account')
-  const router = useRouter()
+  const router = useNavigation()
 
   const { openModal } = useModal()
 

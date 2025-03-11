@@ -1,10 +1,14 @@
 'use client'
 import classNames from 'classnames'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { useLogoutRedirect } from '@/application/useCases'
-import { useChangeLang, useMenuBuild, useModal } from '@/shared/hooks'
+import {
+  useChangeLang,
+  useMenuBuild,
+  useModal,
+  useNavigation,
+} from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import { ChangeLangComponent } from '@/ui/organisms'
 import DropDown from '../../dropDown'
@@ -12,7 +16,7 @@ import Modal from '../modal'
 
 const ModalMenuBottom = () => {
   const t = useI18Text()
-  const route = useRouter()
+  const route = useNavigation()
   const { handleChangeLanguage, isLoading } = useChangeLang()
   const { handleActionService } = useLogoutRedirect()
 

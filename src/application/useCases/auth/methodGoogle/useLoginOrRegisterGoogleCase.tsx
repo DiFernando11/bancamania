@@ -1,5 +1,4 @@
 'use-client'
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import {
   useAuthentication,
@@ -7,9 +6,10 @@ import {
 } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { RegisterOrLoginGoogle } from '@/shared'
+import { useNavigation } from '@/shared/hooks'
 
 export const useLoginOrRegisterGoogleCase = () => {
-  const router = useRouter()
+  const router = useNavigation()
   const { handleActionService: loginOrRegisterGoogle } =
     useLoginOrRegisterGoogle()
   const { handleActionService: register } = useAuthentication()

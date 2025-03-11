@@ -1,7 +1,5 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
-import FlipCardAccount from '@/app/components/flipCardAccount'
 import FlipCardDebit from '@/app/components/flipCardDebit'
 import {
   useDeleteStepOnBoarding,
@@ -9,6 +7,7 @@ import {
   useSetStepOnBoarding,
 } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
 import { Box, Text } from '@/ui/atoms'
 import NextStep from '../../nextStep'
 
@@ -16,7 +15,7 @@ const StepShowCardDebit = () => {
   const t = useI18Text('onBoarding')
   const { handleActionService: deleteStep } = useDeleteStepOnBoarding()
   const { handleActionService } = useSetStepOnBoarding()
-  const router = useRouter()
+  const router = useNavigation()
 
   const handleRedirect = () => {
     deleteStep(

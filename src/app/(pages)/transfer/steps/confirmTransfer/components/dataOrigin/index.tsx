@@ -1,9 +1,9 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { GetAccountResponse } from '@/shared'
+import { useNavigation } from '@/shared/hooks'
 import { Box, Icon, Text } from '@/ui/atoms'
 import { Balance, SkeletonLoader } from '@/ui/organisms'
 
@@ -14,7 +14,7 @@ const DataOrigin = ({
   data?: GetAccountResponse
   isLoading: boolean
 }) => {
-  const router = useRouter()
+  const router = useNavigation()
   const t = useI18Text('account')
   const tTransfer = useI18Text('transfer')
 

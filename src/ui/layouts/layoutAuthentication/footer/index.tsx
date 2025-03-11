@@ -1,15 +1,14 @@
 'use client'
 import classNames from 'classnames'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
-import { useModal } from '@/shared/hooks'
+import { useModal, useNavigation } from '@/shared/hooks'
 import { Box, Icon, Text } from '@/ui/atoms'
 import { ModalMenuBottom } from '@/ui/molecules'
 
 const Footer = () => {
-  const router = useRouter()
+  const router = useNavigation()
   const { openModal } = useModal()
   const t = useI18Text()
 
