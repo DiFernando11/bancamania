@@ -4,18 +4,23 @@ import { ContactData, GetContactRequest, GetContactResponse } from '@/shared'
 import { GET_CONTACTS } from '@/shared/utils/constantsQuery'
 import { useInfiniteFetchService } from '../../generics'
 
-export const useGetContacts = ({ limit, alias }: GetContactRequest) => {
+export const useGetContacts = ({
+  limit,
+  alias,
+  enabled,
+}: GetContactRequest & { enabled: boolean }) => {
   const queryResult = useInfiniteFetchService<
     GetContactResponse,
     Error,
     ContactData[],
-    [typeof GET_CONTACTS],
+    [typeof GET_CONTACTS, string | undefined],
     number
   >({
+    enabled: enabled,
     initialPageParam: 1,
-    queryFn: ({ pageParam }) =>
+    queryFn: ({ pageParam = 1 }) =>
       getContactsService({ alias, limit, page: pageParam }),
-    queryKey: [GET_CONTACTS],
+    queryKey: [GET_CONTACTS, alias],
     select: data => data.pages.flatMap(page => page.contacts),
   })
 
@@ -30,5 +35,6 @@ export const useGetContacts = ({ limit, alias }: GetContactRequest) => {
     isFetchingPreviousPage: queryResult.isFetchingPreviousPage,
     isLoading: queryResult.isLoading,
     isSuccess: queryResult.isSuccess,
+    refetch: queryResult.refetch,
   }
 }
