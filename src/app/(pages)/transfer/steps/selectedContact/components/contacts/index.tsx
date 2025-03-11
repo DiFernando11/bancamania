@@ -1,11 +1,10 @@
 import React from 'react'
-import SkeletonsReceipts from '@/app/(pages)/receipts/components/skeletonsReceipts'
-import { useGetContacts } from '@/application/hooks'
 import { ContactData } from '@/shared'
 import { PaginationWrapper } from '@/ui/layouts'
 import { STEPS } from '../../../contants'
 import CardContact from '../cardContact'
 import { ContactsProps } from './types'
+import SkeletonContacts from '../cardContact/skeletonContacts'
 
 const Contacts = ({
   updateData,
@@ -15,12 +14,12 @@ const Contacts = ({
   hasNextPage,
   fetchNextPage,
   isLoading,
+  limit,
 }: ContactsProps) => {
-  const LIMIT = 1
-
   const handleClick = (data: ContactData) => {
     updateData({
       accountNumber: data.account.accountNumber,
+      alias: data.alias,
       email: data.account.user.email,
       id: data.account.id,
       owner: data.account.owner,
@@ -34,7 +33,7 @@ const Contacts = ({
       hasNextPage={hasNextPage}
       fetchNextPage={fetchNextPage}
       isInitialLoading={isLoading}
-      Skeleton={<SkeletonsReceipts count={LIMIT} />}
+      Skeleton={<SkeletonContacts count={limit} />}
     >
       {data?.map(contact => (
         <CardContact

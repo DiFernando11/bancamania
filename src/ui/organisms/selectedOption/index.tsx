@@ -17,7 +17,7 @@ const SelectedOption = ({
     <Box
       className={classNames(
         className,
-        'flex w-full cursor-pointer justify-between capitalize',
+        'flex w-full cursor-pointer justify-between capitalize gap-4',
         'items-center border-b border-accent-100 pb-4'
       )}
       onClick={onClick}

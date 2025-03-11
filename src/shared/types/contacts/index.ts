@@ -6,7 +6,7 @@ export interface CreateContactResponse {
 }
 
 export interface CreateContactRequest {
-  alias: string
+  alias?: string
   accountId: string
 }
 
@@ -22,6 +22,9 @@ export interface ContactData {
     }
   }
 }
+export interface ContactDataMap extends ContactData {
+  isFirstElement: boolean
+}
 
 export interface GetContactResponse extends PaginationData {
   contacts: ContactData[]
@@ -30,5 +33,5 @@ export interface GetContactResponse extends PaginationData {
 export interface GetContactRequest {
   limit?: number
   page?: number
-  alias?: string
+  search?: string
 }

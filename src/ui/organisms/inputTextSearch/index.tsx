@@ -6,7 +6,7 @@ import { AnimationVisible, InputText } from '@/ui/molecules'
 import { InputSearchProps } from './types'
 
 const InputSearch = forwardRef<HTMLInputElement, InputSearchProps>(
-  ({ debounceDelay = 800, onSearch, value = '', ...props }, ref) => {
+  ({ debounceDelay = 600, onSearch, value = '', ...props }, ref) => {
     const [query, setQuery] = useState(value)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ const InputSearch = forwardRef<HTMLInputElement, InputSearchProps>(
     }
 
     return (
-      <div className='relative flex items-center w-full'>
+      <Box className='relative flex items-center w-full'>
         <Icon name='Search' className='w-7 h-7 absolute left-4' />
         <InputText
           {...props}
@@ -42,7 +42,7 @@ const InputSearch = forwardRef<HTMLInputElement, InputSearchProps>(
             />
           </Box>
         </AnimationVisible>
-      </div>
+      </Box>
     )
   }
 )
