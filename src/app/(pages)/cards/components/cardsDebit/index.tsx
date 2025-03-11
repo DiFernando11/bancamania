@@ -12,8 +12,6 @@ const CardsDebit = () => {
   const router = useNavigation()
   const { data } = useGetCardDebit()
 
-  console.log(data, 'DATA')
-
   return (
     <>
       <Text textType='font_20_24_fw_bold_fm_rob_text-100'>
