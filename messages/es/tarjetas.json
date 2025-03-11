@@ -4,5 +4,8 @@
   "security": "SEGURIDAD",
   "propBanca": "ESTA TARJETA ES EMITIDA Y PROPIEDAD DE BANCAMANIA",
   "debit": "Débito",
-  "selectCard": "Selecciona una tarjeta."
+  "selectCard": "Selecciona una tarjeta.",
+  "debitCard": "Tarjetas de débito",
+  "numberCard": "Nro. {number}",
+  "title": "Mis tarjetas"
 }

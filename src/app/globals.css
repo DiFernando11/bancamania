@@ -241,11 +241,11 @@ input:focus {
   @apply text-base font-bold font-roboto text-primary-200 sm:text-xl;
 }
 
-/* title */
 .font_20-30_fw_bold_fm_rob_text-200 {
   @apply text-xl font-bold font-roboto text-primary-200 sm:text-3xl;
 }
 
+/* title */
 .font_30_36_fw_bold_fm_rob_text-200 {
   @apply text-3xl font-bold font-roboto text-primary-200 sm:text-4xl;
 }
@@ -254,3 +254,8 @@ input:focus {
   @apply text-3xl font-bold font-roboto text-primary-200 sm:text-5xl;
 }
 
+/* Responsives - text-100*/
+/* subtitle */
+.font_20_24_fw_bold_fm_rob_text-100 {
+  @apply text-xl font-bold font-roboto text-primary-100 sm:text-2xl;
+}
