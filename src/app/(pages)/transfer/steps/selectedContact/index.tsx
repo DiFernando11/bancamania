@@ -4,8 +4,7 @@ import { useI18Text } from '@/application/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataTransfer } from '../../types'
-import Contacts from './components/contacts'
-import NewContact from './components/newContact'
+import MyContacts from './components/myContacts'
 
 const SelectedContact = ({ goToStep, updateData }: StepProps<DataTransfer>) => {
   const t = useI18Text('transfer')
@@ -15,8 +14,7 @@ const SelectedContact = ({ goToStep, updateData }: StepProps<DataTransfer>) => {
       footerBox={<ButtonActionSimple />}
       i18nTitle={t('title')}
     >
-      <NewContact goToStep={goToStep} />
-      <Contacts updateData={updateData} goToStep={goToStep} />
+      <MyContacts updateData={updateData} goToStep={goToStep} />
     </LayoutAuthenticationPage>
   )
 }

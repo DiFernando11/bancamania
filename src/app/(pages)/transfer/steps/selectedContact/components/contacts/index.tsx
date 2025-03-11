@@ -7,10 +7,16 @@ import { STEPS } from '../../../contants'
 import CardContact from '../cardContact'
 import { ContactsProps } from './types'
 
-const Contacts = ({ updateData, goToStep }: ContactsProps) => {
+const Contacts = ({
+  updateData,
+  goToStep,
+  data,
+  isFetchingNextPage,
+  hasNextPage,
+  fetchNextPage,
+  isLoading,
+}: ContactsProps) => {
   const LIMIT = 1
-  const { data, isFetchingNextPage, hasNextPage, fetchNextPage, isLoading } =
-    useGetContacts({ limit: LIMIT })
 
   const handleClick = (data: ContactData) => {
     updateData({
@@ -23,23 +29,21 @@ const Contacts = ({ updateData, goToStep }: ContactsProps) => {
   }
 
   return (
-    <div>
-      <PaginationWrapper
-        isFetchingNextPage={isFetchingNextPage}
-        hasNextPage={hasNextPage}
-        fetchNextPage={fetchNextPage}
-        isInitialLoading={isLoading}
-        Skeleton={<SkeletonsReceipts count={LIMIT} />}
-      >
-        {data?.map(contact => (
-          <CardContact
-            key={contact.id}
-            handleClick={() => handleClick(contact)}
-            data={contact}
-          />
-        ))}
-      </PaginationWrapper>
-    </div>
+    <PaginationWrapper
+      isFetchingNextPage={isFetchingNextPage}
+      hasNextPage={hasNextPage}
+      fetchNextPage={fetchNextPage}
+      isInitialLoading={isLoading}
+      Skeleton={<SkeletonsReceipts count={LIMIT} />}
+    >
+      {data?.map(contact => (
+        <CardContact
+          key={contact.id}
+          handleClick={() => handleClick(contact)}
+          data={contact}
+        />
+      ))}
+    </PaginationWrapper>
   )
 }
 

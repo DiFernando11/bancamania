@@ -5,9 +5,11 @@ import { AnimationContainer } from '@/ui/atoms'
 const AnimationVisible = ({
   children,
   isVisible,
+  className,
 }: {
   children: ReactNode
   isVisible: boolean
+  className?: string
 }) => {
   const variants = {
     exit: { opacity: 0, scale: 0.5 },
@@ -24,6 +26,7 @@ const AnimationVisible = ({
           exit='exit'
           variants={variants}
           transition={{ duration: 0.3 }}
+          className={className}
         >
           {children}
         </AnimationContainer>
