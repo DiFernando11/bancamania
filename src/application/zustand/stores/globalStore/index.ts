@@ -33,8 +33,9 @@ export const useGlobalStore = create<GlobalStoreState>(set => ({
 
 export const useGlobalLoadingStore = create<GlobalLoadingState>(set => ({
   globalLoading: false,
+  loadingContent: null,
   loadingStates: new Map(),
-  verifyStatesLoading: (id, loading) => {
+  verifyStatesLoading: (id, loading, content) => {
     set(state => {
       const newLoadingStates = new Map(state.loadingStates)
       if (loading) {
@@ -45,6 +46,7 @@ export const useGlobalLoadingStore = create<GlobalLoadingState>(set => ({
 
       return {
         globalLoading: newLoadingStates.size > 0,
+        loadingContent: loading ? (content ?? state.loadingContent) : null,
         loadingStates: newLoadingStates,
       }
     })

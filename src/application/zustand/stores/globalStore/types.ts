@@ -24,5 +24,10 @@ export interface GlobalStoreState {
 export interface GlobalLoadingState {
   globalLoading: boolean
   loadingStates: Map<string, boolean>
-  verifyStatesLoading: (id: string, loading: boolean) => void
+  loadingContent: ReactNode
+  verifyStatesLoading: (
+    id: string,
+    loading: boolean,
+    loadingContent?: ReactNode
+  ) => void
 }
