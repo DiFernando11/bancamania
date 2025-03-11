@@ -1,8 +1,7 @@
 'use client'
-
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
+import { useNavigation } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import { ButtonText } from '@/ui/molecules'
 import { ButtonFormSimpleProps } from './types'
@@ -16,7 +15,7 @@ const ButtonActionSimple: React.FC<ButtonFormSimpleProps> = ({
   disablePrimary = false,
   disableSecondary = false,
 }) => {
-  const router = useRouter()
+  const router = useNavigation()
   const t = useI18Text()
 
   const textBack = secondaryText || t('back')

@@ -1,5 +1,4 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useAuthStoreLs } from '@/application/zustand/stores'
 import { clientRoutes } from '@/routes/clientRoutes'
@@ -10,6 +9,7 @@ import {
   ForwarTimeCode,
 } from '@/shared/utils/globalConstants'
 import { useCounter } from '../useCounter'
+import { useNavigation } from '../useNavigation'
 
 export const useForwardCode = ({
   restHasValidCode,
@@ -18,7 +18,7 @@ export const useForwardCode = ({
   restHasValidCode: Partial<HasValidCode>
   type: HasValidCodeType
 }) => {
-  const router = useRouter()
+  const router = useNavigation()
   const { handleGetCurrentTime, handleSetTime, handleReset, timerRef } =
     useCounter()
   const { flushHasValidCode, hasValidCode, setHasValidCode } = useAuthStoreLs()

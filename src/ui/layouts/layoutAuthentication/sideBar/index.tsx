@@ -1,16 +1,15 @@
 'use client'
 import classNames from 'classnames'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useI18Text } from '@/application/hooks/commons'
-import { useMenuBuild } from '@/shared/hooks'
+import { useMenuBuild, useNavigation } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import { DropDown } from '@/ui/molecules'
 import BottomSideBar from './bottomSideBar'
 
 const SideBar = () => {
   const t = useI18Text('commonAriaLabel')
-  const router = useRouter()
+  const router = useNavigation()
   const handleClick = (path: string) => router.push(path)
   const { menu } = useMenuBuild({ handleClick })
 

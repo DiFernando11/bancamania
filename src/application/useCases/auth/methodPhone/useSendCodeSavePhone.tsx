@@ -1,9 +1,9 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import { useSendCodePhone } from '@/application/hooks'
 import { useAuthStoreLs } from '@/application/zustand/stores'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { PhoneType, SendCodePhoneResponse, SendServiceTypes } from '@/shared'
+import { useNavigation } from '@/shared/hooks'
 import { addMinutesToDate } from '@/shared/utils'
 import {
   ExpiredTimeCodePhone,
@@ -14,7 +14,7 @@ export const useSendCodeSavePhone = (): SendServiceTypes<
   SendCodePhoneResponse,
   PhoneType
 > => {
-  const router = useRouter()
+  const router = useNavigation()
   const { isLoading, isError, isSuccess, handleActionService } =
     useSendCodePhone()
   const { setHasValidCode } = useAuthStoreLs()

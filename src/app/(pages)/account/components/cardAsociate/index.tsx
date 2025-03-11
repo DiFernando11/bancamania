@@ -1,14 +1,14 @@
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useGetCardDebit, useI18Text } from '@/application/hooks'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { CardProduct } from '@/ui/organisms'
 
 const CardAsociate = () => {
   const t = useI18Text('account')
   const { data, isLoading } = useGetCardDebit()
-  const route = useRouter()
+  const route = useNavigation()
 
   return (
     <Box>

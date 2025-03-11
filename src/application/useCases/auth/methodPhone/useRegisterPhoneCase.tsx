@@ -1,13 +1,13 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useAuthentication, useRegisterPhone } from '@/application/hooks'
 import { useAuthStoreLs } from '@/application/zustand/stores'
 import { clientRoutes } from '@/routes/clientRoutes'
 import { RegisterPhone } from '@/shared'
+import { useNavigation } from '@/shared/hooks'
 
 export const useRegisterPhoneCase = () => {
-  const router = useRouter()
+  const router = useNavigation()
   const { flushHasValidCode } = useAuthStoreLs()
   const { handleActionService: registerPhone } = useRegisterPhone()
   const { handleActionService: register } = useAuthentication()

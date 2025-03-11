@@ -1,11 +1,11 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
 import { Avatar } from '@/ui/molecules'
 
 const Profile = () => {
-  const route = useRouter()
+  const route = useNavigation()
 
   return (
     <span

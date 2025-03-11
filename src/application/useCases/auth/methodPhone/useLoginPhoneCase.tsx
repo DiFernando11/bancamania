@@ -1,13 +1,13 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { useAuthentication, useLoginPhone } from '@/application/hooks'
 import { useAuthStoreLs } from '@/application/zustand/stores'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
 
 export const useLoginPhoneCase = () => {
-  const router = useRouter()
+  const router = useNavigation()
   const [isVerifyGoogle, setIsVerifyGoogle] = useState<boolean>()
   const [codeCurrent, setCodeCurrent] = useState('')
   const { handleActionService: loginPhone } = useLoginPhone()

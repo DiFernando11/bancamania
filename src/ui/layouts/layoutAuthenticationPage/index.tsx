@@ -1,8 +1,8 @@
 'use client'
 import classNames from 'classnames'
-import { useRouter } from 'next/navigation'
 import React, { useMemo } from 'react'
 import { useI18Text } from '@/application/hooks'
+import { useNavigation } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
 import Content from './content'
 import DestokpMenuContextual from './menuContextual/destokp'
@@ -14,7 +14,7 @@ const LayoutAuthenticationPage = ({
   contextualMenu,
   children,
 }: LayoutAuthenticationPageProps) => {
-  const router = useRouter()
+  const router = useNavigation()
   const t = useI18Text('contextMenu')
 
   const computedContextualMenu = useMemo(() => {
