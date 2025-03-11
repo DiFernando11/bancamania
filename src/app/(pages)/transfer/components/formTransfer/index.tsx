@@ -49,21 +49,28 @@ const FormTransfer = ({
     [t]
   )
 
-  const nextStepValidate = (data?: VerifyAccountResponse) => {
+  const nextStepValidate = (
+    data?: VerifyAccountResponse,
+    aliasFormat: string = ''
+  ) => {
     if (data) {
-      updateData(data)
+      updateData({ alias: aliasFormat, ...data })
     }
     nextStep()
   }
 
   const onSubmit = (val: FormTransferI) => {
     const data = getDataLazy({ accountId: val.accountId })
+    const aliasFormat = val.alias?.trim() ?? ''
     if (val.saveAccount) {
       return handleActionService(
-        { accountId: data?.id as string, alias: val.alias?.trim() as string },
+        {
+          accountId: data?.id as string,
+          alias: aliasFormat,
+        },
         {
           onSettled: () => {
-            nextStepValidate(data)
+            nextStepValidate(data, aliasFormat)
           },
           onSuccess: () => {
             removeQuery({ accountId: val.accountId })
@@ -71,7 +78,7 @@ const FormTransfer = ({
         }
       )
     }
-    nextStepValidate(data)
+    nextStepValidate(data, aliasFormat)
   }
 
   return (

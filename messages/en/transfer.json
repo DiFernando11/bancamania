@@ -17,7 +17,7 @@
   "from": "From",
   "alias": "Alias",
   "aliasPh": "Enter the alias of your new contact (Ex. mom, neighbor, etc.)",
-  "searchContactPh": "Search for a name or account",
+  "searchContactPh": "Search by name or account number",
   "errors": {
     "account_required": "The account number is required",
     "account_exact_length": "The account number must be exactly 10 digits long",

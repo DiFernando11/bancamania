@@ -5,7 +5,7 @@ const Search: React.FC<React.SVGProps<SVGSVGElement>> = ({ className }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      enable-background='new 0 0 55 55'
+      enableBackground='new 0 0 55 55'
       viewBox='0 0 55 55'
       className={className}
       id='Search'

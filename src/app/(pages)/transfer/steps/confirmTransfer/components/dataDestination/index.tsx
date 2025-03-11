@@ -11,7 +11,7 @@ const DataDestination = ({ stepData }: DataDestinationProps) => {
         name={stepData.owner}
       />
       <Text className='break-all'>{stepData.owner}</Text>
-      <Text className='break-all'>{`${stepData.accountNumber} | Alias`}</Text>
+      <Text className='break-all'>{`${stepData.accountNumber} | ${stepData.alias}`}</Text>
       <Text className='break-all'>{stepData.email}</Text>
     </Box>
   )

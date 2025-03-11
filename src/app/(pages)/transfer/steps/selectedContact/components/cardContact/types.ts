@@ -1,6 +1,6 @@
-import { ContactData } from '@/shared'
+import { ContactDataMap } from '@/shared'
 
 export type CardContactProps = {
   handleClick: () => void
-  data?: ContactData
+  data?: ContactDataMap
 }

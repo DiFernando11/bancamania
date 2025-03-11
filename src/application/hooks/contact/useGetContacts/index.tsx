@@ -1,27 +1,32 @@
 'use client'
 import { getContactsService } from '@/application/adapters/htpp/contact'
-import { ContactData, GetContactRequest, GetContactResponse } from '@/shared'
+import { ContactDataMap, GetContactRequest, GetContactResponse } from '@/shared'
 import { GET_CONTACTS } from '@/shared/utils/constantsQuery'
+import { mapFirstElement } from './mapFirstElement'
 import { useInfiniteFetchService } from '../../generics'
 
 export const useGetContacts = ({
   limit,
-  alias,
+  search,
   enabled,
 }: GetContactRequest & { enabled: boolean }) => {
   const queryResult = useInfiniteFetchService<
     GetContactResponse,
     Error,
-    ContactData[],
+    ContactDataMap[],
     [typeof GET_CONTACTS, string | undefined],
     number
   >({
     enabled: enabled,
     initialPageParam: 1,
     queryFn: ({ pageParam = 1 }) =>
-      getContactsService({ alias, limit, page: pageParam }),
-    queryKey: [GET_CONTACTS, alias],
-    select: data => data.pages.flatMap(page => page.contacts),
+      getContactsService({ limit, page: pageParam, search }),
+    queryKey: [GET_CONTACTS, search],
+    select: data => {
+      const contacts = data.pages.flatMap(page => page.contacts)
+
+      return mapFirstElement(contacts)
+    },
   })
 
   return {

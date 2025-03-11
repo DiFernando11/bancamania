@@ -17,7 +17,7 @@
   "reasonSugestion": "Pago de renta",
   "alias": "Alias",
   "aliasPh": "Ingresa el alias de tu nuevo contacto (Ej. mama, vecino, etc)",
-  "searchContactPh": "Busca un nombre o cuenta",
+  "searchContactPh": "Busca por nombre o numero de cuenta",
   "errors": {
     "account_required": "El número de cuenta es obligatorio",
     "account_exact_length": "El número de cuenta debe tener exactamente 10 dígitos",

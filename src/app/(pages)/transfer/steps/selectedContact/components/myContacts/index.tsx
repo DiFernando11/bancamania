@@ -8,18 +8,19 @@ import { MyContactsProps } from './types'
 
 const MyContacts = ({ updateData, goToStep }: MyContactsProps) => {
   const t = useI18Text('transfer')
-  const [alias, setAlias] = useState('')
+  const [search, setSearch] = useState('')
+  const limit = 10
 
   const { fetchNextPage, isLoading, data, hasNextPage, isFetchingNextPage } =
     useGetContacts({
-      alias,
       enabled: true,
-      limit: 1,
+      limit,
+      search,
     })
 
   const handleSearch = (val: string) => {
     const formatVal = val.trim()
-    setAlias(formatVal)
+    setSearch(formatVal)
   }
 
   return (
@@ -34,6 +35,7 @@ const MyContacts = ({ updateData, goToStep }: MyContactsProps) => {
         data={data}
         updateData={updateData}
         goToStep={goToStep}
+        limit={limit}
       />
     </>
   )
