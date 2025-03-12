@@ -1,12 +1,18 @@
 import classNames from 'classnames'
 import React from 'react'
-import { useGetCardDebit, useI18Text } from '@/application/hooks'
+import { useI18Text } from '@/application/hooks'
+import { GetCardResponse } from '@/shared'
 import { Box, Text } from '@/ui/atoms'
 import { PairText } from '@/ui/molecules'
 import { SkeletonLoader } from '@/ui/organisms'
 
-const DataDebit = () => {
-  const { data, isLoading } = useGetCardDebit()
+const DataDebit = ({
+  data,
+  isLoading,
+}: {
+  data?: GetCardResponse
+  isLoading: boolean
+}) => {
   const t = useI18Text('tarjetas')
 
   return (

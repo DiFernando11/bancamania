@@ -14,14 +14,14 @@ export const useGetMovements = ({
     GetMovementsResponse,
     Error,
     Movement[],
-    [typeof GET_MOVEMENTS, string | number],
+    [typeof GET_MOVEMENTS, string | number, string | number],
     number
   >({
     enabled: enabled,
     initialPageParam: 1,
     queryFn: ({ pageParam }) =>
       getMovementsService({ accountId, debitCardId, limit, page: pageParam }),
-    queryKey: [GET_MOVEMENTS, accountId ?? ''],
+    queryKey: [GET_MOVEMENTS, accountId ?? '', debitCardId ?? ''],
     select: data => data.pages.flatMap(page => page.movements),
   })
 
