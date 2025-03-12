@@ -4,6 +4,7 @@ import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useGetCardDebit, useI18Text } from '@/application/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import AccountAsociate from './components/accountAsociate'
+import ActiveCard from './components/activeCard'
 import DataDebit from './components/dataDebit'
 import MovementsDebit from './components/movementsDebit'
 
@@ -17,6 +18,7 @@ const DebitPage = () => {
       footerBox={<ButtonActionSimple />}
     >
       <DataDebit data={data} isLoading={isLoading} />
+      <ActiveCard />
       <AccountAsociate />
       <MovementsDebit id={data?.id} isLoadingDebit={isLoading} />
     </LayoutAuthenticationPage>

@@ -9,7 +9,8 @@
   "numberCard": "Nro. {number}",
   "debitTitle": "Tarjeta de débito",
   "expirationDate": "Fecha de expiración:",
-  "associatedAccount": "Associated Account",
+  "associatedAccount": "Cuenta Asociada",
+  "activateCard": "Activa tu tarjeta para tus compras online",
   "securityCode": "Cvv:",
   "state": "Estado:",
   "title": "Mis tarjetas"
