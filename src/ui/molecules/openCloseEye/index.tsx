@@ -13,7 +13,10 @@ const OpenCloseEye = ({
   return (
     <Box
       className={classNames('cursor-pointer', className)}
-      onClick={() => setIsShow(!isShow)}
+      onClick={event => {
+        event.stopPropagation()
+        setIsShow(!isShow)
+      }}
     >
       <Icon name={isShow ? 'EyeOpen' : 'EyeClose'} className={iconClass} />
     </Box>

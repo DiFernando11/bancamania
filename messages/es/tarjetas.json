@@ -7,5 +7,10 @@
   "selectCard": "Selecciona una tarjeta.",
   "debitCard": "Tarjetas de débito",
   "numberCard": "Nro. {number}",
+  "debitTitle": "Tarjeta de débito",
+  "expirationDate": "Fecha de expiración:",
+  "associatedAccount": "Associated Account",
+  "securityCode": "Cvv:",
+  "state": "Estado:",
   "title": "Mis tarjetas"
 }

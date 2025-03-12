@@ -150,6 +150,10 @@ input:focus {
   @apply text-base font-roboto;
 }
 
+.font_18_fm_rob {
+  @apply text-lg font-roboto;
+}
+
 /* bold */
 
 .font_8_fw_bold_fm_rob {
