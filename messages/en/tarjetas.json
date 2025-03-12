@@ -10,7 +10,8 @@
   "numberCard": "No. {number}",
   "securityCode": "Cvv:",
   "expirationDate": "Expiration date:",
-  "associatedAccount": "Cuenta Asociada",
+  "associatedAccount": "Associated Account",
+  "activateCard": "Activate your card for your online purchases",
   "state": "State:",
   "title": "My cards"
 }

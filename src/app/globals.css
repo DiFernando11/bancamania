@@ -138,6 +138,11 @@ input:focus {
     -webkit-backdrop-filter: blur(7.5px);
     border: 1px solid rgba(46, 125, 50, 0.3);
   }
+
+  .aspect-ratio {
+    aspect-ratio: 1 / 1;
+  }
+
 }
 
 /* fonts  */

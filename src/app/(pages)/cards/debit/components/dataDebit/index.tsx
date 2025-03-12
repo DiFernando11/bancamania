@@ -31,7 +31,7 @@ const DataDebit = ({
         <PairText
           className='!justify-start'
           textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_18_fm_rob'
+          textTypeValue='font_16_18_fm_rob'
           textKey={t('securityCode')}
           textValue={data?.cvv ?? ''}
         />
@@ -40,7 +40,7 @@ const DataDebit = ({
         <PairText
           className='!justify-start'
           textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_18_fm_rob'
+          textTypeValue='font_16_18_fm_rob'
           textKey={t('expirationDate')}
           textValue={data?.expirationDate ?? ''}
         />
@@ -49,7 +49,7 @@ const DataDebit = ({
         <PairText
           className='!justify-start'
           textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_18_fm_rob'
+          textTypeValue='font_16_18_fm_rob'
           textKey={t('state')}
           textValue={data?.status ?? ''}
         />
