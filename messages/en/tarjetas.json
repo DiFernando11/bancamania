@@ -6,6 +6,11 @@
   "debit": "Debit",
   "selectCard": "Select a card.",
   "debitCard": "Debit Cards",
+  "debitTitle": "Debit Card",
   "numberCard": "No. {number}",
+  "securityCode": "Cvv:",
+  "expirationDate": "Expiration date:",
+  "associatedAccount": "Cuenta Asociada",
+  "state": "State:",
   "title": "My cards"
 }

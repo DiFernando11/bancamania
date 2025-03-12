@@ -5,8 +5,8 @@ export interface CardAccountProps {
   className?: string
   onClick?: () => void
   isLoading: boolean
-  onClickFlip: () => void
-  nextStepComponent: ReactNode
+  onClickFlip?: () => void
+  nextStepComponent?: ReactNode
 }
 
 export interface CardAccountBackProps {

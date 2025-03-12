@@ -44,7 +44,7 @@ const CardAccount = ({
       <Box className='flex flex-col justify-between'>
         <CardProduct.ShowBalance setIsShow={setIsShow} isShow={isShow} />
         {nextStepComponent && nextStepComponent}
-        <CardProduct.BackFlip onClickFlip={onClickFlip} />
+        {onClickFlip && <CardProduct.BackFlip onClickFlip={onClickFlip} />}
       </Box>
     </CardProduct>
   )
