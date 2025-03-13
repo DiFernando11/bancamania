@@ -11,7 +11,11 @@
   "securityCode": "Cvv:",
   "expirationDate": "Expiration date:",
   "associatedAccount": "Associated Account",
-  "activateCard": "Activate your card for your online purchases",
+  "active": "Active",
+  "blocked": "Blocked",
+  "inactive": "Inactive",
+  "activateCard": "Enable online purchases with my card",
+  "desactiveCard": "Disable online purchases with my card",
   "state": "State:",
   "title": "My cards"
 }
