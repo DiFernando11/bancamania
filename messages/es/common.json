@@ -31,6 +31,8 @@
     "tarjetas": "Tarjetas",
     "roulette": "Ruleta de la suerte",
     "receipts": "Mis comprobantes",
-    "transfer": "Transferir dinero"
+    "transfer": "Transferir dinero",
+    "debit": "Débito",
+    "credit": "Crédito"
   }
 }

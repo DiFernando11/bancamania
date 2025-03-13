@@ -1,15 +1,14 @@
 {
-  "tarjetas": {
-    "layout": "private",
-    "middleware": "private",
-    "path": "/cards",
-    "code": "CARDS"
-  },
   "debit": {
     "layout": "private",
     "middleware": "private",
-    "path": "/cards/debit",
-    "lineageCode": "CARDS",
+    "path": "/debit",
     "code": "DEBIT"
+  },
+  "credit": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/credit",
+    "code": "CREDIT"
   }
 }
