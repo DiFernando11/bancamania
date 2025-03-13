@@ -5,12 +5,12 @@ import { clientRoutes } from '@/routes/clientRoutes'
 import { useNavigation } from '@/shared/hooks'
 import { Text } from '@/ui/atoms'
 import { IconText } from '@/ui/molecules'
-import { SelectedOption } from '@/ui/organisms'
+import { SelectedOption, SkeletonLoader } from '@/ui/organisms'
 
 const CardsDebit = () => {
   const t = useI18Text('tarjetas')
   const router = useNavigation()
-  const { data } = useGetCardDebit()
+  const { data, isLoading } = useGetCardDebit()
 
   return (
     <>
@@ -18,13 +18,18 @@ const CardsDebit = () => {
         {t('debitCard')}
       </Text>
       <SelectedOption onClick={() => router.push(clientRoutes.debit.path)}>
-        <IconText
-          classText='break-all'
-          textType='font_16_18_fw_bold_fm_rob'
-          nameIcon='MasterCard'
-          classIcon='w-10 h-10 min-w-10'
-          text={t('numberCard', { number: data?.cardNumber })}
-        />
+        <SkeletonLoader
+          isLoading={isLoading}
+          classNameSkeleton='w-64 h-10 pb-4'
+        >
+          <IconText
+            classText='break-all'
+            textType='font_16_18_fw_bold_fm_rob'
+            nameIcon='MasterCard'
+            classIcon='w-10 h-10 min-w-10'
+            text={t('numberCard', { number: data?.cardNumber })}
+          />
+        </SkeletonLoader>
       </SelectedOption>
     </>
   )

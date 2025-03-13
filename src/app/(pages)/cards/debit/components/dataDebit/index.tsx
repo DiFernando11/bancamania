@@ -55,10 +55,10 @@ const DataDebit = ({
           textTypeValue='font_16_18_fm_rob'
           textKey={t('state')}
           textValue={
-            data?.status === DebitCardStatus.INACTIVE
-              ? t(DebitCardStatus.INACTIVE)
-              : isChecked
-                ? t(DebitCardStatus.ACTIVE)
+            isChecked
+              ? t(DebitCardStatus.ACTIVE)
+              : data?.status === DebitCardStatus.INACTIVE
+                ? t(DebitCardStatus.INACTIVE)
                 : t(DebitCardStatus.BLOCKED)
           }
         />
