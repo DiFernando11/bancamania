@@ -9,9 +9,11 @@ const AlertErrorService = ({
   error?: ApiResponseError | null
   isError: boolean
 }) => {
+  const messageDefault = 'Tipo de error nor encontrado, intentalo mas tarde'
+
   return (
     <AnimationVisible isVisible={isError}>
-      <Alert text={error?.message || ''} type='error' />
+      <Alert text={error?.message || messageDefault} type='error' />
     </AnimationVisible>
   )
 }

@@ -5,13 +5,16 @@ import { GetCardResponse } from '@/shared'
 import { Box, Text } from '@/ui/atoms'
 import { PairText } from '@/ui/molecules'
 import { SkeletonLoader } from '@/ui/organisms'
+import { DebitCardStatus } from '../../types'
 
 const DataDebit = ({
   data,
   isLoading,
+  isChecked,
 }: {
   data?: GetCardResponse
   isLoading: boolean
+  isChecked: boolean
 }) => {
   const t = useI18Text('tarjetas')
 
@@ -51,7 +54,13 @@ const DataDebit = ({
           textTypeKey='font_16_18_fw_bold_fm_rob'
           textTypeValue='font_16_18_fm_rob'
           textKey={t('state')}
-          textValue={data?.status ?? ''}
+          textValue={
+            isChecked
+              ? t(DebitCardStatus.ACTIVE)
+              : data?.status === DebitCardStatus.INACTIVE
+                ? t(DebitCardStatus.INACTIVE)
+                : t(DebitCardStatus.BLOCKED)
+          }
         />
       </SkeletonLoader>
     </Box>

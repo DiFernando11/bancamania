@@ -9,4 +9,5 @@ export interface ToggleProps
   onChange: (checked: boolean) => void
   width?: string
   height?: string
+  isLoading?: boolean
 }

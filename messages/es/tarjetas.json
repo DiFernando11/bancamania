@@ -10,7 +10,11 @@
   "debitTitle": "Tarjeta de débito",
   "expirationDate": "Fecha de expiración:",
   "associatedAccount": "Cuenta Asociada",
-  "activateCard": "Activa tu tarjeta para tus compras online",
+  "active": "Activa",
+  "blocked": "Bloqueada",
+  "inactive": "Inactiva",
+  "activateCard": "Habilitar compras en línea con mi tarjeta",
+  "desactiveCard": "Deshabilitar compras en línea con mi tarjeta",
   "securityCode": "Cvv:",
   "state": "Estado:",
   "title": "Mis tarjetas"
