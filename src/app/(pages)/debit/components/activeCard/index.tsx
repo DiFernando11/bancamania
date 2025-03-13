@@ -42,6 +42,11 @@ const ActiveCard = ({
   }
 
   const handleUnload = async (isRefetch: boolean = false) => {
+    console.log(
+      'HOLA CON QUIEN VENGO',
+      stateRef.current.latestChecked,
+      stateRef.current.initial
+    )
     if (stateRef.current.latestChecked !== stateRef.current.initial) {
       if (isRefetch) {
         invalidate({ queryKey: [GET_CARD_DEBIT] })
@@ -66,7 +71,9 @@ const ActiveCard = ({
 
   useEffect(() => {
     if (status) {
-      stateRef.current.initial = status === DebitCardStatus.ACTIVE
+      const currentCheck = status === DebitCardStatus.ACTIVE
+      stateRef.current.initial = currentCheck
+      stateRef.current.latestChecked = currentCheck
       setChecked(status === DebitCardStatus.ACTIVE)
     }
   }, [status])

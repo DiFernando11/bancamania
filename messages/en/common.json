@@ -28,6 +28,8 @@
     "cuentas": "Accounts",
     "misTarjetas": "My cards",
     "tarjetas": "Cards",
+    "debit": "Debit",
+    "credit": "Credit",
     "roulette": "Wheel of fortune",
     "receipts": "My receipts",
     "transfer": "Transfer money"
