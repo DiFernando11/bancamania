@@ -23,6 +23,8 @@
   "optional": "(opcional)",
   "required": "*requerido",
   "suggestion": "Sugerencia: {sug} - presione (TAB ↹).",
+  "select": "Seleccionar",
+  "selected": "Seleccionado",
   "option": {
     "consolidada": "Mi consolidada",
     "misCuentas": "Mi cuenta",

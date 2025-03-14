@@ -42,11 +42,6 @@ const ActiveCard = ({
   }
 
   const handleUnload = async (isRefetch: boolean = false) => {
-    console.log(
-      'HOLA CON QUIEN VENGO',
-      stateRef.current.latestChecked,
-      stateRef.current.initial
-    )
     if (stateRef.current.latestChecked !== stateRef.current.initial) {
       if (isRefetch) {
         invalidate({ queryKey: [GET_CARD_DEBIT] })
