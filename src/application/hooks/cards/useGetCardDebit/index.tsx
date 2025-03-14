@@ -15,6 +15,5 @@ export const useGetCardDebit = (): SendFechTypes<GetCardResponse> => {
     isError: queryResult.isError,
     isLoading: queryResult.isPending,
     isSuccess: queryResult.isSuccess,
-    refetch: queryResult.refetch,
   }
 }

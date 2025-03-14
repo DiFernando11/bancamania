@@ -6,3 +6,7 @@ export interface GetCardResponse {
   status: string
   owner: string
 }
+
+export interface CreateCardCreditRequest {
+  marca: string
+}

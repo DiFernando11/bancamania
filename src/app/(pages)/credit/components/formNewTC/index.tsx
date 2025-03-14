@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { z } from 'zod'
-import { useI18Text } from '@/application/hooks'
+import { useCreateCredit, useI18Text } from '@/application/hooks'
 import { Text } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField } from '@/ui/molecules'
@@ -9,6 +9,7 @@ import SelectableCardsGroup from '../selectableCardsGroup'
 
 const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
   const t = useI18Text('tarjetas')
+  const { handleActionService } = useCreateCredit()
 
   const formTransferSchema = useMemo(
     () =>
@@ -18,9 +19,15 @@ const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
     [t]
   )
 
-  const handleSubmit = (val: FormNewTcI) => {
-    console.log(val)
-    goToStep(1)
+  const handleSubmit = async (val: FormNewTcI) => {
+    handleActionService(
+      { marca: val.brand },
+      {
+        onSuccess: () => {
+          goToStep(1)
+        },
+      }
+    )
   }
 
   return (
