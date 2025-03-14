@@ -22,6 +22,8 @@
   "optional": "(optional)",
   "required": "*required",
   "suggestion": "Hint: {sug} - press (TAB ↹)",
+  "select": "Select",
+  "selected": "Selected",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My account",
