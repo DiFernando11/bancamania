@@ -1,13 +1,13 @@
 'use client'
-import { getCardDebitService } from '@/application/adapters/htpp'
-import { GetCardResponse, SendFechTypes } from '@/shared'
+import { getCardCreditService } from '@/application/adapters/htpp'
+import { GetCardCreditResponse, SendFechTypes } from '@/shared'
 import { GET_CARD_DEBIT } from '@/shared/utils/constantsQuery'
 import { useFetchService } from '../../generics'
 
-export const useGetCardDebit = (): SendFechTypes<GetCardResponse> => {
-  const queryResult = useFetchService<GetCardResponse>(
+export const useGetCardsCredit = (): SendFechTypes<GetCardCreditResponse> => {
+  const queryResult = useFetchService<GetCardCreditResponse>(
     [GET_CARD_DEBIT],
-    getCardDebitService
+    getCardCreditService
   )
 
   return {

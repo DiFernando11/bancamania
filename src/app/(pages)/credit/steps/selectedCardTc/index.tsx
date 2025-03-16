@@ -5,6 +5,7 @@ import { useI18Text } from '@/application/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 import FormNewTC from '../../components/formNewTC'
+import YourCardsCredit from '../../components/yourCardsCredit'
 
 const SelectedCardTc = ({ goToStep }: StepProps<DataTransfer>) => {
   const t = useI18Text('tarjetas')
@@ -17,6 +18,7 @@ const SelectedCardTc = ({ goToStep }: StepProps<DataTransfer>) => {
         <ButtonActionSimple formId={formID} primaryText={t('getCard')} />
       }
     >
+      <YourCardsCredit />
       <FormNewTC formID={formID} goToStep={goToStep} />
     </LayoutAuthenticationPage>
   )

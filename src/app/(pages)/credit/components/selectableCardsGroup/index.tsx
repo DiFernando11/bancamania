@@ -15,14 +15,14 @@ const SelectableCardsGroup = forwardRef<
 
   return (
     <Box ref={ref} className='flex flex-col gap-8'>
-      <SelectedBox value='Visa' onChange={onChange} selectedValue={value}>
+      <SelectedBox value='visa' onChange={onChange} selectedValue={value}>
         <IconText
           nameIcon='Visa'
           text={t('masterBenefit')}
           classIcon='w-12 h-12 min-w-12'
         />
       </SelectedBox>
-      <SelectedBox value='Mastercard' onChange={onChange} selectedValue={value}>
+      <SelectedBox value='mastercard' onChange={onChange} selectedValue={value}>
         <IconText
           nameIcon='MasterCard'
           text={t('visaBenefit')}

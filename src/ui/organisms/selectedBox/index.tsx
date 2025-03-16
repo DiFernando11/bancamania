@@ -44,6 +44,8 @@ const SelectedBox: React.FC<SelectableCardProps> = ({
         {children}
         <Button
           variant='secondary'
+          type='button'
+          role='button'
           className={classNames('border !w-36 !p-2 rounded-lg', {
             'border-gray-300': !isSelected,
             'border-primary-100 bg-primary-100 text-white': isSelected,

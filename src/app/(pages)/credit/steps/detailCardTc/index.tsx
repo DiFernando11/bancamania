@@ -6,8 +6,6 @@ import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 
 const DetailCardTc = ({ goToStep }: StepProps<DataTransfer>) => {
-  console.log(goToStep)
-
   return (
     <LayoutAuthenticationPage footerBox={<ButtonActionSimple />}>
       <Text>Segundo paso</Text>
