@@ -4,4 +4,5 @@ export interface DetailCreditProps {
   formID: string
   isLoading: boolean
   data?: GetCardCreditIDResponse
+  isChecked: boolean
 }

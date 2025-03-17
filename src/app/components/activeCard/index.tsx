@@ -17,6 +17,7 @@ const ActiveCard = ({
   error,
   isLoading,
   queryKey,
+  paramsQuery,
 }: ActiveCardProps) => {
   const t = useI18Text('tarjetas')
   const { invalidate } = useRemoveQueries()
@@ -34,7 +35,7 @@ const ActiveCard = ({
   const handleUnload = async (isRefetch: boolean = false) => {
     if (stateRef.current.latestChecked !== stateRef.current.initial) {
       if (isRefetch) {
-        invalidate({ queryKey: [queryKey] })
+        invalidate({ queryKey: [queryKey, paramsQuery] })
       }
       await handleActionService({})
       stateRef.current.initial = stateRef.current.latestChecked

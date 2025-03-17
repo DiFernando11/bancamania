@@ -19,12 +19,18 @@ const DetailCardTc = ({ prevStep, stepData }: StepProps<DataCredit>) => {
       i18nTitle={t('titleDetail')}
       footerBox={<ButtonActionSimple secondaryOnClick={prevStep} />}
     >
-      <DetailCredit formID={formID} data={data} isLoading={isLoading} />
+      <DetailCredit
+        formID={formID}
+        data={data}
+        isLoading={isLoading}
+        isChecked={isChecked}
+      />
       <ActiveCardCredit
         isChecked={isChecked}
         setChecked={setChecked}
         isLoadingCard={isLoading}
         status={data?.status}
+        stepData={stepData}
       />
     </LayoutAuthenticationPage>
   )

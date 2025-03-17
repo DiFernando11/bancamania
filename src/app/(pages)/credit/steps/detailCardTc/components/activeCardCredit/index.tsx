@@ -1,17 +1,18 @@
 import React from 'react'
 import ActiveCard from '@/app/components/activeCard'
-import { BaseCardProps } from '@/app/components/activeCard/types'
-import { useUpdateStatusDebit } from '@/application/hooks'
+import { useUpdateStatusCredit } from '@/application/hooks'
 import { GET_CREDIT_BY_ID } from '@/shared/utils/constantsQuery'
+import { ActiveCardCreditProps } from './types'
 
 const ActiveCardCredit = ({
   status,
   isLoadingCard,
   setChecked,
   isChecked,
-}: BaseCardProps) => {
+  stepData,
+}: ActiveCardCreditProps) => {
   const { handleActionService, isError, error, isLoading } =
-    useUpdateStatusDebit()
+    useUpdateStatusCredit({ id: stepData.id })
 
   return (
     <ActiveCard
@@ -24,6 +25,7 @@ const ActiveCardCredit = ({
       error={error}
       isLoading={isLoading}
       queryKey={GET_CREDIT_BY_ID}
+      paramsQuery={stepData.id}
     />
   )
 }

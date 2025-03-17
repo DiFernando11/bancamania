@@ -7,5 +7,6 @@ export const apiCards = {
   creditUser: baseCredit,
   debitUser: baseDebit,
   ofertCredit: `${baseCredit}/offerts`,
+  updateStatusCredit: `${baseCredit}/status/:id`,
   updateStatusDebit: `${baseDebit}/status`,
 }

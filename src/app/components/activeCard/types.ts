@@ -14,4 +14,5 @@ export interface BaseCardProps {
 
 export interface ActiveCardProps extends BaseCardProps, SelectedServiceProps {
   queryKey: string
+  paramsQuery?: string
 }
