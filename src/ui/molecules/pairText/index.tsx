@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { Box, Text } from '@/ui/atoms'
-import { TextType } from '@/ui/atoms/text/types'
+import { PairTextProps } from './types'
 
 const PairText = ({
   textValue,
@@ -9,13 +9,7 @@ const PairText = ({
   textTypeKey = 'font_16_fw_bold_fm_rob',
   textTypeValue = 'font_16_fm_rob',
   className,
-}: {
-  textValue: string
-  textKey: string
-  textTypeKey?: TextType
-  textTypeValue?: TextType
-  className: string
-}) => {
+}: PairTextProps) => {
   return (
     <Box className={classNames('flex justify-between gap-4', className)}>
       <Text className='break-all' textType={textTypeKey}>

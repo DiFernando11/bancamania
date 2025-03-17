@@ -8,6 +8,8 @@
   "debitCard": "Debit Cards",
   "debitTitle": "Debit Card",
   "numberCard": "No. {number}",
+  "numberCardKey": "No: ",
+  "version": "version: ",
   "securityCode": "Cvv:",
   "expirationDate": "Expiration date:",
   "associatedAccount": "Associated Account",
@@ -15,6 +17,7 @@
   "selectedCardLabel": "Select a card",
   "visaBenefit": "Earn miles with every purchase",
   "masterBenefit": "Enjoy months without interest",
+  "titleDetail": "Credit card details",
   "getCard": "Get card",
   "active": "Active",
   "blocked": "Blocked",
@@ -26,5 +29,6 @@
   "desactiveCard": "Disable online purchases with my card",
   "limit": "Limit: ",
   "state": "State:",
+  "miles": "Miles: ",
   "title": "My cards"
 }
