@@ -1,15 +1,28 @@
 import React, { useMemo } from 'react'
 import { z } from 'zod'
-import { useCreateCredit, useI18Text } from '@/application/hooks'
+import {
+  useCreateCredit,
+  useI18Text,
+  useRemoveQueries,
+} from '@/application/hooks'
+import { useGlobalLoading } from '@/shared/hooks'
+import {
+  GET_CARD_CREDIT,
+  GET_OFFERTS_CREDIT,
+} from '@/shared/utils/constantsQuery'
 import { Text } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField } from '@/ui/molecules'
 import { FORM_NEW_TC_NAME, FormNewTcI, FormNewTcProps } from './types'
 import SelectableCardsGroup from '../selectableCardsGroup'
 
-const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
+const FormNewTC = ({ nextStep, formID, newCards }: FormNewTcProps) => {
   const t = useI18Text('tarjetas')
-  const { handleActionService } = useCreateCredit()
+  const { handleActionService, isLoading } = useCreateCredit()
+  useGlobalLoading([isLoading])
+  const { invalidate } = useRemoveQueries()
+
+  const isUniqueOption = newCards && newCards?.length === 1
 
   const formTransferSchema = useMemo(
     () =>
@@ -24,7 +37,9 @@ const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
       { marca: val.brand },
       {
         onSuccess: () => {
-          goToStep(1)
+          nextStep()
+          invalidate({ queryKey: [GET_CARD_CREDIT] })
+          invalidate({ queryKey: [GET_OFFERTS_CREDIT] })
         },
       }
     )
@@ -34,7 +49,7 @@ const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
     <FormState
       onSubmit={handleSubmit}
       schema={formTransferSchema}
-      defaultValues={{ brand: '' }}
+      defaultValues={{ brand: isUniqueOption ? newCards?.[0].marca : '' }}
       id={formID}
     >
       <Text textType='font_20_24_fw_bold_fm_rob_text-100'>
@@ -46,12 +61,14 @@ const FormNewTC = ({ goToStep, formID }: FormNewTcProps) => {
         component={SelectableCardsGroup}
         isRequired
       />
-      <Text
-        textType='font_12_14_fw_bold_fm_rob'
-        className='text-gray-400 text-center'
-      >
-        {t('solicLast')}
-      </Text>
+      {!isUniqueOption && (
+        <Text
+          textType='font_12_14_fw_bold_fm_rob'
+          className='text-gray-400 text-center'
+        >
+          {t('solicLast')}
+        </Text>
+      )}
     </FormState>
   )
 }

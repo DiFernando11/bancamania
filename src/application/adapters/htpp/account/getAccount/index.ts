@@ -1,5 +1,5 @@
 import { apiRoutes } from '@/routes/apiRoutes'
-import { GetAccountResponse, ObtenerNose } from '@/shared/types/account'
+import { GetAccountResponse } from '@/shared/types/account'
 import { apiRequest } from '@/shared/utils'
 
 export const getAccountService = async (): Promise<GetAccountResponse> => {

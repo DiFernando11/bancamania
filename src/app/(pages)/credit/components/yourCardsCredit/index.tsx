@@ -1,37 +1,38 @@
 import React from 'react'
-import { useI18Text } from '@/application/hooks'
-import { useGetCardsCredit } from '@/application/hooks/cards/useGetCardsCredit'
-import { clientRoutes } from '@/routes/clientRoutes'
+import { useGetCardsCredit, useI18Text } from '@/application/hooks'
 import { TypeCardCredit } from '@/shared'
-import { useNavigation } from '@/shared/hooks'
 import { Box } from '@/ui/atoms'
+import { IconNames } from '@/ui/atoms/icons/icon/types'
 import { IconText } from '@/ui/molecules'
-import { SelectedOption } from '@/ui/organisms'
+import { AlertErrorService, SelectedOption } from '@/ui/organisms'
+import { NAME_ICONS } from './constants'
 import SkeletonCardsCredit from './skeleton'
+import { YourCardCreditProps } from './types'
 
-const YourCardsCredit = () => {
-  const { data, isLoading } = useGetCardsCredit()
-  const router = useNavigation()
+const YourCardsCredit = ({ nextStep, updateData }: YourCardCreditProps) => {
+  const { data, isLoading, error, isError } = useGetCardsCredit()
   const t = useI18Text('tarjetas')
+
+  const handleSelectStep = (id: string) => {
+    updateData({ id })
+    nextStep()
+  }
 
   return (
     <Box className='flex gap-4 flex-col'>
+      <AlertErrorService isError={isError} error={error} />
       {isLoading ? (
         <SkeletonCardsCredit count={2} />
       ) : (
         data?.map(credit => (
           <SelectedOption
             key={credit.id}
-            onClick={() => router.push(clientRoutes.debit.path)}
+            onClick={() => handleSelectStep(credit.id)}
           >
             <IconText
               classText='break-all'
               textType='font_16_18_fw_bold_fm_rob'
-              nameIcon={
-                TypeCardCredit.MASTERCARD === credit.marca
-                  ? 'MasterCard'
-                  : 'Visa'
-              }
+              nameIcon={NAME_ICONS[credit.marca] as IconNames}
               classIcon='w-10 h-10 min-w-10'
               text={t('numberCard', { number: credit.cardNumber })}
             />
