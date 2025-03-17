@@ -1,14 +1,13 @@
 'use client'
-
 import React, { forwardRef } from 'react'
+import CreditIconName from '@/app/(pages)/credit/shared/creditIconName'
 import { useGetDataByKey, useI18Text } from '@/application/hooks'
-import { GetOffertsResponse, TypeCardCredit } from '@/shared'
+import { GetOffertsResponse } from '@/shared'
 import { GET_OFFERTS_CREDIT } from '@/shared/utils/constantsQuery'
 import { Box, Text } from '@/ui/atoms'
 import { PairText } from '@/ui/molecules'
 import { SelectedBox } from '@/ui/organisms'
 import { SelectableCardsGroupProps } from './types'
-import CreditIconName from '../../shared/creditIconName'
 
 const SelectableCardsGroup = forwardRef<
   HTMLDivElement,

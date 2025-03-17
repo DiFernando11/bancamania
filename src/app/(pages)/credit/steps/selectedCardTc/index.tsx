@@ -4,9 +4,9 @@ import { useGetOffertsCredit, useI18Text } from '@/application/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { AlertErrorService } from '@/ui/organisms'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
-import FormNewTC from '../../components/formNewTC'
-import YourCardsCredit from '../../components/yourCardsCredit'
 import { DataCredit } from '../../types'
+import FormNewTC from './components/formNewTC'
+import YourCardsCredit from './components/yourCardsCredit'
 
 const SelectedCardTc = ({ nextStep, updateData }: StepProps<DataCredit>) => {
   const t = useI18Text('tarjetas')
