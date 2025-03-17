@@ -6,4 +6,6 @@ export interface ButtonFormSimpleProps {
   secondaryOnClick?: (...args: never[]) => void
   disablePrimary?: boolean
   disableSecondary?: boolean
+  isLoading?: boolean
+  isError?: boolean
 }

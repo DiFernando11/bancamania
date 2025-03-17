@@ -14,6 +14,8 @@ const ButtonActionSimple: React.FC<ButtonFormSimpleProps> = ({
   primaryOnClick,
   disablePrimary = false,
   disableSecondary = false,
+  isLoading,
+  isError,
 }) => {
   const router = useNavigation()
   const t = useI18Text()
@@ -28,6 +30,19 @@ const ButtonActionSimple: React.FC<ButtonFormSimpleProps> = ({
       router.back()
     }
   }
+
+  if (isLoading || isError)
+    return (
+      <Box className='my-4'>
+        <ButtonText
+          variant='secondary'
+          className='flex-1'
+          onClick={handleBack}
+          text={textBack}
+          disabled={disableSecondary}
+        />
+      </Box>
+    )
 
   return (
     <Box className='flex w-full gap-4 my-4'>

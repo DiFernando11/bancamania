@@ -18,4 +18,5 @@ export interface SendFechTypes<TData> {
   isError: boolean
   isSuccess: boolean
   data?: TData
+  error?: ApiResponseError | null | unknown
 }

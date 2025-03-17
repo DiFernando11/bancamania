@@ -1,7 +1,9 @@
 'use client'
 
 import React, { forwardRef } from 'react'
-import { useI18Text } from '@/application/hooks'
+import { useGetDataByKey, useI18Text } from '@/application/hooks'
+import { GetOffertsResponse, TypeCardCredit } from '@/shared'
+import { GET_OFFERTS_CREDIT } from '@/shared/utils/constantsQuery'
 import { Box } from '@/ui/atoms'
 import { IconText } from '@/ui/molecules'
 import { SelectedBox } from '@/ui/organisms'
@@ -12,23 +14,26 @@ const SelectableCardsGroup = forwardRef<
   SelectableCardsGroupProps
 >(({ value, onChange }, ref) => {
   const t = useI18Text('tarjetas')
+  const data = useGetDataByKey<GetOffertsResponse>([GET_OFFERTS_CREDIT])
 
   return (
     <Box ref={ref} className='flex flex-col gap-8'>
-      <SelectedBox value='visa' onChange={onChange} selectedValue={value}>
-        <IconText
-          nameIcon='Visa'
-          text={t('masterBenefit')}
-          classIcon='w-12 h-12 min-w-12'
-        />
-      </SelectedBox>
-      <SelectedBox value='mastercard' onChange={onChange} selectedValue={value}>
-        <IconText
-          nameIcon='MasterCard'
-          text={t('visaBenefit')}
-          classIcon='w-12 h-12 min-w-12'
-        />
-      </SelectedBox>
+      {data?.newCards?.map(card => (
+        <SelectedBox
+          key={card.id}
+          value={card.marca}
+          onChange={onChange}
+          selectedValue={value}
+        >
+          <IconText
+            nameIcon={
+              card.marca === TypeCardCredit.MASTERCARD ? 'MasterCard' : 'Visa'
+            }
+            text={t('masterBenefit')}
+            classIcon='w-12 h-12 min-w-12'
+          />
+        </SelectedBox>
+      ))}
     </Box>
   )
 })

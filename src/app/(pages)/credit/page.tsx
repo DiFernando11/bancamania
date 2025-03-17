@@ -4,9 +4,9 @@ import { StepWizard } from '@/ui/organisms'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 import DetailCardTc from './steps/detailCardTc'
 import SelectedCardTc from './steps/selectedCardTc'
-import { DataTransfer } from '../transfer/types'
+import { DataCredit } from './types'
 
-const steps: Array<(props: StepProps<DataTransfer>) => JSX.Element> = [
+const steps: Array<(props: StepProps<DataCredit>) => JSX.Element> = [
   props => <SelectedCardTc {...props} />,
   props => <DetailCardTc {...props} />,
 ]

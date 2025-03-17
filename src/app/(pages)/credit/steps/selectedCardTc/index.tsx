@@ -1,25 +1,44 @@
 import React from 'react'
-import { DataTransfer } from '@/app/(pages)/transfer/types'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
-import { useI18Text } from '@/application/hooks'
+import { useGetOffertsCredit, useI18Text } from '@/application/hooks'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
+import { AlertErrorService } from '@/ui/organisms'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 import FormNewTC from '../../components/formNewTC'
 import YourCardsCredit from '../../components/yourCardsCredit'
+import { DataCredit } from '../../types'
 
-const SelectedCardTc = ({ goToStep }: StepProps<DataTransfer>) => {
+const SelectedCardTc = ({
+  goToStep,
+  nextStep,
+  updateData,
+}: StepProps<DataCredit>) => {
   const t = useI18Text('tarjetas')
   const formID = 'FORM_NEW_TC'
+  const { data, isLoading, isError, error } = useGetOffertsCredit()
+  const isNewCards = data?.newCards && data?.newCards?.length > 0
 
   return (
     <LayoutAuthenticationPage
       i18nTitle={t('myCardsTc')}
       footerBox={
-        <ButtonActionSimple formId={formID} primaryText={t('getCard')} />
+        <ButtonActionSimple
+          formId={formID}
+          isLoading={isLoading}
+          isError={isError || !isNewCards}
+          primaryText={t('getCard')}
+        />
       }
     >
-      <YourCardsCredit />
-      <FormNewTC formID={formID} goToStep={goToStep} />
+      <YourCardsCredit nextStep={nextStep} updateData={updateData} />
+      {isNewCards && (
+        <FormNewTC
+          formID={formID}
+          nextStep={nextStep}
+          newCards={data?.newCards}
+        />
+      )}
+      <AlertErrorService isError={isError} error={error} />
     </LayoutAuthenticationPage>
   )
 }

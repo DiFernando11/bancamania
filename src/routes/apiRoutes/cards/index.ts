@@ -5,5 +5,6 @@ const baseCredit = `${baseCard}/credit`
 export const apiCards = {
   creditUser: baseCredit,
   debitUser: baseDebit,
+  ofertCredit: `${baseCredit}/offerts`,
   updateStatusDebit: `${baseDebit}/status`,
 }
