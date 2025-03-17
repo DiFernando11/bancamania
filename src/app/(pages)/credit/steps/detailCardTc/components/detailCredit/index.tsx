@@ -1,14 +1,13 @@
 'use client'
 import React from 'react'
 import CreditIconName from '@/app/(pages)/credit/shared/creditIconName'
-import { useGetCardCreditID, useI18Text } from '@/application/hooks'
+import { useI18Text } from '@/application/hooks'
 import { CardStatus, TypeCardCredit } from '@/shared'
 import { Box, Text } from '@/ui/atoms'
 import { DetailTextSkeleton, SkeletonLoader } from '@/ui/organisms'
 import { DetailCreditProps } from './types'
 
-const DetailCredit = ({ stepData }: DetailCreditProps) => {
-  const { data, isLoading } = useGetCardCreditID({ creditID: stepData.id })
+const DetailCredit = ({ data, isLoading }: DetailCreditProps) => {
   const t = useI18Text('tarjetas')
 
   const items = [

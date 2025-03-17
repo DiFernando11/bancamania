@@ -1,7 +1,7 @@
-import { DataCredit } from '@/app/(pages)/credit/types'
-import { StepProps } from '@/ui/organisms/stepWizard/types'
+import { GetCardCreditIDResponse } from '@/shared'
 
-export interface DetailCreditProps
-  extends Pick<StepProps<DataCredit>, 'stepData'> {
+export interface DetailCreditProps {
   formID: string
+  isLoading: boolean
+  data?: GetCardCreditIDResponse
 }
