@@ -4,12 +4,12 @@ import {
   useRemoveQueries,
   useUpdateStatusDebit,
 } from '@/application/hooks'
+import { CardStatus } from '@/shared'
 import { useOnUnmount } from '@/shared/hooks'
 import { GET_CARD_DEBIT } from '@/shared/utils/constantsQuery'
 import { Box, Text } from '@/ui/atoms'
 import { Toggle } from '@/ui/molecules'
 import { AlertErrorService, SkeletonLoader } from '@/ui/organisms'
-import { DebitCardStatus } from '../../types'
 
 const ActiveCard = ({
   status,
@@ -31,7 +31,7 @@ const ActiveCard = ({
   const t = useI18Text('tarjetas')
   const { invalidate } = useRemoveQueries()
   const stateRef = useRef({
-    initial: status === DebitCardStatus.ACTIVE,
+    initial: status === CardStatus.ACTIVE,
     latestChecked: isChecked,
   })
 
@@ -66,10 +66,10 @@ const ActiveCard = ({
 
   useEffect(() => {
     if (status) {
-      const currentCheck = status === DebitCardStatus.ACTIVE
+      const currentCheck = status === CardStatus.ACTIVE
       stateRef.current.initial = currentCheck
       stateRef.current.latestChecked = currentCheck
-      setChecked(status === DebitCardStatus.ACTIVE)
+      setChecked(status === CardStatus.ACTIVE)
     }
   }, [status])
 

@@ -7,6 +7,9 @@
   "selectCard": "Selecciona una tarjeta.",
   "debitCard": "Tarjetas de débito",
   "numberCard": "Nro. {number}",
+  "titleDetail": "Detalle tarjeta de crédito",
+  "numberCardKey": "Nro: ",
+  "version": "versión: ",
   "debitTitle": "Tarjeta de débito",
   "expirationDate": "Fecha de expiración:",
   "associatedAccount": "Cuenta Asociada",
@@ -24,7 +27,8 @@
   "solicLast": "No te preocupes, si eliges una ahora, podrás solicitar la otra más adelante. 😉",
   "myCardsTc": "Mis Tarjetas de crédito",
   "limit": "Limite: ",
-  "securityCode": "Cvv:",
-  "state": "Estado:",
+  "securityCode": "Cvv: ",
+  "miles": "Millas: ",
+  "state": "Estado: ",
   "title": "Mis tarjetas"
 }

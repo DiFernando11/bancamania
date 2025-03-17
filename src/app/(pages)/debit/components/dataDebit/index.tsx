@@ -1,11 +1,7 @@
-import classNames from 'classnames'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
-import { GetCardResponse } from '@/shared'
-import { Box, Text } from '@/ui/atoms'
-import { PairText } from '@/ui/molecules'
-import { SkeletonLoader } from '@/ui/organisms'
-import { DebitCardStatus } from '../../types'
+import { CardStatus, GetCardResponse } from '@/shared'
+import { DetailTextSkeleton } from '@/ui/organisms'
 
 const DataDebit = ({
   data,
@@ -18,53 +14,34 @@ const DataDebit = ({
 }) => {
   const t = useI18Text('tarjetas')
 
-  return (
-    <Box
-      className={classNames({
-        'space-y-1': !isLoading,
-        'space-y-2': isLoading,
-      })}
-    >
-      <SkeletonLoader isLoading={isLoading} classNameSkeleton='h-5 w-48'>
-        <Text textType='font_18_fw_bold_fm_rob'>
-          {t('numberCard', { number: data?.cardNumber })}
-        </Text>
-      </SkeletonLoader>
-      <SkeletonLoader isLoading={isLoading} classNameSkeleton='h-5 w-20'>
-        <PairText
-          className='!justify-start'
-          textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_16_18_fm_rob'
-          textKey={t('securityCode')}
-          textValue={data?.cvv ?? ''}
-        />
-      </SkeletonLoader>
-      <SkeletonLoader isLoading={isLoading} classNameSkeleton='h-5 w-48'>
-        <PairText
-          className='!justify-start'
-          textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_16_18_fm_rob'
-          textKey={t('expirationDate')}
-          textValue={data?.expirationDate ?? ''}
-        />
-      </SkeletonLoader>
-      <SkeletonLoader isLoading={isLoading} classNameSkeleton='h-5 w-32'>
-        <PairText
-          className='!justify-start'
-          textTypeKey='font_16_18_fw_bold_fm_rob'
-          textTypeValue='font_16_18_fm_rob'
-          textKey={t('state')}
-          textValue={
-            isChecked
-              ? t(DebitCardStatus.ACTIVE)
-              : data?.status === DebitCardStatus.INACTIVE
-                ? t(DebitCardStatus.INACTIVE)
-                : t(DebitCardStatus.BLOCKED)
-          }
-        />
-      </SkeletonLoader>
-    </Box>
-  )
+  const items = [
+    {
+      classSkeleton: 'h-5 w-48',
+      textKey: t('numberCardKey'),
+      textValue: data?.cardNumber,
+    },
+    {
+      classSkeleton: 'h-5 w-20',
+      textKey: t('securityCode'),
+      textValue: data?.cvv,
+    },
+    {
+      textKey: t('expirationDate'),
+      textValue: data?.expirationDate,
+      width: 'w-48 h-5',
+    },
+    {
+      classSkeleton: 'h-5 w-32',
+      textKey: t('state'),
+      textValue: isChecked
+        ? t(CardStatus.ACTIVE)
+        : data?.status === CardStatus.INACTIVE
+          ? t(CardStatus.INACTIVE)
+          : t(CardStatus.BLOCKED),
+    },
+  ]
+
+  return <DetailTextSkeleton items={items} isLoading={isLoading} />
 }
 
 export default DataDebit
