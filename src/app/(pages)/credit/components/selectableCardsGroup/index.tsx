@@ -4,10 +4,11 @@ import React, { forwardRef } from 'react'
 import { useGetDataByKey, useI18Text } from '@/application/hooks'
 import { GetOffertsResponse, TypeCardCredit } from '@/shared'
 import { GET_OFFERTS_CREDIT } from '@/shared/utils/constantsQuery'
-import { Box } from '@/ui/atoms'
-import { IconText } from '@/ui/molecules'
+import { Box, Text } from '@/ui/atoms'
+import { PairText } from '@/ui/molecules'
 import { SelectedBox } from '@/ui/organisms'
 import { SelectableCardsGroupProps } from './types'
+import CreditIconName from '../../shared/creditIconName'
 
 const SelectableCardsGroup = forwardRef<
   HTMLDivElement,
@@ -25,13 +26,15 @@ const SelectableCardsGroup = forwardRef<
           onChange={onChange}
           selectedValue={value}
         >
-          <IconText
-            nameIcon={
-              card.marca === TypeCardCredit.MASTERCARD ? 'MasterCard' : 'Visa'
-            }
-            text={t('masterBenefit')}
-            classIcon='w-12 h-12 min-w-12'
-          />
+          <CreditIconName marca={card.marca}>
+            <Text textType='font_16_18_fw_bold_fm_rob'>{`${card.version}`}</Text>
+            <Text>{card.textOffert}</Text>
+            <PairText
+              className='!justify-start !gap-2'
+              textKey={t('limit')}
+              textValue={`${card.limit} ₿`}
+            />
+          </CreditIconName>
         </SelectedBox>
       ))}
     </Box>

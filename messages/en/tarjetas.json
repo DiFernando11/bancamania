@@ -24,6 +24,7 @@
   "inactive": "Inactive",
   "activateCard": "Enable online purchases with my card",
   "desactiveCard": "Disable online purchases with my card",
+  "limit": "Limit: ",
   "state": "State:",
   "title": "My cards"
 }

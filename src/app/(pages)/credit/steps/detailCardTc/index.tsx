@@ -5,9 +5,11 @@ import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataCredit } from '../../types'
 
-const DetailCardTc = ({ goToStep }: StepProps<DataCredit>) => {
+const DetailCardTc = ({ prevStep }: StepProps<DataCredit>) => {
   return (
-    <LayoutAuthenticationPage footerBox={<ButtonActionSimple />}>
+    <LayoutAuthenticationPage
+      footerBox={<ButtonActionSimple secondaryOnClick={prevStep} />}
+    >
       <Text>Segundo paso</Text>
     </LayoutAuthenticationPage>
   )
