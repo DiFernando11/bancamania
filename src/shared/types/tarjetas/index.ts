@@ -44,3 +44,20 @@ export interface GetOffertsResponse {
   increaseVersion: IcreaseVersion[]
   newCards: NewCards[]
 }
+
+export interface GetCardCreditIDResponse {
+  id: string
+  cardNumber: string
+  expirationDate: string
+  createdAt: string
+  cvv: string
+  marca: string
+  version: string
+  miles: number
+  limit: string
+  status: string
+}
+
+export interface GetCardCreditIDRequest {
+  creditID?: string
+}

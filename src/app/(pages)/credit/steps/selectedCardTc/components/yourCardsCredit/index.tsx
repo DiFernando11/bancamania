@@ -1,14 +1,10 @@
 import React from 'react'
 import { useGetCardsCredit, useI18Text } from '@/application/hooks'
-import { TypeCardCredit } from '@/shared'
-import { Box, Icon, Text } from '@/ui/atoms'
-import { IconNames } from '@/ui/atoms/icons/icon/types'
-import { IconText } from '@/ui/molecules'
+import { Box, Text } from '@/ui/atoms'
 import { AlertErrorService, SelectedOption } from '@/ui/organisms'
-import { NAME_ICONS } from './constants'
 import SkeletonCardsCredit from './skeleton'
 import { YourCardCreditProps } from './types'
-import CreditIconName from '../../shared/creditIconName'
+import CreditIconName from '../../../../shared/creditIconName'
 
 const YourCardsCredit = ({ nextStep, updateData }: YourCardCreditProps) => {
   const { data, isLoading, error, isError } = useGetCardsCredit()

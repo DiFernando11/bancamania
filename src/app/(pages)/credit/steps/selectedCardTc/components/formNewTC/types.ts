@@ -1,6 +1,6 @@
+import { DataCredit } from '@/app/(pages)/credit/types'
 import { NewCards } from '@/shared'
 import { StepProps } from '@/ui/organisms/stepWizard/types'
-import { DataCredit } from '../../types'
 
 export interface FormNewTcI {
   brand: string
