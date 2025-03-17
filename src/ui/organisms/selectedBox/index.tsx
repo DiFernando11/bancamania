@@ -32,7 +32,8 @@ const SelectedBox: React.FC<SelectableCardProps> = ({
         tabIndex={0}
         aria-pressed={isSelected}
         className={classNames(
-          'flex w-full items-center gap-4 rounded-xl border p-4 shadow-sm transition',
+          'flex flex-col sm:flex-row w-full items-center gap-4',
+          'rounded-xl border p-4 shadow-sm transition',
           {
             'border-gray-300 hover:border-primary-100': !isSelected,
             'border-primary-100 shadow-md': isSelected,
@@ -46,7 +47,7 @@ const SelectedBox: React.FC<SelectableCardProps> = ({
           variant='secondary'
           type='button'
           role='button'
-          className={classNames('border !w-36 !p-2 rounded-lg', {
+          className={classNames('ml-auto border !w-36 !p-2 rounded-lg', {
             'border-gray-300': !isSelected,
             'border-primary-100 bg-primary-100 text-white': isSelected,
           })}

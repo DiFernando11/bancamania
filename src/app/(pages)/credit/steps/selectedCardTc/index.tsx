@@ -8,11 +8,7 @@ import FormNewTC from '../../components/formNewTC'
 import YourCardsCredit from '../../components/yourCardsCredit'
 import { DataCredit } from '../../types'
 
-const SelectedCardTc = ({
-  goToStep,
-  nextStep,
-  updateData,
-}: StepProps<DataCredit>) => {
+const SelectedCardTc = ({ nextStep, updateData }: StepProps<DataCredit>) => {
   const t = useI18Text('tarjetas')
   const formID = 'FORM_NEW_TC'
   const { data, isLoading, isError, error } = useGetOffertsCredit()
