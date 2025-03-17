@@ -20,6 +20,7 @@ export interface CardCredit {
   id: string
   cardNumber: string
   marca: TypeCardCredit
+  version: string
 }
 
 export type GetCardCreditResponse = CardCredit[]
