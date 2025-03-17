@@ -13,12 +13,13 @@ import {
 import { Text } from '@/ui/atoms'
 import FormState from '@/ui/atoms/formState'
 import { FormField } from '@/ui/molecules'
+import { AlertErrorService } from '@/ui/organisms'
 import { FORM_NEW_TC_NAME, FormNewTcI, FormNewTcProps } from './types'
 import SelectableCardsGroup from '../selectableCardsGroup'
 
 const FormNewTC = ({ nextStep, formID, newCards }: FormNewTcProps) => {
   const t = useI18Text('tarjetas')
-  const { handleActionService, isLoading } = useCreateCredit()
+  const { handleActionService, isLoading, isError, error } = useCreateCredit()
   useGlobalLoading([isLoading])
   const { invalidate } = useRemoveQueries()
 
@@ -69,6 +70,7 @@ const FormNewTC = ({ nextStep, formID, newCards }: FormNewTcProps) => {
           {t('solicLast')}
         </Text>
       )}
+      <AlertErrorService isError={isError} error={error} isScroll />
     </FormState>
   )
 }

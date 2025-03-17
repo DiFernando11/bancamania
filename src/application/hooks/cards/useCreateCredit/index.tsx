@@ -13,6 +13,7 @@ export const useCreateCredit = (): SendServiceTypes<
   )
 
   return {
+    error: queryResult.error,
     handleActionService: queryResult.mutate,
     isError: queryResult.isError,
     isLoading: queryResult.isPending,
