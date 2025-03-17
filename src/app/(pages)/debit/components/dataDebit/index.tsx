@@ -33,11 +33,7 @@ const DataDebit = ({
     {
       classSkeleton: 'h-5 w-32',
       textKey: t('state'),
-      textValue: isChecked
-        ? t(CardStatus.ACTIVE)
-        : data?.status === CardStatus.INACTIVE
-          ? t(CardStatus.INACTIVE)
-          : t(CardStatus.BLOCKED),
+      textValue: isChecked ? t(CardStatus.ACTIVE) : t(CardStatus.BLOCKED),
     },
   ]
 

@@ -7,7 +7,7 @@ import { Box, Text } from '@/ui/atoms'
 import { DetailTextSkeleton, SkeletonLoader } from '@/ui/organisms'
 import { DetailCreditProps } from './types'
 
-const DetailCredit = ({ data, isLoading }: DetailCreditProps) => {
+const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
   const t = useI18Text('tarjetas')
 
   const items = [
@@ -36,7 +36,7 @@ const DetailCredit = ({ data, isLoading }: DetailCreditProps) => {
     {
       classSkeleton: 'w-32 h-4',
       textKey: t('state'),
-      textValue: t(CardStatus.ACTIVE),
+      textValue: isChecked ? t(CardStatus.ACTIVE) : t(CardStatus.BLOCKED),
     },
   ]
 

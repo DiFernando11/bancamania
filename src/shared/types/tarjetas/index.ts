@@ -65,5 +65,8 @@ export interface GetCardCreditIDRequest {
 export enum CardStatus {
   ACTIVE = 'active',
   BLOCKED = 'blocked',
-  INACTIVE = 'inactive',
+}
+
+export interface UpdataStatusCreditRequest {
+  id?: string
 }
