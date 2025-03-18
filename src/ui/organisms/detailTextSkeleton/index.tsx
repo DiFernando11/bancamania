@@ -11,7 +11,7 @@ const DetailTextSkeleton = ({ isLoading, items }: DetailCreditListProps) => {
     <Box
       className={classNames({
         'space-y-1': !isLoading,
-        'space-y-2': isLoading,
+        'space-y-3': isLoading,
       })}
     >
       {items.map(
