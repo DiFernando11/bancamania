@@ -28,5 +28,11 @@
     "middleware": "private",
     "path": "/roulette",
     "code": "ROULETTE"
+  },
+  "store": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/store",
+    "code": "STORE"
   }
 }

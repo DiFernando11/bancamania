@@ -21,5 +21,6 @@ export const codesEnabled: Record<string, boolean> = {
   REGISTER_CRED_CODE: true,
   REGISTER_CRED_CONFIRM: true,
   ROULETTE: true,
+  STORE: true,
   TRANSFER: true,
 }

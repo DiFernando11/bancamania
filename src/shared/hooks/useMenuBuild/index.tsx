@@ -8,6 +8,7 @@ import { buildTarjetasOption } from './cards'
 import { buildConsolidadaOption } from './consolidada'
 import { buildReceipts } from './receipts'
 import { buildRouletteOption } from './roulette'
+import { buildStoreOption } from './store'
 import { buildTransferOption } from './transfer'
 
 export const useMenuBuild = ({
@@ -28,6 +29,7 @@ export const useMenuBuild = ({
     buildCuentasOption({ handleClick, t, textClass }),
     buildTarjetasOption({ handleClick, t, textClass }),
     buildReceipts({ handleClick, t, textClass }),
+    buildStoreOption({ handleClick, t, textClass }),
   ]
 
   const menu = useMemo(
