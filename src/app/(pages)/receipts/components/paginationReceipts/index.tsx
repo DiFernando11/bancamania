@@ -10,7 +10,7 @@ import SkeletonsReceipts from '../skeletonsReceipts'
 
 const PaginationReceipts = () => {
   const route = useNavigation()
-  const LIMIT = 3
+  const LIMIT = 10
   const {
     data: receipts,
     isLoading,

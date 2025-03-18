@@ -1,15 +1,18 @@
 import { apiRoutes } from '@/routes/apiRoutes'
-import { CreateCardCreditRequest } from '@/shared'
+import { CreateCardCreditRequest, CreateCardCreditResponse } from '@/shared'
 import { apiRequest } from '@/shared/utils'
 
 export const createCreditService = async ({
   marca,
-}: CreateCardCreditRequest): Promise<unknown> => {
-  const response = apiRequest<unknown, CreateCardCreditRequest>({
+}: CreateCardCreditRequest): Promise<CreateCardCreditResponse> => {
+  const response = apiRequest<
+    CreateCardCreditResponse,
+    CreateCardCreditRequest
+  >({
     data: {
       marca,
     },
-    url: apiRoutes.creditUser,
+    url: apiRoutes.createCreditReceipt,
   })
 
   return response

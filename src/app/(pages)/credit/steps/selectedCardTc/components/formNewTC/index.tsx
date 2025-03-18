@@ -1,3 +1,4 @@
+'use client'
 import React, { useMemo } from 'react'
 import { z } from 'zod'
 import {
@@ -5,7 +6,9 @@ import {
   useI18Text,
   useRemoveQueries,
 } from '@/application/hooks'
-import { useGlobalLoading } from '@/shared/hooks'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { useGlobalLoading, useNavigation } from '@/shared/hooks'
+import { replaceDynamicsRoutes } from '@/shared/utils'
 import {
   GET_CARD_CREDIT,
   GET_OFFERTS_CREDIT,
@@ -17,8 +20,9 @@ import { AlertErrorService } from '@/ui/organisms'
 import { FORM_NEW_TC_NAME, FormNewTcI, FormNewTcProps } from './types'
 import SelectableCardsGroup from '../selectableCardsGroup'
 
-const FormNewTC = ({ nextStep, formID, newCards }: FormNewTcProps) => {
+const FormNewTC = ({ formID, newCards }: FormNewTcProps) => {
   const t = useI18Text('tarjetas')
+  const router = useNavigation()
   const { handleActionService, isLoading, isError, error } = useCreateCredit()
   useGlobalLoading([isLoading])
   const { invalidate } = useRemoveQueries()
@@ -37,10 +41,14 @@ const FormNewTC = ({ nextStep, formID, newCards }: FormNewTcProps) => {
     handleActionService(
       { marca: val.brand },
       {
-        onSuccess: () => {
-          nextStep()
+        onSuccess: ({ receiptID }) => {
           invalidate({ queryKey: [GET_CARD_CREDIT] })
           invalidate({ queryKey: [GET_OFFERTS_CREDIT] })
+          router.push(
+            replaceDynamicsRoutes(clientRoutes.receiptsID.path, {
+              id: receiptID,
+            })
+          )
         },
       }
     )
