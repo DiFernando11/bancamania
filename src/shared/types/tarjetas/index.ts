@@ -11,6 +11,10 @@ export interface CreateCardCreditRequest {
   marca: string
 }
 
+export interface CreateCardCreditResponse {
+  receiptID: string
+}
+
 export enum TypeCardCredit {
   MASTERCARD = 'mastercard',
   VISA = 'visa',

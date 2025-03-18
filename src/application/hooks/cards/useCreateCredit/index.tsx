@@ -1,16 +1,21 @@
 'use client'
 
 import { createCreditService } from '@/application/adapters/htpp'
-import { CreateCardCreditRequest, SendServiceTypes } from '@/shared'
+import {
+  CreateCardCreditRequest,
+  CreateCardCreditResponse,
+  SendServiceTypes,
+} from '@/shared'
 import { useSendService } from '../../generics'
 
 export const useCreateCredit = (): SendServiceTypes<
-  unknown,
+  CreateCardCreditResponse,
   CreateCardCreditRequest
 > => {
-  const queryResult = useSendService<unknown, CreateCardCreditRequest>(
-    async ({ marca }) => createCreditService({ marca })
-  )
+  const queryResult = useSendService<
+    CreateCardCreditResponse,
+    CreateCardCreditRequest
+  >(async ({ marca }) => createCreditService({ marca }))
 
   return {
     error: queryResult.error,
