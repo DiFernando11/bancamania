@@ -70,3 +70,12 @@ export enum CardStatus {
 export interface UpdataStatusCreditRequest {
   id?: string
 }
+export interface UpgradeCreditRequest {
+  id?: string
+}
+
+export interface UpgradeCreditResponse {
+  limit: number
+  nextVersion: string
+  receiptID: string
+}

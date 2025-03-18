@@ -5,7 +5,7 @@ import { apiRequest } from '@/shared/utils'
 export const updateStatusCredit = async ({
   id,
 }: UpdataStatusCreditRequest): Promise<unknown> => {
-  const url = apiRoutes.updateStatusCredit.replace(':id', id)
+  const url = apiRoutes.updateStatusCredit.replace(':id', id as string)
   const response = apiRequest<unknown, UpdataStatusCreditRequest>({
     method: 'PUT',
     url,

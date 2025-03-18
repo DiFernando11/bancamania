@@ -9,4 +9,5 @@ export const apiCards = {
   ofertCredit: `${baseCredit}/offerts`,
   updateStatusCredit: `${baseCredit}/status/:id`,
   updateStatusDebit: `${baseDebit}/status`,
+  upgradeCredit: `${baseCredit}/version/receipt/:id`,
 }
