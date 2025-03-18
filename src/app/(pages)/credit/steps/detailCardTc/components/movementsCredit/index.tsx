@@ -3,12 +3,12 @@ import PaginationMoves from '@/app/components/paginationMoves'
 import { useGetMovements, useI18Text } from '@/application/hooks'
 import { Text } from '@/ui/atoms'
 
-const MovementsDebit = ({
+const MovementsCredit = ({
   id,
-  isLoadingDebit,
+  isLoadingCredit,
 }: {
   id?: string
-  isLoadingDebit: boolean
+  isLoadingCredit: boolean
 }) => {
   const tMov = useI18Text('movements')
 
@@ -20,12 +20,12 @@ const MovementsDebit = ({
     fetchNextPage,
     isFetchingNextPage,
   } = useGetMovements({
-    debitCardId: id,
+    creditCardId: id,
     enabled: Boolean(id),
     limit: LIMIT,
   })
 
-  const loadingFull = isLoading || isLoadingDebit
+  const loadingFull = isLoading || isLoadingCredit
 
   return (
     <>
@@ -44,4 +44,4 @@ const MovementsDebit = ({
   )
 }
 
-export default MovementsDebit
+export default MovementsCredit

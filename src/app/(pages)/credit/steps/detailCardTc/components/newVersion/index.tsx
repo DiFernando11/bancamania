@@ -12,6 +12,7 @@ import { replaceDynamicsRoutes } from '@/shared/utils'
 import {
   GET_CARD_CREDIT,
   GET_CREDIT_BY_ID,
+  GET_MOVEMENTS,
   GET_OFFERTS_CREDIT,
 } from '@/shared/utils/constantsQuery'
 import { Box, Button, Text } from '@/ui/atoms'
@@ -40,6 +41,7 @@ const NewVersion = ({ stepData }: NewVersionProps) => {
           invalidate({ queryKey: [GET_CARD_CREDIT] })
           invalidate({ queryKey: [GET_CREDIT_BY_ID, stepData.id] })
           invalidate({ queryKey: [GET_OFFERTS_CREDIT] })
+          invalidate({ queryKey: [GET_MOVEMENTS] })
           router.push(
             replaceDynamicsRoutes(clientRoutes.receiptsID.path, {
               id: data.receiptID,
