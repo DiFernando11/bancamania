@@ -21,7 +21,7 @@ const Movements = ({
     <Box
       className={classNames(
         className,
-        'flex justify-between gap-8 border-b border-primary-100 pb-4'
+        'flex justify-between gap-8 border-b border-primary-200 pb-4'
       )}
     >
       <Box className='flex gap-4 items-center'>

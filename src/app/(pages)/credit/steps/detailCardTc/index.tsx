@@ -7,6 +7,7 @@ import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataCredit } from '../../types'
 import ActiveCardCredit from './components/activeCardCredit'
 import DetailCredit from './components/detailCredit'
+import NewVersion from './components/newVersion'
 
 const DetailCardTc = ({ prevStep, stepData }: StepProps<DataCredit>) => {
   const formID = 'FORM_DETAIL_TC'
@@ -32,6 +33,7 @@ const DetailCardTc = ({ prevStep, stepData }: StepProps<DataCredit>) => {
         status={data?.status}
         stepData={stepData}
       />
+      <NewVersion stepData={stepData} />
     </LayoutAuthenticationPage>
   )
 }

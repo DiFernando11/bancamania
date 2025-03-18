@@ -24,6 +24,7 @@
   "suggestion": "Hint: {sug} - press (TAB ↹)",
   "select": "Select",
   "selected": "Selected",
+  "request": "Request",
   "option": {
     "consolidada": "My consolidated",
     "misCuentas": "My account",
