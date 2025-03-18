@@ -7,11 +7,13 @@ export const getMovementsService = async ({
   page = 1,
   accountId,
   debitCardId,
+  creditCardId,
 }: GetMovementRequest): Promise<GetMovementsResponse> => {
   const response = apiRequest<GetMovementsResponse, GetMovementRequest>({
     method: 'GET',
     params: {
       accountId,
+      creditCardId,
       debitCardId,
       limit,
       page,

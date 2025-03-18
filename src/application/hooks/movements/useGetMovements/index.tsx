@@ -8,20 +8,32 @@ export const useGetMovements = ({
   limit,
   accountId,
   debitCardId,
+  creditCardId,
   enabled = true,
 }: GetMovementRequest) => {
   const queryResult = useInfiniteFetchService<
     GetMovementsResponse,
     Error,
     Movement[],
-    [typeof GET_MOVEMENTS, string | number, string | number],
+    [typeof GET_MOVEMENTS, string | number, string | number, string | number],
     number
   >({
     enabled: enabled,
     initialPageParam: 1,
     queryFn: ({ pageParam }) =>
-      getMovementsService({ accountId, debitCardId, limit, page: pageParam }),
-    queryKey: [GET_MOVEMENTS, accountId ?? '', debitCardId ?? ''],
+      getMovementsService({
+        accountId,
+        creditCardId,
+        debitCardId,
+        limit,
+        page: pageParam,
+      }),
+    queryKey: [
+      GET_MOVEMENTS,
+      accountId ?? '',
+      debitCardId ?? '',
+      creditCardId ?? '',
+    ],
     select: data => data.pages.flatMap(page => page.movements),
   })
 

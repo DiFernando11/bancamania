@@ -19,6 +19,7 @@ export interface GetMovementRequest {
   page?: number
   accountId?: string | number
   debitCardId?: string | number
+  creditCardId?: string | number
   enabled?: boolean
 }
 
