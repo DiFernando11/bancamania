@@ -4,5 +4,6 @@
   "selectCardType": "Elige una tarjeta para realizar el pago",
   "miles": "Millas: {miles}",
   "price": "Price: {price}",
+  "changePay": "Seleccionar otro método de pago",
   "buy": "Comprar"
 }
