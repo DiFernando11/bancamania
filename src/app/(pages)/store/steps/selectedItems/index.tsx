@@ -2,6 +2,7 @@
 import React from 'react'
 import { z } from 'zod'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
+import { useI18Text } from '@/application/hooks'
 import FormState from '@/ui/atoms/formState'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { FormField } from '@/ui/molecules'
@@ -15,6 +16,7 @@ const SelectedItems = ({
   updateData,
 }: StepProps<DataItemsPurchase>) => {
   const formID = 'FORM_SELECTED_ITEM'
+  const t = useI18Text('store')
 
   const itemStoreSchema = z.object({
     description: z.string(),
@@ -26,9 +28,7 @@ const SelectedItems = ({
   })
 
   const selectableCardsSchema = z.object({
-    selectedCards: z
-      .array(itemStoreSchema)
-      .min(1, 'Debes seleccionar al menos un producto.'),
+    selectedCards: z.array(itemStoreSchema).min(1, t('errorSelectProduct')),
   })
 
   const onSubmit = (formData: FormSelectedItems) => {
@@ -38,7 +38,8 @@ const SelectedItems = ({
 
   return (
     <LayoutAuthenticationPage
-      footerBox={<ButtonActionSimple formId={formID} />}
+      i18nTitle={t('titleSelected')}
+      footerBox={<ButtonActionSimple formId={formID} primaryText={t('buy')} />}
     >
       <FormState
         id={formID}

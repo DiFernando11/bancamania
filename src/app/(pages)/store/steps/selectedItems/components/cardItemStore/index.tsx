@@ -1,6 +1,8 @@
+'use client'
 import classNames from 'classnames'
 import Image from 'next/image'
 import React from 'react'
+import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { BitcoinSymbol, CheckBox } from '@/ui/molecules'
 import GaleryCards from '@/ui/organisms/galeryCards'
@@ -16,6 +18,7 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
   onChange,
   selectedValues,
 }) => {
+  const t = useI18Text('store')
   const isSelected = selectedValues.some(select => select.id === id)
 
   const handleSelection = () => {
@@ -61,11 +64,11 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
         <Text className='text-center'>{description}</Text>
       </Box>
       <Box className='flex justify-between'>
-        <Text textType='font_18_fw_bold_fm_rob'>{`Miles: ${miles}`}</Text>
+        <Text textType='font_18_fw_bold_fm_rob'>{t('miles', { miles })}</Text>
         <BitcoinSymbol
           textType='font_18_fw_bold_fm_rob'
           classIcon={'w-5 h-5'}
-          balance={price}
+          balance={t('price', { price })}
         />
       </Box>
     </GaleryCards.Card>

@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React, { forwardRef } from 'react'
 import { Box } from '@/ui/atoms'
 import CardGalery from './card'
+import SkeletonsGalery from './skeleton'
 import { GaleryCardsProps } from './types'
 
 const GaleryCards = forwardRef<HTMLDivElement, GaleryCardsProps>(
@@ -22,4 +23,7 @@ const GaleryCards = forwardRef<HTMLDivElement, GaleryCardsProps>(
 
 GaleryCards.displayName = 'GaleryCards'
 
-export default Object.assign(GaleryCards, { Card: CardGalery })
+export default Object.assign(GaleryCards, {
+  Card: CardGalery,
+  Skeleton: SkeletonsGalery,
+})

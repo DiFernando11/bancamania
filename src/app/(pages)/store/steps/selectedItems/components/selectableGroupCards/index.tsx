@@ -9,7 +9,10 @@ const SelectableCardsGroupStore = forwardRef<
   HTMLDivElement,
   SelectableCardsGroupStoreProps
 >(({ value = [], onChange }, ref) => {
-  const { data } = useGetItemsStore({ limit: 3 })
+  const LIMIT = 3
+  const { data, isLoading } = useGetItemsStore({ limit: LIMIT })
+
+  if (isLoading) return <GaleryCards.Skeleton count={LIMIT} />
 
   return (
     <GaleryCards ref={ref}>

@@ -1,0 +1,8 @@
+{
+  "titleSelected": "Selecciona productos",
+  "errorSelectProduct": "You must select at least one product.",
+  "miles": "Miles: {miles}",
+  "price": "Precio: {price}",
+  "selectCardType": "Choose a card to make the payment",
+  "buy": "Buy"
+}
