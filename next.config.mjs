@@ -8,7 +8,7 @@ const nextConfig = {
     API_URL: process.env.NEXT_PUBLIC_CLIENT_URL,
   },
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    domains: ['lh3.googleusercontent.com', 'res.cloudinary.com'],
   },
   reactStrictMode: false,
 }

@@ -7,5 +7,6 @@ export interface FormStateProps<T extends FieldValues> {
   children: React.ReactNode
   id?: string
   mode?: 'onChange' | 'onBlur' | 'onSubmit' | 'all' | 'onTouched'
+  reValidateMode?: 'onChange' | 'onBlur' | 'onSubmit'
   schema?: z.ZodSchema<T>
 }

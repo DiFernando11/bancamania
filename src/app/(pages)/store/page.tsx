@@ -1,15 +1,18 @@
 'use client'
 import React from 'react'
-import { useGetItemsStore } from '@/application/hooks/store'
-import { LayoutAuthenticationPage } from '@/ui/layouts'
+import { StepWizard } from '@/ui/organisms'
+import { StepProps } from '@/ui/organisms/stepWizard/types'
+import PurchaseItems from './steps/purchaseItems'
+import SelectedItems from './steps/selectedItems'
+import { DataItemsPurchase } from './steps/types'
+
+const steps: Array<(props: StepProps<DataItemsPurchase>) => JSX.Element> = [
+  props => <SelectedItems {...props} />,
+  props => <PurchaseItems {...props} />,
+]
 
 const StorePage = () => {
-  const LIMIT = 3
-  const { data } = useGetItemsStore({ limit: LIMIT })
-
-  console.log(data, 'DATA')
-
-  return <LayoutAuthenticationPage>StorePage</LayoutAuthenticationPage>
+  return <StepWizard steps={steps} initialStep={0} />
 }
 
 export default StorePage
