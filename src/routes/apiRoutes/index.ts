@@ -5,6 +5,7 @@ import { apiContact } from './contact'
 import { apiRoutesInternalAuth } from './internal'
 import { apiMovements } from './movements'
 import { apiReceipts } from './receipts'
+import { apiStore } from './store'
 import { apiTransfers } from './transfers'
 
 export const apiRoutes = {
@@ -16,4 +17,5 @@ export const apiRoutes = {
   ...apiReceipts,
   ...apiTransfers,
   ...apiContact,
+  ...apiStore,
 }
