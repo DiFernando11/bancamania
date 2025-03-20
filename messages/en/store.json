@@ -4,5 +4,6 @@
   "miles": "Miles: {miles}",
   "price": "Precio: {price}",
   "selectCardType": "Choose a card to make the payment",
+  "changePay": "Select another payment method",
   "buy": "Buy"
 }

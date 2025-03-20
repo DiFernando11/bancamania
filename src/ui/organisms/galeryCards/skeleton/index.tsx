@@ -12,8 +12,8 @@ const SkeletonsGalery = ({
 }) => {
   return (
     <GaleryCards>
-      {[...Array(count)].map(val => (
-        <CardGalery key={val} minWidth={minWidth}>
+      {[...Array(count)].map((_, index) => (
+        <CardGalery key={index} minWidth={minWidth}>
           <Skeleton className='w-full h-72' />
         </CardGalery>
       ))}
