@@ -9,12 +9,13 @@ const FormState = <T extends FieldValues>({
   mode = 'onChange',
   id,
   onSubmit,
+  reValidateMode = 'onChange',
   children,
 }: FormStateProps<T>) => {
   const methods = useForm<T>({
     defaultValues,
     mode,
-    reValidateMode: 'onChange',
+    reValidateMode,
     resolver: schema ? zodResolver(schema) : undefined,
   })
 

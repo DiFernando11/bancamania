@@ -5,7 +5,7 @@ export interface ItemStore {
   title: string
   description: string
   image: string
-  price: string | number
+  price: string
   miles: number
 }
 
