@@ -4,6 +4,7 @@
   "security": "CODE",
   "propBanca": "THIS CARD IS ISSUED AND PROPERTY OF BANCAMANIA",
   "debit": "Debit",
+  "credit": "Credit",
   "selectCard": "Select a card.",
   "debitCard": "Debit Cards",
   "debitTitle": "Debit Card",

@@ -31,7 +31,7 @@ const BackBankingCard = ({
         </Text>
         <Box className='w-full h-10 bg-comun-card-wave' />
       </Box>
-      <Box className='flex-1 p-4 w-full flex justify-between'>
+      <Box className='flex-1 !px-4 !pt-4 w-full flex justify-between'>
         <Box className='flex flex-col justify-between'>
           <CardProduct.ValidThru isLoading={isLoading} validThru={validThru} />
           <CardProduct.CvText isLoading={isLoading} cv={cv} />

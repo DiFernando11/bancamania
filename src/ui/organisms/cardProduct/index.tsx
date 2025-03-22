@@ -7,8 +7,8 @@ import BackFlip from './backFlip'
 import BalanceProduct from './balance'
 import BankingCard from './bankingCard'
 import CvText from './cvText'
+import HeaderCard from './headerCard'
 import HeaderLogo from './headerLogo'
-import HeaderMasterCard from './headerMasterCard'
 import NameOwner from './nameOwner'
 import NextProduct from './nextProduct'
 import ShowBalance from './showBalance'
@@ -43,7 +43,7 @@ CardProduct.NextProduct = NextProduct
 CardProduct.BackFlip = BackFlip
 CardProduct.NameOwner = NameOwner
 CardProduct.Balance = BalanceProduct
-CardProduct.HeaderMasterCard = HeaderMasterCard
+CardProduct.HeaderCard = HeaderCard
 CardProduct.HeaderLogo = HeaderLogo
 CardProduct.WavesCard = WavesCard
 CardProduct.BankingCard = BankingCard

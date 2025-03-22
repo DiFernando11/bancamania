@@ -7,6 +7,7 @@ import { CardProduct } from '@/ui/organisms'
 
 const CardAsociate = () => {
   const t = useI18Text('account')
+  const tCard = useI18Text('tarjetas')
   const { data, isLoading } = useGetCardDebit()
   const route = useNavigation()
 
@@ -16,7 +17,7 @@ const CardAsociate = () => {
       <Box className='h-50'>
         <CardProduct.BankingCard
           className='mt-2 bg-debit cursor-pointer'
-          headerBankCard={<CardProduct.HeaderMasterCard />}
+          headerBankCard={<CardProduct.HeaderCard text={tCard('debit')} />}
           textAccount={data?.cardNumber}
           isLoading={isLoading}
           onClick={() => route.push(clientRoutes.debit.path)}

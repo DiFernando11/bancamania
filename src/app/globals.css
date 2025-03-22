@@ -121,6 +121,52 @@ input:focus {
     background-position: bottom;
   }
 
+  .bg-mas-standar {
+    background-image: url('../../public/bg-mas-standar.avif');
+  }
+
+  .bg-mas-gold {
+    background-image: url('../../public/bg-mas-gold.jpg');
+    background-position: bottom;
+  }
+
+  .bg-mas-plat {
+    background-image: url('../../public/bg-mas-plat.jpg');
+    background-position: bottom;
+  }
+
+  .bg-mas-world {
+    background-image: url('../../public/bg-mas-world-elite.avif');
+    background-position: bottom;
+  }
+
+  .bg-mas-world-elite {
+    background-image: url('../../public/bg-mas-world.jpg');
+    background-position: bottom;
+  }
+
+  .bg-visa-clasic {
+    background-image: url('../../public/bg-visa-classic.png');
+    background-position: bottom;
+  }
+
+  .bg-visa-gold {
+    background-image: url('../../public/bg-visa-gold.png');
+  }
+
+  .bg-visa-plat {
+    background-image: url('../../public/bg-visa-plat.png');
+  }
+
+  .bg-visa-signature {
+    background-image: url('../../public/bg-visa-signature.png');
+  }
+
+  .bg-visa-infinite {
+    background-image: url('../../public/bg-visa-infinite.png');
+  }
+
+
   .max-w-content{
     max-width: 60rem;
   }

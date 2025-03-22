@@ -12,6 +12,7 @@ const BankingCard = ({
   headerBankCard,
   footerRightComponent,
   textAccount,
+  titleComponent = <CardProduct.HeaderLogo />,
 }: BankingCardProps) => {
   return (
     <CardProduct
@@ -19,7 +20,7 @@ const BankingCard = ({
       className={classNames(className, 'flex justify-between h-full p-4')}
     >
       <Box className='flex flex-col justify-between'>
-        <CardProduct.HeaderLogo />
+        {titleComponent}
         <CardProduct.WavesCard />
         <CardProduct.TextAccount
           isLoading={isLoading}

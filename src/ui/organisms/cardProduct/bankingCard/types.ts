@@ -8,4 +8,5 @@ export interface BankingCardProps {
   onClick?: () => void
   nextStepComponent?: ReactNode
   textAccount?: string
+  titleComponent?: ReactNode
 }
