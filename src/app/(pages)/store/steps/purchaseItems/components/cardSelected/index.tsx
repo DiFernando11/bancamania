@@ -11,6 +11,7 @@ import { FORM_PURCHASE_NAME, FormPurchaseI } from '../formPurchase/types'
 
 const CardSelected = () => {
   const t = useI18Text('store')
+  const tCard = useI18Text('tarjetas')
   const { watch, setValue } = useFormContext<FormPurchaseI>()
   const { openModal, closeModal } = useModal()
 
@@ -33,7 +34,7 @@ const CardSelected = () => {
       <CardProduct.BankingCard
         onClick={() => openModal(<ModalYourCards onClick={handleValue} />)}
         className='bg-debit !h-50 cursor-pointer'
-        headerBankCard={<CardProduct.HeaderMasterCard />}
+        headerBankCard={<CardProduct.HeaderCard text={tCard('debit')} />}
         textAccount={selectedCard?.cardNumber}
         isLoading={false}
       />

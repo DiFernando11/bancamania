@@ -35,7 +35,7 @@ const ModalYourCards = ({
         {showDebit && (
           <CardProduct.BankingCard
             className='bg-debit !h-48 !min-h-48 cursor-pointer'
-            headerBankCard={<CardProduct.HeaderMasterCard />}
+            headerBankCard={<CardProduct.HeaderCard text={t('debit')} />}
             textAccount={data?.cardNumber}
             isLoading={isLoading}
             onClick={() => onClick && onClick(data?.id)}
@@ -45,7 +45,7 @@ const ModalYourCards = ({
           <CardProduct.BankingCard
             key={id}
             className='bg-debit !h-48 !min-h-48 cursor-pointer'
-            headerBankCard={<CardProduct.HeaderMasterCard />}
+            headerBankCard={<CardProduct.HeaderCard text={t('debit')} />}
             textAccount={cardNumber}
             onClick={() => onClick && onClick(id)}
             isLoading={isLoadingCredit}
