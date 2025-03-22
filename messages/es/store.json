@@ -5,5 +5,6 @@
   "miles": "Millas: {miles}",
   "price": "Price: {price}",
   "changePay": "Seleccionar otro método de pago",
+  "errorGetCardPayment": "No pudimos mostrar este metodo de pago ahora, intenta con otro",
   "buy": "Comprar"
 }

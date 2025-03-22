@@ -6,6 +6,7 @@ import { ScrollIntoViewWrapperProps } from './types'
 const ScrollIntoView: React.FC<ScrollIntoViewWrapperProps> = ({
   isVisible,
   children,
+  isNotScroll = false,
 }) => {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -16,6 +17,8 @@ const ScrollIntoView: React.FC<ScrollIntoViewWrapperProps> = ({
       }, 50)
     }
   }, [isVisible])
+
+  if (isNotScroll) return null
 
   return (
     <div
