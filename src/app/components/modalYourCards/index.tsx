@@ -7,7 +7,13 @@ import {
 } from '@/application/hooks'
 import { Box } from '@/ui/atoms'
 import { Modal } from '@/ui/molecules'
-import { CardProduct } from '@/ui/organisms'
+import {
+  AlertErrorService,
+  CardCredit,
+  CardDebit,
+  SkeletonCards,
+  SkeletonLoader,
+} from '@/ui/organisms'
 
 const ModalYourCards = ({
   onClick,
@@ -17,8 +23,12 @@ const ModalYourCards = ({
   showDebit?: boolean
 }) => {
   const t = useI18Text('tarjetas')
-  const { data, isLoading } = useGetCardDebit(showDebit)
-  const { data: dataCredit, isLoading: isLoadingCredit } = useGetCardsCredit()
+  const { data, isLoading, isError } = useGetCardDebit(showDebit)
+  const {
+    data: dataCredit,
+    isLoading: isLoadingCredit,
+    isError: isErrorCredit,
+  } = useGetCardsCredit()
 
   return (
     <Modal position='right' maxWidth={'30rem'} width={'100%'}>
@@ -33,24 +43,43 @@ const ModalYourCards = ({
         }}
       >
         {showDebit && (
-          <CardProduct.BankingCard
-            className='bg-debit !h-48 !min-h-48 cursor-pointer'
-            headerBankCard={<CardProduct.HeaderCard text={t('debit')} />}
-            textAccount={data?.cardNumber}
+          <SkeletonLoader
+            classNameSkeleton='h-48 w-full rounded-lg'
             isLoading={isLoading}
-            onClick={() => onClick && onClick(data?.id)}
-          />
+          >
+            <AlertErrorService
+              isError={isError}
+              error={{ message: t('cardDebitError') }}
+            />
+            {!isError && (
+              <CardDebit
+                className='bg-debit !h-48 !min-h-48 cursor-pointer'
+                textAccount={data?.cardNumber}
+                isLoading={isLoading}
+                onClick={() => onClick && onClick(data?.id)}
+              />
+            )}
+          </SkeletonLoader>
         )}
-        {dataCredit?.map(({ id, cardNumber }) => (
-          <CardProduct.BankingCard
-            key={id}
-            className='bg-debit !h-48 !min-h-48 cursor-pointer'
-            headerBankCard={<CardProduct.HeaderCard text={t('debit')} />}
-            textAccount={cardNumber}
-            onClick={() => onClick && onClick(id)}
-            isLoading={isLoadingCredit}
-          />
-        ))}
+        {isLoadingCredit ? (
+          <SkeletonCards />
+        ) : (
+          dataCredit?.map(({ id, cardNumber, marca, version }) => (
+            <CardCredit
+              key={id}
+              className='bg-debit !h-48 !min-h-48 cursor-pointer'
+              textAccount={cardNumber}
+              onClick={() => onClick && onClick(id)}
+              isLoading={isLoadingCredit}
+              version={version}
+              brand={marca}
+            />
+          ))
+        )}
+        <AlertErrorService
+          isError={isErrorCredit}
+          error={{ message: t('cardCreditsError') }}
+        />
       </Box>
     </Modal>
   )

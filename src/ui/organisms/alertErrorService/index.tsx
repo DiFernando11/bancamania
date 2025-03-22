@@ -17,7 +17,7 @@ const AlertErrorService = ({
 
   return (
     <AnimationVisible isVisible={isError}>
-      <ScrollIntoView isVisible={isError && isScroll}>
+      <ScrollIntoView isVisible={isError} isNotScroll={isError && isScroll}>
         <Alert text={errorMessage} type='error' />
       </ScrollIntoView>
     </AnimationVisible>

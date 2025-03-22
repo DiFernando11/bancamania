@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { useI18Text } from '@/application/hooks'
 import { BG_CARD_CREDIT, ICON_CARD_CREDIT } from '@/shared/utils'
 import { Text } from '@/ui/atoms'
@@ -14,13 +15,14 @@ const CardCredit = ({
   textAccount,
   brand,
   version,
+  className,
 }: CardCreditProps) => {
   const t = useI18Text('tarjetas')
 
   return (
     <CardProduct.BankingCard
       // @ts-expect-error: El tipo de 'version' no es inferido correctamente según el brand
-      className={`${BG_CARD_CREDIT[brand][version]}`}
+      className={classNames(`${BG_CARD_CREDIT[brand][version]}`, className)}
       titleComponent={
         <Text textType='font_18_fw_bold_fm_rob'>{version?.toUpperCase()}</Text>
       }
@@ -32,7 +34,9 @@ const CardCredit = ({
       }
       isLoading={isLoading}
       onClick={onClick}
-      footerRightComponent={<CardProduct.BackFlip onClickFlip={onClickFlip} />}
+      footerRightComponent={
+        onClickFlip && <CardProduct.BackFlip onClickFlip={onClickFlip} />
+      }
       nextStepComponent={nextStepComponent}
       textAccount={textAccount}
     />

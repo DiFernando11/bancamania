@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { useI18Text } from '@/application/hooks'
 import CardProduct from '../cardProduct'
 import CardDebitBack from './cardDebitBack'
@@ -9,16 +10,19 @@ const CardDebit = ({
   onClickFlip,
   nextStepComponent,
   textAccount,
+  className,
 }: CardDebitProps) => {
   const t = useI18Text('tarjetas')
 
   return (
     <CardProduct.BankingCard
-      className='bg-debit'
+      className={classNames('bg-debit', className)}
       headerBankCard={<CardProduct.HeaderCard text={t('debit')} />}
       isLoading={isLoading}
       onClick={onClick}
-      footerRightComponent={<CardProduct.BackFlip onClickFlip={onClickFlip} />}
+      footerRightComponent={
+        onClickFlip && <CardProduct.BackFlip onClickFlip={onClickFlip} />
+      }
       nextStepComponent={nextStepComponent}
       textAccount={textAccount}
     />
