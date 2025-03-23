@@ -1,17 +1,14 @@
 import React from 'react'
+import { Mastercard, TYPE_CARD, TypeCardCredit, VisaCard } from '@/shared'
 import { CardCredit, CardDebit, SkeletonLoader } from '@/ui/organisms'
 import { TypeCardSelectedProps } from './types'
 
 const TypeCardSelected = ({
-  id,
-  cardDebit,
-  cardCredit,
   onClick,
   isLoading,
+  selectedCard,
 }: TypeCardSelectedProps) => {
-  const selectedCard =
-    cardDebit?.id === id ? cardDebit : cardCredit?.find(card => card.id === id)
-  const isCredit = selectedCard && 'version' in selectedCard
+  const isCredit = selectedCard?.typeCard === TYPE_CARD.CREDIT
 
   return (
     <>
@@ -19,11 +16,11 @@ const TypeCardSelected = ({
         {isCredit ? (
           <CardCredit
             className='!h-48 !min-h-48 cursor-pointer'
-            textAccount={selectedCard.cardNumber}
+            textAccount={selectedCard?.cardNumber}
             onClick={onClick}
             isLoading={false}
-            version={selectedCard.version}
-            brand={selectedCard.marca}
+            version={selectedCard?.version as VisaCard | Mastercard}
+            brand={selectedCard?.marca as TypeCardCredit}
           />
         ) : (
           <CardDebit

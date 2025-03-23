@@ -7,11 +7,13 @@ const Button: React.FC<ButtonProps> = ({
   className,
   variant = 'primary',
   disabled,
+  type = 'button',
   onClick,
   ...rest
 }) => {
   return (
     <button
+      type={type}
       className={classNames(
         className,
         'border p-4 rounded-lg w-full shadow-all-accent',

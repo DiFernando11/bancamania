@@ -1,21 +1,25 @@
 'use client'
 import classNames from 'classnames'
-import React, { ComponentProps } from 'react'
+import React from 'react'
 import { useFormContext, Controller, FieldValues } from 'react-hook-form'
 import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { TextError } from '@/ui/organisms'
 import { FormFieldProps } from './types'
 
-const FormField = <T extends FieldValues>({
+const FormField = <
+  T extends FieldValues,
+  P extends object = Record<string, unknown>,
+>({
   name,
   label,
   component: Component,
   classNameForm = '',
   classNameTextError,
   isRequired = false,
+  onChange,
   ...props
-}: FormFieldProps<T>) => {
+}: FormFieldProps<T, P>) => {
   const { control } = useFormContext<T>()
   const t = useI18Text()
 
@@ -37,17 +41,17 @@ const FormField = <T extends FieldValues>({
         control={control}
         render={({ field, fieldState: { error } }) => (
           <>
-            {Component && (
-              <Component
-                {...(props as ComponentProps<typeof Component>)}
-                {...field}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  field.onChange(e)
-                  props.onChange?.(e)
-                }}
-                id={name}
-              />
-            )}
+            <Component
+              {...(props as P)}
+              {...field}
+              id={name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                field.onChange(e)
+                if (typeof onChange === 'function') {
+                  onChange(e)
+                }
+              }}
+            />
             <TextError
               className={classNameTextError}
               id={name}

@@ -5,6 +5,7 @@ import {
   useGetCardsCredit,
   useI18Text,
 } from '@/application/hooks'
+import { TYPE_CARD } from '@/shared'
 import { Box } from '@/ui/atoms'
 import { Modal } from '@/ui/molecules'
 import {
@@ -14,12 +15,13 @@ import {
   SkeletonCards,
   SkeletonLoader,
 } from '@/ui/organisms'
+import { PurchaseSelectedCard } from '../typeCardSelected/types'
 
 const ModalYourCards = ({
   onClick,
   showDebit = true,
 }: {
-  onClick?: (id?: string) => void
+  onClick?: (selectedCard: PurchaseSelectedCard) => void
   showDebit?: boolean
 }) => {
   const t = useI18Text('tarjetas')
@@ -56,7 +58,14 @@ const ModalYourCards = ({
                 className='bg-debit !h-48 !min-h-48 cursor-pointer'
                 textAccount={data?.cardNumber}
                 isLoading={isLoading}
-                onClick={() => onClick && onClick(data?.id)}
+                onClick={() =>
+                  onClick &&
+                  onClick({
+                    cardNumber: data?.cardNumber as string,
+                    id: data?.id as string,
+                    typeCard: TYPE_CARD.DEBIT,
+                  })
+                }
               />
             )}
           </SkeletonLoader>
@@ -69,7 +78,16 @@ const ModalYourCards = ({
               key={id}
               className='bg-debit !h-48 !min-h-48 cursor-pointer'
               textAccount={cardNumber}
-              onClick={() => onClick && onClick(id)}
+              onClick={() =>
+                onClick &&
+                onClick({
+                  cardNumber,
+                  id,
+                  marca,
+                  typeCard: TYPE_CARD.CREDIT,
+                  version,
+                })
+              }
               isLoading={isLoadingCredit}
               version={version}
               brand={marca}
