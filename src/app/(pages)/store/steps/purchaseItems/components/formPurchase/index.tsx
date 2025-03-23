@@ -3,9 +3,10 @@ import { z } from 'zod'
 import { useI18Text } from '@/application/hooks'
 import FormState from '@/ui/atoms/formState'
 import CardSelected from '../cardSelected'
-import { FormPurchaseI } from './types'
+import { FormPurchaseI, FormPurchaseProps } from './types'
+import ShowProducts from '../showProducts'
 
-const FormPurchase = ({ formID }: { formID: string }) => {
+const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
   const t = useI18Text('tarjetas')
   const handleSubmit = (datas: FormPurchaseI) => {
     console.log(datas, 'FORM_DATA')
@@ -13,16 +14,31 @@ const FormPurchase = ({ formID }: { formID: string }) => {
 
   const formPurchaseSchema = z.object({
     idCard: z.string().min(1, t('requiredCard')),
+    products: z.array(
+      z.object({
+        idProduct: z.string(),
+        quantity: z.number().min(1),
+      })
+    ),
   })
+
+  const defaultValues = {
+    idCard: '',
+    products: stepData.selectedCards.map(item => ({
+      idProduct: item.id,
+      quantity: 1,
+    })),
+  }
 
   return (
     <FormState
       id={formID}
       onSubmit={handleSubmit}
-      defaultValues={{ idCard: '' }}
+      defaultValues={defaultValues}
       schema={formPurchaseSchema}
     >
       <CardSelected />
+      <ShowProducts stepData={stepData} />
     </FormState>
   )
 }

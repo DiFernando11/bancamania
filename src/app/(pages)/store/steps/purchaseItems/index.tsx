@@ -7,7 +7,10 @@ import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataItemsPurchase } from '../types'
 import FormPurchase from './components/formPurchase'
 
-const PurchaseItems = ({ prevStep }: StepProps<DataItemsPurchase>) => {
+const PurchaseItems = ({
+  prevStep,
+  stepData,
+}: StepProps<DataItemsPurchase>) => {
   const t = useI18Text('store')
   const formID = 'FORM_PURCHASE'
 
@@ -18,7 +21,7 @@ const PurchaseItems = ({ prevStep }: StepProps<DataItemsPurchase>) => {
         <ButtonActionSimple secondaryOnClick={prevStep} formId={formID} />
       }
     >
-      <FormPurchase formID={formID} />
+      <FormPurchase formID={formID} stepData={stepData} />
     </LayoutAuthenticationPage>
   )
 }
