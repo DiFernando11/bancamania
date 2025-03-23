@@ -1,10 +1,12 @@
-import { ElementType, InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes, JSXElementConstructor } from 'react'
 import { FieldValues, Path } from 'react-hook-form'
 
-export interface FormFieldProps<T extends FieldValues>
-  extends InputHTMLAttributes<HTMLInputElement> {
+export type FormFieldProps<
+  T extends FieldValues,
+  P extends object = Record<string, unknown>, // ✅ Evita conflicto con eslint y es más semántico que `never`
+> = {
   name: Path<T>
-  component: ElementType
+  component: JSXElementConstructor<P>
   label?: string
   placeholder?: string
   classNameForm?: string
@@ -13,4 +15,5 @@ export interface FormFieldProps<T extends FieldValues>
   suggestionValue?: string
   classNameTextError?: string
   isRequired?: boolean
-}
+} & InputHTMLAttributes<HTMLInputElement> &
+  P

@@ -13,5 +13,14 @@
   "bitcoin": "Bitcoin",
   "confirmBuy": "Confirm purchase",
   "unitPrice": "U.C: {unit}",
-  "unitTotal": "U.T: {unit}"
+  "unitTotal": "U.T: {unit}",
+  "optionsBuy": "Payment options",
+  "benefitApplicate": "Benefit applied: interest-free",
+  "singlePay": "Single payment",
+  "months": "{month} months",
+  "payMonth": "{month} Monthly payments with {card} {balance}",
+  "benefitMastercard": "Enjoy up to 6 months interest-free with your Mastercard.",
+  "benefitVisa": "Earn double miles with your Visa card",
+  "totalWithoutInterest": "Total without interest: {total}",
+  "interestApplied": "Interest applied: {interest}"
 }

@@ -1,4 +1,4 @@
-import { Mastercard, TypeCardCredit, VisaCard } from '@/shared/types'
+import { INTEREST, Mastercard, TypeCardCredit, VisaCard } from '@/shared/types'
 
 export const ICON_CARD_CREDIT = {
   [TypeCardCredit.MASTERCARD]: 'MasterCard',
@@ -24,4 +24,9 @@ export const BG_CARD_VISA_CREDIT = {
 export const BG_CARD_CREDIT = {
   [TypeCardCredit.MASTERCARD]: BG_CARD_MAS_CREDIT,
   [TypeCardCredit.VISA]: BG_CARD_VISA_CREDIT,
+}
+
+export const INTEREST_CARD = {
+  [TypeCardCredit.MASTERCARD]: INTEREST.MASTERCARD,
+  [TypeCardCredit.VISA]: INTEREST.VISA,
 }

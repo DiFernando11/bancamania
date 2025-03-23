@@ -15,9 +15,19 @@ export interface CreateCardCreditResponse {
   receiptID: string
 }
 
+export enum TYPE_CARD {
+  CREDIT = 'credit',
+  DEBIT = 'debit',
+}
+
 export enum TypeCardCredit {
   MASTERCARD = 'mastercard',
   VISA = 'visa',
+}
+
+export enum INTEREST {
+  MASTERCARD = 0.03,
+  VISA = 0.025,
 }
 
 export enum VisaCard {

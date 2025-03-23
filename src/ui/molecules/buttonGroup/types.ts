@@ -8,5 +8,8 @@ export type ButtonGroupProps = {
   defaultSelected?: string
   value?: string
   onChange?: (selectedId: string) => void
+  name?: string
   className?: string
+  classNameButton?: string
+  ref?: React.Ref<HTMLDivElement>
 }

@@ -8,39 +8,54 @@ import {
   useGetDataByKey,
   useI18Text,
 } from '@/application/hooks'
-import { GetCardCreditResponse } from '@/shared'
+import { GetCardCreditResponse, TYPE_CARD } from '@/shared'
 import { useModal } from '@/shared/hooks'
 import { GET_CARD_CREDIT } from '@/shared/utils/constantsQuery'
 import { Box, Text } from '@/ui/atoms'
 import { AlertErrorService, TextError } from '@/ui/organisms'
-import { FORM_PURCHASE_NAME, FormPurchaseI } from '../formPurchase/types'
+import DeferredPayment from '../deferredPayment'
+import { CardSelectedProps } from './types'
+import {
+  FORM_PURCHASE_NAME,
+  FormPurchaseI,
+  METHOD_PAY,
+  PurchaseSelectedCard,
+} from '../formPurchase/types'
 
-const CardSelected = () => {
+const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
   const t = useI18Text('store')
   const {
     watch,
     setValue,
-    reset,
     formState: { errors },
   } = useFormContext<FormPurchaseI>()
   const { openModal, closeModal } = useModal()
-  const idCard = watch(FORM_PURCHASE_NAME.idCard)
-  const { data: cardDebit, isLoading, isError } = useGetCardDebit()
-  const cardCredit = useGetDataByKey<GetCardCreditResponse>([GET_CARD_CREDIT])
+  const methodPay = watch(FORM_PURCHASE_NAME.typeBuy)
+  const selectedCard = watch(FORM_PURCHASE_NAME.selectedCard)
+  const isBitcoinMethod = methodPay === METHOD_PAY.BITCOIN
+  const isCredit = TYPE_CARD.CREDIT === selectedCard?.typeCard
 
-  const handleValue = (id?: string) => {
-    setValue(FORM_PURCHASE_NAME.idCard, id ?? '')
+  const handleValue = (selectedCard: PurchaseSelectedCard) => {
+    setValue(FORM_PURCHASE_NAME.selectedCard, {
+      cardNumber: selectedCard.cardNumber,
+      id: selectedCard.id,
+      marca: selectedCard.marca,
+      typeCard: selectedCard.typeCard,
+      version: selectedCard.version,
+    })
+    setValue(FORM_PURCHASE_NAME.deferredMonth, '0')
     closeModal()
   }
 
   useEffect(() => {
     if (cardDebit?.id) {
-      reset(prev => ({
-        ...prev,
-        idCard: cardDebit.id,
-      }))
+      setValue(FORM_PURCHASE_NAME.selectedCard, {
+        cardNumber: cardDebit.cardNumber,
+        id: cardDebit.id,
+        typeCard: TYPE_CARD.DEBIT,
+      })
     }
-  }, [cardDebit?.id, reset])
+  }, [cardDebit, setValue])
 
   return (
     <Box className='flex flex-col justify-end gap-4'>
@@ -50,17 +65,15 @@ const CardSelected = () => {
       />
       {!isError && (
         <TypeCardSelected
+          selectedCard={selectedCard}
           isLoading={isLoading}
-          cardCredit={cardCredit}
-          cardDebit={cardDebit}
-          id={idCard || cardDebit?.id}
           onClick={() => openModal(<ModalYourCards onClick={handleValue} />)}
         />
       )}
       <TextError
-        id={FORM_PURCHASE_NAME.idCard}
-        error={errors.idCard}
-        isValidate={Boolean(errors.idCard)}
+        id={FORM_PURCHASE_NAME.selectedCard}
+        error={errors.selectedCard?.id}
+        isValidate={Boolean(errors.selectedCard)}
       />
       <Text
         onClick={() => openModal(<ModalYourCards onClick={handleValue} />)}
@@ -69,6 +82,7 @@ const CardSelected = () => {
       >
         {t('changePay')}
       </Text>
+      <DeferredPayment isCredit={Boolean(isCredit && isBitcoinMethod)} />
     </Box>
   )
 }
