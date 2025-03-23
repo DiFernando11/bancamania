@@ -35,7 +35,10 @@ const CardSelected = () => {
 
   useEffect(() => {
     if (cardDebit?.id) {
-      reset({ idCard: cardDebit.id })
+      reset(prev => ({
+        ...prev,
+        idCard: cardDebit.id,
+      }))
     }
   }, [cardDebit?.id, reset])
 
@@ -50,7 +53,7 @@ const CardSelected = () => {
           isLoading={isLoading}
           cardCredit={cardCredit}
           cardDebit={cardDebit}
-          id={idCard}
+          id={idCard || cardDebit?.id}
           onClick={() => openModal(<ModalYourCards onClick={handleValue} />)}
         />
       )}
