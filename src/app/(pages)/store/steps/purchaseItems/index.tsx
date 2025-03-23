@@ -18,7 +18,11 @@ const PurchaseItems = ({
     <LayoutAuthenticationPage
       i18nTitle={t('selectCardType')}
       footerBox={
-        <ButtonActionSimple secondaryOnClick={prevStep} formId={formID} />
+        <ButtonActionSimple
+          secondaryOnClick={prevStep}
+          primaryText={t('confirmBuy')}
+          formId={formID}
+        />
       }
     >
       <FormPurchase formID={formID} stepData={stepData} />
