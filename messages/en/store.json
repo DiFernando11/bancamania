@@ -2,9 +2,11 @@
   "titleSelected": "Selecciona productos",
   "errorSelectProduct": "You must select at least one product.",
   "miles": "Miles: {miles}",
+  "milesBalance": "{miles} miles.",
   "price": "Precio: {price}",
   "selectCardType": "Choose a card to make the payment",
   "changePay": "Select another payment method",
   "errorGetCardPayment": "We couldn't show this payment method right now, please try another one.",
+  "total": "Total: {total}",
   "buy": "Buy"
 }

@@ -7,11 +7,13 @@ export interface FormPurchaseI {
     idProduct: string
     quantity: number
   }[]
+  totalBuy: number
 }
 
 export enum FORM_PURCHASE_NAME {
   idCard = 'idCard',
   products = 'products',
+  totalBuy = 'totalBuy',
 }
 
 export interface FormPurchaseProps

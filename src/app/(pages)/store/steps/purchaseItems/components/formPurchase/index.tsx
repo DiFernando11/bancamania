@@ -20,6 +20,7 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
         quantity: z.number().min(1),
       })
     ),
+    totalBuy: z.number(),
   })
 
   const defaultValues = {
@@ -28,7 +29,14 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
       idProduct: item.id,
       quantity: 1,
     })),
+    totalBuy: stepData.selectedCards.reduce((acc, item) => {
+      const price = parseFloat(item.price)
+
+      return acc + (isNaN(price) ? 0 : price)
+    }, 0),
   }
+
+  console.log(defaultValues, 'defa')
 
   return (
     <FormState
