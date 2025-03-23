@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Button, Icon } from '@/ui/atoms'
+import { Box, Button, Icon } from '@/ui/atoms'
 import { CounterInputProps } from './types'
 
 const CounterInput = ({ value, onChange, min, max, id }: CounterInputProps) => {
@@ -28,7 +28,7 @@ const CounterInput = ({ value, onChange, min, max, id }: CounterInputProps) => {
   }, [value, isControlled])
 
   return (
-    <div className='flex items-center gap-2' id={id}>
+    <Box className='flex items-center gap-2' id={id}>
       <Button
         disabled={min === value}
         variant='secondary'
@@ -45,7 +45,7 @@ const CounterInput = ({ value, onChange, min, max, id }: CounterInputProps) => {
       >
         <Icon name='Plus' className='w-5 h-5' />
       </Button>
-    </div>
+    </Box>
   )
 }
 
