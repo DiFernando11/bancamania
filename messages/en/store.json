@@ -3,10 +3,15 @@
   "errorSelectProduct": "You must select at least one product.",
   "miles": "Miles: {miles}",
   "milesBalance": "{miles} miles.",
+  "milesLabel": "Miles",
   "price": "Precio: {price}",
   "selectCardType": "Choose a card to make the payment",
   "changePay": "Select another payment method",
   "errorGetCardPayment": "We couldn't show this payment method right now, please try another one.",
   "total": "Total: {total}",
-  "buy": "Buy"
+  "buy": "Buy",
+  "bitcoin": "Bitcoin",
+  "confirmBuy": "Confirm purchase",
+  "unitPrice": "U.C: {unit}",
+  "unitTotal": "U.T: {unit}"
 }

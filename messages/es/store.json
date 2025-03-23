@@ -4,9 +4,14 @@
   "selectCardType": "Elige una tarjeta para realizar el pago",
   "miles": "Millas: {miles}",
   "milesBalance": "{miles} millas.",
+  "milesLabel": "Millas",
   "price": "Price: {price}",
   "changePay": "Seleccionar otro método de pago",
   "errorGetCardPayment": "No pudimos mostrar este metodo de pago ahora, intenta con otro",
   "total": "Total: {total}",
-  "buy": "Comprar"
+  "buy": "Comprar",
+  "bitcoin": "Bitcoin",
+  "unitPrice": "V.U: {unit}",
+  "confirmBuy": "Confirmar compra",
+  "unitTotal": "V.T: {unit}"
 }
