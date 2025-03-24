@@ -34,6 +34,7 @@ export const apiRequest = async <T, D = unknown>({
     throw new Error(`Error: ${url}`)
   } catch (error) {
     const axiosError = error as AxiosError<T>
+    console.log(error, axiosError)
 
     if (axiosError.response?.data) {
       throw axiosError.response.data

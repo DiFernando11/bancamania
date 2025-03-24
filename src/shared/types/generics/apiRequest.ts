@@ -19,10 +19,16 @@ export interface ApiResponse<T> {
   statusText: string
 }
 
+export interface ErrorField {
+  errors: string[]
+  field: string
+}
+
 export interface ApiResponseError {
   message: string
   ok: boolean
   statusCode: number
+  error: string | ErrorField[]
 }
 
 export interface PaginationData {

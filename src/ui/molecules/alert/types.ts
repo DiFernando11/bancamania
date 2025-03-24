@@ -1,8 +1,9 @@
+import { ReactNode } from 'react'
 import { TextType } from '@/ui/atoms/text/types'
 
 export interface AlertProps {
   type: 'success' | 'warning' | 'info' | 'error'
-  text: string
+  children: ReactNode
   textType?: TextType
   textClass?: string
 }
