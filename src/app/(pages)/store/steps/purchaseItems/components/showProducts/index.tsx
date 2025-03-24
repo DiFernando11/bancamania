@@ -20,7 +20,7 @@ const ShowProducts = ({ stepData }: ShowProductsProps) => {
   const { control, watch, setValue } = useFormContext<FormPurchaseI>()
   const products = watch(FORM_PURCHASE_NAME.products)
   const total = watch(FORM_PURCHASE_NAME.totalBuy)
-  const methodPay = watch(FORM_PURCHASE_NAME.typeBuy)
+  const methodPay = watch(FORM_PURCHASE_NAME.methodPay)
   const selectedCard = watch(FORM_PURCHASE_NAME.selectedCard)
   const isBitcoinMethod = methodPay === METHOD_PAY.BITCOIN
   const isCredit = TYPE_CARD.CREDIT === selectedCard?.typeCard
@@ -54,7 +54,7 @@ const ShowProducts = ({ stepData }: ShowProductsProps) => {
     <Box className='flex flex-col gap-4'>
       <AnimationVisible isVisible={isCredit}>
         <FormField<FormPurchaseI, ButtonGroupProps>
-          name={FORM_PURCHASE_NAME.typeBuy}
+          name={FORM_PURCHASE_NAME.methodPay}
           isRequired
           component={ButtonGroup}
           options={options}

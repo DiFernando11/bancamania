@@ -16,7 +16,7 @@ export interface FormPurchaseI {
     quantity: number
   }[]
   totalBuy: number
-  typeBuy: string
+  methodPay: METHOD_PAY
   deferredMonth: string
   selectedCard?: PurchaseSelectedCard
 }
@@ -24,7 +24,7 @@ export interface FormPurchaseI {
 export enum FORM_PURCHASE_NAME {
   products = 'products',
   totalBuy = 'totalBuy',
-  typeBuy = 'typeBuy',
+  methodPay = 'methodPay',
   deferredMonth = 'deferredMonth',
   selectedCard = 'selectedCard',
 }

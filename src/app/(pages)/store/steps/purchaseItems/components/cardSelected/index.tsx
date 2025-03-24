@@ -30,7 +30,7 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
     formState: { errors },
   } = useFormContext<FormPurchaseI>()
   const { openModal, closeModal } = useModal()
-  const methodPay = watch(FORM_PURCHASE_NAME.typeBuy)
+  const methodPay = watch(FORM_PURCHASE_NAME.methodPay)
   const selectedCard = watch(FORM_PURCHASE_NAME.selectedCard)
   const isBitcoinMethod = methodPay === METHOD_PAY.BITCOIN
   const isCredit = TYPE_CARD.CREDIT === selectedCard?.typeCard

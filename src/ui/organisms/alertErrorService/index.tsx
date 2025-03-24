@@ -1,7 +1,11 @@
 import React from 'react'
-import { ApiResponseError } from '@/shared/types/generics/apiRequest'
-import { ScrollIntoView } from '@/ui/atoms'
+import {
+  ApiResponseError,
+  ErrorField,
+} from '@/shared/types/generics/apiRequest'
+import { ScrollIntoView, Text } from '@/ui/atoms'
 import { Alert, AnimationVisible } from '@/ui/molecules'
+import ShowFieldError from '../showFieldError'
 
 const AlertErrorService = ({
   error,
@@ -13,12 +17,19 @@ const AlertErrorService = ({
   isScroll?: boolean
 }) => {
   const messageDefault = 'Tipo de error nor encontrado, intentalo mas tarde'
-  const errorMessage = (error as ApiResponseError)?.message || messageDefault
+  const errorObj = error as ApiResponseError
+  const errorMessage = errorObj?.message || messageDefault
+  const hasFieldErrors = Array.isArray(errorObj?.error)
 
   return (
     <AnimationVisible isVisible={isError}>
-      <ScrollIntoView isVisible={isError} isNotScroll={isError && isScroll}>
-        <Alert text={errorMessage} type='error' />
+      <ScrollIntoView isVisible={isError} isNotScroll={isError && !isScroll}>
+        <Alert type='error'>
+          <Text>{errorMessage}</Text>
+          {hasFieldErrors && (
+            <ShowFieldError errors={errorObj?.error as ErrorField[]} />
+          )}
+        </Alert>
       </ScrollIntoView>
     </AnimationVisible>
   )

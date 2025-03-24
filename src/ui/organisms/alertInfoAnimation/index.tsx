@@ -10,7 +10,7 @@ const AlertInfoAnimation = ({
 }) => {
   return (
     <AnimationVisible isVisible={isVisible}>
-      <Alert text={message || ''} type='info' />
+      <Alert type='info'>{message}</Alert>
     </AnimationVisible>
   )
 }

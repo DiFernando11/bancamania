@@ -1,21 +1,72 @@
+'use client'
 import React from 'react'
 import { z } from 'zod'
-import { useGetCardDebit, useI18Text } from '@/application/hooks'
+import { useGetCardDebit, useRemoveQueries } from '@/application/hooks'
+import { usePurchaseItemsStore } from '@/application/hooks/store'
+import { clientRoutes } from '@/routes/clientRoutes'
 import { TYPE_CARD, TypeCardCredit } from '@/shared'
+import { useGlobalLoading, useNavigation } from '@/shared/hooks'
+import { replaceDynamicsRoutes } from '@/shared/utils'
+import {
+  GET_ACCOUNT,
+  GET_CREDIT_BY_ID,
+  GET_MOVEMENTS,
+  GET_PREVIEW_RECEIPT,
+} from '@/shared/utils/constantsQuery'
 import FormState from '@/ui/atoms/formState'
+import { AlertErrorService } from '@/ui/organisms'
 import CardSelected from '../cardSelected'
 import { FormPurchaseI, FormPurchaseProps, METHOD_PAY } from './types'
 import ShowProducts from '../showProducts'
 
 const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
-  const t = useI18Text('tarjetas')
+  const router = useNavigation()
   const { data, isLoading, isError } = useGetCardDebit()
-  const handleSubmit = (datas: FormPurchaseI) => {
-    console.log(datas, 'FORM_DATA')
+  const { invalidate } = useRemoveQueries()
+  const {
+    handleActionService,
+    isLoading: isLoadingPurchase,
+    isError: isErrorPurchase,
+    error,
+  } = usePurchaseItemsStore()
+
+  useGlobalLoading([isLoadingPurchase])
+  const handleSubmit = (dataForm: FormPurchaseI) => {
+    handleActionService(
+      {
+        deferredMonth: Number(dataForm.deferredMonth),
+        idCard: dataForm.selectedCard?.id as string,
+        methodPay: dataForm.methodPay,
+        products: dataForm.products.map(item => ({
+          id: item.idProduct,
+          quantity: item.quantity,
+        })),
+        typeCard: dataForm.selectedCard?.typeCard as TYPE_CARD,
+      },
+      {
+        onSuccess: ({ receiptID }) => {
+          invalidate({ queryKey: [GET_PREVIEW_RECEIPT] })
+          if (dataForm.selectedCard?.typeCard === TYPE_CARD.CREDIT) {
+            invalidate({
+              queryKey: [GET_CREDIT_BY_ID, dataForm?.selectedCard?.id],
+            })
+          } else {
+            invalidate({ queryKey: [GET_ACCOUNT] })
+          }
+          invalidate({ queryKey: [GET_MOVEMENTS] })
+          router.push(
+            replaceDynamicsRoutes(clientRoutes.receiptsID.path, {
+              id: receiptID,
+            })
+          )
+        },
+      }
+    )
   }
 
   const formPurchaseSchema = z.object({
     deferredMonth: z.string(),
+    methodPay: z.nativeEnum(METHOD_PAY),
     products: z.array(
       z.object({
         idProduct: z.string(),
@@ -30,11 +81,11 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
       version: z.string().optional(),
     }),
     totalBuy: z.number(),
-    typeBuy: z.nativeEnum(METHOD_PAY),
   })
 
   const defaultValues = {
     deferredMonth: '0',
+    methodPay: METHOD_PAY.BITCOIN,
     products: stepData.selectedCards.map(item => ({
       idProduct: item.id,
       quantity: 1,
@@ -49,7 +100,6 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
 
       return acc + (isNaN(price) ? 0 : price)
     }, 0),
-    typeBuy: METHOD_PAY.BITCOIN,
   }
 
   return (
@@ -60,6 +110,7 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
       schema={formPurchaseSchema}
     >
       <CardSelected cardDebit={data} isLoading={isLoading} isError={isError} />
+      <AlertErrorService isScroll isError={isErrorPurchase} error={error} />
       <ShowProducts stepData={stepData} />
     </FormState>
   )
