@@ -8,7 +8,7 @@ export interface GetCardResponse {
 }
 
 export interface CreateCardCreditRequest {
-  marca: string
+  brand: string
 }
 
 export interface CreateCardCreditResponse {
@@ -21,8 +21,8 @@ export enum TYPE_CARD {
 }
 
 export enum TypeCardCredit {
-  MASTERCARD = 'mastercard',
-  VISA = 'visa',
+  MASTERCARD = 'MASTERCARD',
+  VISA = 'VISA',
 }
 
 export enum INTEREST {
@@ -53,7 +53,7 @@ export enum VersionMastercard {
 export interface CardCredit {
   id: string
   cardNumber: string
-  marca: TypeCardCredit
+  brand: TypeCardCredit
   version: Mastercard | VisaCard
 }
 
@@ -62,14 +62,14 @@ export type GetCardCreditResponse = CardCredit[]
 export interface IcreaseVersion {
   currentLimit: string
   id: string
-  marca: TypeCardCredit
+  brand: TypeCardCredit
   newLimit: string | number
   version: string
 }
 export interface NewCards {
   id: string
   limit: string
-  marca: TypeCardCredit
+  brand: TypeCardCredit
   version: string
   textOffert: string
 }
@@ -85,7 +85,7 @@ export interface GetCardCreditIDResponse {
   expirationDate: string
   createdAt: string
   cvv: string
-  marca: string
+  brand: string
   version: string
   miles: number
   limit: string

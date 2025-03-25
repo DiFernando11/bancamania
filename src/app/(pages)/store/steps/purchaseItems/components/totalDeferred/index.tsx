@@ -21,10 +21,10 @@ const TotalDeferred = ({
   const months = Number(deferredMonth)
   const t = useI18Text('store')
 
-  const isMastercard = selectedCard?.marca === TypeCardCredit.MASTERCARD
+  const isMastercard = selectedCard?.brand === TypeCardCredit.MASTERCARD
   const isActiveBenefit = isMastercard && months <= 6
   const interestMonth =
-    INTEREST_CARD[selectedCard?.marca ?? TypeCardCredit.VISA]
+    INTEREST_CARD[selectedCard?.brand ?? TypeCardCredit.VISA]
 
   const interestMonthTotal =
     (isMastercard && months > 6) || !isMastercard ? interestMonth * months : 0
@@ -62,7 +62,7 @@ const TotalDeferred = ({
           classIcon='w-5 h-5'
           balance={t('payMonth', {
             balance: pagoMensual.toFixed(2),
-            card: selectedCard?.marca,
+            card: selectedCard?.brand,
             month: months,
           })}
           textType='font_18_fw_bold_fm_rob'

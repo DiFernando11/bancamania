@@ -39,7 +39,7 @@ const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
     <Box className='flex flex-col gap-4'>
       <SkeletonLoader isLoading={isLoading} classNameSkeleton='w-40 h-7'>
         <CreditIconName
-          marca={(data?.marca as TypeCardCredit) || TypeCardCredit.MASTERCARD}
+          brand={(data?.brand as TypeCardCredit) || TypeCardCredit.MASTERCARD}
         >
           <Text textType='font_16_18_fw_bold_fm_rob'>
             {data?.version?.toLocaleUpperCase()}

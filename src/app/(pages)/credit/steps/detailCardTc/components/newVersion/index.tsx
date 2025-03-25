@@ -60,7 +60,7 @@ const NewVersion = ({ stepData }: NewVersionProps) => {
         {t('updateVersion')}
       </Text>
       <Card className='flex flex-col sm:flex-row gap-4'>
-        <CreditIconName marca={newVersion.marca}>
+        <CreditIconName brand={newVersion.brand}>
           <Box className='flex flex-col justify-between w-full items-center sm:flex-row'>
             <Box className='w-full'>
               <Text textType='font_16_18_fw_bold_fm_rob'>

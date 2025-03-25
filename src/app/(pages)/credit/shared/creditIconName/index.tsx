@@ -5,16 +5,16 @@ import { IconNames } from '@/ui/atoms/icons/icon/types'
 import { NAME_ICONS } from '../../steps/selectedCardTc/components/yourCardsCredit/constants'
 
 const CreditIconName = ({
-  marca,
+  brand,
   children,
 }: {
-  marca: TypeCardCredit
+  brand: TypeCardCredit
   children: ReactNode
 }) => {
   return (
     <Box className='flex gap-4 items-center self-start'>
       <Icon
-        name={NAME_ICONS[marca] as IconNames}
+        name={NAME_ICONS[brand] as IconNames}
         className='w-12 h-12 min-w-12'
       />
       <Box>{children}</Box>

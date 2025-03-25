@@ -23,13 +23,13 @@ const FlipCardCredit = ({
             isNextStep && <CardProduct.NextProduct onClick={next} />
           }
           textAccount={data?.cardNumber}
-          brand={data.marca}
+          brand={data.brand}
           version={data.version}
         />
       )}
       BackContent={({ flip }) => (
         <CardCredit.Back
-          brand={data.marca}
+          brand={data.brand}
           version={data.version}
           onClickFlip={flip}
           className='w-full self-center'

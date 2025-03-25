@@ -21,11 +21,11 @@ const SelectableCardsGroup = forwardRef<
       {data?.newCards?.map(card => (
         <SelectedBox
           key={card.id}
-          value={card.marca}
+          value={card.brand}
           onChange={onChange}
           selectedValue={value}
         >
-          <CreditIconName marca={card.marca}>
+          <CreditIconName brand={card.brand}>
             <Text textType='font_16_18_fw_bold_fm_rob'>{`${card.version}`}</Text>
             <Text>{card.textOffert}</Text>
             <PairText

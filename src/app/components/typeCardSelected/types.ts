@@ -1,7 +1,7 @@
 import { TYPE_CARD, TypeCardCredit } from '@/shared'
 
 export interface PurchaseSelectedCard {
-  marca?: TypeCardCredit
+  brand?: TypeCardCredit
   id: string
   version?: string
   cardNumber: string
