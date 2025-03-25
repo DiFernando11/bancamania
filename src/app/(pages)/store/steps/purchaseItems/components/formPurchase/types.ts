@@ -3,7 +3,7 @@ import { StepProps } from '@/ui/organisms/stepWizard/types'
 import { DataItemsPurchase } from '../../../types'
 
 export interface PurchaseSelectedCard {
-  marca?: TypeCardCredit
+  brand?: TypeCardCredit
   id: string
   version?: string
   cardNumber: string

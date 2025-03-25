@@ -74,9 +74,9 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
       })
     ),
     selectedCard: z.object({
+      brand: z.nativeEnum(TypeCardCredit).optional(),
       cardNumber: z.string(),
       id: z.string(),
-      marca: z.nativeEnum(TypeCardCredit).optional(),
       typeCard: z.nativeEnum(TYPE_CARD),
       version: z.string().optional(),
     }),

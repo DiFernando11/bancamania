@@ -5,7 +5,7 @@ import { apiRequest } from '@/shared/utils'
 export const getCardCreditByIDService = async ({
   creditID,
 }: GetCardCreditIDRequest): Promise<GetCardCreditIDResponse> => {
-  const url = apiRoutes.creditByID.replace(':id', creditID)
+  const url = apiRoutes.creditByID.replace(':id', creditID as string)
 
   const response = apiRequest<GetCardCreditIDResponse, GetCardCreditIDRequest>({
     method: 'GET',

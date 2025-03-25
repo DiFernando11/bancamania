@@ -15,7 +15,7 @@ export const useCreateCredit = (): SendServiceTypes<
   const queryResult = useSendService<
     CreateCardCreditResponse,
     CreateCardCreditRequest
-  >(async ({ marca }) => createCreditService({ marca }))
+  >(async ({ brand }) => createCreditService({ brand }))
 
   return {
     error: queryResult.error,

@@ -33,7 +33,7 @@ const DeferredPayment = ({ isCredit }: { isCredit: boolean }) => {
       <Text textType='font_18_fw_bold_fm_rob_text-100'>{t('optionsBuy')}</Text>
       <Text textType='font_18_fm_rob'>
         {t(
-          selectedCard?.marca === TypeCardCredit.VISA
+          selectedCard?.brand === TypeCardCredit.VISA
             ? 'benefitVisa'
             : 'benefitMastercard'
         )}

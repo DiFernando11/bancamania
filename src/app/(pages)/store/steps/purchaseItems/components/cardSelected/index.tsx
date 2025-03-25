@@ -37,9 +37,9 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
 
   const handleValue = (selectedCard: PurchaseSelectedCard) => {
     setValue(FORM_PURCHASE_NAME.selectedCard, {
+      brand: selectedCard.brand,
       cardNumber: selectedCard.cardNumber,
       id: selectedCard.id,
-      marca: selectedCard.marca,
       typeCard: selectedCard.typeCard,
       version: selectedCard.version,
     })

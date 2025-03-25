@@ -73,7 +73,7 @@ const ModalYourCards = ({
         {isLoadingCredit ? (
           <SkeletonCards />
         ) : (
-          dataCredit?.map(({ id, cardNumber, marca, version }) => (
+          dataCredit?.map(({ id, cardNumber, brand, version }) => (
             <CardCredit
               key={id}
               className='bg-debit !h-48 !min-h-48 cursor-pointer'
@@ -81,16 +81,16 @@ const ModalYourCards = ({
               onClick={() =>
                 onClick &&
                 onClick({
+                  brand,
                   cardNumber,
                   id,
-                  marca,
                   typeCard: TYPE_CARD.CREDIT,
                   version,
                 })
               }
               isLoading={isLoadingCredit}
               version={version}
-              brand={marca}
+              brand={brand}
             />
           ))
         )}

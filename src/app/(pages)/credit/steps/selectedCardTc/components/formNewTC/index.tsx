@@ -39,7 +39,7 @@ const FormNewTC = ({ formID, newCards }: FormNewTcProps) => {
 
   const handleSubmit = async (val: FormNewTcI) => {
     handleActionService(
-      { marca: val.brand },
+      { brand: val.brand },
       {
         onSuccess: ({ receiptID }) => {
           invalidate({ queryKey: [GET_CARD_CREDIT] })
@@ -58,7 +58,7 @@ const FormNewTC = ({ formID, newCards }: FormNewTcProps) => {
     <FormState
       onSubmit={handleSubmit}
       schema={formTransferSchema}
-      defaultValues={{ brand: isUniqueOption ? newCards?.[0].marca : '' }}
+      defaultValues={{ brand: isUniqueOption ? newCards?.[0].brand : '' }}
       id={formID}
     >
       <Text textType='font_20_24_fw_bold_fm_rob_text-100'>

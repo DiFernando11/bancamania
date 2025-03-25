@@ -20,7 +20,7 @@ const TypeCardSelected = ({
             onClick={onClick}
             isLoading={false}
             version={selectedCard?.version as VisaCard | Mastercard}
-            brand={selectedCard?.marca as TypeCardCredit}
+            brand={selectedCard?.brand as TypeCardCredit}
           />
         ) : (
           <CardDebit

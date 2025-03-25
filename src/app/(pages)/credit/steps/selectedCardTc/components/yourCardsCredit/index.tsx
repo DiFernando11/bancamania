@@ -26,7 +26,7 @@ const YourCardsCredit = ({ nextStep, updateData }: YourCardCreditProps) => {
             key={credit.id}
             onClick={() => handleSelectStep(credit.id)}
           >
-            <CreditIconName marca={credit.marca}>
+            <CreditIconName brand={credit.brand}>
               <Text className='break-all' textType='font_16_18_fw_bold_fm_rob'>
                 {credit.version}
               </Text>

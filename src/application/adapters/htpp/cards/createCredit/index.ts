@@ -3,14 +3,14 @@ import { CreateCardCreditRequest, CreateCardCreditResponse } from '@/shared'
 import { apiRequest } from '@/shared/utils'
 
 export const createCreditService = async ({
-  marca,
+  brand,
 }: CreateCardCreditRequest): Promise<CreateCardCreditResponse> => {
   const response = apiRequest<
     CreateCardCreditResponse,
     CreateCardCreditRequest
   >({
     data: {
-      marca,
+      brand,
     },
     url: apiRoutes.createCreditReceipt,
   })
