@@ -65,7 +65,7 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
   }
 
   const formPurchaseSchema = z.object({
-    deferredMonth: z.string(),
+    deferredMonth: z.number(),
     methodPay: z.nativeEnum(METHOD_PAY),
     products: z.array(
       z.object({
@@ -84,7 +84,7 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
   })
 
   const defaultValues = {
-    deferredMonth: '0',
+    deferredMonth: 1,
     methodPay: METHOD_PAY.BITCOIN,
     products: stepData.selectedCards.map(item => ({
       idProduct: item.id,

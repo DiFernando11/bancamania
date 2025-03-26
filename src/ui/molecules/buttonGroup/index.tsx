@@ -18,7 +18,7 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 
     const selected = isControlled ? value : internalSelected
 
-    const handleClick = (id: string) => {
+    const handleClick = (id: string | number) => {
       if (!isControlled) {
         setInternalSelected(id)
       }
