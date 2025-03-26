@@ -43,7 +43,7 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
       typeCard: selectedCard.typeCard,
       version: selectedCard.version,
     })
-    setValue(FORM_PURCHASE_NAME.deferredMonth, '0')
+    setValue(FORM_PURCHASE_NAME.deferredMonth, 1)
     closeModal()
   }
 

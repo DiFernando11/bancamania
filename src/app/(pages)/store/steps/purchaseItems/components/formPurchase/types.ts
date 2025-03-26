@@ -17,7 +17,7 @@ export interface FormPurchaseI {
   }[]
   totalBuy: number
   methodPay: METHOD_PAY
-  deferredMonth: string
+  deferredMonth: number
   selectedCard?: PurchaseSelectedCard
 }
 

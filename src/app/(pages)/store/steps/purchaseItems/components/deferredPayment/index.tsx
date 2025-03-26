@@ -12,17 +12,17 @@ const DeferredPayment = ({ isCredit }: { isCredit: boolean }) => {
   const deferredMonth = watch(FORM_PURCHASE_NAME.deferredMonth)
   const selectedCard = watch(FORM_PURCHASE_NAME.selectedCard)
   const options = [
-    { id: '0', label: t('singlePay') },
-    { id: '3', label: t('months', { month: '03' }) },
-    { id: '6', label: t('months', { month: '06' }) },
-    { id: '9', label: t('months', { month: '09' }) },
-    { id: '12', label: t('months', { month: '12' }) },
-    { id: '18', label: t('months', { month: '18' }) },
-    { id: '24', label: t('months', { month: '24' }) },
+    { id: 1, label: t('singlePay') },
+    { id: 3, label: t('months', { month: '03' }) },
+    { id: 6, label: t('months', { month: '06' }) },
+    { id: 9, label: t('months', { month: '09' }) },
+    { id: 12, label: t('months', { month: '12' }) },
+    { id: 18, label: t('months', { month: '18' }) },
+    { id: 24, label: t('months', { month: '24' }) },
   ]
 
-  const handleSelection = (id: string) => {
-    setValue(FORM_PURCHASE_NAME.deferredMonth, id)
+  const handleSelection = (id: number | string) => {
+    setValue(FORM_PURCHASE_NAME.deferredMonth, id as number)
   }
 
   return (
