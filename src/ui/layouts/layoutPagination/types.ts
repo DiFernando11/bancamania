@@ -6,8 +6,7 @@ export interface PaginationWrapperProps {
   isInitialLoading: boolean
   Skeleton: ReactNode
   isFetchingNextPage: boolean
-  fetchNextPage?: () => void
-  limit: number
+  fetchNextPage: () => void
   enabledInfinityScroll?: boolean
   classNameContainer?: string
   itemsClassName?: string

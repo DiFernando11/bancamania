@@ -4,7 +4,7 @@ import React, { ElementType, ComponentPropsWithRef, forwardRef } from 'react'
 import { AnimatedWrapperProps } from './types'
 
 const AnimationContainer = forwardRef<
-  HTMLDivElement, // Cambiamos de HTMLElement a HTMLDivElement
+  HTMLDivElement,
   AnimatedWrapperProps<ElementType> &
     Omit<
       ComponentPropsWithRef<ElementType>,

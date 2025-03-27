@@ -3,7 +3,7 @@ import React from 'react'
 import { Box } from '@/ui/atoms'
 import { LayoutAuthenticationPage } from '@/ui/layouts'
 import { BannerOffers, Cards } from '../components/consolidate'
-import Movements from '../components/consolidate/movements'
+import MovementsConsolidate from '../components/consolidate/movements'
 import PlayToWin from '../components/consolidate/playToWinCard'
 import QuickAccess from '../components/consolidate/quickAccess'
 
@@ -15,7 +15,7 @@ const ConsolidadaPage = () => {
         <Cards />
         <PlayToWin />
         <QuickAccess />
-        <Movements />
+        <MovementsConsolidate />
       </Box>
     </LayoutAuthenticationPage>
   )

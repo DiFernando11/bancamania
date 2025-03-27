@@ -20,7 +20,6 @@ const PaginationMoves = ({
       fetchNextPage={fetchNextPage}
       isInitialLoading={isInitialLoading}
       Skeleton={<SkeletonMoves count={limit} />}
-      limit={limit}
     >
       {movements?.map(mov => (
         <Movements
