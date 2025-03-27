@@ -28,7 +28,6 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
   const isPending = isFetchingNextPage || isInitialLoading
 
   const handleFetchMore = () => {
-    console.log('ME TIRE', hasNextPage, isPending, activeInfinityScroll)
     if (hasNextPage && !isPending && activeInfinityScroll) {
       fetchNextPage && fetchNextPage()
       setActiveInfinityScroll(false)

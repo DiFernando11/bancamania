@@ -1,11 +1,9 @@
 'use client'
 import classNames from 'classnames'
-import Image from 'next/image'
 import React from 'react'
 import { useI18Text } from '@/application/hooks'
 import { Box, Text } from '@/ui/atoms'
-import { BitcoinSymbol, CheckBox } from '@/ui/molecules'
-import GaleryCards from '@/ui/organisms/galeryCards'
+import { BitcoinSymbol, CheckBox, ImageLoad } from '@/ui/molecules'
 import { CardItemStoreProps } from './types'
 
 const CardItemStore: React.FC<CardItemStoreProps> = ({
@@ -32,7 +30,7 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
   return (
     <Box
       className={classNames(
-        'flex flex-col justify-between gap-4 cursor-pointer relative'
+        'flex flex-col justify-between gap-4 cursor-pointer relative w-full'
       )}
       onClick={handleSelection}
     >
@@ -43,13 +41,13 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
         className='!absolute right-0 top-0'
         onClick={e => e.stopPropagation()}
       />
-      <Box className='flex flex-col justify-center gap-4'>
-        <Image
+      <Box className='flex w-full flex-col justify-center items-center gap-4'>
+        <ImageLoad
           src={image}
           alt={title}
-          width={60}
-          height={60}
-          className='self-center'
+          width={80}
+          height={80}
+          className='self-center w-auto h-auto rounded-full border-2 shadow-2xl border-primary-100'
         />
         <Text
           textType='font_18_fw_bold_fm_rob_text-200'

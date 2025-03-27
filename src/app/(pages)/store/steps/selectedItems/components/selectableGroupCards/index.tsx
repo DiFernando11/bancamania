@@ -30,7 +30,7 @@ const SelectableCardsGroupStore = forwardRef<
         limit={LIMIT}
         classNameContainer='flex flex-wrap gap-4 justify-center items-stretch !space-y-0'
         itemsClassName={classNames(
-          'flex-1 w-full h-auto border p-4',
+          'flex-1 w-full h-auto border p-4 justify-center',
           'border-primary-100 rounded-lg flex min-w-[16rem]'
         )}
       >
