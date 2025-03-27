@@ -3,14 +3,9 @@ import React, { useEffect } from 'react'
 import { useFormContext } from 'react-hook-form'
 import ModalYourCards from '@/app/components/modalYourCards'
 import TypeCardSelected from '@/app/components/typeCardSelected'
-import {
-  useGetCardDebit,
-  useGetDataByKey,
-  useI18Text,
-} from '@/application/hooks'
-import { GetCardCreditResponse, TYPE_CARD } from '@/shared'
+import { useI18Text } from '@/application/hooks'
+import { TYPE_CARD } from '@/shared'
 import { useModal } from '@/shared/hooks'
-import { GET_CARD_CREDIT } from '@/shared/utils/constantsQuery'
 import { Box, Text } from '@/ui/atoms'
 import { AlertErrorService, TextError } from '@/ui/organisms'
 import DeferredPayment from '../deferredPayment'

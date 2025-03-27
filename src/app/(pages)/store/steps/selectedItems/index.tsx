@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { JSXElementConstructor } from 'react'
 import { z } from 'zod'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
 import { useI18Text } from '@/application/hooks'
@@ -53,7 +53,11 @@ const SelectedItems = ({
       >
         <FormField<FormSelectedItems>
           name={FORM_SELECTED_ITEMS_NAME.selectedCards}
-          component={SelectableCardsGroupStore}
+          component={
+            SelectableCardsGroupStore as unknown as JSXElementConstructor<
+              Record<string, unknown>
+            >
+          }
           isRequired
         />
       </FormState>

@@ -38,7 +38,7 @@ const MovementsDebit = ({
         hasNextPage={hasNextPage}
         isFetchingNextPage={isFetchingNextPage}
         movements={movements}
-        countSkeleton={LIMIT}
+        limit={LIMIT}
       />
     </>
   )
