@@ -39,6 +39,7 @@ const Contacts = ({
         fetchNextPage={fetchNextPage}
         isInitialLoading={isLoading}
         Skeleton={<SkeletonContacts count={limit} />}
+        limit={limit}
       >
         {data?.map(contact => (
           <CardContact

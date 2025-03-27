@@ -1,7 +1,9 @@
 'use client'
+import classNames from 'classnames'
 import { AnimatePresence } from 'framer-motion'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useI18Text } from '@/application/hooks'
+import { useInfiniteScroll } from '@/shared/hooks'
 import { Box, Text } from '@/ui/atoms'
 import { AnimationExpand, ButtonText } from '@/ui/molecules'
 import { PaginationWrapperProps } from './types'
@@ -13,40 +15,73 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
   isInitialLoading,
   isFetchingNextPage = false,
   Skeleton,
+  enabledInfinityScroll = false,
+  limit = 3,
+  classNameContainer,
+  itemsClassName,
 }) => {
-  const lastItemRef = useRef<HTMLDivElement>(null)
   const t = useI18Text()
+  const isFirstElementNewPageRef = useRef<HTMLDivElement | null>(null)
+  const prevRef = useRef<HTMLElement | null>(null)
+
+  const [activeInfinityScroll, setActiveInfinityScroll] = useState(false)
+  const isPending = isFetchingNextPage || isInitialLoading
+
+  const handleFetchMore = () => {
+    console.log('ME TIRE', hasNextPage, isPending, activeInfinityScroll)
+    if (hasNextPage && !isPending && activeInfinityScroll) {
+      fetchNextPage && fetchNextPage()
+      setActiveInfinityScroll(false)
+    }
+  }
+
+  const lastElementRef = useInfiniteScroll(
+    handleFetchMore,
+    enabledInfinityScroll
+  )
 
   useEffect(() => {
-    if (lastItemRef.current && isFetchingNextPage) {
-      setTimeout(() => {
-        lastItemRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }, 500)
+    const current = isFirstElementNewPageRef.current
+    let timeoutId: ReturnType<typeof setTimeout>
+
+    if (current && current !== prevRef.current && !isPending) {
+      prevRef.current = current
+
+      timeoutId = setTimeout(() => {
+        current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        setActiveInfinityScroll(true)
+      }, 100)
     }
-  }, [children])
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [isFirstElementNewPageRef.current, isPending])
 
   return (
     <Box className='flex flex-col items-center w-full gap-4'>
-      <Box className='w-full flex flex-col gap-4'>
-        {isInitialLoading
-          ? Skeleton
-          : Array.isArray(children) &&
-            children.map((child, index) => (
-              <AnimationExpand
-                key={index}
-                ref={index === children.length - 1 ? lastItemRef : null}
-              >
-                {child}
-              </AnimationExpand>
-            ))}
-        <AnimatePresence>
-          {isFetchingNextPage && <AnimationExpand>{Skeleton}</AnimationExpand>}
-        </AnimatePresence>
+      <Box className={classNames('w-full space-y-4', classNameContainer)}>
+        {Array.isArray(children) &&
+          children.map((child, index) => (
+            <AnimationExpand
+              key={index}
+              className={classNames(itemsClassName)}
+              ref={
+                index === children.length - limit
+                  ? isFirstElementNewPageRef
+                  : null
+              }
+            >
+              {child}
+            </AnimationExpand>
+          ))}
       </Box>
-      {hasNextPage && (
+      <AnimatePresence>
+        {(isFetchingNextPage || isInitialLoading) && (
+          <AnimationExpand>{Skeleton}</AnimationExpand>
+        )}
+      </AnimatePresence>
+      {hasNextPage && !enabledInfinityScroll && (
         <Box className='w-32 ml-auto self-end'>
           <ButtonText
             onClick={fetchNextPage}
@@ -55,6 +90,12 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
             text={t(isFetchingNextPage ? 'loading' : 'seeMore')}
           />
         </Box>
+      )}
+      {hasNextPage && (
+        <div
+          ref={lastElementRef}
+          className='opacity-0 pointer-events-none select-none'
+        />
       )}
     </Box>
   )

@@ -28,6 +28,7 @@ const PaginationReceipts = () => {
       fetchNextPage={fetchNextPage}
       isInitialLoading={isLoading}
       Skeleton={<SkeletonsReceipts count={LIMIT} />}
+      limit={LIMIT}
     >
       {receipts?.map(rec => (
         <ReceiptPreview

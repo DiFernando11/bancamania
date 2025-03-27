@@ -11,7 +11,7 @@ const PaginationMoves = ({
   isFetchingNextPage,
   isInitialLoading,
   hasNextPage,
-  countSkeleton = 10,
+  limit = 10,
 }: PaginationMovesProps) => {
   return (
     <PaginationWrapper
@@ -19,7 +19,8 @@ const PaginationMoves = ({
       hasNextPage={hasNextPage}
       fetchNextPage={fetchNextPage}
       isInitialLoading={isInitialLoading}
-      Skeleton={<SkeletonMoves count={countSkeleton} />}
+      Skeleton={<SkeletonMoves count={limit} />}
+      limit={limit}
     >
       {movements?.map(mov => (
         <Movements

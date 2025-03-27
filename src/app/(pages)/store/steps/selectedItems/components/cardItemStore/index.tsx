@@ -30,13 +30,9 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
   }
 
   return (
-    <GaleryCards.Card
+    <Box
       className={classNames(
-        'flex-col justify-between gap-4 cursor-pointer p-4 relative',
-        {
-          'border-gray-400 border-2': !isSelected,
-          'border-primary-100 border-2': isSelected,
-        }
+        'flex flex-col justify-between gap-4 cursor-pointer relative'
       )}
       onClick={handleSelection}
     >
@@ -44,7 +40,7 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
         value={id}
         checked={isSelected}
         onChange={handleSelection}
-        className='!absolute right-4 top-4'
+        className='!absolute right-0 top-0'
         onClick={e => e.stopPropagation()}
       />
       <Box className='flex flex-col justify-center gap-4'>
@@ -71,7 +67,7 @@ const CardItemStore: React.FC<CardItemStoreProps> = ({
           balance={t('price', { price })}
         />
       </Box>
-    </GaleryCards.Card>
+    </Box>
   )
 }
 

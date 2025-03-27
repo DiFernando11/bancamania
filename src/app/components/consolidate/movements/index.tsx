@@ -22,7 +22,7 @@ const Movements = () => {
         hasNextPage={false}
         isFetchingNextPage={false}
         movements={movements}
-        countSkeleton={LIMIT}
+        limit={LIMIT}
       />
     </Card>
   )
