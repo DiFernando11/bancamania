@@ -37,7 +37,7 @@ const CardAccount = ({
           </Text>
         </Box>
         <CardProduct.Balance
-          balance={formatMoney(balance)}
+          balance={formatMoney({ value: balance })}
           isLoading={isLoading}
           isShow={isShow}
         />

@@ -47,7 +47,7 @@ const TypeCardSelected = ({
             nextStepComponent={
               <BitcoinSymbol
                 classIcon='w-5 h-5'
-                balance={formatMoney(selectedCard?.account?.balance)}
+                balance={formatMoney({ value: selectedCard?.account?.balance })}
                 textType='font_20_fw_bold_fm_rob'
               />
             }

@@ -12,6 +12,7 @@ import SaveAccount from '../saveAccount'
 const ValidateAccount = () => {
   const { handleActionService, data, isLoading, isError, error, reset } =
     useVerifyAccount()
+  console.log({ error, isError })
   const t = useI18Text('transfer')
   const tCommon = useI18Text()
   const {
@@ -101,7 +102,7 @@ const ValidateAccount = () => {
       </Box>
       {isLoading && <PairSkeletonGroup />}
       <DataAccount data={data} />
-      <AlertErrorService error={error} isError={isError} />
+      <AlertErrorService error={error} isError={isError} isScroll />
       <SaveAccount
         disabled={Boolean(!data || data?.isAddContact)}
         data={data}

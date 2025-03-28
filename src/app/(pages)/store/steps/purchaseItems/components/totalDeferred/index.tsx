@@ -35,7 +35,7 @@ const TotalDeferred = ({
     <AnimationVisible isVisible={isVisible}>
       <BitcoinSymbol
         classIcon='w-5 h-5'
-        balance={`Total: ${formatMoney(totalPurchase)}`}
+        balance={`Total: ${formatMoney({ value: totalPurchase })}`}
         textType='font_20_fw_bold_fm_rob'
       />
       <AnimationVisible

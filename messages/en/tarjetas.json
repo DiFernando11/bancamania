@@ -21,10 +21,12 @@
   "titleDetail": "Credit card details",
   "getCard": "Get card",
   "updateVersion": "A new version awaits you. Upgrade now!",
-  "quota": "Cupo",
+  "quota": "Quota",
   "newLimit": "New limit: ",
   "active": "Active",
   "blocked": "Blocked",
+  "availableQuota": "Available quota:",
+  "consumptionDate": "Consumption to date:",
   "yourFirstCardTc": "Access exclusive benefits with your new credit card.",
   "solicLast": "Don't worry, if you choose one now, you can apply for the other later. 😉",
   "cardDebitError": "We're having trouble displaying your debit card, please try again later.",
@@ -38,5 +40,7 @@
   "state": "State:",
   "miles": "Miles: ",
   "milesBalance": "{miles} miles.",
-  "title": "My cards"
+  "title": "My cards",
+  "cardPay": "Pay card",
+  "courtStatus": "Court status"
 }

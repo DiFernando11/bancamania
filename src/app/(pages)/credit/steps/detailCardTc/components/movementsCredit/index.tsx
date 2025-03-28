@@ -29,7 +29,7 @@ const MovementsCredit = ({
 
   return (
     <>
-      <Text textType='font_20_24_fw_bold_fm_rob_text-100'>
+      <Text textType='font_20_24_fw_bold_fm_rob_text-100' id='movementCredit'>
         {tMov('titleCard')}
       </Text>
       <PaginationMoves
