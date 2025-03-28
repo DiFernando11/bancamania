@@ -21,6 +21,7 @@
   "titleDetail": "Credit card details",
   "getCard": "Get card",
   "updateVersion": "A new version awaits you. Upgrade now!",
+  "quota": "Cupo",
   "newLimit": "New limit: ",
   "active": "Active",
   "blocked": "Blocked",
@@ -36,5 +37,6 @@
   "limit": "Limit: ",
   "state": "State:",
   "miles": "Miles: ",
+  "milesBalance": "{miles} miles.",
   "title": "My cards"
 }

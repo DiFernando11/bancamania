@@ -5,6 +5,9 @@ export interface GetCardResponse {
   cvv: string
   status: string
   owner: string
+  account: {
+    balance: number
+  }
 }
 
 export interface CreateCardCreditRequest {
@@ -55,6 +58,10 @@ export interface CardCredit {
   cardNumber: string
   brand: TypeCardCredit
   version: Mastercard | VisaCard
+  interestRate: number
+  maxInstallmentsWithoutInterest: number
+  quota: number
+  miles: number
 }
 
 export type GetCardCreditResponse = CardCredit[]
@@ -90,6 +97,9 @@ export interface GetCardCreditIDResponse {
   miles: number
   limit: string
   status: string
+  interestRate: number
+  maxInstallmentsWithoutInterest: number
+  quota: number
 }
 
 export interface GetCardCreditIDRequest {

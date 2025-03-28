@@ -21,7 +21,7 @@ const SelectableCardsGroupStore = forwardRef<
 
   const error = errors?.[FORM_SELECTED_ITEMS_NAME.selectedCards]
 
-  const LIMIT = 3
+  const LIMIT = 5
   const { data, isLoading, hasNextPage, fetchNextPage, isFetchingNextPage } =
     useGetItemsStore({
       limit: LIMIT,

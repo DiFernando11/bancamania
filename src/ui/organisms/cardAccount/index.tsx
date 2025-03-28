@@ -2,6 +2,7 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 import { useI18Text } from '@/application/hooks'
+import { formatMoney } from '@/shared/utils'
 import { Box, Icon, Text } from '@/ui/atoms'
 import CardProduct from '../cardProduct'
 import CardAccountBack from './cardAccountBack'
@@ -36,7 +37,7 @@ const CardAccount = ({
           </Text>
         </Box>
         <CardProduct.Balance
-          balance={balance}
+          balance={formatMoney(balance)}
           isLoading={isLoading}
           isShow={isShow}
         />

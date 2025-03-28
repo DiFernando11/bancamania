@@ -10,7 +10,7 @@ const HeaderCard = ({
   iconName?: IconNames
 }) => {
   return (
-    <Box className='-mt-2'>
+    <Box className='-mt-2 flex flex-col items-center'>
       <Icon name={iconName} className='w-12 h-12' />
       <Text textType='font_14_fw_bold_fm_rob' className='text-center'>
         {text}

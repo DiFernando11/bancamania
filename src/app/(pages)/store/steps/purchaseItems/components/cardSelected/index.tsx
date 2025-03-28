@@ -32,9 +32,15 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
 
   const handleValue = (selectedCard: PurchaseSelectedCard) => {
     setValue(FORM_PURCHASE_NAME.selectedCard, {
+      account: selectedCard.account,
       brand: selectedCard.brand,
       cardNumber: selectedCard.cardNumber,
       id: selectedCard.id,
+      interestRate: selectedCard.interestRate,
+      maxInstallmentsWithoutInterest:
+        selectedCard.maxInstallmentsWithoutInterest,
+      miles: selectedCard.miles,
+      quota: selectedCard.quota,
       typeCard: selectedCard.typeCard,
       version: selectedCard.version,
     })
@@ -45,6 +51,7 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
   useEffect(() => {
     if (cardDebit?.id) {
       setValue(FORM_PURCHASE_NAME.selectedCard, {
+        account: cardDebit.account,
         cardNumber: cardDebit.cardNumber,
         id: cardDebit.id,
         typeCard: TYPE_CARD.DEBIT,
@@ -60,6 +67,7 @@ const CardSelected = ({ cardDebit, isLoading, isError }: CardSelectedProps) => {
       />
       {!isError && (
         <TypeCardSelected
+          isBitcoinMethod={isBitcoinMethod}
           selectedCard={selectedCard}
           isLoading={isLoading}
           onClick={() => openModal(<ModalYourCards onClick={handleValue} />)}

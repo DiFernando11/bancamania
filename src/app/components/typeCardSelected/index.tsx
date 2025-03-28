@@ -1,12 +1,21 @@
 import React from 'react'
 import { Mastercard, TYPE_CARD, TypeCardCredit, VisaCard } from '@/shared'
-import { CardCredit, CardDebit, SkeletonLoader } from '@/ui/organisms'
+import { formatMoney } from '@/shared/utils'
+import { Box, Text } from '@/ui/atoms'
+import { BitcoinSymbol } from '@/ui/molecules'
+import {
+  BalanceCredit,
+  CardCredit,
+  CardDebit,
+  SkeletonLoader,
+} from '@/ui/organisms'
 import { TypeCardSelectedProps } from './types'
 
 const TypeCardSelected = ({
   onClick,
   isLoading,
   selectedCard,
+  isBitcoinMethod,
 }: TypeCardSelectedProps) => {
   const isCredit = selectedCard?.typeCard === TYPE_CARD.CREDIT
 
@@ -21,6 +30,13 @@ const TypeCardSelected = ({
             isLoading={false}
             version={selectedCard?.version as VisaCard | Mastercard}
             brand={selectedCard?.brand as TypeCardCredit}
+            nextStepComponent={
+              <BalanceCredit
+                isBitcoin={isBitcoinMethod}
+                miles={selectedCard.miles}
+                quota={selectedCard.quota}
+              />
+            }
           />
         ) : (
           <CardDebit
@@ -28,6 +44,13 @@ const TypeCardSelected = ({
             textAccount={selectedCard?.cardNumber}
             isLoading={false}
             onClick={onClick}
+            nextStepComponent={
+              <BitcoinSymbol
+                classIcon='w-5 h-5'
+                balance={formatMoney(selectedCard?.account?.balance)}
+                textType='font_20_fw_bold_fm_rob'
+              />
+            }
           />
         )}
       </SkeletonLoader>
