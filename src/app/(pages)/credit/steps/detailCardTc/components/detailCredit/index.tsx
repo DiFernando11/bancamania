@@ -3,6 +3,7 @@ import React from 'react'
 import CreditIconName from '@/app/(pages)/credit/shared/creditIconName'
 import { useI18Text } from '@/application/hooks'
 import { CardStatus, TypeCardCredit } from '@/shared'
+import { formatMoney } from '@/shared/utils'
 import { Box, Text } from '@/ui/atoms'
 import { DetailTextSkeleton, SkeletonLoader } from '@/ui/organisms'
 import { DetailCreditProps } from './types'
@@ -11,6 +12,16 @@ const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
   const t = useI18Text('tarjetas')
 
   const items = [
+    {
+      classSkeleton: 'w-36 h-5',
+      textKey: t('consumptionDate'),
+      textValue: formatMoney({ showSymbol: true, value: data?.quota }),
+    },
+    {
+      classSkeleton: 'w-36 h-5',
+      textKey: t('availableQuota'),
+      textValue: formatMoney({ showSymbol: true, value: data?.quota }),
+    },
     {
       classSkeleton: 'w-48 h-5',
       textKey: t('numberCardKey'),
@@ -26,8 +37,16 @@ const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
       textValue: data?.expirationDate,
       width: 'w-52 h-5',
     },
-    { classSkeleton: 'w-32 h-5', textKey: t('limit'), textValue: data?.limit },
-    { classSkeleton: 'w-32 h-5', textKey: t('miles'), textValue: data?.miles },
+    {
+      classSkeleton: 'w-32 h-5',
+      textKey: t('limit'),
+      textValue: formatMoney({ value: data?.limit }),
+    },
+    {
+      classSkeleton: 'w-32 h-5',
+      textKey: t('miles'),
+      textValue: formatMoney({ value: data?.miles }),
+    },
     {
       classSkeleton: 'w-40 h-5',
       textKey: t('state'),

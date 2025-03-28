@@ -24,7 +24,7 @@ const BalanceCredit = ({
           </Text>
           <BitcoinSymbol
             classIcon='w-5 h-5'
-            balance={formatMoney(quota)}
+            balance={formatMoney({ value: quota })}
             textType='font_20_fw_bold_fm_rob'
           />
         </Box>

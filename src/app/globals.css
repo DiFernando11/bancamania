@@ -28,6 +28,7 @@ body {
   url('../../public/bg-layout.png')
   repeat;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 p,
 span,

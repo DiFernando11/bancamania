@@ -23,14 +23,23 @@ const AlertErrorService = ({
 
   return (
     <AnimationVisible isVisible={isError}>
-      <ScrollIntoView isVisible={isError} isNotScroll={isError && !isScroll}>
+      {isScroll ? (
+        <ScrollIntoView isVisible={isError}>
+          <Alert type='error'>
+            <Text>{errorMessage}</Text>
+            {hasFieldErrors && (
+              <ShowFieldError errors={errorObj?.error as ErrorField[]} />
+            )}
+          </Alert>
+        </ScrollIntoView>
+      ) : (
         <Alert type='error'>
           <Text>{errorMessage}</Text>
           {hasFieldErrors && (
             <ShowFieldError errors={errorObj?.error as ErrorField[]} />
           )}
         </Alert>
-      </ScrollIntoView>
+      )}
     </AnimationVisible>
   )
 }
