@@ -8,6 +8,13 @@ export interface PurchaseSelectedCard {
   version?: string
   cardNumber: string
   typeCard: TYPE_CARD
+  interestRate?: number
+  maxInstallmentsWithoutInterest?: number
+  quota?: number
+  miles?: number
+  account?: {
+    balance: number
+  }
 }
 
 export interface FormPurchaseI {

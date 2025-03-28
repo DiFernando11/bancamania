@@ -17,6 +17,7 @@ const FormField = <
   classNameForm = '',
   classNameTextError,
   isRequired = false,
+  isError = true,
   onChange,
   ...props
 }: FormFieldProps<T, P>) => {
@@ -56,7 +57,7 @@ const FormField = <
               className={classNameTextError}
               id={name}
               error={error}
-              isValidate={Boolean(error)}
+              isValidate={Boolean(error && isError)}
             />
           </>
         )}

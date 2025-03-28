@@ -58,6 +58,7 @@ const SelectedItems = ({
               Record<string, unknown>
             >
           }
+          isError={false}
           isRequired
         />
       </FormState>

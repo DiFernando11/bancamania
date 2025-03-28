@@ -61,6 +61,7 @@ const ModalYourCards = ({
                 onClick={() =>
                   onClick &&
                   onClick({
+                    account: data?.account,
                     cardNumber: data?.cardNumber as string,
                     id: data?.id as string,
                     typeCard: TYPE_CARD.DEBIT,
@@ -73,26 +74,41 @@ const ModalYourCards = ({
         {isLoadingCredit ? (
           <SkeletonCards />
         ) : (
-          dataCredit?.map(({ id, cardNumber, brand, version }) => (
-            <CardCredit
-              key={id}
-              className='bg-debit !h-48 !min-h-48 cursor-pointer'
-              textAccount={cardNumber}
-              onClick={() =>
-                onClick &&
-                onClick({
-                  brand,
-                  cardNumber,
-                  id,
-                  typeCard: TYPE_CARD.CREDIT,
-                  version,
-                })
-              }
-              isLoading={isLoadingCredit}
-              version={version}
-              brand={brand}
-            />
-          ))
+          dataCredit?.map(
+            ({
+              id,
+              cardNumber,
+              brand,
+              version,
+              interestRate,
+              maxInstallmentsWithoutInterest,
+              quota,
+              miles,
+            }) => (
+              <CardCredit
+                key={id}
+                className='bg-debit !h-48 !min-h-48 cursor-pointer'
+                textAccount={cardNumber}
+                onClick={() =>
+                  onClick &&
+                  onClick({
+                    brand,
+                    cardNumber,
+                    id,
+                    interestRate,
+                    maxInstallmentsWithoutInterest,
+                    miles,
+                    quota,
+                    typeCard: TYPE_CARD.CREDIT,
+                    version,
+                  })
+                }
+                isLoading={isLoadingCredit}
+                version={version}
+                brand={brand}
+              />
+            )
+          )
         )}
         <AlertErrorService
           isError={isErrorCredit}

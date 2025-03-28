@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box } from '@/ui/atoms'
 import ErrorImage from './errorImage'
 import { ImageLoadProps } from './types'
@@ -11,17 +11,23 @@ const ImageLoad: React.FC<ImageLoadProps> = ({
   width,
   height,
   alt = '',
+  src,
   ...props
 }) => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    setIsError(false)
+  }, [src])
 
   return (
     <Box
       className={classNames('relative', containerClassName)}
       style={{ height, width }}
     >
-      {isLoading && (
+      {isLoading && !isError && (
         <Box
           className={classNames(
             'absolute bg-loading-100 animate-pulse',
@@ -37,23 +43,26 @@ const ImageLoad: React.FC<ImageLoadProps> = ({
           className={className}
         />
       )}
-      <Image
-        {...props}
-        alt={alt}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsError(true)}
-        width={width}
-        height={height}
-        style={{ height, width }}
-        className={classNames(
-          'transition-opacity duration-500',
-          {
-            'opacity-0': isLoading,
-            'opacity-100': !isLoading,
-          },
-          className
-        )}
-      />
+      {!isError && (
+        <Image
+          {...props}
+          src={src}
+          alt={alt}
+          onLoad={() => setIsLoading(false)}
+          onError={() => setIsError(true)}
+          width={width}
+          height={height}
+          style={{ height, minWidth: width, width }}
+          className={classNames(
+            'transition-opacity duration-500',
+            {
+              'opacity-0': isLoading,
+              'opacity-100': !isLoading,
+            },
+            className
+          )}
+        />
+      )}
     </Box>
   )
 }

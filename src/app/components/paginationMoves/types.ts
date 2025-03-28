@@ -4,4 +4,5 @@ import { PaginationWrapperProps } from '@/ui/layouts/layoutPagination/types'
 export interface PaginationMovesProps
   extends Omit<PaginationWrapperProps, 'children' | 'Skeleton'> {
   movements?: Movement[]
+  limit?: number
 }

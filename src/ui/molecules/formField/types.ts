@@ -15,5 +15,6 @@ export type FormFieldProps<
   suggestionValue?: string
   classNameTextError?: string
   isRequired?: boolean
+  isError?: boolean
 } & InputHTMLAttributes<HTMLInputElement> &
   P
