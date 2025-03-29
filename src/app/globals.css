@@ -286,6 +286,10 @@ input:focus {
   @apply text-base sm:text-lg font-bold font-roboto;
 }
 
+.font_18_20_fw_bold_fm_rob {
+  @apply text-lg sm:text-xl font-bold font-roboto;
+}
+
 /* subtitle */
 .font_24_30_fw_bold_fm_rob {
   @apply text-2xl font-bold font-roboto sm:text-3xl;

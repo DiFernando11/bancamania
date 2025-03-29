@@ -22,4 +22,6 @@ export interface GetInstallmentsCreditsResponse {
   totalAmount: string
   installments: Installments[]
   lastDayWithoutInterest: Date
+  minimumPayment: string
+  totalPaymentAtOnce: string
 }

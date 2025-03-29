@@ -7,6 +7,8 @@ import { BitcoinSymbol } from '@/ui/molecules'
 import { AlertErrorService, SkeletonLoader } from '@/ui/organisms'
 import SkeletonsInstallments from './installmensSkeleton'
 import Installments from './installments'
+import FormPayCredit from '../formPayCredit'
+import SkeletonPayCredit from '../formPayCredit/skeletonPayCredit'
 
 const InstallmentsPending = ({ id }: { id: string }) => {
   const t = useI18Text('tarjetas')
@@ -23,7 +25,7 @@ const InstallmentsPending = ({ id }: { id: string }) => {
           balance={t('totalConsumption', {
             total: formatMoney({ value: data?.totalAmount }),
           })}
-          textType='font_18_fw_bold_fm_rob'
+          textType='font_18_20_fw_bold_fm_rob'
           classIcon='w-6 h-6'
         />
       </SkeletonLoader>
@@ -37,7 +39,19 @@ const InstallmentsPending = ({ id }: { id: string }) => {
           })}
         </Text>
       </SkeletonLoader>
-      {isLoading && <SkeletonsInstallments count={5} />}
+      {data && (
+        <FormPayCredit
+          minimumPayment={data?.minimumPayment}
+          totalAmount={data?.totalAmount}
+          totalPaymentAtOnce={data?.totalPaymentAtOnce}
+        />
+      )}
+      {isLoading && (
+        <>
+          <SkeletonPayCredit />
+          <SkeletonsInstallments count={5} />
+        </>
+      )}
       {data?.installments?.map(
         ({
           id,
