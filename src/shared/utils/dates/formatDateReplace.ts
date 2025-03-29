@@ -8,8 +8,8 @@ export const formatDateReplace = (
 ): string => {
   const date = typeof dateInput === 'string' ? parseISO(dateInput) : dateInput
 
-  if (isNaN(date.getTime())) {
-    throw new Error('Fecha inválida')
+  if (isNaN(date?.getTime()) || !date) {
+    return '00-00-0000'
   }
 
   const locales = { en: enUS, es }

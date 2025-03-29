@@ -4,6 +4,7 @@ import {
   GetInstallmentsCreditsRequest,
   GetInstallmentsCreditsResponse,
 } from '@/shared/types/installments'
+import { isValidUUIDv4 } from '@/shared/utils'
 import { GET_INSTALLMENT } from '@/shared/utils/constantsQuery'
 import { useFetchService } from '../../generics'
 
@@ -12,7 +13,10 @@ export const useGetInstallmentsCredit = ({
 }: GetInstallmentsCreditsRequest) => {
   const queryResult = useFetchService<GetInstallmentsCreditsResponse>(
     [GET_INSTALLMENT, creditId],
-    () => getInstallmentsCredit({ creditId })
+    () => getInstallmentsCredit({ creditId }),
+    {
+      enabled: isValidUUIDv4(creditId),
+    }
   )
 
   return {

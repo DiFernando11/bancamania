@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
+import ValidUUIDShow from '@/app/components/validUUIDShow'
 import { useGetCardCreditID, useI18Text } from '@/application/hooks'
 import { isValidUUIDv4 } from '@/shared/utils'
 import { Box } from '@/ui/atoms'
@@ -35,28 +36,30 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
       i18nTitle={t('titleDetail')}
       footerBox={<ButtonActionSimple />}
     >
-      <AlertErrorService error={error} isError={isError} />
-      {!isError && (
-        <>
-          <DetailCredit
-            formID={formID}
-            data={data}
-            isLoading={isLoading}
-            isChecked={isChecked}
-            id={id}
-          />
-          <ActiveCardCredit
-            isChecked={isChecked}
-            setChecked={setChecked}
-            isLoadingCard={isLoading}
-            status={data?.status}
-            id={id}
-          />
-        </>
-      )}
-      <ActionsCredit id={id} />
-      <NewVersion id={id} />
-      <MovementsCredit id={id} isLoadingCredit={isLoading} />
+      <ValidUUIDShow id={id}>
+        <AlertErrorService error={error} isError={isError} />
+        {!isError && (
+          <>
+            <DetailCredit
+              formID={formID}
+              data={data}
+              isLoading={isLoading}
+              isChecked={isChecked}
+              id={id}
+            />
+            <ActiveCardCredit
+              isChecked={isChecked}
+              setChecked={setChecked}
+              isLoadingCard={isLoading}
+              status={data?.status}
+              id={id}
+            />
+          </>
+        )}
+        <ActionsCredit id={id} />
+        <NewVersion id={id} />
+        <MovementsCredit id={id} isLoadingCredit={isLoading} />
+      </ValidUUIDShow>
     </LayoutAuthenticationPage>
   )
 }

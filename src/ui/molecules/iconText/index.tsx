@@ -11,7 +11,7 @@ const IconText = ({
   classText,
 }: IconTextProps) => {
   return (
-    <Box className='flex w-full items-center gap-4'>
+    <Box className='flex w-full items-center gap-2'>
       <Icon name={nameIcon} className={classIcon} color={iconColor} />
       <Text className={classText} textType={textType}>
         {text}
