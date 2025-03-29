@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import ButtonActionSimple from '@/app/components/buttonActionSimple'
+import ValidUUIDShow from '@/app/components/validUUIDShow'
 import { useGetCardCreditID, useI18Text } from '@/application/hooks'
 import { isValidUUIDv4 } from '@/shared/utils'
 import { Box } from '@/ui/atoms'
@@ -17,12 +18,13 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
   const formID = 'FORM_DETAIL_TC'
   const t = useI18Text('tarjetas')
   const tCommon = useI18Text()
+  const { id } = params
   const { data, isLoading, error, isError } = useGetCardCreditID({
-    creditID: params.id,
+    creditID: id,
   })
   const [isChecked, setChecked] = useState<boolean>(false)
 
-  if (!isValidUUIDv4(params.id))
+  if (!isValidUUIDv4(id))
     return (
       <Box className='m-4'>
         <Alert type='error'>{tCommon('invalidId')}</Alert>
@@ -34,28 +36,30 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
       i18nTitle={t('titleDetail')}
       footerBox={<ButtonActionSimple />}
     >
-      <AlertErrorService error={error} isError={isError} />
-      {!isError && (
-        <>
-          <DetailCredit
-            formID={formID}
-            data={data}
-            isLoading={isLoading}
-            isChecked={isChecked}
-            id={params.id}
-          />
-          <ActiveCardCredit
-            isChecked={isChecked}
-            setChecked={setChecked}
-            isLoadingCard={isLoading}
-            status={data?.status}
-            id={params.id}
-          />
-        </>
-      )}
-      <ActionsCredit />
-      <NewVersion id={params.id} />
-      <MovementsCredit id={params.id} isLoadingCredit={isLoading} />
+      <ValidUUIDShow id={id}>
+        <AlertErrorService error={error} isError={isError} />
+        {!isError && (
+          <>
+            <DetailCredit
+              formID={formID}
+              data={data}
+              isLoading={isLoading}
+              isChecked={isChecked}
+              id={id}
+            />
+            <ActiveCardCredit
+              isChecked={isChecked}
+              setChecked={setChecked}
+              isLoadingCard={isLoading}
+              status={data?.status}
+              id={id}
+            />
+          </>
+        )}
+        <ActionsCredit id={id} />
+        <NewVersion id={id} />
+        <MovementsCredit id={id} isLoadingCredit={isLoading} />
+      </ValidUUIDShow>
     </LayoutAuthenticationPage>
   )
 }

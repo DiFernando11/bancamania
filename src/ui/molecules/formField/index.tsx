@@ -19,6 +19,7 @@ const FormField = <
   isRequired = false,
   isError = true,
   onChange,
+  labelClass,
   ...props
 }: FormFieldProps<T, P>) => {
   const { control } = useFormContext<T>()
@@ -27,8 +28,10 @@ const FormField = <
   return (
     <Box className={`flex flex-col gap-1 ${classNameForm}`}>
       {label && (
-        <Box className='flex gap-2 items-center'>
-          <label htmlFor={name}>{label}</label>
+        <Box className={classNames('flex gap-2 items-center', labelClass)}>
+          <label className='text-center' htmlFor={name}>
+            {label}
+          </label>
           <Text
             className={classNames({ 'text-error': isRequired })}
             textType='font_12_fm_rob'

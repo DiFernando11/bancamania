@@ -1,5 +1,6 @@
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { ReactNode } from 'react'
+import type { JSXElementConstructor } from 'react'
 
 export type StoragePrimitive =
   | string
@@ -33,3 +34,5 @@ export interface MenuContextualProps {
   t: (key: string) => string
   route: AppRouterInstance
 }
+
+export type FormFieldProps = JSXElementConstructor<Record<string, unknown>>

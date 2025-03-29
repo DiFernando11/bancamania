@@ -190,6 +190,15 @@ input:focus {
     aspect-ratio: 1 / 1;
   }
 
+  .warning-gradient{
+    background: radial-gradient(
+    circle,
+    transparent 60%,
+  rgba(255, 0, 0, 0.1) 80%,
+  rgba(255, 0, 0, 0.2) 90%,
+  rgba(255, 0, 0, 0.3) 100%
+  );
+ }
 }
 
 /* fonts  */
@@ -275,6 +284,10 @@ input:focus {
 
 .font_16_18_fw_bold_fm_rob {
   @apply text-base sm:text-lg font-bold font-roboto;
+}
+
+.font_18_20_fw_bold_fm_rob {
+  @apply text-lg sm:text-xl font-bold font-roboto;
 }
 
 /* subtitle */

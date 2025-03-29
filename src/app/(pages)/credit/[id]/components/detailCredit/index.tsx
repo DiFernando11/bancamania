@@ -25,7 +25,7 @@ const DetailCredit = ({
   })
 
   const totalAmount =
-    !isError && dataInstallment?.totalAmount
+    !isError && typeof dataInstallment?.totalAmount === 'number'
       ? [
           {
             classSkeleton: 'w-36 h-5',

@@ -16,5 +16,6 @@ export type FormFieldProps<
   classNameTextError?: string
   isRequired?: boolean
   isError?: boolean
+  labelClass?: string
 } & InputHTMLAttributes<HTMLInputElement> &
   P

@@ -9,6 +9,7 @@ import {
 } from '@/application/hooks'
 import { useCreateTransfer } from '@/application/hooks/transfers/useCreateTransfer'
 import { clientRoutes } from '@/routes/clientRoutes'
+import { FormFieldProps } from '@/shared'
 import { useGlobalLoading, useNavigation } from '@/shared/hooks'
 import { formatToMoney, replaceDynamicsRoutes } from '@/shared/utils'
 import {
@@ -96,7 +97,7 @@ const FormConfirmTransfer = ({
             'sm:!max-w-[20rem] sm:!text-5xl'
           )}
           classNameTextError='text-center'
-          component={InputMoney}
+          component={InputMoney as unknown as FormFieldProps}
           placeholder='0.00'
           maxLength={10}
         />
