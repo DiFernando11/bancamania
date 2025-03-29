@@ -23,6 +23,7 @@
   "requiredCard": "Selecciona una tarjeta para continuar con el pago",
   "cardDebitError": "Tenemos problemas en mostrar tu tarjeta de debito, intentalo mas tarde",
   "cardCreditsError": "Tenemos problemas en mostrar tu(s) tarjeta(s) de credito, intentalo mas tarde",
+  "errorGetInstallmentAmount": "Tuvimos problemas al mostrar el total de tus consumos a la fecha",
   "newLimit": "Nuevo limite: ",
   "getCard": "Obtener tarjeta",
   "cardPay": "Pagar tarjeta",

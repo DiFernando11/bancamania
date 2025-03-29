@@ -42,6 +42,7 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
             data={data}
             isLoading={isLoading}
             isChecked={isChecked}
+            id={params.id}
           />
           <ActiveCardCredit
             isChecked={isChecked}

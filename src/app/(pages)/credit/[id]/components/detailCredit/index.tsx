@@ -1,22 +1,47 @@
 'use client'
 import React from 'react'
 import CreditIconName from '@/app/(pages)/credit/shared/creditIconName'
-import { useI18Text } from '@/application/hooks'
+import { useGetInstallmentsCredit, useI18Text } from '@/application/hooks'
 import { CardStatus, TypeCardCredit } from '@/shared'
 import { formatMoney } from '@/shared/utils'
 import { Box, Text } from '@/ui/atoms'
-import { DetailTextSkeleton, SkeletonLoader } from '@/ui/organisms'
+import { TextType } from '@/ui/atoms/text/types'
+import {
+  AlertErrorService,
+  DetailTextSkeleton,
+  SkeletonLoader,
+} from '@/ui/organisms'
 import { DetailCreditProps } from './types'
 
-const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
+const DetailCredit = ({
+  data,
+  isLoading,
+  isChecked,
+  id,
+}: DetailCreditProps) => {
   const t = useI18Text('tarjetas')
+  const { data: dataInstallment, isError } = useGetInstallmentsCredit({
+    creditId: id,
+  })
+
+  const totalAmount =
+    !isError && dataInstallment?.totalAmount
+      ? [
+          {
+            classSkeleton: 'w-36 h-5',
+            textKey: t('consumptionDate'),
+            textTypeKey: 'font_20_24_fw_bold_fm_rob_text-100' as TextType,
+            textTypeValue: 'font_20_24_fw_bold_fm_rob_text-200' as TextType,
+            textValue: formatMoney({
+              showSymbol: true,
+              value: dataInstallment?.totalAmount,
+            }),
+          },
+        ]
+      : []
 
   const items = [
-    {
-      classSkeleton: 'w-36 h-5',
-      textKey: t('consumptionDate'),
-      textValue: formatMoney({ showSymbol: true, value: data?.quota }),
-    },
+    ...totalAmount,
     {
       classSkeleton: 'w-36 h-5',
       textKey: t('availableQuota'),
@@ -65,6 +90,10 @@ const DetailCredit = ({ data, isLoading, isChecked }: DetailCreditProps) => {
           </Text>
         </CreditIconName>
       </SkeletonLoader>
+      <AlertErrorService
+        isError={isError}
+        error={{ message: t('errorGetInstallmentAmount') }}
+      />
       <DetailTextSkeleton isLoading={isLoading} items={items} />
     </Box>
   )

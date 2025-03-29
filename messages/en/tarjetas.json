@@ -28,6 +28,7 @@
   "availableQuota": "Available quota:",
   "consumptionDate": "Consumption to date:",
   "yourFirstCardTc": "Access exclusive benefits with your new credit card.",
+  "errorGetInstallmentAmount": "We had problems showing your total usage to date.",
   "solicLast": "Don't worry, if you choose one now, you can apply for the other later. 😉",
   "cardDebitError": "We're having trouble displaying your debit card, please try again later.",
   "cardCreditsError": "We're having trouble displaying your credit card(s), please try again later.",

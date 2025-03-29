@@ -5,4 +5,5 @@ export interface DetailCreditProps {
   isLoading: boolean
   data?: GetCardCreditIDResponse
   isChecked: boolean
+  id: string
 }
