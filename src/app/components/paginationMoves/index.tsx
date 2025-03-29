@@ -21,7 +21,7 @@ const PaginationMoves = ({
   return (
     <>
       <AlertInfoAnimation
-        isVisible={movements?.length === 0}
+        isVisible={movements?.length === 0 && !isInitialLoading}
         message={t('movementsNotFound')}
       />
       <PaginationWrapper

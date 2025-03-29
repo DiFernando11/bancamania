@@ -1,0 +1,1 @@
+export { useGetInstallmentsCredit } from './useGetInstallmentsCredit'
