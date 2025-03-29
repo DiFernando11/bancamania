@@ -20,7 +20,7 @@ import { Card, PairText } from '@/ui/molecules'
 import { AlertErrorService } from '@/ui/organisms'
 import { NewVersionProps } from './types'
 
-const NewVersion = ({ stepData }: NewVersionProps) => {
+const NewVersion = ({ id }: NewVersionProps) => {
   const { data } = useGetOffertsCredit()
   const { handleActionService, error, isError, isLoading } = useUpgradeCredit()
   const { invalidate } = useRemoveQueries()
@@ -29,9 +29,7 @@ const NewVersion = ({ stepData }: NewVersionProps) => {
   const router = useNavigation()
   useGlobalLoading([isLoading])
 
-  const newVersion = data?.increaseVersion?.find(
-    card => card.id === stepData.id
-  )
+  const newVersion = data?.increaseVersion?.find(card => card.id === id)
 
   const handleRequest = () => {
     handleActionService(
@@ -39,7 +37,7 @@ const NewVersion = ({ stepData }: NewVersionProps) => {
       {
         onSuccess: data => {
           invalidate({ queryKey: [GET_CARD_CREDIT] })
-          invalidate({ queryKey: [GET_CREDIT_BY_ID, stepData.id] })
+          invalidate({ queryKey: [GET_CREDIT_BY_ID, id] })
           invalidate({ queryKey: [GET_OFFERTS_CREDIT] })
           invalidate({ queryKey: [GET_MOVEMENTS] })
           router.push(

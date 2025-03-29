@@ -44,7 +44,7 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
             children.map((child, index) => (
               <AnimationExpand
                 key={index}
-                className={classNames(itemsClassName)}
+                className={classNames(itemsClassName, 'w-full')}
                 onTransitionEnd={() => setActiveInfinityScroll(true)}
               >
                 {child}
@@ -54,7 +54,9 @@ const PaginationWrapper: React.FC<PaginationWrapperProps> = ({
       </Box>
       <AnimatePresence mode='popLayout'>
         {(isFetchingNextPage || isInitialLoading) && (
-          <AnimationExpand>{Skeleton}</AnimationExpand>
+          <AnimationExpand className={classNames(itemsClassName, 'w-full')}>
+            {Skeleton}
+          </AnimationExpand>
         )}
       </AnimatePresence>
       {hasNextPage && !isPending && (

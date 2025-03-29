@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { TypeCardCredit } from '@/shared'
 import { Box, Icon, Text } from '@/ui/atoms'
 import { IconNames } from '@/ui/atoms/icons/icon/types'
-import { NAME_ICONS } from '../../steps/selectedCardTc/components/yourCardsCredit/constants'
+import { NAME_ICONS } from '../../components/yourCardsCredit/constants'
 
 const CreditIconName = ({
   brand,

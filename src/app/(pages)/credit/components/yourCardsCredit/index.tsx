@@ -1,18 +1,24 @@
 import React from 'react'
 import { useGetCardsCredit, useI18Text } from '@/application/hooks'
+import { clientRoutes } from '@/routes/clientRoutes'
+import { useNavigation } from '@/shared/hooks'
+import { replaceDynamicsRoutes } from '@/shared/utils'
 import { Box, Text } from '@/ui/atoms'
 import { AlertErrorService, SelectedOption } from '@/ui/organisms'
 import SkeletonCardsCredit from './skeleton'
-import { YourCardCreditProps } from './types'
-import CreditIconName from '../../../../shared/creditIconName'
+import CreditIconName from '../../shared/creditIconName'
 
-const YourCardsCredit = ({ nextStep, updateData }: YourCardCreditProps) => {
+const YourCardsCredit = () => {
   const { data, isLoading, error, isError } = useGetCardsCredit()
+  const route = useNavigation()
   const t = useI18Text('tarjetas')
 
   const handleSelectStep = (id: string) => {
-    updateData({ id })
-    nextStep()
+    route.push(
+      replaceDynamicsRoutes(clientRoutes.detailCredit.path, {
+        id,
+      })
+    )
   }
 
   return (

@@ -10,5 +10,12 @@
     "middleware": "private",
     "path": "/credit",
     "code": "CREDIT"
+  },
+  "detailCredit": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/credit/:id",
+    "code": "CREDIT_DETAIL",
+    "lineageCode": "CREDIT"
   }
 }
