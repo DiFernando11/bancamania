@@ -2,6 +2,7 @@ export const codesEnabled: Record<string, boolean> = {
   ACCOUNT: true,
   CONSOLIDADA: true,
   CREDIT: true,
+  CREDIT_DETAIL: true,
   CUENTAS_DETALLE: true,
   DEBIT: true,
   LOGIN: true,

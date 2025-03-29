@@ -39,6 +39,7 @@ export const useGetMovements = ({
 
   return {
     data: queryResult.data,
+    error: queryResult.error,
     fetchNextPage: queryResult.fetchNextPage,
     fetchPreviousPage: queryResult.fetchPreviousPage,
     hasNextPage: queryResult.hasNextPage,

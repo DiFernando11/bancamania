@@ -19,6 +19,7 @@
   "nameKey": "Name :",
   "notFoundResult": "No results found",
   "email": "Email: ",
+  "invalidId": "Invalid request. Please check the URL or try again.",
   "optional": "(optional)",
   "required": "*required",
   "suggestion": "Hint: {sug} - press (TAB ↹)",

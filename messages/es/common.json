@@ -16,6 +16,7 @@
   "date": "Fecha: {date}",
   "download": "Descargar",
   "notFoundResult": "No se encontraron resultados",
+  "invalidId": "Solicitud inválida. Verifica la URL o inténtalo de nuevo.",
   "actions": "Acciones",
   "clean": "Limpiar",
   "nameKey": "Nombre: ",

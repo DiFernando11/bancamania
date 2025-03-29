@@ -1,4 +1,5 @@
 {
   "titleAccount": "My account movements",
-  "titleCard": "My Card movements"
+  "titleCard": "My Card movements",
+  "movementsNotFound": "There are no movements for this product"
 }

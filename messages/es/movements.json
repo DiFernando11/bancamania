@@ -1,4 +1,5 @@
 {
   "titleAccount": "Movimientos de mi cuenta",
-  "titleCard": "Movimientos de mi Tarjeta"
+  "titleCard": "Movimientos de mi Tarjeta",
+  "movementsNotFound": "No existen movimientos para este producto"
 }

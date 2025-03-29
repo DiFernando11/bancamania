@@ -9,10 +9,10 @@ const ActiveCardCredit = ({
   isLoadingCard,
   setChecked,
   isChecked,
-  stepData,
+  id,
 }: ActiveCardCreditProps) => {
   const { handleActionService, isError, error, isLoading } =
-    useUpdateStatusCredit({ id: stepData.id })
+    useUpdateStatusCredit({ id })
 
   return (
     <ActiveCard
@@ -25,7 +25,7 @@ const ActiveCardCredit = ({
       error={error}
       isLoading={isLoading}
       queryKey={GET_CREDIT_BY_ID}
-      paramsQuery={stepData.id}
+      paramsQuery={id}
     />
   )
 }
