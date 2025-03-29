@@ -11,7 +11,7 @@ export const useGetInstallmentsCredit = ({
   creditId,
 }: GetInstallmentsCreditsRequest) => {
   const queryResult = useFetchService<GetInstallmentsCreditsResponse>(
-    [GET_INSTALLMENT],
+    [GET_INSTALLMENT, creditId],
     () => getInstallmentsCredit({ creditId })
   )
 

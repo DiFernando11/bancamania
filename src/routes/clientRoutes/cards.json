@@ -17,5 +17,12 @@
     "path": "/credit/:id",
     "code": "CREDIT_DETAIL",
     "lineageCode": "CREDIT"
+  },
+  "purchaseCredit": {
+    "layout": "private",
+    "middleware": "private",
+    "path": "/credit/:id/purchase",
+    "code": "CREDIT_PURCHASE",
+    "lineageCode": "CREDIT"
   }
 }

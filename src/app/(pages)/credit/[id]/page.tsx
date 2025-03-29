@@ -17,12 +17,13 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
   const formID = 'FORM_DETAIL_TC'
   const t = useI18Text('tarjetas')
   const tCommon = useI18Text()
+  const { id } = params
   const { data, isLoading, error, isError } = useGetCardCreditID({
-    creditID: params.id,
+    creditID: id,
   })
   const [isChecked, setChecked] = useState<boolean>(false)
 
-  if (!isValidUUIDv4(params.id))
+  if (!isValidUUIDv4(id))
     return (
       <Box className='m-4'>
         <Alert type='error'>{tCommon('invalidId')}</Alert>
@@ -42,20 +43,20 @@ const DetailCardTc = ({ params }: { params: { id: string } }) => {
             data={data}
             isLoading={isLoading}
             isChecked={isChecked}
-            id={params.id}
+            id={id}
           />
           <ActiveCardCredit
             isChecked={isChecked}
             setChecked={setChecked}
             isLoadingCard={isLoading}
             status={data?.status}
-            id={params.id}
+            id={id}
           />
         </>
       )}
-      <ActionsCredit />
-      <NewVersion id={params.id} />
-      <MovementsCredit id={params.id} isLoadingCredit={isLoading} />
+      <ActionsCredit id={id} />
+      <NewVersion id={id} />
+      <MovementsCredit id={id} isLoadingCredit={isLoading} />
     </LayoutAuthenticationPage>
   )
 }
