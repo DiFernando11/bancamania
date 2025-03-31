@@ -50,6 +50,7 @@
   "inactive": "Inactive",
   "activateCard": "Enable online purchases with my card",
   "desactiveCard": "Disable online purchases with my card",
+  "amountMaxRequired": "The amount cannot exceed your current debt with the bank.",
   "limit": "Limit: ",
   "state": "State:",
   "miles": "Miles: ",

@@ -9,7 +9,9 @@ import { useGlobalLoading, useNavigation } from '@/shared/hooks'
 import { replaceDynamicsRoutes } from '@/shared/utils'
 import {
   GET_ACCOUNT,
+  GET_CARD_CREDIT,
   GET_CREDIT_BY_ID,
+  GET_INSTALLMENT,
   GET_MOVEMENTS,
   GET_PREVIEW_RECEIPT,
 } from '@/shared/utils/constantsQuery'
@@ -49,6 +51,12 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
           if (dataForm.selectedCard?.typeCard === TYPE_CARD.CREDIT) {
             invalidate({
               queryKey: [GET_CREDIT_BY_ID, dataForm?.selectedCard?.id],
+            })
+            invalidate({
+              queryKey: [GET_CARD_CREDIT],
+            })
+            invalidate({
+              queryKey: [GET_INSTALLMENT, dataForm?.selectedCard?.id],
             })
           } else {
             invalidate({ queryKey: [GET_ACCOUNT] })

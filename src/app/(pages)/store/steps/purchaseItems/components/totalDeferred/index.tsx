@@ -46,6 +46,15 @@ const TotalDeferred = ({
             month: selectedCard?.maxInstallmentsWithoutInterest,
           })}
         </Text>
+        <BitcoinSymbol
+          classIcon='w-5 h-5'
+          balance={t('payMonth', {
+            balance: installment,
+            card: selectedCard?.brand,
+            month: deferredMonth,
+          })}
+          textType='font_18_fw_bold_fm_rob'
+        />
       </AnimationVisible>
       <AnimationVisible
         isVisible={Boolean(deferredMonth > 1 && isCredit && !isBenefit)}

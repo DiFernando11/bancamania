@@ -70,7 +70,7 @@ const DetailCredit = ({
     {
       classSkeleton: 'w-32 h-5',
       textKey: t('miles'),
-      textValue: formatMoney({ value: data?.miles }),
+      textValue: data?.miles,
     },
     {
       classSkeleton: 'w-40 h-5',

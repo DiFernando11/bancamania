@@ -25,3 +25,11 @@ export interface GetInstallmentsCreditsResponse {
   minimumPayment: string
   totalPaymentAtOnce: string
 }
+
+export interface PayInstallmentCreditRequest {
+  creditID: string
+  amount: number
+}
+export interface PayInstallmentCreditResponse {
+  receiptID: string
+}

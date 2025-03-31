@@ -44,6 +44,7 @@ const InstallmentsPending = ({ id }: { id: string }) => {
           minimumPayment={data?.minimumPayment}
           totalAmount={data?.totalAmount}
           totalPaymentAtOnce={data?.totalPaymentAtOnce}
+          id={id}
         />
       )}
       {isLoading && (
