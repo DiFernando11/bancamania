@@ -1,5 +1,5 @@
 export interface FormPayCreditI {
-  totalQuota: number | string
+  totalQuota: number
   methodPay: string
 }
 
@@ -7,6 +7,7 @@ export interface FormPayCreditProps {
   minimumPayment?: string
   totalAmount: string
   totalPaymentAtOnce: string
+  id: string
 }
 
 export enum FORM_PAY_CREDIT_NAME {

@@ -35,6 +35,7 @@
   "getCard": "Obtener tarjeta",
   "cardPay": "Pagar tarjeta",
   "courtStatus": "Estado de corte",
+  "amountMaxRequired": "El monto a pagar no puede ser mayor al total adeudado.",
   "quota": "Cupo",
   "availableQuota": "Cupo disponible:",
   "consumptionDate": "Consumos a la fecha:",
