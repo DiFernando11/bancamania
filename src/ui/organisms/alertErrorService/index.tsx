@@ -21,6 +21,8 @@ const AlertErrorService = ({
   const errorMessage = errorObj?.message || messageDefault
   const hasFieldErrors = Array.isArray(errorObj?.error)
 
+  console.log({ error, hasFieldErrors, isError })
+
   return (
     <AnimationVisible isVisible={isError}>
       {isScroll ? (

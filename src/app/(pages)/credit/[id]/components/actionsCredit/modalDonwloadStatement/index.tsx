@@ -1,25 +1,44 @@
 'use client'
 import classNames from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
 import MonthsMovements from '@/app/components/modalMonthsMovements/monthsMovements'
-import { useGetMonthsStatementCredit, useI18Text } from '@/application/hooks'
+import {
+  useDownloadStatementCredit,
+  useGetMonthsStatementCredit,
+  useI18Text,
+} from '@/application/hooks'
 import { Box } from '@/ui/atoms'
-import { Modal } from '@/ui/molecules'
+import { Modal, Skeleton } from '@/ui/molecules'
+import { AlertErrorService } from '@/ui/organisms'
 
 const ModalDonwnloadStatement = ({ id }: { id: string }) => {
-  const t = useI18Text()
-  const { data, isLoading } = useGetMonthsStatementCredit({ creditId: id })
+  const t = useI18Text('account')
+  const {
+    data,
+    isLoading: isLoadingMonths,
+    isError,
+    error,
+  } = useGetMonthsStatementCredit({
+    creditId: id,
+  })
 
-  console.log(data, 'data')
+  const {
+    handleActionService,
+    isLoading,
+    isError: isErroDownload,
+    error: errorDownload,
+  } = useDownloadStatementCredit()
+  const [selectId, setSelectId] = useState<string | null>(null)
 
-  const handleAction = (mov: string) => {
-    console.log(mov)
+  const handleAction = (period: string) => {
+    setSelectId(period)
+    handleActionService({ creidtID: id, period })
   }
 
   return (
     <Modal position='right' maxWidth={'30rem'} width={'100%'} minWidth={'none'}>
       <Modal.Header className='flex justify-between w-full items-center'>
-        <Modal.Title title={'Hola'} />
+        <Modal.Title title={t('statement')} />
         <Modal.Cerrar />
       </Modal.Header>
       <Box
@@ -28,16 +47,18 @@ const ModalDonwnloadStatement = ({ id }: { id: string }) => {
           scrollbarWidth: 'none',
         }}
       >
-        {data?.length &&
-          data.map(mov => (
-            <MonthsMovements
-              isLoading={isLoading}
-              onClick={() => handleAction(mov)}
-              key={mov}
-              text={mov}
-              loadingSelected={false}
-            />
-          ))}
+        <AlertErrorService isError={isError} error={error} />
+        <AlertErrorService isError={isErroDownload} error={errorDownload} />
+        {isLoadingMonths && <Skeleton className='h-10' />}
+        {data?.map(mov => (
+          <MonthsMovements
+            isLoading={isLoadingMonths}
+            onClick={() => handleAction(mov.id)}
+            key={mov.id}
+            text={mov.text}
+            loadingSelected={isLoading && selectId === mov.id}
+          />
+        ))}
       </Box>
     </Modal>
   )

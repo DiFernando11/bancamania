@@ -8,6 +8,7 @@ import { TYPE_CARD, TypeCardCredit } from '@/shared'
 import { useGlobalLoading, useNavigation } from '@/shared/hooks'
 import { replaceDynamicsRoutes } from '@/shared/utils'
 import {
+  DOWNLOAD_STATEMENT_CREDIT,
   GET_ACCOUNT,
   GET_CARD_CREDIT,
   GET_CREDIT_BY_ID,
@@ -57,6 +58,9 @@ const FormPurchase = ({ formID, stepData }: FormPurchaseProps) => {
             })
             invalidate({
               queryKey: [GET_INSTALLMENT, dataForm?.selectedCard?.id],
+            })
+            invalidate({
+              queryKey: [DOWNLOAD_STATEMENT_CREDIT, dataForm?.selectedCard?.id],
             })
           } else {
             invalidate({ queryKey: [GET_ACCOUNT] })
