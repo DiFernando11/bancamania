@@ -1,6 +1,7 @@
 import account from './account.json'
 import cards from './cards.json'
 import publics from './commun.json'
+import loans from './loans.json'
 import commun from './public.json'
 import receipts from './receipts.json'
 import transfer from './transfer.json'
@@ -12,4 +13,5 @@ export const clientRoutes = {
   ...account,
   ...transfer,
   ...receipts,
+  ...loans,
 }

@@ -33,3 +33,5 @@ export interface PayInstallmentCreditRequest {
 export interface PayInstallmentCreditResponse {
   receiptID: string
 }
+
+export type GetMonthsStatementCreditResponse = string[]
